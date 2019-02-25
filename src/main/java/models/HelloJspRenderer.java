@@ -5,14 +5,22 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class HelloJspRenderer {
+
     private static List<String> entries = new LinkedList<String>();
 
-    public void addItemEntry(String good_name,String good_price){
+    private String tablecode;
+
+    public String getTablecode() {
+        tablecode = getTableCode();
+        return tablecode;
+    }
+
+    public void addItemEntry(String good_name, String good_price){
         entries.add("<tr><td>"+good_name+"</td>");
         entries.add("<td>"+good_price+"</td></tr>");
     }
 
-    public static String getTableCode(){
+    private String getTableCode(){
         return entries.stream().collect(Collectors.joining());
     }
 }
