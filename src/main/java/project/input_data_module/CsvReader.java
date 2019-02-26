@@ -15,13 +15,12 @@ public class CsvReader implements project.input_data_module.FileReader {
 
     @Override
     public List<? extends Item> getItemList(String filename) {
-        return getTestList();
+        return getTestList(filename);
     }
 
-    private List<GoodsItem> getTestList() {
+    private List<GoodsItem> getTestList(String filename) {
         try {
-            BufferedReader in = new BufferedReader(new FileReader("C://apache-tomcat-9.0.16//webapps" +
-                    "//ROOT//nput.csv"));
+            BufferedReader in = new BufferedReader(new FileReader(filename));
             return in.lines().map((s) -> {
                 Scanner scanner = new Scanner(s);
                 scanner.useDelimiter(";");

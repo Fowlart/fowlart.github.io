@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class HelloJspRenderer {
 
-    private static List<String> entries = new LinkedList<String>();
+    private List<String> entries = new LinkedList<String>();
 
     private String tablecode;
 
