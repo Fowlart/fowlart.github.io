@@ -3,6 +3,7 @@ package initial_example;
 // Import required java libraries
 
 import models.HelloJspRenderer;
+import project.entities.Item;
 import project.input_data_module.CsvReader;
 
 import java.io.*;
@@ -21,9 +22,8 @@ public class HelloForm extends HttpServlet {
         HelloJspRenderer renderer = new HelloJspRenderer();
         CsvReader csvReader = new CsvReader();
 
-        renderer.addItemEntry("good1","100");
-        renderer.addItemEntry("good2","200");
-
+       for (Item item: csvReader.getItemList("")) {renderer.addItemEntry(item.getName(),
+               item.getPrice().toEngineeringString());}
         request.setAttribute("renderer",renderer);
         System.out.println(request.getAttribute("html"));
         request.getRequestDispatcher("hello.jsp").forward(request,response);

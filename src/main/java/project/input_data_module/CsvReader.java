@@ -20,7 +20,8 @@ public class CsvReader implements project.input_data_module.FileReader {
 
     private List<GoodsItem> getTestList() {
         try {
-            BufferedReader in = new BufferedReader(new FileReader("input.csv"));
+            BufferedReader in = new BufferedReader(new FileReader("C://apache-tomcat-9.0.16//webapps" +
+                    "//ROOT//nput.csv"));
             return in.lines().map((s) -> {
                 Scanner scanner = new Scanner(s);
                 scanner.useDelimiter(";");
