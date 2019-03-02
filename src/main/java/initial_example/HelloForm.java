@@ -3,29 +3,52 @@ package initial_example;
 // Import required java libraries
 
 import models.HelloJspRenderer;
+import project.entities.Item;
 import project.input_data_module.CsvReader;
 
 import java.io.*;
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+
 // Extend HttpServlet class
-public class HelloForm extends HttpServlet {
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String search_text = request.getParameter("search_text");
-        String selected_filter = request.getParameter("selectoid");
-        System.out.println(search_text);
-        System.out.println(selected_filter);
+public class HelloForm extends HttpServlet
+{
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException
+	{
 
-        HelloJspRenderer renderer = new HelloJspRenderer();
-        CsvReader csvReader = new CsvReader();
+		HelloJspRenderer renderer = new HelloJspRenderer();
+		CsvReader csvReader = new CsvReader();
+		String search_text = request.getParameter("search_text");
 
-        renderer.addItemEntry("good1","100");
-        renderer.addItemEntry("good2","200");
+		if (!search_text.isEmpty())
+		{
+			request.setAttribute("renderer", searchForText(search_text, csvReader));
+			request.getRequestDispatcher("hello.jsp").forward(request, response);
+		}
 
-        request.setAttribute("renderer",renderer);
-        System.out.println(request.getAttribute("html"));
-        request.getRequestDispatcher("hello.jsp").forward(request,response);
-    }
+		String selected_filter = request.getParameter("selectoid");
+		System.out.println(search_text);
+		System.out.println(selected_filter);
+
+		for (Item item : csvReader.getItemList("c:/input.csv"))
+		{
+			renderer.addItemEntry(item.getName(),
+					item.getPrice().toEngineeringString());
+		}
+		request.setAttribute("renderer", renderer);
+		request.getRequestDispatcher("hello.jsp").forward(request, response);
+	}
+
+	private HelloJspRenderer searchForText(String text, CsvReader reader)
+	{
+		List<Item> serch_rez = reader.getItemList("c:/input.csv").stream().filter(x -> ((Item) x).getName().contains(text))
+				.collect(Collectors.toList());
+		HelloJspRenderer renderer = new HelloJspRenderer();
+		serch_rez.stream().forEach(i -> renderer.addItemEntry(i.getName(), i.getPrice().toPlainString()));
+		return renderer;
+	}
 }

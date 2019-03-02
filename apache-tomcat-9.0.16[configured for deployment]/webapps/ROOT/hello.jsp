@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import ="models.*"%>
 <!DOCTYPE html>
 <html>
    <body>
-      <form action = "HelloForm" method = "GET">
+      <form action = "hello" method = "GET">
          Search: <input type = "text" name = "search_text">
          <br />
 		 Filter: <select select id="selectoid" name="selectoid">
@@ -43,7 +42,9 @@ th {
     <th>Goods name</th>
     <th>price</th>
   </tr>
-  <%HelloJspRenderer.getTableCode();%>
+   
+   ${renderer.tablecode}
+ 
    </table>
 	   
 	  </body>
