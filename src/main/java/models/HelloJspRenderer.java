@@ -15,9 +15,9 @@ public class HelloJspRenderer {
         return tablecode;
     }
 
-    public void addItemEntry(String good_name, String good_price){
-        entries.add("<tr><td>"+good_name+"</td>");
-        entries.add("<td>"+good_price+"</td></tr>");
+    public void addItemEntry(String first_entity, String second_entity){
+        entries.add("<tr><td>"+first_entity+"</td>");
+        entries.add("<td>"+second_entity+"</td></tr>");
     }
 
     private String getTableCode(){
