@@ -1,4 +1,4 @@
 I want to create some example of goods analyzer with a simple web interface or REST architecture based application. 
 Main task: receive the csv file of some goods and make a different analysis from it. 
 I will learn in deep and use such things like Stream API, some of design patterns.
-The project will growing with my study progress. Good luck to me %)
+The project will growing with my study progress. Good luck to me %)!!!
