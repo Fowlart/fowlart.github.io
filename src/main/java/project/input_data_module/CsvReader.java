@@ -1,7 +1,9 @@
 package project.input_data_module;
 
-import project.entities.GoodsItem;
+import project.entities.item_implementations.goods.GoodsItem;
 import project.entities.Item;
+import project.entities.item_implementations.goods.GoodsName;
+import project.entities.item_implementations.goods.GoodsPrice;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -24,9 +26,11 @@ public class CsvReader implements project.input_data_module.FileReader {
             return in.lines().map((s) -> {
                 Scanner scanner = new Scanner(s);
                 scanner.useDelimiter(";");
-                GoodsItem goodsItem = new GoodsItem();
-                goodsItem.setName(scanner.next());
-                goodsItem.setPrice(BigDecimal.valueOf(Double.valueOf(scanner.next().replaceAll(",","."))));
+                GoodsName goodsName = new GoodsName();
+                goodsName.setGoodsname(scanner.next());
+                GoodsPrice goodsPrice = new GoodsPrice();
+                goodsPrice.setPrice(BigDecimal.valueOf(Double.valueOf(scanner.next().replaceAll(",","."))));
+                GoodsItem goodsItem = new GoodsItem(goodsName,goodsPrice);
                 return goodsItem;
             }).collect(Collectors.toList());
         } catch (FileNotFoundException e) {

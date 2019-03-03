@@ -36,19 +36,22 @@ public class HelloForm extends HttpServlet
 
 		for (Item item : csvReader.getItemList("c:/input.csv"))
 		{
-			renderer.addItemEntry(item.getName(),
-					item.getPrice().toEngineeringString());
+			renderer.addItemEntry(item.getList().get(0).getPropertieValue().toString(),
+					item.getList().get(1).getPropertieValue().toString());
 		}
 		request.setAttribute("renderer", renderer);
 		request.getRequestDispatcher("hello.jsp").forward(request, response);
 	}
 
+
 	private HelloJspRenderer searchForText(String text, CsvReader reader)
 	{
-		List<Item> serch_rez = reader.getItemList("c:/input.csv").stream().filter(x -> ((Item) x).getName().contains(text))
+		List<Item> serch_rez = reader.getItemList("c:/input.csv").stream().filter(x -> ((Item) x).getList().
+				get(0).getPropertieValue().toString().contains(text))
 				.collect(Collectors.toList());
 		HelloJspRenderer renderer = new HelloJspRenderer();
-		serch_rez.stream().forEach(i -> renderer.addItemEntry(i.getName(), i.getPrice().toPlainString()));
+		serch_rez.stream().forEach(i -> renderer.addItemEntry(i.getList().get(0).getPropertieValue().toString(),
+				i.getList().get(1).getPropertieValue().toString()) );
 		return renderer;
 	}
 }
