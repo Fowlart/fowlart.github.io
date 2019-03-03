@@ -13,7 +13,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 
-// Extend HttpServlet class
+// main servlet
 public class HelloForm extends HttpServlet
 {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
