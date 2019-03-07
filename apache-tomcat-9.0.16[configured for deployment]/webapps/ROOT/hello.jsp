@@ -6,10 +6,10 @@
          Search: <input type = "text" name = "search_text">
          <br />
 		 Filter: <select select id="selectoid" name="selectoid">
+		 <option value="all">all</option>
 		 <option value="min">min</option>
 		 <option value="max">max</option>
 		 <option value="avg">avg</option>
-		 <option value="all">all</option>
 		 </select>
 		 <br />
          <input type = "submit" value = "Submit" />
