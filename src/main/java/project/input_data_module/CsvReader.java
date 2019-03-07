@@ -33,6 +33,7 @@ public class CsvReader implements project.input_data_module.FileReader {
                 GoodsItem goodsItem = new GoodsItem(goodsName,goodsPrice);
                 return goodsItem;
             }).collect(Collectors.toList());
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
