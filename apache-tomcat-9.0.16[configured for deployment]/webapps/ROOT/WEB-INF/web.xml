@@ -37,4 +37,14 @@
         <url-pattern>/hello</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>word</servlet-name>
+        <servlet-class>initial_example.WordForm</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>word</servlet-name>
+        <url-pattern>/word</url-pattern>
+    </servlet-mapping>
+
 </web-app>

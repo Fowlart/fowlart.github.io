@@ -1,7 +1,5 @@
 package initial_example;
 
-// Import required java libraries
-
 import models.HelloJspRenderer;
 import project.entities.Item;
 import project.input_data_module.CsvReader;

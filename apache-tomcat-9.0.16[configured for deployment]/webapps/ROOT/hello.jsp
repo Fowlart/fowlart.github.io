@@ -36,11 +36,11 @@ th {
 </head>
 <body>
 
-<h2>Colored Table Header</h2>
+<h2>Table of values</h2>
 <table>
   <tr>
-    <th>Goods name</th>
-    <th>price</th>
+    <th>1st value</th>
+    <th>2nd value</th>
   </tr>
    
    ${renderer.tablecode}
