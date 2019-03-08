@@ -18,7 +18,7 @@ public class WordPropertie implements ItemProperty<String>
 		this.word = word.trim();
 		if (this.word.matches("^[A-Za-z]+"))
 			type = WordsProperieType.ENG;
-		else if (this.word.matches("^[А-Яа-я]+"))
+		else if (this.word.matches("^[А-Яа-яёЁЇїІіЄєҐґ]+"))
 			type = WordsProperieType.UKR;
 		else
 			type = WordsProperieType.UNDEFINED;

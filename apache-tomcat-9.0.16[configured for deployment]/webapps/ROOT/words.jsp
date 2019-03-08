@@ -25,27 +25,29 @@ th {
 <h1 align="center"><span style="color:#FFFF00;"> більш-менш</span></h1>
 <h1 align="center"><span style="color:#FF0000;"> погано</span></h1>
 <h1 align="center"><span style="color:#000000;"> нейтральне слово</span></h1>
-    <form action = "word" method = "GET">
-        <br/> <button type="submit">Check the word/next</button>
-		<input type="text" spellcheck="true">
+    
+	<form action = "word" method = "GET">
+		<input type="text" id="check_text" name ="check_text"/>
 		
-	<br />
+		<input type="submit" value="Check the word/next"/>
+		
+		<br/>	
+		
 	Filter: <select select id="selectoid" name="selectoid">
-		 <option value="all">last seen</option>
 		 <option value="all">all</option>
 		 <option value="min">min</option>
-		 <option value="max">medium</option>
-		 <option value="avg">max</option>
+		 <option value="medium">medium</option>
+		 <option value="max">max</option>
 		 </select>
 	</form>
-<h2>Table of values</h2>
+	
 <table>
   <tr>
     <th>ENG</th>
     <th>UKR</th>
 	<th>RATIO</th>
   </tr>
-      
+    ${tableRenderer.tablecode}
  </table>
 </body>
 </html>
