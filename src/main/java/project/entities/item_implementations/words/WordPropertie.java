@@ -3,41 +3,41 @@ package project.entities.item_implementations.words;
 import project.entities.ItemProperty;
 
 
-public class WordPropertie implements ItemProperty<String>
-{
+public class WordPropertie implements ItemProperty<String> {
 
-	private String word;
-	private WordsProperieType type;
+    private String word;
+    private WordsProperieType type;
 
-	public WordPropertie (String word) {
-		setWord(word);
-	}
+    public WordPropertie(String word) {
+        setWord(word);
+    }
 
-	private void setWord(String word)
-	{
-		this.word = word.trim();
-		if (this.word.matches("^[A-Za-z]+"))
-			type = WordsProperieType.ENG;
-		else if (this.word.matches("^[А-Яа-яёЁЇїІіЄєҐґ]+"))
-			type = WordsProperieType.UKR;
-		else
-			type = WordsProperieType.UNDEFINED;
-	}
+    private Boolean isConteinsLatin() {
+        char[] mas = this.word.toCharArray();
+        for (Character s : mas) {
+            if (s.toString().matches("[A-Za-z]")) return true;
+        }
+        return false;
+    }
 
-	@Override
-	public String getPropertieName()
-	{
-		return this.getClass().getName();
-	}
+    private void setWord(String word) {
+        this.word = word.trim();
+        type = WordsProperieType.UNDEFINED;
+        if (isConteinsLatin()) type = WordsProperieType.ENG;
+        if (!isConteinsLatin()) type = WordsProperieType.UKR;
+    }
 
-	@Override
-	public String getPropertieValue()
-	{
-		return word;
-	}
+    @Override
+    public String getPropertieName() {
+        return this.getClass().getName();
+    }
 
-	public WordsProperieType getType()
-	{
-		return type;
-	}
+    @Override
+    public String getPropertieValue() {
+        return word;
+    }
+
+    public WordsProperieType getType() {
+        return type;
+    }
 }

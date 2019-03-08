@@ -11,8 +11,7 @@ import java.util.stream.Collectors;
 public class CsvWordsReader {
     public List<WordTranslate> getItemList(String filename) {
         try {
-            BufferedReader in = new BufferedReader(new InputStreamReader( new FileInputStream(new File(filename)),
-                    "cp1251"));
+            BufferedReader in = new BufferedReader(new FileReader(filename));
             return in.lines().map((s) -> {
                 Scanner scanner = new Scanner(s);
                 scanner.useDelimiter(";");
@@ -23,7 +22,7 @@ public class CsvWordsReader {
                 return  word;
             }).collect(Collectors.toList());
 
-        } catch (FileNotFoundException | UnsupportedEncodingException e) {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         return null;

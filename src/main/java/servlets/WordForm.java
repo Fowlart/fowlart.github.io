@@ -63,13 +63,13 @@ public class WordForm extends HttpServlet {
 
             if (selected_filter.equals("all")) {
 
-                TableWordsRender tableWordsRender = new TableWordsRender();
+                tableRenderer = new TableWordsRender();
 
                 for (WordTranslate w : this.wordTranslatelist) {
-                    tableWordsRender.addItemEntry(w.getUkrword(), w.getEngword(), w.getPoints().toString());
+                    tableRenderer.addItemEntry(w.getEngword(),w.getUkrword(), w.getPoints().toString());
                 }
-
-                request.setAttribute("tableRenderer", tableWordsRender);
+                request.setAttribute("renderer", wordsRenderer);
+                request.setAttribute("tableRenderer", tableRenderer);
                 request.getRequestDispatcher("words.jsp").forward(request, response);
 
             }
@@ -92,8 +92,7 @@ public class WordForm extends HttpServlet {
         }
 
 
-        request.setAttribute("renderer", wordsRenderer);
-        request.setAttribute("tableRenderer", tableRenderer);
-        request.getRequestDispatcher("words.jsp").forward(request, response);
+
+
     }
 }

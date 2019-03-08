@@ -16,7 +16,9 @@ public class WordTranslate extends Item {
         if (word1.getType() == WordsProperieType.UKR) {
             ukrword = word1.getPropertieValue();
             engword = word2.getPropertieValue();
-        } else if (word1.getType() == WordsProperieType.ENG) {
+        }
+
+        else if (word1.getType() == WordsProperieType.ENG) {
             ukrword = word2.getPropertieValue();
             engword = word1.getPropertieValue();
         } else {
