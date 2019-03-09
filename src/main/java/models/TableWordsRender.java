@@ -24,4 +24,8 @@ public class TableWordsRender {
     private String getTableCode(){
         return entries.stream().collect(Collectors.joining());
     }
+
+    public void clearTable(){
+        this.entries.clear();
+    }
 }
