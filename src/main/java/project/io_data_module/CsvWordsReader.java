@@ -1,4 +1,4 @@
-package project.input_data_module;
+package project.io_data_module;
 
 import project.entities.item_implementations.words.*;
 

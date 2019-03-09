@@ -4,6 +4,7 @@ import project.entities.Item;
 import project.entities.ItemProperty;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 
 public class WordTranslate extends Item {
@@ -35,4 +36,23 @@ public class WordTranslate extends Item {
     }
 
     public Integer getPoints() { return points; }
+
+    public void setPoints(Integer points) {
+        this.points = points;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof WordTranslate)) return false;
+        WordTranslate that = (WordTranslate) o;
+        return Objects.equals(engword, that.engword) &&
+                Objects.equals(ukrword, that.ukrword) &&
+                Objects.equals(points, that.points);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(engword, ukrword, points);
+    }
 }

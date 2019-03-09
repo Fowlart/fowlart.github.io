@@ -13,16 +13,6 @@
   </description>
   
     <servlet>
-        <servlet-name>main</servlet-name>
-        <servlet-class>servlets.HelloForm</servlet-class>
-    </servlet>
-	
-    <servlet-mapping>
-        <servlet-name>main</servlet-name>
-        <url-pattern>/hello</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>word</servlet-name>
         <servlet-class>servlets.WordForm</servlet-class>
     </servlet>

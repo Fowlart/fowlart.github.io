@@ -3,7 +3,8 @@ package servlets;
 import models.TableWordsRender;
 import models.WordsRenderer;
 import project.entities.item_implementations.words.WordTranslate;
-import project.input_data_module.CsvWordsReader;
+import project.io_data_module.CsvWordsReader;
+import project.io_data_module.CsvWordsWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,26 +12,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class WordForm extends HttpServlet {
 
-    private static String PATH_TO_FILE = "c:/input2.csv";
+    private static String INPUT_FILE = "c:/input.csv";
+    private static String OUTPUT_FILE = "d:/input.csv";
 
     private List<WordTranslate> wordTranslatelist;
     private Random random;
     private TableWordsRender tableWordsRender;
     private WordsRenderer wordsRenderer;
+    private WordTranslate wordTranslate;
 
     @Override
     public void init() throws ServletException {
         super.init();
+
+        // setup
         CsvWordsReader csvWordsReader = new CsvWordsReader();
-        wordTranslatelist = csvWordsReader.getItemList(PATH_TO_FILE);
+        wordTranslatelist = csvWordsReader.getItemList(INPUT_FILE);
         random = new Random(47);
         tableWordsRender = new TableWordsRender();
         wordsRenderer = new WordsRenderer();
+        wordTranslate = wordTranslatelist.stream().skip(this.random.nextInt(wordTranslatelist.size() - 1)).findAny().get();
+        wordsRenderer.setEnglish_word(wordTranslate.getEngword());
+        wordsRenderer.setUkr_word(wordTranslate.getUkrword());
 
         for (WordTranslate it : wordTranslatelist) {
             System.out.println(it.getEngword() + "/" + it.getUkrword() +
@@ -47,51 +55,71 @@ public class WordForm extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("synchronized");
-
-        String search_text = request.getParameter("check_text");
+      // request.setCharacterEncoding("UTF8");
+        System.out.println("doGet Starting...");
+        String entered_text = request.getParameter("check_text");
         String selected_filter = request.getParameter("selectoid");
+        request.setAttribute("renderer", this.wordsRenderer);
+        this.tableWordsRender.clearTable();
 
         // first start without parameters
-        if ((search_text == null) || (selected_filter == null)) {
+        if ((entered_text == null) || (selected_filter == null)) {
             System.out.println("FIRST START");
-            search_text = "";
-            selected_filter = "all";
+            entered_text = "";
+            selected_filter = "min";
         }
 
         // if word is skipped
-        if (search_text.equalsIgnoreCase("")) {
+        if (entered_text.equalsIgnoreCase("")) {
 
-            if (selected_filter.equals("all")) {
-                this.tableWordsRender.clearTable();
-                for (WordTranslate w : this.wordTranslatelist) {
-                    tableWordsRender.addItemEntry(w.getEngword(), w.getUkrword(), w.getPoints().toString());
-                }
-                this.forwarding(wordsRenderer, tableWordsRender, request, response);
-            }
-
+            //by default going HERE.
             if (selected_filter.equals("min")) {
-                System.out.println("In min");
-            }
+                wordTranslatelist = this.wordTranslatelist.stream().sorted((w1, w2) -> w1.getPoints() - w2.getPoints()).
+                        collect(Collectors.toList());
 
-            if (selected_filter.equals("medium")) {
-                System.out.println("In medium");
             }
 
             if (selected_filter.equals("max")) {
-                System.out.println("In max");
+                wordTranslatelist = this.wordTranslatelist.stream().sorted((w1, w2) -> w2.getPoints() - w1.getPoints()).
+                        collect(Collectors.toList());
             }
+            // fill the dictionary table
+            for (WordTranslate w : this.wordTranslatelist)
+                tableWordsRender.addItemEntry(w.getEngword(), w.getUkrword(), w.getPoints().toString());
+            this.forwarding(wordsRenderer, tableWordsRender, request, response);
 
             //training mode
         } else {
             System.out.println("TRAINING MODE");
             this.tableWordsRender.clearTable();
-            Optional<WordTranslate> optionalWordTranslate = this.wordTranslatelist.stream().
-                    skip(this.random.nextInt(wordTranslatelist.size() - 1)).findAny();
-            WordTranslate word = optionalWordTranslate.get();
-            tableWordsRender.addItemEntry(word.getEngword(), word.getUkrword(), word.getPoints().toString());
-            wordsRenderer.setUkr_word(word.getUkrword());
+
+            //if entered word is correct
+            if (entered_text.equalsIgnoreCase(wordTranslate.getEngword())) {
+                //increasing the point
+                this.wordTranslatelist.remove(wordTranslate);
+                wordTranslate.setPoints(wordTranslate.getPoints() + 1);
+                this.wordTranslatelist.add(wordTranslate);
+                System.out.println("CORRECT! The scores on word '" + wordTranslate.getEngword() + "' is up to "
+                        + wordTranslate.getPoints());
+
+                // set up new random word
+                wordTranslate = this.wordTranslatelist.stream().
+                        skip(this.random.nextInt(wordTranslatelist.size() - 1)).findAny().get();
+                wordsRenderer.setUkr_word(wordTranslate.getUkrword());
+                wordsRenderer.setEnglish_word(wordTranslate.getEngword());
+            }
+            // just inform
+            else System.out.println("WRONG! Try again!");
             this.forwarding(wordsRenderer, tableWordsRender, request, response);
         }
+    }
+
+    //ToDO: write the code to saving wordTranslatelist in csv file
+    @Override
+    public void destroy() {
+        System.out.println("destroying application");
+        CsvWordsWriter csvWordsWriter = new CsvWordsWriter();
+        csvWordsWriter.writeInFile(OUTPUT_FILE, this.wordTranslatelist);
+        super.destroy();
     }
 }
