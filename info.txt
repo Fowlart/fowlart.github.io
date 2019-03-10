@@ -1,4 +1,3 @@
-I want to create some example of goods analyzer with a simple web interface or REST architecture based application. 
-Main task: receive the csv file of some goods and make a different analysis from it. 
-I will learn in deep and use such things like Stream API, some of design patterns.
-The project will growing with my study progress. Good luck to me %)!!!!
+The project is will be an example of a single-page web app based on servlet technology. The main purpose - is starting to create a project which can help people at studying English. 
+The main function of the program is throwing a randomly chosen words in the Ukrainian language from the preinstalled dictionary (the csv file) witch user wants to remember. 
+The user must type a translation, so the program can check this and count a number of correct answers.

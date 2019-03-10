@@ -17,8 +17,8 @@ import java.util.stream.Collectors;
 
 public class WordForm extends HttpServlet {
 
-    private static String INPUT_FILE = "c:/input.csv";
-    private static String OUTPUT_FILE = "d:/input.csv";
+    private static String INPUT_FILE = "dictionary/dic1.csv";
+    private static String OUTPUT_FILE = "dictionary/dic1.csv";
 
     private List<WordTranslate> wordTranslatelist;
     private Random random;
@@ -36,7 +36,7 @@ public class WordForm extends HttpServlet {
         random = new Random(47);
         tableWordsRender = new TableWordsRender();
         wordsRenderer = new WordsRenderer();
-        wordTranslate = wordTranslatelist.stream().skip(this.random.nextInt(wordTranslatelist.size() - 1)).findAny().get();
+        wordTranslate = nextWord();
         wordsRenderer.setEnglish_word(wordTranslate.getEngword());
         wordsRenderer.setUkr_word(wordTranslate.getUkrword());
 
@@ -44,6 +44,13 @@ public class WordForm extends HttpServlet {
             System.out.println(it.getEngword() + "/" + it.getUkrword() +
                     "/" + it.getPoints());
         }
+    }
+    //Todo: check this method. StackOverflowError here.
+    private WordTranslate nextWord() {
+        WordTranslate wordTranslate = wordTranslatelist.stream().skip(this.random.nextInt(wordTranslatelist.size() - 1)).findAny().get();
+        if (wordTranslate.getPoints() < 50) return wordTranslate;
+        System.out.println("skip '"+wordTranslate.getEngword()+"' with "+wordTranslate.getPoints()+" points");
+        return nextWord();
     }
 
     private void forwarding(WordsRenderer r1, TableWordsRender r2, HttpServletRequest request, HttpServletResponse
@@ -55,7 +62,7 @@ public class WordForm extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      // request.setCharacterEncoding("UTF8");
+        // request.setCharacterEncoding("UTF8");
         System.out.println("doGet Starting...");
         String entered_text = request.getParameter("check_text");
         String selected_filter = request.getParameter("selectoid");
@@ -103,8 +110,7 @@ public class WordForm extends HttpServlet {
                         + wordTranslate.getPoints());
 
                 // set up new random word
-                wordTranslate = this.wordTranslatelist.stream().
-                        skip(this.random.nextInt(wordTranslatelist.size() - 1)).findAny().get();
+                wordTranslate = nextWord();
                 wordsRenderer.setUkr_word(wordTranslate.getUkrword());
                 wordsRenderer.setEnglish_word(wordTranslate.getEngword());
             }
@@ -114,7 +120,6 @@ public class WordForm extends HttpServlet {
         }
     }
 
-    //ToDO: write the code to saving wordTranslatelist in csv file
     @Override
     public void destroy() {
         System.out.println("destroying application");
