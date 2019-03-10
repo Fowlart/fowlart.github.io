@@ -65,9 +65,9 @@ public class WordForm extends HttpServlet {
             System.out.println("total points: "+total_points);
             long count_of_words = this.wordTranslatelist.stream().count();
             System.out.println("words quantity: "+count_of_words);
-            System.out.println("max points: "+count_of_words*50);
-            System.out.println("progress is "+total_points/count_of_words*50*100);
-            request.setAttribute("progress",total_points/count_of_words*50*100);
+            double progress = (double) total_points/(double) (count_of_words*50)*100;
+            System.out.println("progress is "+progress);
+            request.setAttribute("progress",progress);
         }
         String entered_text = request.getParameter("check_text");
         String selected_filter = request.getParameter("selectoid");
