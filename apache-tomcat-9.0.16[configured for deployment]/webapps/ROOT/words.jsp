@@ -21,15 +21,16 @@ th {
 </style>
 <body>
 <h1>Please translate word:</h1>
+<h3>current progress is: ${progress} %</h3>
 <h1 align="center"><span style="color:#4CAF50;"> ${renderer.ukr_word}</span></h1>
 <br/>
 <font size="5" color="green" face="Arial"><details><font size="4" color="black" face="Arial">${renderer.ukr_word} - ${renderer.english_word}</font></details></font>	
 <br/>
     
 	<form action = "word" method = "GET">
-		<input type="text" id="check_text" name ="check_text"/>
+		<input type="text" id="check_text" name ="check_text" autocomplete="off"/>
 		
-		<input type="submit" value="Check the word/next"/>
+		<input type="submit" value="Check the word/show table"/>
 		
  	
 		

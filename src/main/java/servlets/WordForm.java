@@ -40,10 +40,6 @@ public class WordForm extends HttpServlet {
         wordsRenderer.setEnglish_word(wordTranslate.getEngword());
         wordsRenderer.setUkr_word(wordTranslate.getUkrword());
 
-        for (WordTranslate it : wordTranslatelist) {
-            System.out.println(it.getEngword() + "/" + it.getUkrword() +
-                    "/" + it.getPoints());
-        }
     }
     //Todo: check this method. StackOverflowError here.
     private WordTranslate nextWord() {
@@ -62,8 +58,17 @@ public class WordForm extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // request.setCharacterEncoding("UTF8");
-        System.out.println("doGet Starting...");
+        // Todo: investigate this from performance point of view
+        {
+            int total_points = this.wordTranslatelist.stream().mapToInt((i)->i.getPoints()).
+                    reduce(0,(i1,i2)->i1+i2);
+            System.out.println("total points: "+total_points);
+            long count_of_words = this.wordTranslatelist.stream().count();
+            System.out.println("words quantity: "+count_of_words);
+            System.out.println("max points: "+count_of_words*50);
+            System.out.println("progress is "+total_points/count_of_words*50*100);
+            request.setAttribute("progress",total_points/count_of_words*50*100);
+        }
         String entered_text = request.getParameter("check_text");
         String selected_filter = request.getParameter("selectoid");
         request.setAttribute("renderer", this.wordsRenderer);
