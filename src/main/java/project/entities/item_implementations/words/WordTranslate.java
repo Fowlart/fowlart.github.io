@@ -1,13 +1,9 @@
 package project.entities.item_implementations.words;
 
-import project.entities.Item;
-import project.entities.ItemProperty;
-
-import java.util.Arrays;
 import java.util.Objects;
 
 
-public class WordTranslate extends Item {
+public class WordTranslate {
     private String engword;
     private String ukrword;
     private Integer points;

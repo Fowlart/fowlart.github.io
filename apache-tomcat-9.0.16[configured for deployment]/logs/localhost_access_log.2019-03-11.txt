@@ -126,3 +126,13 @@
 0:0:0:0:0:0:0:1 - - [11/Mar/2019:22:55:50 +0200] "GET /word?check_text=adhere&selectoid=max HTTP/1.1" 200 1076
 0:0:0:0:0:0:0:1 - - [11/Mar/2019:22:56:09 +0200] "GET /word?check_text=unwieldy&selectoid=max HTTP/1.1" 200 1085
 0:0:0:0:0:0:0:1 - - [11/Mar/2019:22:56:20 +0200] "GET /word?check_text=probability&selectoid=max HTTP/1.1" 200 1072
+0:0:0:0:0:0:0:1 - - [11/Mar/2019:23:11:28 +0200] "GET /word?check_text=&selectoid=max HTTP/1.1" 200 11881
+0:0:0:0:0:0:0:1 - - [11/Mar/2019:23:11:29 +0200] "GET /favicon.ico HTTP/1.1" 200 21630
+0:0:0:0:0:0:0:1 - - [11/Mar/2019:23:11:47 +0200] "GET /word?check_text=mandatory&selectoid=max HTTP/1.1" 200 1111
+0:0:0:0:0:0:0:1 - - [11/Mar/2019:23:12:16 +0200] "GET /word?check_text=improperly+influenced&selectoid=max HTTP/1.1" 200 1077
+0:0:0:0:0:0:0:1 - - [11/Mar/2019:23:12:37 +0200] "GET /word?check_text=unwieldy&selectoid=max HTTP/1.1" 200 1077
+0:0:0:0:0:0:0:1 - - [11/Mar/2019:23:12:44 +0200] "GET /word?check_text=aquasition&selectoid=max HTTP/1.1" 200 1077
+0:0:0:0:0:0:0:1 - - [11/Mar/2019:23:12:56 +0200] "GET /word?check_text=acquisition&selectoid=max HTTP/1.1" 200 1063
+0:0:0:0:0:0:0:1 - - [11/Mar/2019:23:13:05 +0200] "GET /word?check_text=ploys&selectoid=max HTTP/1.1" 200 1059
+0:0:0:0:0:0:0:1 - - [11/Mar/2019:23:13:12 +0200] "GET /word?check_text=shovel&selectoid=max HTTP/1.1" 200 1079
+0:0:0:0:0:0:0:1 - - [11/Mar/2019:23:13:18 +0200] "GET /word?check_text=evaluating&selectoid=max HTTP/1.1" 200 1061

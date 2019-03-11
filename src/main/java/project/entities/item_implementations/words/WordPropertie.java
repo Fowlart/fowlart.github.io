@@ -1,9 +1,6 @@
 package project.entities.item_implementations.words;
 
-import project.entities.ItemProperty;
-
-
-public class WordPropertie implements ItemProperty<String> {
+public class WordPropertie {
 
     private String word;
     private WordsProperieType type;
@@ -27,12 +24,6 @@ public class WordPropertie implements ItemProperty<String> {
         if (!isConteinsLatin()) type = WordsProperieType.UKR;
     }
 
-    @Override
-    public String getPropertieName() {
-        return this.getClass().getName();
-    }
-
-    @Override
     public String getPropertieValue() {
         return word;
     }
