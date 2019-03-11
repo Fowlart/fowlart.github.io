@@ -17,8 +17,8 @@ import java.util.stream.Collectors;
 
 public class WordForm extends HttpServlet {
 
-    private static String INPUT_FILE = "c:/dictionary/dic1.csv";
-    private static String OUTPUT_FILE = "c:/dictionary/dic1.csv";
+    private static String INPUT_FILE = "dic1.csv";
+    private static String OUTPUT_FILE = "dic1.csv";
 
     private List<WordTranslate> wordTranslatelist;
     private Random random;
