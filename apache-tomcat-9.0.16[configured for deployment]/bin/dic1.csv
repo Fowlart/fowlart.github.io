@@ -1,61 +1,56 @@
-probability;ймовірність;6
-utmost importance;велике значення;5
-obtained;отримані;5
-disclosing;розкриття;5
-jeopardize;піддати небезпеці;5
-conscious;свідомий;4
-transient;минущій;4
-curious;цікаво;4
-intentional misuse;навмисне зловживання;4
-contributes;сприяє;4
-move along;рухатися по;4
-awkward;незграбний;3
-treated as;розглядається як;3
-evaluated;оцінений;3
-related;пов'язані;3
-gloomy pools;похмурі басейни;3
-infrequent;рідко;3
-wreckage;уламки;3
-required;вимагається;3
-pipe;труба;3
-impair;погіршити;3
-complying;дотримання;3
-established;створена;3
-conveys;передає;3
-unambiguous;однозначний;3
-fees;збори;3
-comprehend;зрозуміти;3
-sufficient;достатньо;3
-slight flaw;незначний недолік;3
-report concerns;звітувати про проблеми;3
-explicit data;явні дані;2
+authenticity;автентичність;0
+explicitly;явно;0
+garbled;спотворений;0
+integrity;цілісність;0
+menace;загрози;0
+overstates;завищує;0
+percentage;відсоток;0
+ravine;яр;0
+reliable;надійний;0
+reliability;надійність;1
+bandwidth;пропускної здатності;1
+corresponding;відповідний;1
+drastically;різко;1
+enhancement;розширення;1
+accountability;підзвітність;1
+featured;позначений;1
+maintain;підтримувати;1
+commitment;зобов'язання;1
+cross-cutting;наскрізний;1
+hat;капелюх;1
+exploitation;експлуатації;1
+retaliation;відплати;1
+efficient;ефективний;1
+even number;парне число;1
+competitor;конкурента;1
+caveats;застереження;1
+maintained;підтримується;1
+mindset;мислення;1
+riddle;загадка;1
+consume;споживати;1
+adherence;прихильність;1
+adhere;дотримуватися;1
+washbasin;умивальник;1
+intention;намір;1
+and do not jest!;і не жартуйте!;1
+arguably;можливо;1
+bribes;хабарі;1
+continuity;безперервність;1
+below;нижче;1
+negate;заперечувати;1
+bare;голі;1
 assembly;складання;2
 superfluous;зайві;2
-intercept;перехоплення;2
-vulnerability scanning;сканування уразливостей;2
 seed;насіння;2
 compatibility;сумісність;2
 judiciously;розумно;2
-worth the effort;варто зусиль;2
-dedicated;відданий;2
 crust;корка;2
-convenient;зручний;2
 integrated;інтегрований;2
-odd number;непарне число;2
-transparent;прозорий;2
-compromised account;скомпрометований обліковий запис;2
-promptly;оперативно;2
 wilderness areas;райони дикої природи;2
-guidance;керівництво;2
-lurking;ховається;2
-significantly;значно;2
 tangled valley;заплутаною долиною;2
 robust;надійний;2
 careless;недбало;2
-prohibited;заборонено;2
 cautious;обережний;2
-intergity;цілісність;2
-redemption;викуп;2
 insidious;підступний;2
 maintainability;ремонтопридатність;2
 accurate;точний;2
@@ -63,101 +58,104 @@ redundant;зайвий;2
 measure;міра;2
 compliant;сумісний;2
 consumer;споживач;2
-conduct;поведінка;2
-persistante;стійкий;2
-substitute;замінити;2
-jiffy;миттєво;1
-abuse;зловживання;1
-hostile;вороже;1
-certain;певний;1
-reliability;надійність;1
-high cohesion;висока згуртованість;1
-bandwidth;пропускної здатності;1
-inadvertent;випадково;1
-adequately;адекватно;1
-corresponding;відповідний;1
-unhindered;безперешкодно;1
-breach;порушення;1
-impact;вплив;1
-drastically;різко;1
-enhancement;розширення;1
-accountability;підзвітність;1
-elegance;вишуканість;1
-aftermath;наслідки;1
-foremost;перш за все;1
-fraud;шахрайство;1
-dispatcher;диспетчер;1
-featured;позначений;1
-malware;шкідливих програм;1
-screwdriver;викрутка;1
-ancestor;предок;1
-revenue;дохід;1
-maintain;підтримувати;1
-menace;загроза;1
-commitment;зобов'язання;1
-comprehensive;всеосяжний;1
-pipeline;трубопровід;1
-cross-cutting;наскрізний;1
-hat;капелюх;1
-exploitation;експлуатації;1
-retaliation;відплати;1
-efficient;ефективний;1
-parquet board;паркетна дошка;1
-even number;парне число;1
-vulnerabilities;уразливості;1
-competitor;конкурента;1
-caveats;застереження;1
-sanitary engineering;сантехніка;1
-statement;заява;1
-affordable;доступний;1
-supplier;постачальник;1
-violate;порушувати;1
-maintained;підтримується;1
-mindset;мислення;1
-intimidation;залякування;1
-desolation;запустіння;1
-assesment;оцінка;1
-estimate;оцінка;1
-riddle;загадка;1
-consume;споживати;1
-adherence;прихильність;1
-adhere;дотримуватися;1
-and do not jest!;і не жартуйте!;0
-applicable;застосовні;0
-arguably;можливо;0
-authenticity;автентичність;0
-bare;голі;0
-below;нижче;0
-bribes;хабарі;0
-burden;тягар;0
-continuity;безперервність;0
-effort;зусилля;0
-eliminated;ліквідовано;0
-enhancing;посилення;0
-explicitly;явно;0
-garbled;спотворений;0
-implicit response;неявний відповідь;0
-integrity;цілісність;0
-intention;намір;0
-layout;макет;0
-menace;загрози;0
-negate;заперечувати;0
-overstates;завищує;0
-percentage;відсоток;0
-ravine;яр;0
-reliable;надійний;0
-shameless;безсоромний;0
-spouse;подружжя;0
-suspected fraud;підозрюваного шахрайства;0
-uncertain;невизначений;0
-variety;різноманітність;0
-vigilance;пильність;0
-hammer;молоток;0
-washbasin;умивальник;0
-mandatory;обов'язковий;1
-improperly influenced;неналежний вплив;1
+ploys;хитрощі;2
+revenue;дохід;2
+mandatory;обов'язковий;2
+vulnerabilities;уразливості;2
+eliminated;ліквідовано;2
+intimidation;залякування;2
+enhancing;посилення;2
+adequately;адекватно;2
+affordable;доступний;2
+evaluating;оцінювання;2
+pipeline;трубопровід;2
+hammer;молоток;2
+layout;макет;2
+high cohesion;висока згуртованість;2
+fraud;шахрайство;2
+effort;зусилля;2
+elegance;вишуканість;2
+malware;шкідливих програм;2
+variety;різноманітність;2
+ancestor;предок;2
+parquet board;паркетна дошка;2
+awkward;незграбний;3
+treated as;розглядається як;3
+related;пов'язані;3
+gloomy pools;похмурі басейни;3
+infrequent;рідко;3
+wreckage;уламки;3
+required;вимагається;3
+complying;дотримання;3
+established;створена;3
+conveys;передає;3
+comprehend;зрозуміти;3
+sufficient;достатньо;3
+slight flaw;незначний недолік;3
+report concerns;звітувати про проблеми;3
+odd number;непарне число;3
+promptly;оперативно;3
+conduct;поведінка;3
+intergity;цілісність;3
+intercept;перехоплення;3
+substitute;замінити;3
+significantly;значно;3
+persistante;стійкий;3
+vigilance;пильність;3
+certain;певний;3
+improperly influenced;неналежний вплив;3
+prohibited;заборонено;3
+statement;заява;3
+supplier;постачальник;3
+hostile;вороже;3
+shovel;лопата;3
+impact;вплив;3
+compromised account;скомпрометований обліковий запис;3
+guidance;керівництво;3
+convenient;зручний;3
+applicable;застосовні;3
+explicit data;явні дані;3
+transient;минущій;4
+curious;цікаво;4
+contributes;сприяє;4
+move along;рухатися по;4
 unwieldy;громіздкий;4
 acquisition;придбання;4
-ploys;хитрощі;2
-shovel;лопата;1
-evaluating;оцінювання;1
+impair;погіршити;4
+unambiguous;однозначний;4
+worth the effort;варто зусиль;4
+transparent;прозорий;4
+foremost;перш за все;4
+jeopardize;піддати небезпеці;5
+conscious;свідомий;5
+intentional misuse;навмисне зловживання;5
+dispatcher;диспетчер;5
+fees;збори;5
+utmost importance;велике значення;6
+pipe;труба;6
+probability;ймовірність;7
+disclosing;розкриття;7
+obtained;отримані;7
+menace;загроза;2
+sanitary engineering;сантехніка;2
+vulnerability scanning;сканування уразливостей;3
+aftermath;наслідки;3
+shameless;безсоромний;2
+inadvertent;випадково;3
+unhindered;безперешкодно;2
+violate;порушувати;2
+redemption;викуп;3
+spouse;подружжя;1
+uncertain;невизначений;1
+comprehensive;всеосяжний;2
+abuse;зловживання;3
+lurking;ховається;3
+burden;тягар;1
+implicit response;неявний відповідь;3
+dedicated;відданий;3
+breach;порушення;3
+desolation;запустіння;2
+jiffy;миттєво;2
+suspected fraud;підозрюваного шахрайства;3
+screwdriver;викрутка;3
+assesment;оцінка;3
