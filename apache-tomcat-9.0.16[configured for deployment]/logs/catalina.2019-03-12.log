@@ -648,3 +648,51 @@
 12-Mar-2019 17:48:27.000 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
 12-Mar-2019 17:48:27.015 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
 12-Mar-2019 17:48:27.015 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+12-Mar-2019 22:14:52.768 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.16
+12-Mar-2019 22:14:52.940 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 4 2019 16:30:29 UTC
+12-Mar-2019 22:14:52.940 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.16.0
+12-Mar-2019 22:14:52.940 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+12-Mar-2019 22:14:52.940 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+12-Mar-2019 22:14:52.940 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+12-Mar-2019 22:14:52.940 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_191\jre
+12-Mar-2019 22:14:52.940 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_191-b12
+12-Mar-2019 22:14:52.940 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+12-Mar-2019 22:14:52.940 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]
+12-Mar-2019 22:14:52.940 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]
+12-Mar-2019 22:14:52.955 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\conf\logging.properties
+12-Mar-2019 22:14:52.955 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+12-Mar-2019 22:14:52.955 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+12-Mar-2019 22:14:52.955 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+12-Mar-2019 22:14:52.955 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+12-Mar-2019 22:14:52.971 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]
+12-Mar-2019 22:14:52.971 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]
+12-Mar-2019 22:14:52.971 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\temp
+12-Mar-2019 22:14:52.971 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.21] using APR version [1.6.5].
+12-Mar-2019 22:14:52.971 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+12-Mar-2019 22:14:52.971 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+12-Mar-2019 22:14:53.018 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1a  20 Nov 2018]
+12-Mar-2019 22:15:06.407 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+12-Mar-2019 22:15:07.711 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+12-Mar-2019 22:15:07.783 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [18,684] milliseconds
+12-Mar-2019 22:15:08.075 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+12-Mar-2019 22:15:08.087 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.16]
+12-Mar-2019 22:15:08.255 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\docs]
+12-Mar-2019 22:15:10.914 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\docs] has finished in [2,659] ms
+12-Mar-2019 22:15:11.070 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\examples]
+12-Mar-2019 22:15:19.108 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\examples] has finished in [8,038] ms
+12-Mar-2019 22:15:19.108 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\host-manager]
+12-Mar-2019 22:15:19.312 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\host-manager] has finished in [204] ms
+12-Mar-2019 22:15:19.312 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\manager]
+12-Mar-2019 22:15:19.593 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\manager] has finished in [281] ms
+12-Mar-2019 22:15:19.624 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\ROOT]
+12-Mar-2019 22:15:21.030 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\ROOT] has finished in [1,406] ms
+12-Mar-2019 22:15:21.095 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+12-Mar-2019 22:15:21.126 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+12-Mar-2019 22:15:21.188 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [13,372] milliseconds
+12-Mar-2019 23:04:00.406 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+12-Mar-2019 23:04:00.721 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+12-Mar-2019 23:04:00.999 INFO [Thread-5] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+12-Mar-2019 23:04:01.223 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+12-Mar-2019 23:04:01.254 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+12-Mar-2019 23:04:01.254 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+12-Mar-2019 23:04:01.254 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
