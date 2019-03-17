@@ -5,6 +5,7 @@ import models.WordsRenderer;
 import project.entities.item_implementations.words.WordTranslate;
 import project.io_data_module.CsvWordsReader;
 import project.io_data_module.CsvWordsWriter;
+import speech.Speech;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +15,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
-
 
 public class WordForm extends HttpServlet
 {
@@ -28,9 +28,15 @@ public class WordForm extends HttpServlet
 	private WordsRenderer wordsRenderer;
 	private WordTranslate wordTranslate;
 	private Double progress;
+
+	public List<WordTranslate> getWordTranslatelist() {
+		return wordTranslatelist;
+	}
+
 	private Double avg_point;
 	private Integer total_points;
 	private Integer count_of_words;
+	private Speech speech;
 
 
 	@Override
@@ -47,6 +53,9 @@ public class WordForm extends HttpServlet
 		wordTranslate = nextWord();
 		wordsRenderer.setEnglish_word(wordTranslate.getEngword());
 		wordsRenderer.setUkr_word(wordTranslate.getUkrword());
+
+		//TODO: wtf?
+		// speech = new Speech();
 
 	}
 
@@ -65,8 +74,10 @@ public class WordForm extends HttpServlet
 		}
 
 		//Todo: investigate this for correctness according to studying strategy   
-		if ((wordTranslate.getPoints() < 50) && (wordTranslate.getPoints() <= (this.avg_point.intValue())))
+		if ((wordTranslate.getPoints() < 50) && (wordTranslate.getPoints() <= (this.avg_point.intValue()))) {
+			//speech.speak("please translate");
 			return wordTranslate;
+		}
 		System.out.println(">skip '" + wordTranslate.getEngword() + "' with " + wordTranslate.getPoints() + " points");
 		return nextWord();
 	}
