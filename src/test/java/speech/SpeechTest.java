@@ -10,8 +10,8 @@ import java.util.concurrent.TimeUnit;
 
 public class SpeechTest {
 
-    private String PATH_TO_FOLDER = "D:\\dictionaries";
-    private String PATH_TO_DICTIONARY = "D:\\dictionaries\\dic.csv";
+    private String PATH_TO_FOLDER = "c:\\dictionaries";
+    private String PATH_TO_DICTIONARY = "c:\\dictionaries\\dic.csv";
     private CsvWordsReader reader = new CsvWordsReader();
     private Speech speech = new Speech();
 
@@ -21,8 +21,7 @@ public class SpeechTest {
         for (WordTranslate wordTranslate : list) {
             speech.speak(wordTranslate.getEngword());
             speech.speak(wordTranslate.getUkrword());
-            new Speech().writeToFile(PATH_TO_FOLDER,wordTranslate.getEngword());
-           // new Speech().writeToFile(PATH_TO_FOLDER,wordTranslate.getUkrword());
+            new Speech().writeToFile(PATH_TO_FOLDER,wordTranslate);
             try {
                 TimeUnit.SECONDS.sleep(2);
             } catch (InterruptedException e) {
