@@ -2,14 +2,10 @@ package speech;
 
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.advanced.AdvancedPlayer;
-import project.entities.item_implementations.words.WordPropertie;
 import project.entities.item_implementations.words.WordTranslate;
 import speech.synthesiser.SynthesiserV2;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Arrays;
 import java.util.List;
 
@@ -51,34 +47,52 @@ public class Speech
 
 	public void writeToFile(String folder_path, WordTranslate word)
 	{
-		processWord(folder_path, word.getEngword());
-		processUkrWord(folder_path,word);
+		Boolean rez = false;
+		int try_count = 0;
+
+		while (!rez && (try_count < 5))
+		{
+			try_count++;
+			rez = processWord(folder_path, word.getEngword());
+		}
+		try_count = 0;
+		rez = false;
+
+		while (!rez && (try_count < 5))
+		{
+			try_count++;
+			rez = processUkrWord(folder_path, word);
+		}
 	}
 
 	private boolean processWord(String folder_path, String word)
 	{
+
+		List<String> word_list = Arrays.asList(word.split(" "));
+		String output_file = new String(word + ".mp3");
+		FileOutputStream outputStream = null;
 		try
 		{
-			List<String> word_list = Arrays.asList(word.split(" "));
-			String output_file = new String(word + ".mp3");
-			FileOutputStream outputStream = new FileOutputStream(new File(folder_path + "//" + output_file));
+			outputStream = new FileOutputStream(new File(folder_path + "//" + output_file));
+
 			synthesizer.setSpeed(1);
 			InputStream inputStream = synthesizer.getMP3Data(word_list);
 			int rez = 0;
 			while (rez > -1)
 			{
 				rez = inputStream.read();
-				System.out.print(rez+" ");
 				outputStream.write(rez);
 			}
-			System.out.println();
+            System.out.println("file " + output_file +  " was created");
 			outputStream.flush();
 			outputStream.close();
 		}
-		catch (Exception e)
+		catch (IOException e)
 		{
 			e.printStackTrace();
+			return false;
 		}
+
 		return true;
 	}
 
@@ -87,7 +101,7 @@ public class Speech
 		try
 		{
 			List<String> word_list = Arrays.asList(wordTranslate.getUkrword().split(" "));
-			String output_file = new String(wordTranslate.getEngword()+"_ukr" + ".mp3");
+			String output_file = new String(wordTranslate.getEngword() + "_ukr" + ".mp3");
 			FileOutputStream outputStream = new FileOutputStream(new File(folder_path + "//" + output_file));
 			synthesizer.setSpeed(1);
 			InputStream inputStream = synthesizer.getMP3Data(word_list);
@@ -95,27 +109,21 @@ public class Speech
 			while (rez > -1)
 			{
 				rez = inputStream.read();
-				System.out.print(rez+" ");
 				if (rez == -1)
 					break;
 				outputStream.write(rez);
 			}
-			System.out.println();
+			System.out.println("file " + output_file +  " was created");
 			outputStream.flush();
+
 			outputStream.close();
 		}
-		catch (Exception e)
+		catch (IOException e)
 		{
 			e.printStackTrace();
+			return false;
 		}
+
 		return true;
-	}
-
-	public static void main(String[] args)
-	{
-		Speech speech = new Speech();
-		WordTranslate dog = new WordTranslate(new WordPropertie("Cat"),new WordPropertie("Кішка"),0);
-		speech.writeToFile("c:\\dictionaries", dog);
-
 	}
 }
