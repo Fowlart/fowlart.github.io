@@ -6,7 +6,6 @@ import project.entities.item_implementations.words.WordTranslate;
 import project.io_data_module.CsvWordsReader;
 
 import java.io.File;
-import java.io.FileFilter;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -19,8 +18,9 @@ public class SpeechTest
 	private CsvWordsReader reader = new CsvWordsReader();
 	private Speech speech = new Speech();
 
+	/** creating mp3 list of words */
 	@Test
-	public void testSpeechingFromFile()
+    private void testSpeechingFromFile()
 	{
 		List<WordTranslate> list = reader.getItemList(PATH_TO_DICTIONARY);
 		for (WordTranslate wordTranslate : list)
@@ -39,21 +39,17 @@ public class SpeechTest
 		}
 	}
 
+	/** deleting files with null size*/
 	@Test
 	public void deleteEmptyFiles()
 	{
 		File folder = new File(PATH_TO_FOLDER);
-		FileFilter fileFilter = new FileFilter()
-		{
-			@Override
-			public boolean accept(File pathname)
-			{
-				if (pathname.isFile())
-					return (pathname.getAbsoluteFile().length() == 0);
-				return false;
-			}
-		};
-		for (File f : folder.listFiles(fileFilter))
+
+		for (File f : folder.listFiles((f) -> {
+			if (f.isFile())
+				return (f.getAbsoluteFile().length() == 0);
+			return false;
+		}))
 		{
 			String filename = f.getName();
 			if (f.delete())
