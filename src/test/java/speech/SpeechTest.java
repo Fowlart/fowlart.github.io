@@ -10,8 +10,8 @@ import java.util.List;
 public class SpeechTest
 {
 
-	private String PATH_TO_FOLDER = "d:\\dictionaries";
-	private String PATH_TO_DICTIONARY = "d:\\dictionaries\\dic.csv";
+	private String PATH_TO_FOLDER = "c:\\dictionaries";
+	private String PATH_TO_DICTIONARY = "c:\\dictionaries\\dic.csv";
 	private CsvWordsReader reader = new CsvWordsReader();
 	private Speech speech = new Speech();
 
@@ -22,10 +22,8 @@ public class SpeechTest
 		List<WordTranslate> list = reader.getItemList(PATH_TO_DICTIONARY);
 		for (WordTranslate wordTranslate : list)
 		{
-		    speech.setLanguage("en-us");
-			speech.speak(wordTranslate.getEngword());
-			speech.setLanguage("uk");
-			speech.speak(wordTranslate.getUkrword());
+			speech.speak(wordTranslate.getEngword(),"en-us");
+			speech.speak(wordTranslate.getUkrword(),"uk");
 			speech.writeToFile(PATH_TO_FOLDER, wordTranslate);
 		}
 	}

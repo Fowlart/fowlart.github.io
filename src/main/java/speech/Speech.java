@@ -15,12 +15,8 @@ public class Speech {
     //Create a Synthesizer instance
     private SynthesiserV2 synthesizer = new SynthesiserV2("AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw");
 
-
-    public void setLanguage(String code) {
-        synthesizer.setLanguage(code);
-    }
-
-    public void speak(String text) {
+    public void speak(String text, String language_code) {
+        synthesizer.setLanguage(language_code);
         System.out.println("speaking>> " + text);
         //Create a JLayer instance
         synthesizer.setSpeed(1);
@@ -87,7 +83,7 @@ public class Speech {
     private boolean processUkrWord(String folder_path, WordTranslate wordTranslate) {
         this.synthesizer.setLanguage("uk");
         try {
-            String output_file = new String(wordTranslate.getEngword() + "_ukr" + ".mp3");
+            String output_file = wordTranslate.getEngword() + "_ukr" + ".mp3";
             process(folder_path, wordTranslate.getUkrword(), output_file);
         } catch (IOException e) {
             e.printStackTrace();
