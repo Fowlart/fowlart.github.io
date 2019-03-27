@@ -21,10 +21,12 @@ th {
 </style>
 <body>
 <h1><span style="color:#4CAF50;">Please translate word:</span></h1>
+<h4>file last modified: ${file}</h4>
 <h4>words count: ${count_of_words}</h4>
 <h4>total points: ${total_points}</h4>
 <h4>avarage point: ${avg_point}</h4>
-<h4>current progress: ${progress} %</h4>
+<h4>current progress: ${progress}</h4>
+
 <h1 align="center"><span style="color:#4CAF50;"> ${renderer.ukr_word}</span></h1>
 <br/>
 <font size="5" color="green" face="Arial"><details><font size="4" color="black" face="Arial">${renderer.ukr_word} - ${renderer.english_word}</font></details></font>	

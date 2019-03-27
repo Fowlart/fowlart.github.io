@@ -37,7 +37,7 @@ public class WordForm extends HttpServlet
 	private Integer total_points;
 	private Integer count_of_words;
 	private Speech speech;
-
+	private CsvWordsReader csvWordsReader;
 
 	@Override
 	public void init() throws ServletException
@@ -45,7 +45,7 @@ public class WordForm extends HttpServlet
 		super.init();
 
 		// setup
-		CsvWordsReader csvWordsReader = new CsvWordsReader();
+		csvWordsReader = new CsvWordsReader();
 		wordTranslatelist = csvWordsReader.getItemList(INPUT_FILE);
 		random = new Random(47);
 		tableWordsRender = new TableWordsRender();
@@ -56,7 +56,6 @@ public class WordForm extends HttpServlet
 
 		//TODO: wtf?
 		// speech = new Speech();
-
 	}
 
 	//Todo: check this method. StackOverflowError here.
@@ -70,11 +69,11 @@ public class WordForm extends HttpServlet
 			total_points = this.wordTranslatelist.stream().mapToInt((i) -> i.getPoints()).reduce(0, (i1, i2) -> i1 + i2);
 			count_of_words = this.wordTranslatelist.size();
 			avg_point = (double) total_points / (double) count_of_words;
-			progress = avg_point / 50 * 100;
+			progress = avg_point / 30 * 100;
 		}
 
 		//Todo: investigate this for correctness according to studying strategy   
-		if ((wordTranslate.getPoints() < 50) && (wordTranslate.getPoints() <= (this.avg_point.intValue()))) {
+		if ( wordTranslate.getPoints() <= (this.avg_point.intValue()) ) {
 			//speech.speak("please translate");
 			return wordTranslate;
 		}
@@ -85,6 +84,7 @@ public class WordForm extends HttpServlet
 	private void forwarding(WordsRenderer r1, TableWordsRender r2, HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{
+		request.setAttribute("file",csvWordsReader.lastModified());
         request.setAttribute("total_points",total_points);
         request.setAttribute("count_of_words",count_of_words);
         request.setAttribute("avg_point",avg_point.intValue());
