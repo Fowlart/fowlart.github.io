@@ -22,10 +22,10 @@ th {
 <body>
 <h1><span style="color:#4CAF50;">Please translate word:</span></h1>
 <h4>file last modified: ${file}</h4>
-<h4>words count: ${count_of_words}</h4>
+<h4>words count: ${count_of_words}/1000</h4>
 <h4>total points: ${total_points}</h4>
 <h4>avarage point: ${avg_point}</h4>
-<h4>current progress: ${progress}</h4>
+<h4>current progress: ${progress} %</h4>
 
 <h1 align="center"><span style="color:#4CAF50;"> ${renderer.ukr_word}</span></h1>
 <br/>
@@ -37,21 +37,11 @@ th {
 		
 		<input type="submit" value="Check the word/show table"/>
 		
- 	
-		
 	Filter: <select select id="selectoid" name="selectoid">
-		 <option value="max">max</option>
-		  <option value="min">min</option>
+		 <option value="sort">sort</option>
+		  <option value="reduce">reduce</option>
 		 </select>
 	</form>
-	
-<table>
-  <tr>
-    <th>ENG</th>
-    <th>UKR</th>
-	<th>RATIO</th>
-  </tr>
     ${tableRenderer.tablecode}
- </table>
 </body>
 </html>

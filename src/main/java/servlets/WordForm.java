@@ -2,6 +2,7 @@ package servlets;
 
 import models.TableWordsRender;
 import models.WordsRenderer;
+import project.dictionary_optimizer.Optimizer;
 import project.entities.item_implementations.words.WordTranslate;
 import project.io_data_module.CsvWordsReader;
 import project.io_data_module.CsvWordsWriter;
@@ -47,6 +48,7 @@ public class WordForm extends HttpServlet
 		// setup
 		csvWordsReader = new CsvWordsReader();
 		wordTranslatelist = csvWordsReader.getItemList(INPUT_FILE);
+		wordTranslatelist = new Optimizer(wordTranslatelist).getOptimizedList();
 		random = new Random(47);
 		tableWordsRender = new TableWordsRender();
 		wordsRenderer = new WordsRenderer();
@@ -88,7 +90,8 @@ public class WordForm extends HttpServlet
         request.setAttribute("total_points",total_points);
         request.setAttribute("count_of_words",count_of_words);
         request.setAttribute("avg_point",avg_point.intValue());
-		request.setAttribute("progress", progress);
+        request.setAttribute("progress", progress);
+        if (progress>100) request.setAttribute("progress", "completed!");
 		request.setAttribute("renderer", r1);
 		request.setAttribute("tableRenderer", r2);
 		request.getRequestDispatcher("words.jsp").forward(request, response);
@@ -116,18 +119,18 @@ public class WordForm extends HttpServlet
 		{
 
 			//by default going HERE.
-			if (selected_filter.equals("min"))
+			if (selected_filter.equals("sort"))
 			{
 				wordTranslatelist = this.wordTranslatelist.stream().sorted((w1, w2) -> w1.getPoints() - w2.getPoints())
 						.collect(Collectors.toList());
 
 			}
 
-			if (selected_filter.equals("max"))
+			if (selected_filter.equals("reduce"))
 			{
-				wordTranslatelist = this.wordTranslatelist.stream().sorted((w1, w2) -> w2.getPoints() - w1.getPoints())
-						.collect(Collectors.toList());
+				//ToDO
 			}
+
 			// fill the dictionary table
 			for (WordTranslate w : this.wordTranslatelist)
 				tableWordsRender.addItemEntry(w.getEngword(), w.getUkrword(), w.getPoints().toString());
