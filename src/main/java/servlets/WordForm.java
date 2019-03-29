@@ -2,6 +2,8 @@ package servlets;
 
 import models.TableWordsRender;
 import models.WordsRenderer;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import project.dictionary_optimizer.Optimizer;
 import project.entities.item_implementations.words.WordTranslate;
 import project.io_data_module.CsvWordsReader;
@@ -17,6 +19,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
+
 public class WordForm extends HttpServlet
 {
 
@@ -30,7 +33,8 @@ public class WordForm extends HttpServlet
 	private WordTranslate wordTranslate;
 	private Double progress;
 
-	public List<WordTranslate> getWordTranslatelist() {
+	public List<WordTranslate> getWordTranslatelist()
+	{
 		return wordTranslatelist;
 	}
 
@@ -39,13 +43,14 @@ public class WordForm extends HttpServlet
 	private Integer count_of_words;
 	private Speech speech;
 	private CsvWordsReader csvWordsReader;
+	private Log logger;
 
 	@Override
 	public void init() throws ServletException
 	{
 		super.init();
-
 		// setup
+		logger = LogFactory.getLog("LOGGER");
 		csvWordsReader = new CsvWordsReader();
 		wordTranslatelist = csvWordsReader.getItemList(INPUT_FILE);
 		wordTranslatelist = new Optimizer(wordTranslatelist).getOptimizedList();
@@ -60,13 +65,11 @@ public class WordForm extends HttpServlet
 		// speech = new Speech();
 	}
 
-	//Todo: check this method. StackOverflowError here.
 	private WordTranslate nextWord()
 	{
 		WordTranslate wordTranslate = wordTranslatelist.stream().skip(this.random.nextInt(wordTranslatelist.size() - 1)).findAny()
 				.get();
-
-		// Todo: investigate this from performance point of view
+		// recalculating view metrics
 		{
 			total_points = this.wordTranslatelist.stream().mapToInt((i) -> i.getPoints()).reduce(0, (i1, i2) -> i1 + i2);
 			count_of_words = this.wordTranslatelist.size();
@@ -74,24 +77,25 @@ public class WordForm extends HttpServlet
 			progress = avg_point / 30 * 100;
 		}
 
-		//Todo: investigate this for correctness according to studying strategy   
-		if ( wordTranslate.getPoints() <= (this.avg_point.intValue()) ) {
+		if (wordTranslate.getPoints() <= (this.avg_point.intValue()))
+		{
 			//speech.speak("please translate");
 			return wordTranslate;
 		}
-		System.out.println(">skip '" + wordTranslate.getEngword() + "' with " + wordTranslate.getPoints() + " points");
+		logger.info(">skip '" + wordTranslate.getEngword() + "' with " + wordTranslate.getPoints() + " points");
 		return nextWord();
 	}
 
 	private void forwarding(WordsRenderer r1, TableWordsRender r2, HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{
-		request.setAttribute("file",csvWordsReader.lastModified());
-        request.setAttribute("total_points",total_points);
-        request.setAttribute("count_of_words",count_of_words);
-        request.setAttribute("avg_point",avg_point.intValue());
-        request.setAttribute("progress", progress);
-        if (progress>100) request.setAttribute("progress", "completed!");
+		request.setAttribute("file", csvWordsReader.lastModified());
+		request.setAttribute("total_points", total_points);
+		request.setAttribute("count_of_words", count_of_words);
+		request.setAttribute("avg_point", avg_point.intValue());
+		request.setAttribute("progress", progress);
+		if (progress > 100)
+			request.setAttribute("progress", "completed!");
 		request.setAttribute("renderer", r1);
 		request.setAttribute("tableRenderer", r2);
 		request.getRequestDispatcher("words.jsp").forward(request, response);
@@ -109,7 +113,7 @@ public class WordForm extends HttpServlet
 		// first start without parameters
 		if ((entered_text == null) || (selected_filter == null))
 		{
-			System.out.println(">FIRST START");
+			logger.info(">FIRST START");
 			entered_text = "";
 			selected_filter = "min";
 		}
@@ -140,7 +144,7 @@ public class WordForm extends HttpServlet
 		}
 		else
 		{
-			System.out.println(">TRAINING MODE");
+			logger.info("TRAINING MODE");
 			this.tableWordsRender.clearTable();
 
 			//if entered word is correct
@@ -150,7 +154,7 @@ public class WordForm extends HttpServlet
 				this.wordTranslatelist.remove(wordTranslate);
 				wordTranslate.setPoints(wordTranslate.getPoints() + 1);
 				this.wordTranslatelist.add(wordTranslate);
-				System.out.println(">CORRECT! The scores on word '" + wordTranslate.getEngword() + "' is up to "
+				logger.info(">CORRECT! The scores on word '" + wordTranslate.getEngword() + "' is up to "
 						+ wordTranslate.getPoints());
 
 				// set up new random word
@@ -160,7 +164,7 @@ public class WordForm extends HttpServlet
 			}
 			// just inform
 			else
-				System.out.println(">WRONG! Try again!");
+				logger.error(">WRONG! Try again!");
 			this.forwarding(wordsRenderer, tableWordsRender, request, response);
 		}
 	}
@@ -168,7 +172,7 @@ public class WordForm extends HttpServlet
 	@Override
 	public void destroy()
 	{
-		System.out.println(">destroying application");
+		logger.info(">destroying application");
 		CsvWordsWriter csvWordsWriter = new CsvWordsWriter();
 		csvWordsWriter.writeInFile(OUTPUT_FILE, this.wordTranslatelist);
 		super.destroy();
