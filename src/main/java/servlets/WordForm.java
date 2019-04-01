@@ -23,8 +23,8 @@ import java.util.stream.Collectors;
 public class WordForm extends HttpServlet
 {
 
-	private static String INPUT_FILE = "dic1.csv";
-	private static String OUTPUT_FILE = "dic1.csv";
+	private static String INPUT_FILE = "dictionaries/dic1.csv";
+	private static String OUTPUT_FILE = "dictionaries/dic1.csv";
 
 	private List<WordTranslate> wordTranslatelist;
 	private Random random;
@@ -50,6 +50,7 @@ public class WordForm extends HttpServlet
 	{
 		super.init();
 		// setup
+		//ApplicationContext context = new FileSystemXmlApplicationContext("C:\\exp_input\\dic_mover-spring.xml");
 		logger = LogFactory.getLog("LOGGER");
 		csvWordsReader = new CsvWordsReader();
 		wordTranslatelist = csvWordsReader.getItemList(INPUT_FILE);
@@ -115,7 +116,7 @@ public class WordForm extends HttpServlet
 		{
 			logger.info(">FIRST START");
 			entered_text = "";
-			selected_filter = "min";
+			selected_filter = "sort";
 		}
 
 		// if word is skipped
