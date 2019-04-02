@@ -1,26 +1,37 @@
 package spring_utils;
 
 
-import org.springframework.messaging.Message;
-import org.springframework.messaging.MessageHeaders;
-
+import project.entities.item_implementations.words.WordTranslate;
+import project.io_data_module.CsvWordsReader;
 import java.io.File;
+import java.util.Collections;
+import java.util.List;
 
-public class Handler {
 
-    public Message<File> handleFile(File input) {
-        System.out.println(">Copying file: " + input.getAbsolutePath());
+public class Handler
+{
 
-        return new Message<File>() {
-            @Override
-            public File getPayload() {
-                return input;
-            }
 
-            @Override
-            public MessageHeaders getHeaders() {
-                return null;
-            }
-        };
-    }
+	private static List<WordTranslate> list = Collections.EMPTY_LIST;
+
+	public static List<WordTranslate> getList()
+	{
+		return list;
+	}
+
+	public File handleFile(File input)
+	{
+		try
+		{
+			System.out.println(">>Processing file: " + input.getAbsolutePath());
+			CsvWordsReader reader = new CsvWordsReader();
+			list = reader.getItemList(input.getAbsolutePath());
+		}
+		catch (Exception ex)
+		{
+			System.out.println(">>Some errors occurs in file processing...");
+		}
+
+		return input;
+	}
 }

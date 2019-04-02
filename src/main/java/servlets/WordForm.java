@@ -4,12 +4,14 @@ import models.TableWordsRender;
 import models.WordsRenderer;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import project.dictionary_optimizer.Optimizer;
 import project.entities.item_implementations.words.WordTranslate;
 import project.io_data_module.CsvWordsReader;
 import project.io_data_module.CsvWordsWriter;
 import speech.Speech;
+import spring_utils.Handler;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -33,7 +35,7 @@ public class WordForm extends HttpServlet
 	private WordsRenderer wordsRenderer;
 	private WordTranslate wordTranslate;
 	private Double progress;
-	private Thread thread;
+
 
 	public List<WordTranslate> getWordTranslatelist()
 	{
@@ -54,11 +56,6 @@ public class WordForm extends HttpServlet
 		super.init();
 		// setup
 		logger = LogFactory.getLog("LOGGER");
-		thread = new Thread(() -> new ClassPathXmlApplicationContext("dic_mover-spring.xml"));
-		thread.run();
-		logger.info(">thread was set");
-		thread.setDaemon(true);
-		logger.info(">context running");
 		csvWordsReader = new CsvWordsReader();
 		wordTranslatelist = csvWordsReader.getItemList(INPUT_FILE);
 		wordTranslatelist = new Optimizer(wordTranslatelist).getOptimizedList();
@@ -138,9 +135,11 @@ public class WordForm extends HttpServlet
 
 			}
 
+			//ToDO: here, imported dictionaries must added into common dictionary
 			if (selected_filter.equals("reduce"))
 			{
-				//ToDO
+				ApplicationContext context = new ClassPathXmlApplicationContext("dic_mover-spring.xml");
+				this.wordTranslatelist.addAll(Handler.getList());
 			}
 
 			// fill the dictionary table
