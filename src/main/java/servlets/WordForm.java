@@ -2,8 +2,6 @@ package servlets;
 
 import models.TableWordsRender;
 import models.WordsRenderer;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import project.dictionary_optimizer.Optimizer;
@@ -26,8 +24,8 @@ import java.util.stream.Collectors;
 public class WordForm extends HttpServlet
 {
 
-	private static String INPUT_FILE = "dictionaries/dic1.csv";
-	private static String OUTPUT_FILE = "dictionaries/dic1.csv";
+	private static String INPUT_FILE = "dictionaries/db.csv";
+	private static String OUTPUT_FILE = "dictionaries/db.csv";
 
 	private List<WordTranslate> wordTranslatelist;
 	private Random random;
@@ -47,7 +45,6 @@ public class WordForm extends HttpServlet
 	private Integer count_of_words;
 	private Speech speech;
 	private CsvWordsReader csvWordsReader;
-	private Log logger;
 
 
 	@Override
@@ -55,7 +52,7 @@ public class WordForm extends HttpServlet
 	{
 		super.init();
 		// setup
-		logger = LogFactory.getLog("LOGGER");
+		ApplicationContext context = new ClassPathXmlApplicationContext("dic_mover-spring.xml");
 		csvWordsReader = new CsvWordsReader();
 		wordTranslatelist = csvWordsReader.getItemList(INPUT_FILE);
 		wordTranslatelist = new Optimizer(wordTranslatelist).getOptimizedList();
@@ -65,9 +62,7 @@ public class WordForm extends HttpServlet
 		wordTranslate = nextWord();
 		wordsRenderer.setEnglish_word(wordTranslate.getEngword());
 		wordsRenderer.setUkr_word(wordTranslate.getUkrword());
-
-		//TODO: wtf?
-		// speech = new Speech();
+		//speech = new Speech();
 	}
 
 	private WordTranslate nextWord()
@@ -84,10 +79,10 @@ public class WordForm extends HttpServlet
 
 		if (wordTranslate.getPoints() <= (this.avg_point.intValue()))
 		{
-			//speech.speak("please translate");
+			new Speech().speak(wordTranslate.getUkrword(),"uk");
 			return wordTranslate;
 		}
-		logger.info(">skip '" + wordTranslate.getEngword() + "' with " + wordTranslate.getPoints() + " points");
+		System.out.println(">skip '" + wordTranslate.getEngword() + "' with " + wordTranslate.getPoints() + " points");
 		return nextWord();
 	}
 
@@ -118,7 +113,7 @@ public class WordForm extends HttpServlet
 		// first start without parameters
 		if ((entered_text == null) || (selected_filter == null))
 		{
-			logger.info(">FIRST START");
+			System.out.println(">FIRST START");
 			entered_text = "";
 			selected_filter = "sort";
 		}
@@ -138,8 +133,7 @@ public class WordForm extends HttpServlet
 			//ToDO: here, imported dictionaries must added into common dictionary
 			if (selected_filter.equals("reduce"))
 			{
-				ApplicationContext context = new ClassPathXmlApplicationContext("dic_mover-spring.xml");
-				this.wordTranslatelist.addAll(Handler.getList());
+				this.wordTranslatelist = Handler.getList();
 			}
 
 			// fill the dictionary table
@@ -151,7 +145,7 @@ public class WordForm extends HttpServlet
 		}
 		else
 		{
-			logger.info("TRAINING MODE");
+			System.out.println(">TRAINING MODE");
 			this.tableWordsRender.clearTable();
 
 			//if entered word is correct
@@ -161,7 +155,7 @@ public class WordForm extends HttpServlet
 				this.wordTranslatelist.remove(wordTranslate);
 				wordTranslate.setPoints(wordTranslate.getPoints() + 1);
 				this.wordTranslatelist.add(wordTranslate);
-				logger.info(">CORRECT! The scores on word '" + wordTranslate.getEngword() + "' is up to "
+				System.out.println(">CORRECT! The scores on word '" + wordTranslate.getEngword() + "' is up to "
 						+ wordTranslate.getPoints());
 
 				// set up new random word
@@ -171,7 +165,7 @@ public class WordForm extends HttpServlet
 			}
 			// just inform
 			else
-				logger.error(">WRONG! Try again!");
+				System.out.println(">WRONG! Try again!");
 			this.forwarding(wordsRenderer, tableWordsRender, request, response);
 		}
 	}
@@ -179,7 +173,7 @@ public class WordForm extends HttpServlet
 	@Override
 	public void destroy()
 	{
-		logger.info(">destroying application");
+		System.out.println(">destroying application");
 		CsvWordsWriter csvWordsWriter = new CsvWordsWriter();
 		csvWordsWriter.writeInFile(OUTPUT_FILE, this.wordTranslatelist);
 		super.destroy();

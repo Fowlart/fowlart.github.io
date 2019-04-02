@@ -17,7 +17,7 @@
     <bean id="handler" class="spring_utils.Handler"/>
 	
 	<file:inbound-channel-adapter id="filesIn" directory="dictionaries/import">
-    <integration:poller id="poller" fixed-delay="5000"/>
+    <integration:poller id="poller" fixed-delay="60000"/>
 </file:inbound-channel-adapter>
     
 <integration:service-activator input-channel="filesIn" output-channel="filesOut" ref="handler" method="handleFile"/>
