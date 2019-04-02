@@ -4,6 +4,7 @@ import models.TableWordsRender;
 import models.WordsRenderer;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import project.dictionary_optimizer.Optimizer;
 import project.entities.item_implementations.words.WordTranslate;
 import project.io_data_module.CsvWordsReader;
@@ -32,6 +33,7 @@ public class WordForm extends HttpServlet
 	private WordsRenderer wordsRenderer;
 	private WordTranslate wordTranslate;
 	private Double progress;
+	private Thread thread;
 
 	public List<WordTranslate> getWordTranslatelist()
 	{
@@ -45,13 +47,18 @@ public class WordForm extends HttpServlet
 	private CsvWordsReader csvWordsReader;
 	private Log logger;
 
+
 	@Override
 	public void init() throws ServletException
 	{
 		super.init();
 		// setup
-		//ApplicationContext context = new FileSystemXmlApplicationContext("C:\\exp_input\\dic_mover-spring.xml");
 		logger = LogFactory.getLog("LOGGER");
+		thread = new Thread(() -> new ClassPathXmlApplicationContext("dic_mover-spring.xml"));
+		thread.run();
+		logger.info(">thread was set");
+		thread.setDaemon(true);
+		logger.info(">context running");
 		csvWordsReader = new CsvWordsReader();
 		wordTranslatelist = csvWordsReader.getItemList(INPUT_FILE);
 		wordTranslatelist = new Optimizer(wordTranslatelist).getOptimizedList();
