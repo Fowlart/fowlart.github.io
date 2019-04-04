@@ -79,7 +79,8 @@ public class WordForm extends HttpServlet
 
 		if (wordTranslate.getPoints() <= (this.avg_point.intValue()))
 		{
-			new Speech().speak(wordTranslate.getUkrword(),"uk");
+			new Speech().speak(wordTranslate.getUkrword()
+					,"uk");
 			return wordTranslate;
 		}
 		System.out.println(">skip '" + wordTranslate.getEngword() + "' with " + wordTranslate.getPoints() + " points");
@@ -133,7 +134,8 @@ public class WordForm extends HttpServlet
 			//ToDO: here, imported dictionaries must added into common dictionary
 			if (selected_filter.equals("reduce"))
 			{
-				this.wordTranslatelist = Handler.getList();
+				if (!Handler.getList().isEmpty()) this.wordTranslatelist = Handler.getList();
+				else System.out.println(">hot folder was empty");
 			}
 
 			// fill the dictionary table
