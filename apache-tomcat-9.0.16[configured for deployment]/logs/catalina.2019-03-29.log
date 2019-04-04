@@ -1,0 +1,731 @@
+29-Mar-2019 00:32:23.877 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+29-Mar-2019 00:32:24.893 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+29-Mar-2019 00:32:25.556 INFO [Thread-5] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+29-Mar-2019 00:32:25.764 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+29-Mar-2019 00:32:25.796 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+29-Mar-2019 00:32:25.811 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+29-Mar-2019 00:32:25.811 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+29-Mar-2019 00:34:41.204 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.16
+29-Mar-2019 00:34:41.220 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 4 2019 16:30:29 UTC
+29-Mar-2019 00:34:41.251 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.16.0
+29-Mar-2019 00:34:41.251 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+29-Mar-2019 00:34:41.251 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+29-Mar-2019 00:34:41.251 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+29-Mar-2019 00:34:41.251 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_191\jre
+29-Mar-2019 00:34:41.251 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_191-b12
+29-Mar-2019 00:34:41.251 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+29-Mar-2019 00:34:41.251 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]
+29-Mar-2019 00:34:41.251 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]
+29-Mar-2019 00:34:41.251 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\conf\logging.properties
+29-Mar-2019 00:34:41.251 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+29-Mar-2019 00:34:41.267 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+29-Mar-2019 00:34:41.267 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+29-Mar-2019 00:34:41.267 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+29-Mar-2019 00:34:41.267 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]
+29-Mar-2019 00:34:41.267 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]
+29-Mar-2019 00:34:41.283 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\temp
+29-Mar-2019 00:34:41.283 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.21] using APR version [1.6.5].
+29-Mar-2019 00:34:41.283 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+29-Mar-2019 00:34:41.283 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+29-Mar-2019 00:34:41.314 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1a  20 Nov 2018]
+29-Mar-2019 00:34:42.142 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+29-Mar-2019 00:34:42.814 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+29-Mar-2019 00:34:42.845 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [4,040] milliseconds
+29-Mar-2019 00:34:43.017 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+29-Mar-2019 00:34:43.017 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.16]
+29-Mar-2019 00:34:43.064 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\docs]
+29-Mar-2019 00:34:44.876 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\docs] has finished in [1,812] ms
+29-Mar-2019 00:34:44.876 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\examples]
+29-Mar-2019 00:34:46.720 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\examples] has finished in [1,844] ms
+29-Mar-2019 00:34:46.720 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\host-manager]
+29-Mar-2019 00:34:46.876 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\host-manager] has finished in [156] ms
+29-Mar-2019 00:34:46.876 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\manager]
+29-Mar-2019 00:34:47.017 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\manager] has finished in [141] ms
+29-Mar-2019 00:34:47.032 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\ROOT]
+29-Mar-2019 00:34:47.485 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\ROOT] has finished in [453] ms
+29-Mar-2019 00:34:47.501 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+29-Mar-2019 00:34:47.548 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+29-Mar-2019 00:34:47.579 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [4,729] milliseconds
+29-Mar-2019 00:37:02.023 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+29-Mar-2019 00:37:02.814 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+29-Mar-2019 00:37:03.736 INFO [Thread-5] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+29-Mar-2019 00:37:04.095 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+29-Mar-2019 00:37:04.158 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+29-Mar-2019 00:37:04.158 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+29-Mar-2019 00:37:04.173 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+29-Mar-2019 00:38:11.410 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.16
+29-Mar-2019 00:38:19.195 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 4 2019 16:30:29 UTC
+29-Mar-2019 00:38:19.211 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.16.0
+29-Mar-2019 00:38:19.211 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+29-Mar-2019 00:38:19.211 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+29-Mar-2019 00:38:19.211 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+29-Mar-2019 00:38:19.211 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_191\jre
+29-Mar-2019 00:38:19.226 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_191-b12
+29-Mar-2019 00:38:19.226 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+29-Mar-2019 00:38:19.226 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]
+29-Mar-2019 00:38:19.226 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]
+29-Mar-2019 00:38:19.226 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\conf\logging.properties
+29-Mar-2019 00:38:19.226 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+29-Mar-2019 00:38:19.226 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+29-Mar-2019 00:38:19.226 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+29-Mar-2019 00:38:19.226 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+29-Mar-2019 00:38:19.226 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]
+29-Mar-2019 00:38:19.226 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]
+29-Mar-2019 00:38:19.226 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\temp
+29-Mar-2019 00:38:19.226 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.21] using APR version [1.6.5].
+29-Mar-2019 00:38:19.226 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+29-Mar-2019 00:38:19.226 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+29-Mar-2019 00:38:19.258 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1a  20 Nov 2018]
+29-Mar-2019 00:38:20.336 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+29-Mar-2019 00:38:21.551 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+29-Mar-2019 00:38:21.573 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [11,964] milliseconds
+29-Mar-2019 00:38:21.730 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+29-Mar-2019 00:38:21.730 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.16]
+29-Mar-2019 00:38:21.777 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\docs]
+29-Mar-2019 00:38:23.277 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\docs] has finished in [1,516] ms
+29-Mar-2019 00:38:23.277 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\examples]
+29-Mar-2019 00:38:25.496 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\examples] has finished in [2,219] ms
+29-Mar-2019 00:38:25.528 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\host-manager]
+29-Mar-2019 00:38:25.836 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\host-manager] has finished in [308] ms
+29-Mar-2019 00:38:25.851 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\manager]
+29-Mar-2019 00:38:26.117 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\manager] has finished in [266] ms
+29-Mar-2019 00:38:26.148 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\ROOT]
+29-Mar-2019 00:38:26.901 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\ROOT] has finished in [737] ms
+29-Mar-2019 00:38:26.932 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+29-Mar-2019 00:38:26.995 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+29-Mar-2019 00:38:27.010 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [5,423] milliseconds
+29-Mar-2019 00:39:50.041 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+29-Mar-2019 00:39:50.604 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+29-Mar-2019 00:39:50.955 INFO [Thread-5] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+29-Mar-2019 00:39:51.142 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+29-Mar-2019 00:39:51.158 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+29-Mar-2019 00:39:51.173 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+29-Mar-2019 00:39:51.173 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+29-Mar-2019 20:21:04.143 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.16
+29-Mar-2019 20:21:17.131 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 4 2019 16:30:29 UTC
+29-Mar-2019 20:21:17.146 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.16.0
+29-Mar-2019 20:21:17.146 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+29-Mar-2019 20:21:17.146 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+29-Mar-2019 20:21:17.162 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+29-Mar-2019 20:21:17.162 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_191\jre
+29-Mar-2019 20:21:17.162 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_191-b12
+29-Mar-2019 20:21:17.162 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+29-Mar-2019 20:21:17.162 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]
+29-Mar-2019 20:21:17.162 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]
+29-Mar-2019 20:21:17.162 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\conf\logging.properties
+29-Mar-2019 20:21:17.162 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+29-Mar-2019 20:21:17.162 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+29-Mar-2019 20:21:17.162 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+29-Mar-2019 20:21:17.162 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+29-Mar-2019 20:21:17.162 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]
+29-Mar-2019 20:21:17.162 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]
+29-Mar-2019 20:21:17.162 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\temp
+29-Mar-2019 20:21:17.178 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.21] using APR version [1.6.5].
+29-Mar-2019 20:21:17.193 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+29-Mar-2019 20:21:17.193 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+29-Mar-2019 20:21:17.271 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1a  20 Nov 2018]
+29-Mar-2019 20:21:23.648 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+29-Mar-2019 20:21:24.419 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+29-Mar-2019 20:21:24.435 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [22,563] milliseconds
+29-Mar-2019 20:21:24.623 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+29-Mar-2019 20:21:24.638 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.16]
+29-Mar-2019 20:21:24.685 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\docs]
+29-Mar-2019 20:21:26.151 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\docs] has finished in [1,466] ms
+29-Mar-2019 20:21:26.151 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\examples]
+29-Mar-2019 20:21:30.690 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\examples] has finished in [4,539] ms
+29-Mar-2019 20:21:30.705 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\host-manager]
+29-Mar-2019 20:21:30.908 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\host-manager] has finished in [203] ms
+29-Mar-2019 20:21:30.908 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\manager]
+29-Mar-2019 20:21:31.049 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\manager] has finished in [141] ms
+29-Mar-2019 20:21:31.065 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\ROOT]
+29-Mar-2019 20:21:31.502 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\ROOT] has finished in [437] ms
+29-Mar-2019 20:21:31.518 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+29-Mar-2019 20:21:31.549 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+29-Mar-2019 20:21:31.580 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [7,115] milliseconds
+29-Mar-2019 20:22:20.849 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+29-Mar-2019 20:22:21.227 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+29-Mar-2019 20:22:21.547 INFO [Thread-5] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+29-Mar-2019 20:22:21.734 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+29-Mar-2019 20:22:21.750 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+29-Mar-2019 20:22:21.750 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+29-Mar-2019 20:22:21.766 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+29-Mar-2019 20:22:57.212 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.16
+29-Mar-2019 20:22:57.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 4 2019 16:30:29 UTC
+29-Mar-2019 20:22:57.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.16.0
+29-Mar-2019 20:22:57.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+29-Mar-2019 20:22:57.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+29-Mar-2019 20:22:57.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+29-Mar-2019 20:22:57.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_191\jre
+29-Mar-2019 20:22:57.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_191-b12
+29-Mar-2019 20:22:57.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+29-Mar-2019 20:22:57.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]
+29-Mar-2019 20:22:57.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]
+29-Mar-2019 20:22:57.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\conf\logging.properties
+29-Mar-2019 20:22:57.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+29-Mar-2019 20:22:57.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+29-Mar-2019 20:22:57.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+29-Mar-2019 20:22:57.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+29-Mar-2019 20:22:57.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]
+29-Mar-2019 20:22:57.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]
+29-Mar-2019 20:22:57.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\temp
+29-Mar-2019 20:22:57.259 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.21] using APR version [1.6.5].
+29-Mar-2019 20:22:57.290 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+29-Mar-2019 20:22:57.290 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+29-Mar-2019 20:22:57.322 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1a  20 Nov 2018]
+29-Mar-2019 20:22:58.150 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+29-Mar-2019 20:22:58.990 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+29-Mar-2019 20:22:59.018 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [3,669] milliseconds
+29-Mar-2019 20:22:59.155 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+29-Mar-2019 20:22:59.155 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.16]
+29-Mar-2019 20:22:59.186 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\docs]
+29-Mar-2019 20:23:12.169 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+29-Mar-2019 20:23:13.074 INFO [main] com.sun.faces.config.ConfigureListener.contextInitialized Initializing Mojarra 2.2.10 ( 20150205-0906 https://svn.java.net/svn/mojarra~svn/tags/2.2.10@14334) for context '/docs'
+29-Mar-2019 20:23:14.152 INFO [main] com.sun.faces.spi.InjectionProviderFactory.createInstance JSF1048: PostConstruct/PreDestroy annotations present.  ManagedBeans methods marked with these annotations will have said annotations processed.
+29-Mar-2019 20:23:16.503 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\docs] has finished in [17,317] ms
+29-Mar-2019 20:23:16.519 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\examples]
+29-Mar-2019 20:23:26.733 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+29-Mar-2019 20:23:27.283 INFO [main] com.sun.faces.config.ConfigureListener.contextInitialized Initializing Mojarra 2.2.10 ( 20150205-0906 https://svn.java.net/svn/mojarra~svn/tags/2.2.10@14334) for context '/examples'
+29-Mar-2019 20:23:28.283 INFO [main] com.sun.faces.spi.InjectionProviderFactory.createInstance JSF1048: PostConstruct/PreDestroy annotations present.  ManagedBeans methods marked with these annotations will have said annotations processed.
+29-Mar-2019 20:23:30.003 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\examples] has finished in [13,484] ms
+29-Mar-2019 20:23:30.019 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\host-manager]
+29-Mar-2019 20:23:35.437 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+29-Mar-2019 20:23:35.541 INFO [main] com.sun.faces.config.ConfigureListener.contextInitialized Initializing Mojarra 2.2.10 ( 20150205-0906 https://svn.java.net/svn/mojarra~svn/tags/2.2.10@14334) for context '/host-manager'
+29-Mar-2019 20:23:36.069 INFO [main] com.sun.faces.spi.InjectionProviderFactory.createInstance JSF1048: PostConstruct/PreDestroy annotations present.  ManagedBeans methods marked with these annotations will have said annotations processed.
+29-Mar-2019 20:23:36.917 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\host-manager] has finished in [6,898] ms
+29-Mar-2019 20:23:36.925 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\manager]
+29-Mar-2019 20:23:41.575 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+29-Mar-2019 20:23:41.607 INFO [main] com.sun.faces.config.ConfigureListener.contextInitialized Initializing Mojarra 2.2.10 ( 20150205-0906 https://svn.java.net/svn/mojarra~svn/tags/2.2.10@14334) for context '/manager'
+29-Mar-2019 20:23:41.971 INFO [main] com.sun.faces.spi.InjectionProviderFactory.createInstance JSF1048: PostConstruct/PreDestroy annotations present.  ManagedBeans methods marked with these annotations will have said annotations processed.
+29-Mar-2019 20:23:42.779 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\manager] has finished in [5,858] ms
+29-Mar-2019 20:23:42.791 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\ROOT]
+29-Mar-2019 20:23:48.733 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+29-Mar-2019 20:23:48.813 INFO [main] com.sun.faces.config.ConfigureListener.contextInitialized Initializing Mojarra 2.2.10 ( 20150205-0906 https://svn.java.net/svn/mojarra~svn/tags/2.2.10@14334) for context ''
+29-Mar-2019 20:23:49.313 INFO [main] com.sun.faces.spi.InjectionProviderFactory.createInstance JSF1048: PostConstruct/PreDestroy annotations present.  ManagedBeans methods marked with these annotations will have said annotations processed.
+29-Mar-2019 20:23:49.375 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 18 at position 7
+29-Mar-2019 20:23:49.407 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 8
+29-Mar-2019 20:23:49.407 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 9
+29-Mar-2019 20:23:49.422 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 10
+29-Mar-2019 20:23:49.438 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 69 at position 11
+29-Mar-2019 20:23:49.438 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 15 at position 69
+29-Mar-2019 20:23:49.469 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 95 at position 72
+29-Mar-2019 20:23:49.469 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 16 at position 73
+29-Mar-2019 20:23:49.469 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 74
+29-Mar-2019 20:23:49.485 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 45 at position 75
+29-Mar-2019 20:23:49.516 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 18 at position 8
+29-Mar-2019 20:23:49.532 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 9
+29-Mar-2019 20:23:49.532 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 10
+29-Mar-2019 20:23:49.532 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 11
+29-Mar-2019 20:23:49.547 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 82 at position 12
+29-Mar-2019 20:23:49.563 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 15 at position 82
+29-Mar-2019 20:23:49.563 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 119 at position 85
+29-Mar-2019 20:23:49.579 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 16 at position 86
+29-Mar-2019 20:23:49.579 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 87
+29-Mar-2019 20:23:49.594 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 58 at position 88
+29-Mar-2019 20:23:49.594 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 18 at position 10
+29-Mar-2019 20:23:49.610 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 11
+29-Mar-2019 20:23:49.615 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 12
+29-Mar-2019 20:23:49.615 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 13
+29-Mar-2019 20:23:49.615 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 82 at position 14
+29-Mar-2019 20:23:49.615 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 15 at position 82
+29-Mar-2019 20:23:49.615 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 112 at position 85
+29-Mar-2019 20:23:49.631 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 16 at position 86
+29-Mar-2019 20:23:49.646 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 87
+29-Mar-2019 20:23:49.646 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 56 at position 88
+29-Mar-2019 20:23:49.677 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 18 at position 3
+29-Mar-2019 20:23:49.677 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 4
+29-Mar-2019 20:23:49.677 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 5
+29-Mar-2019 20:23:49.677 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 6
+29-Mar-2019 20:23:49.693 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 48 at position 7
+29-Mar-2019 20:23:49.693 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 15 at position 48
+29-Mar-2019 20:23:49.709 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 67 at position 51
+29-Mar-2019 20:23:49.709 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 16 at position 52
+29-Mar-2019 20:23:49.709 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 53
+29-Mar-2019 20:23:49.724 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 35 at position 54
+29-Mar-2019 20:23:49.740 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 18 at position 25
+29-Mar-2019 20:23:49.740 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 26
+29-Mar-2019 20:23:49.740 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 27
+29-Mar-2019 20:23:49.740 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 28
+29-Mar-2019 20:23:49.740 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool -101 at position 29
+29-Mar-2019 20:23:49.756 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 18 at position 36
+29-Mar-2019 20:23:49.771 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 37
+29-Mar-2019 20:23:49.771 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 39
+29-Mar-2019 20:23:49.771 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 15 at position 128
+29-Mar-2019 20:23:49.771 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool -34 at position 131
+29-Mar-2019 20:23:49.787 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 16 at position 132
+29-Mar-2019 20:23:49.787 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 133
+29-Mar-2019 20:23:49.787 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool -33 at position 134
+29-Mar-2019 20:23:49.787 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 16 at position 143
+29-Mar-2019 20:23:49.802 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 144
+29-Mar-2019 20:23:49.802 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool -22 at position 145
+29-Mar-2019 20:23:49.802 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 15 at position 146
+29-Mar-2019 20:23:49.802 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 149
+29-Mar-2019 20:23:49.802 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool -18 at position 150
+29-Mar-2019 20:23:49.802 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 16 at position 152
+29-Mar-2019 20:23:49.818 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 153
+29-Mar-2019 20:23:49.834 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool -15 at position 154
+29-Mar-2019 20:23:49.834 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 15 at position 155
+29-Mar-2019 20:23:49.834 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 158
+29-Mar-2019 20:23:49.834 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool -12 at position 159
+29-Mar-2019 20:23:49.834 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 16 at position 165
+29-Mar-2019 20:23:49.834 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 166
+29-Mar-2019 20:23:49.849 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool -5 at position 167
+29-Mar-2019 20:23:49.849 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 15 at position 168
+29-Mar-2019 20:23:49.849 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 171
+29-Mar-2019 20:23:49.849 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool -2 at position 172
+29-Mar-2019 20:23:49.865 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 15 at position 182
+29-Mar-2019 20:23:49.865 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 185
+29-Mar-2019 20:23:49.865 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 20 at position 186
+29-Mar-2019 20:23:49.865 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 106 at position 187
+29-Mar-2019 20:23:49.865 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 97 at position 188
+29-Mar-2019 20:23:49.865 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 118 at position 189
+29-Mar-2019 20:23:49.865 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 97 at position 190
+29-Mar-2019 20:23:49.881 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 47 at position 191
+29-Mar-2019 20:23:49.896 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 109 at position 192
+29-Mar-2019 20:23:49.896 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 97 at position 193
+29-Mar-2019 20:23:49.896 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 116 at position 194
+29-Mar-2019 20:23:49.896 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 104 at position 195
+29-Mar-2019 20:23:49.896 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 47 at position 196
+29-Mar-2019 20:23:49.896 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 66 at position 197
+29-Mar-2019 20:23:49.896 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 105 at position 198
+29-Mar-2019 20:23:49.896 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 103 at position 199
+29-Mar-2019 20:23:49.912 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 68 at position 200
+29-Mar-2019 20:23:49.912 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 101 at position 201
+29-Mar-2019 20:23:49.912 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 99 at position 202
+29-Mar-2019 20:23:49.912 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 105 at position 203
+29-Mar-2019 20:23:49.927 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 109 at position 204
+29-Mar-2019 20:23:49.927 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 97 at position 205
+29-Mar-2019 20:23:49.927 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 108 at position 206
+29-Mar-2019 20:23:49.927 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 18 at position 39
+29-Mar-2019 20:23:49.927 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 40
+29-Mar-2019 20:23:49.927 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 41
+29-Mar-2019 20:23:49.943 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 42
+29-Mar-2019 20:23:49.943 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool -21 at position 43
+29-Mar-2019 20:23:49.943 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 18 at position 45
+29-Mar-2019 20:23:49.959 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 46
+29-Mar-2019 20:23:49.959 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 48
+29-Mar-2019 20:23:49.959 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 20 at position 49
+29-Mar-2019 20:23:49.959 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 51
+29-Mar-2019 20:23:49.959 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 52
+29-Mar-2019 20:23:49.959 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 53
+29-Mar-2019 20:23:49.974 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 54
+29-Mar-2019 20:23:49.974 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 55
+29-Mar-2019 20:23:49.974 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 56
+29-Mar-2019 20:23:49.974 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 57
+29-Mar-2019 20:23:49.974 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 58
+29-Mar-2019 20:23:49.990 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 59
+29-Mar-2019 20:23:49.990 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 60
+29-Mar-2019 20:23:49.990 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 61
+29-Mar-2019 20:23:49.990 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 62
+29-Mar-2019 20:23:49.990 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 63
+29-Mar-2019 20:23:49.990 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 64
+29-Mar-2019 20:23:49.990 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 65
+29-Mar-2019 20:23:49.990 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 66
+29-Mar-2019 20:23:50.006 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 67
+29-Mar-2019 20:23:50.021 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 68
+29-Mar-2019 20:23:50.021 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 69
+29-Mar-2019 20:23:50.021 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 70
+29-Mar-2019 20:23:50.021 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 71
+29-Mar-2019 20:23:50.021 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 72
+29-Mar-2019 20:23:50.021 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 73
+29-Mar-2019 20:23:50.021 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 74
+29-Mar-2019 20:23:50.021 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 75
+29-Mar-2019 20:23:50.021 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 76
+29-Mar-2019 20:23:50.037 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 77
+29-Mar-2019 20:23:50.037 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 78
+29-Mar-2019 20:23:50.037 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 79
+29-Mar-2019 20:23:50.052 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 80
+29-Mar-2019 20:23:50.052 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 81
+29-Mar-2019 20:23:50.052 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 82
+29-Mar-2019 20:23:50.052 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 83
+29-Mar-2019 20:23:50.052 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 84
+29-Mar-2019 20:23:50.052 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 85
+29-Mar-2019 20:23:50.052 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 86
+29-Mar-2019 20:23:50.052 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 87
+29-Mar-2019 20:23:50.052 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 88
+29-Mar-2019 20:23:50.068 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 89
+29-Mar-2019 20:23:50.068 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 90
+29-Mar-2019 20:23:50.068 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 91
+29-Mar-2019 20:23:50.084 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 92
+29-Mar-2019 20:23:50.084 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 93
+29-Mar-2019 20:23:50.084 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 94
+29-Mar-2019 20:23:50.084 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 95
+29-Mar-2019 20:23:50.084 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 96
+29-Mar-2019 20:23:50.084 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 97
+29-Mar-2019 20:23:50.084 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 98
+29-Mar-2019 20:23:50.084 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 99
+29-Mar-2019 20:23:50.099 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 100
+29-Mar-2019 20:23:50.099 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 101
+29-Mar-2019 20:23:50.115 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 102
+29-Mar-2019 20:23:50.115 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 103
+29-Mar-2019 20:23:50.115 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 104
+29-Mar-2019 20:23:50.115 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 105
+29-Mar-2019 20:23:50.115 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 106
+29-Mar-2019 20:23:50.115 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 107
+29-Mar-2019 20:23:50.115 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 108
+29-Mar-2019 20:23:50.115 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 109
+29-Mar-2019 20:23:50.115 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 110
+29-Mar-2019 20:23:50.131 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 111
+29-Mar-2019 20:23:50.131 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 112
+29-Mar-2019 20:23:50.131 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 113
+29-Mar-2019 20:23:50.131 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 114
+29-Mar-2019 20:23:50.146 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 115
+29-Mar-2019 20:23:50.146 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 116
+29-Mar-2019 20:23:50.146 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 117
+29-Mar-2019 20:23:50.146 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 118
+29-Mar-2019 20:23:50.146 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 119
+29-Mar-2019 20:23:50.146 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 120
+29-Mar-2019 20:23:50.146 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 121
+29-Mar-2019 20:23:50.146 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 122
+29-Mar-2019 20:23:50.146 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 123
+29-Mar-2019 20:23:50.146 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 124
+29-Mar-2019 20:23:50.162 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 125
+29-Mar-2019 20:23:50.162 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 126
+29-Mar-2019 20:23:50.178 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 127
+29-Mar-2019 20:23:50.178 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 128
+29-Mar-2019 20:23:50.182 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 129
+29-Mar-2019 20:23:50.182 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 130
+29-Mar-2019 20:23:50.186 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 131
+29-Mar-2019 20:23:50.194 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 132
+29-Mar-2019 20:23:50.194 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 133
+29-Mar-2019 20:23:50.194 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 134
+29-Mar-2019 20:23:50.198 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 135
+29-Mar-2019 20:23:50.198 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 136
+29-Mar-2019 20:23:50.202 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 137
+29-Mar-2019 20:23:50.202 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 138
+29-Mar-2019 20:23:50.206 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 139
+29-Mar-2019 20:23:50.214 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 140
+29-Mar-2019 20:23:50.214 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 141
+29-Mar-2019 20:23:50.218 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 142
+29-Mar-2019 20:23:50.218 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 143
+29-Mar-2019 20:23:50.223 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 144
+29-Mar-2019 20:23:50.223 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 145
+29-Mar-2019 20:23:50.223 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 146
+29-Mar-2019 20:23:50.223 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 147
+29-Mar-2019 20:23:50.223 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 148
+29-Mar-2019 20:23:50.223 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 149
+29-Mar-2019 20:23:50.223 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 150
+29-Mar-2019 20:23:50.223 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 151
+29-Mar-2019 20:23:50.223 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 152
+29-Mar-2019 20:23:50.223 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 153
+29-Mar-2019 20:23:50.238 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 154
+29-Mar-2019 20:23:50.254 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 155
+29-Mar-2019 20:23:50.254 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 156
+29-Mar-2019 20:23:50.254 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 157
+29-Mar-2019 20:23:50.254 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 158
+29-Mar-2019 20:23:50.254 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 159
+29-Mar-2019 20:23:50.254 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 160
+29-Mar-2019 20:23:50.254 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 161
+29-Mar-2019 20:23:50.254 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 162
+29-Mar-2019 20:23:50.254 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 163
+29-Mar-2019 20:23:50.269 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 164
+29-Mar-2019 20:23:50.269 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 165
+29-Mar-2019 20:23:50.285 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 166
+29-Mar-2019 20:23:50.285 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 167
+29-Mar-2019 20:23:50.285 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 168
+29-Mar-2019 20:23:50.285 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 169
+29-Mar-2019 20:23:50.285 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 170
+29-Mar-2019 20:23:50.285 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 171
+29-Mar-2019 20:23:50.285 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 172
+29-Mar-2019 20:23:50.285 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 173
+29-Mar-2019 20:23:50.285 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 174
+29-Mar-2019 20:23:50.301 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 175
+29-Mar-2019 20:23:50.301 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 176
+29-Mar-2019 20:23:50.316 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 177
+29-Mar-2019 20:23:50.316 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 178
+29-Mar-2019 20:23:50.316 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 179
+29-Mar-2019 20:23:50.316 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 180
+29-Mar-2019 20:23:50.316 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 181
+29-Mar-2019 20:23:50.316 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 182
+29-Mar-2019 20:23:50.316 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 183
+29-Mar-2019 20:23:50.316 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 184
+29-Mar-2019 20:23:50.332 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 185
+29-Mar-2019 20:23:50.332 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 186
+29-Mar-2019 20:23:50.348 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 187
+29-Mar-2019 20:23:50.348 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 188
+29-Mar-2019 20:23:50.348 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 189
+29-Mar-2019 20:23:50.348 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 190
+29-Mar-2019 20:23:50.348 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 191
+29-Mar-2019 20:23:50.348 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 192
+29-Mar-2019 20:23:50.348 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 193
+29-Mar-2019 20:23:50.348 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 194
+29-Mar-2019 20:23:50.363 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 195
+29-Mar-2019 20:23:50.363 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 196
+29-Mar-2019 20:23:50.363 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 197
+29-Mar-2019 20:23:50.363 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 198
+29-Mar-2019 20:23:50.379 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 199
+29-Mar-2019 20:23:50.379 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 200
+29-Mar-2019 20:23:50.379 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 201
+29-Mar-2019 20:23:50.379 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 202
+29-Mar-2019 20:23:50.379 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 203
+29-Mar-2019 20:23:50.379 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 204
+29-Mar-2019 20:23:50.379 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 205
+29-Mar-2019 20:23:50.379 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 206
+29-Mar-2019 20:23:50.379 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 207
+29-Mar-2019 20:23:50.394 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 208
+29-Mar-2019 20:23:50.410 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 209
+29-Mar-2019 20:23:50.410 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 210
+29-Mar-2019 20:23:50.410 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 211
+29-Mar-2019 20:23:50.410 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 212
+29-Mar-2019 20:23:50.410 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 213
+29-Mar-2019 20:23:50.410 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 214
+29-Mar-2019 20:23:50.410 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 215
+29-Mar-2019 20:23:50.426 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 216
+29-Mar-2019 20:23:50.426 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 217
+29-Mar-2019 20:23:50.426 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 218
+29-Mar-2019 20:23:50.441 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 219
+29-Mar-2019 20:23:50.441 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 220
+29-Mar-2019 20:23:50.441 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 221
+29-Mar-2019 20:23:50.441 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 222
+29-Mar-2019 20:23:50.441 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 223
+29-Mar-2019 20:23:50.441 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 224
+29-Mar-2019 20:23:50.441 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 225
+29-Mar-2019 20:23:50.441 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 226
+29-Mar-2019 20:23:50.441 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 227
+29-Mar-2019 20:23:50.457 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 228
+29-Mar-2019 20:23:50.457 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 229
+29-Mar-2019 20:23:50.472 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 230
+29-Mar-2019 20:23:50.472 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 231
+29-Mar-2019 20:23:50.472 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 232
+29-Mar-2019 20:23:50.472 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 233
+29-Mar-2019 20:23:50.472 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 234
+29-Mar-2019 20:23:50.472 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 235
+29-Mar-2019 20:23:50.472 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 236
+29-Mar-2019 20:23:50.472 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 237
+29-Mar-2019 20:23:50.472 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 238
+29-Mar-2019 20:23:50.488 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 239
+29-Mar-2019 20:23:50.504 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 240
+29-Mar-2019 20:23:50.504 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 241
+29-Mar-2019 20:23:50.504 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 242
+29-Mar-2019 20:23:50.504 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 243
+29-Mar-2019 20:23:50.504 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 244
+29-Mar-2019 20:23:50.504 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 245
+29-Mar-2019 20:23:50.504 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 246
+29-Mar-2019 20:23:50.504 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 247
+29-Mar-2019 20:23:50.504 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 248
+29-Mar-2019 20:23:50.519 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 249
+29-Mar-2019 20:23:50.519 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 250
+29-Mar-2019 20:23:50.519 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 251
+29-Mar-2019 20:23:50.535 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 252
+29-Mar-2019 20:23:50.535 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 253
+29-Mar-2019 20:23:50.535 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 254
+29-Mar-2019 20:23:50.535 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 255
+29-Mar-2019 20:23:50.535 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 256
+29-Mar-2019 20:23:50.535 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 257
+29-Mar-2019 20:23:50.535 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 258
+29-Mar-2019 20:23:50.535 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 259
+29-Mar-2019 20:23:50.535 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 260
+29-Mar-2019 20:23:50.535 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 261
+29-Mar-2019 20:23:50.551 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 262
+29-Mar-2019 20:23:50.551 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 263
+29-Mar-2019 20:23:50.566 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 264
+29-Mar-2019 20:23:50.566 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 265
+29-Mar-2019 20:23:50.566 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 266
+29-Mar-2019 20:23:50.566 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 267
+29-Mar-2019 20:23:50.566 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 268
+29-Mar-2019 20:23:50.566 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 269
+29-Mar-2019 20:23:50.566 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 270
+29-Mar-2019 20:23:50.566 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 271
+29-Mar-2019 20:23:50.582 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 272
+29-Mar-2019 20:23:50.582 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 273
+29-Mar-2019 20:23:50.582 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 274
+29-Mar-2019 20:23:50.582 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 275
+29-Mar-2019 20:23:50.582 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 276
+29-Mar-2019 20:23:50.597 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 277
+29-Mar-2019 20:23:50.597 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 278
+29-Mar-2019 20:23:50.597 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 279
+29-Mar-2019 20:23:50.597 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 280
+29-Mar-2019 20:23:50.597 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 281
+29-Mar-2019 20:23:50.597 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 282
+29-Mar-2019 20:23:50.597 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 283
+29-Mar-2019 20:23:50.597 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 284
+29-Mar-2019 20:23:50.597 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 285
+29-Mar-2019 20:23:50.613 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 286
+29-Mar-2019 20:23:50.618 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 287
+29-Mar-2019 20:23:50.618 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 288
+29-Mar-2019 20:23:50.618 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 289
+29-Mar-2019 20:23:50.634 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 290
+29-Mar-2019 20:23:50.634 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 291
+29-Mar-2019 20:23:50.634 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 292
+29-Mar-2019 20:23:50.634 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 293
+29-Mar-2019 20:23:50.634 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 294
+29-Mar-2019 20:23:50.650 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 295
+29-Mar-2019 20:23:50.650 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 296
+29-Mar-2019 20:23:50.665 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 297
+29-Mar-2019 20:23:50.665 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 298
+29-Mar-2019 20:23:50.665 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 299
+29-Mar-2019 20:23:50.665 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 300
+29-Mar-2019 20:23:50.665 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 301
+29-Mar-2019 20:23:50.665 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 302
+29-Mar-2019 20:23:50.665 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 303
+29-Mar-2019 20:23:50.681 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 304
+29-Mar-2019 20:23:50.681 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 305
+29-Mar-2019 20:23:50.681 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 306
+29-Mar-2019 20:23:50.681 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 307
+29-Mar-2019 20:23:50.697 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 308
+29-Mar-2019 20:23:50.697 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 309
+29-Mar-2019 20:23:50.697 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 310
+29-Mar-2019 20:23:50.697 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 311
+29-Mar-2019 20:23:50.697 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 312
+29-Mar-2019 20:23:50.697 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 313
+29-Mar-2019 20:23:50.697 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 314
+29-Mar-2019 20:23:50.697 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 315
+29-Mar-2019 20:23:50.697 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 316
+29-Mar-2019 20:23:50.697 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 317
+29-Mar-2019 20:23:50.712 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 318
+29-Mar-2019 20:23:50.728 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 319
+29-Mar-2019 20:23:50.728 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 320
+29-Mar-2019 20:23:50.728 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 321
+29-Mar-2019 20:23:50.728 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 322
+29-Mar-2019 20:23:50.728 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 323
+29-Mar-2019 20:23:50.728 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 324
+29-Mar-2019 20:23:50.728 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 325
+29-Mar-2019 20:23:50.728 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 326
+29-Mar-2019 20:23:50.728 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 327
+29-Mar-2019 20:23:50.743 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 328
+29-Mar-2019 20:23:50.743 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 329
+29-Mar-2019 20:23:50.759 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 330
+29-Mar-2019 20:23:50.759 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 331
+29-Mar-2019 20:23:50.759 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 332
+29-Mar-2019 20:23:50.759 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 333
+29-Mar-2019 20:23:50.759 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 334
+29-Mar-2019 20:23:50.759 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 335
+29-Mar-2019 20:23:50.759 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 336
+29-Mar-2019 20:23:50.759 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 337
+29-Mar-2019 20:23:50.775 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 338
+29-Mar-2019 20:23:50.775 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 339
+29-Mar-2019 20:23:50.775 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 340
+29-Mar-2019 20:23:50.790 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 341
+29-Mar-2019 20:23:50.790 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 342
+29-Mar-2019 20:23:50.790 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 343
+29-Mar-2019 20:23:50.790 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 344
+29-Mar-2019 20:23:50.790 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 345
+29-Mar-2019 20:23:50.790 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 346
+29-Mar-2019 20:23:50.790 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 347
+29-Mar-2019 20:23:50.790 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 348
+29-Mar-2019 20:23:50.790 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 349
+29-Mar-2019 20:23:50.806 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 350
+29-Mar-2019 20:23:50.806 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 351
+29-Mar-2019 20:23:50.822 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 352
+29-Mar-2019 20:23:50.822 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 353
+29-Mar-2019 20:23:50.822 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 354
+29-Mar-2019 20:23:50.822 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 355
+29-Mar-2019 20:23:50.822 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 356
+29-Mar-2019 20:23:50.822 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 357
+29-Mar-2019 20:23:50.822 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 358
+29-Mar-2019 20:23:50.822 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 359
+29-Mar-2019 20:23:50.822 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 360
+29-Mar-2019 20:23:50.837 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 361
+29-Mar-2019 20:23:50.837 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 362
+29-Mar-2019 20:23:50.837 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 363
+29-Mar-2019 20:23:50.853 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 364
+29-Mar-2019 20:23:50.853 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 365
+29-Mar-2019 20:23:50.853 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 366
+29-Mar-2019 20:23:50.853 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 367
+29-Mar-2019 20:23:50.853 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 368
+29-Mar-2019 20:23:50.853 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 369
+29-Mar-2019 20:23:50.853 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 370
+29-Mar-2019 20:23:50.853 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 371
+29-Mar-2019 20:23:50.868 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 372
+29-Mar-2019 20:23:50.868 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 373
+29-Mar-2019 20:23:50.884 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 374
+29-Mar-2019 20:23:50.884 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 375
+29-Mar-2019 20:23:50.884 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 376
+29-Mar-2019 20:23:50.884 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 377
+29-Mar-2019 20:23:50.884 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 378
+29-Mar-2019 20:23:50.884 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 379
+29-Mar-2019 20:23:50.884 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 380
+29-Mar-2019 20:23:50.884 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 381
+29-Mar-2019 20:23:50.884 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 382
+29-Mar-2019 20:23:50.884 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 383
+29-Mar-2019 20:23:50.900 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 384
+29-Mar-2019 20:23:50.900 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 385
+29-Mar-2019 20:23:50.915 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 386
+29-Mar-2019 20:23:50.915 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 387
+29-Mar-2019 20:23:50.915 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 388
+29-Mar-2019 20:23:50.915 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 389
+29-Mar-2019 20:23:50.915 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 390
+29-Mar-2019 20:23:50.915 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 391
+29-Mar-2019 20:23:50.915 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 392
+29-Mar-2019 20:23:50.915 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 393
+29-Mar-2019 20:23:50.931 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 394
+29-Mar-2019 20:23:50.931 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 395
+29-Mar-2019 20:23:50.947 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 396
+29-Mar-2019 20:23:50.947 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 397
+29-Mar-2019 20:23:50.947 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 398
+29-Mar-2019 20:23:50.947 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 399
+29-Mar-2019 20:23:50.947 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 400
+29-Mar-2019 20:23:50.947 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 401
+29-Mar-2019 20:23:50.947 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 402
+29-Mar-2019 20:23:50.947 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 403
+29-Mar-2019 20:23:50.947 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 404
+29-Mar-2019 20:23:50.962 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 405
+29-Mar-2019 20:23:50.962 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 406
+29-Mar-2019 20:23:50.978 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 407
+29-Mar-2019 20:23:50.978 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 408
+29-Mar-2019 20:23:50.978 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 409
+29-Mar-2019 20:23:50.978 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 410
+29-Mar-2019 20:23:50.978 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 411
+29-Mar-2019 20:23:50.978 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 412
+29-Mar-2019 20:23:50.978 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 413
+29-Mar-2019 20:23:50.978 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 414
+29-Mar-2019 20:23:50.978 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 415
+29-Mar-2019 20:23:50.978 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 416
+29-Mar-2019 20:23:50.993 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 417
+29-Mar-2019 20:23:51.009 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 418
+29-Mar-2019 20:23:51.009 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 419
+29-Mar-2019 20:23:51.009 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 420
+29-Mar-2019 20:23:51.009 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 421
+29-Mar-2019 20:23:51.009 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 422
+29-Mar-2019 20:23:51.009 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 423
+29-Mar-2019 20:23:51.009 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 424
+29-Mar-2019 20:23:51.009 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 425
+29-Mar-2019 20:23:51.009 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 426
+29-Mar-2019 20:23:51.025 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 427
+29-Mar-2019 20:23:51.025 SEVERE [main] com.sun.faces.config.JavaClassScanningAnnotationScanner$ConstantPoolInfo.containsAnnotation Unknow type constant pool 0 at position 428
+29-Mar-2019 20:23:51.415 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\GIT\task05_Lambdas_Streams\apache-tomcat-9.0.16[configured for deployment]\webapps\ROOT] has finished in [8,624] ms
+29-Mar-2019 20:23:51.447 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+29-Mar-2019 20:23:51.478 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+29-Mar-2019 20:23:51.493 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [52,479] milliseconds
+29-Mar-2019 20:23:51.998 INFO [http-nio-8080-exec-1] .nextWord >skip 'substitute' with 22 points
+29-Mar-2019 20:23:51.998 INFO [http-nio-8080-exec-1] .nextWord >skip 'cautious' with 22 points
+29-Mar-2019 20:23:51.998 INFO [http-nio-8080-exec-1] .nextWord >skip 'below' with 22 points
+29-Mar-2019 20:23:51.998 INFO [http-nio-8080-exec-1] .nextWord >skip 'intention' with 22 points
+29-Mar-2019 20:23:51.998 INFO [http-nio-8080-exec-1] .nextWord >skip 'report concerns' with 22 points
+29-Mar-2019 20:23:51.998 INFO [http-nio-8080-exec-1] .nextWord >skip 'treated as' with 22 points
+29-Mar-2019 20:23:51.998 INFO [http-nio-8080-exec-1] .nextWord >skip 'parquet board' with 22 points
+29-Mar-2019 20:23:51.998 INFO [http-nio-8080-exec-1] .nextWord >skip 'intergity' with 22 points
+29-Mar-2019 20:23:52.030 INFO [http-nio-8080-exec-1] .doGet >FIRST START
+29-Mar-2019 20:23:56.633 INFO [http-nio-8080-exec-3] .doGet >FIRST START
+29-Mar-2019 20:24:03.591 INFO [http-nio-8080-exec-4] .doGet TRAINING MODE
+29-Mar-2019 20:24:03.595 INFO [http-nio-8080-exec-4] .doGet >CORRECT! The scores on word 'desolation' is up to 22
+29-Mar-2019 20:24:03.599 INFO [http-nio-8080-exec-4] .nextWord >skip 'sufficient' with 22 points
+29-Mar-2019 20:24:03.599 INFO [http-nio-8080-exec-4] .nextWord >skip 'vulnerability scanning' with 22 points
+29-Mar-2019 20:24:37.032 INFO [http-nio-8080-exec-8] .doGet TRAINING MODE
+29-Mar-2019 20:24:37.040 SEVERE [http-nio-8080-exec-8] .doGet >WRONG! Try again!
+29-Mar-2019 20:24:47.560 INFO [http-nio-8080-exec-7] .doGet TRAINING MODE
+29-Mar-2019 20:24:47.564 INFO [http-nio-8080-exec-7] .doGet >CORRECT! The scores on word 'comprehensive' is up to 22
+29-Mar-2019 20:24:47.568 INFO [http-nio-8080-exec-7] .nextWord >skip 'measure' with 22 points
+29-Mar-2019 20:24:47.568 INFO [http-nio-8080-exec-7] .nextWord >skip 'adherence' with 22 points
+29-Mar-2019 20:24:47.572 INFO [http-nio-8080-exec-7] .nextWord >skip 'screwdriver' with 22 points
+29-Mar-2019 20:24:47.576 INFO [http-nio-8080-exec-7] .nextWord >skip 'unwieldy' with 22 points
+29-Mar-2019 20:24:52.907 INFO [http-nio-8080-exec-10] .doGet TRAINING MODE
+29-Mar-2019 20:24:52.911 INFO [http-nio-8080-exec-10] .doGet >CORRECT! The scores on word 'maintained' is up to 22
+29-Mar-2019 20:24:52.915 INFO [http-nio-8080-exec-10] .nextWord >skip 'report concerns' with 22 points
+29-Mar-2019 20:24:52.919 INFO [http-nio-8080-exec-10] .nextWord >skip 'intention' with 22 points
+29-Mar-2019 20:24:52.919 INFO [http-nio-8080-exec-10] .nextWord >skip 'below' with 22 points
+29-Mar-2019 20:24:52.923 INFO [http-nio-8080-exec-10] .nextWord >skip 'variety' with 22 points
+29-Mar-2019 20:24:52.927 INFO [http-nio-8080-exec-10] .nextWord >skip 'burden' with 22 points
+29-Mar-2019 20:24:52.931 INFO [http-nio-8080-exec-10] .nextWord >skip 'adhere' with 22 points
+29-Mar-2019 20:25:11.646 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+29-Mar-2019 20:25:12.136 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+29-Mar-2019 20:25:12.798 INFO [Thread-5] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+29-Mar-2019 20:25:12.861 INFO [Thread-5] .destroy >destroying application
+29-Mar-2019 20:25:12.939 SEVERE [Thread-5] com.sun.faces.config.ConfigureListener.contextDestroyed Unexpected state during contextDestroyed: no ConfigManager instance in current ServletContext but one is expected to exist.
+29-Mar-2019 20:25:13.001 SEVERE [Thread-5] com.sun.faces.config.ConfigureListener.contextDestroyed Unexpected state during contextDestroyed: no ConfigManager instance in current ServletContext but one is expected to exist.
+29-Mar-2019 20:25:13.032 SEVERE [Thread-5] com.sun.faces.config.ConfigureListener.contextDestroyed Unexpected state during contextDestroyed: no ConfigManager instance in current ServletContext but one is expected to exist.
+29-Mar-2019 20:25:13.064 SEVERE [Thread-5] com.sun.faces.config.ConfigureListener.contextDestroyed Unexpected state during contextDestroyed: no ConfigManager instance in current ServletContext but one is expected to exist.
+29-Mar-2019 20:25:13.079 SEVERE [Thread-5] com.sun.faces.config.ConfigureListener.contextDestroyed Unexpected state during contextDestroyed: no ConfigManager instance in current ServletContext but one is expected to exist.
+29-Mar-2019 20:25:13.095 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+29-Mar-2019 20:25:13.111 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+29-Mar-2019 20:25:13.126 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+29-Mar-2019 20:25:13.126 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
