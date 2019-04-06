@@ -39,7 +39,7 @@ th {
 		
 	Filter: <select select id="selectoid" name="selectoid">
 		 <option value="sort">sort</option>
-		  <option value="reduce">reduce</option>
+		  <option value="import">import</option>
 		 </select>
 	</form>
     ${tableRenderer.tablecode}

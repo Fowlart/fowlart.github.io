@@ -65,10 +65,9 @@ public class WordForm extends HttpServlet
 		//speech = new Speech();
 	}
 
+	//todo: infinity loop danger here
 	private WordTranslate nextWord()
 	{
-		WordTranslate wordTranslate = wordTranslatelist.stream().skip(this.random.nextInt(wordTranslatelist.size() - 1)).findAny()
-				.get();
 		// recalculating view metrics
 		{
 			total_points = this.wordTranslatelist.stream().mapToInt((i) -> i.getPoints()).reduce(0, (i1, i2) -> i1 + i2);
@@ -76,14 +75,17 @@ public class WordForm extends HttpServlet
 			avg_point = (double) total_points / (double) count_of_words;
 			progress = avg_point / 30 * 100;
 		}
-
-		if (wordTranslate.getPoints() <= (this.avg_point.intValue()))
+		while (true)
 		{
-			new Speech().speak(wordTranslate.getUkrword(),"uk");
-			return wordTranslate;
+			WordTranslate wordTranslate = wordTranslatelist.stream().skip(this.random.nextInt(wordTranslatelist.size()))
+					.findAny().get();
+			if (wordTranslate.getPoints() <= (this.avg_point.intValue()))
+			{
+				new Speech().speak(wordTranslate.getUkrword(), "uk");
+				return wordTranslate;
+			}
+			System.out.println(">skip '" + wordTranslate.getEngword() + "' with " + wordTranslate.getPoints() + " points");
 		}
-		System.out.println(">skip '" + wordTranslate.getEngword() + "' with " + wordTranslate.getPoints() + " points");
-		return nextWord();
 	}
 
 	private void forwarding(WordsRenderer r1, TableWordsRender r2, HttpServletRequest request, HttpServletResponse response)
@@ -131,9 +133,9 @@ public class WordForm extends HttpServlet
 			}
 
 			//ToDO: here, imported dictionaries must added into common dictionary
-			if (selected_filter.equals("reduce"))
+			if (selected_filter.equals("import"))
 			{
-				this.wordTranslatelist = Handler.getList();
+				this.wordTranslatelist.addAll(Handler.getList());
 			}
 
 			// fill the dictionary table
