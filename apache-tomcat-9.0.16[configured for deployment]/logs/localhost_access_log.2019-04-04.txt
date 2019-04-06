@@ -1,0 +1,13 @@
+0:0:0:0:0:0:0:1 - - [04/Apr/2019:12:36:47 +0300] "GET /word HTTP/1.1" 200 4006
+0:0:0:0:0:0:0:1 - - [04/Apr/2019:12:36:57 +0300] "GET /word?check_text=&selectoid=sort HTTP/1.1" 200 4006
+0:0:0:0:0:0:0:1 - - [04/Apr/2019:12:37:17 +0300] "GET /word?check_text=&selectoid=sort HTTP/1.1" 200 4006
+0:0:0:0:0:0:0:1 - - [04/Apr/2019:12:37:22 +0300] "GET /word?check_text=&selectoid=sort HTTP/1.1" 200 4006
+0:0:0:0:0:0:0:1 - - [04/Apr/2019:12:37:23 +0300] "GET /word?check_text=dagfreg&selectoid=sort HTTP/1.1" 200 1140
+0:0:0:0:0:0:0:1 - - [04/Apr/2019:12:37:27 +0300] "GET /word?check_text=&selectoid=sort HTTP/1.1" 200 4006
+0:0:0:0:0:0:0:1 - - [04/Apr/2019:12:43:36 +0300] "GET /word?check_text=&selectoid=sort HTTP/1.1" 200 4006
+0:0:0:0:0:0:0:1 - - [04/Apr/2019:12:43:36 +0300] "GET /favicon.ico HTTP/1.1" 200 21630
+0:0:0:0:0:0:0:1 - - [04/Apr/2019:12:43:43 +0300] "GET /word?check_text=&selectoid=sort HTTP/1.1" 200 4006
+0:0:0:0:0:0:0:1 - - [04/Apr/2019:12:43:43 +0300] "GET /favicon.ico HTTP/1.1" 200 21630
+0:0:0:0:0:0:0:1 - - [04/Apr/2019:12:43:48 +0300] "GET /word?check_text=fest&selectoid=sort HTTP/1.1" 200 1140
+0:0:0:0:0:0:0:1 - - [04/Apr/2019:12:43:51 +0300] "GET /word?check_text=&selectoid=sort HTTP/1.1" 200 4006
+0:0:0:0:0:0:0:1 - - [04/Apr/2019:12:44:00 +0300] "GET /word?check_text=feather&selectoid=sort HTTP/1.1" 200 1167
