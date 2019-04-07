@@ -1,3 +1,44 @@
+invented;винайден≥;1
+gracefully;витончено;1
+uniquely;однозначно;1
+vacuuming;пилососити;1
+scalability;масштабован≥сть;2
+craving;т€га;2
+timber;деревина;2
+consider this;розгл€нути це;2
+to excel;перевершити;2
+stay tuned;стежте за оновленн€ми;2
+expiration;зак≥нченн€;2
+facilitate;полегшити;2
+suitable;п≥дходить;2
+itch;сверб≥нн€;2
+skrill wallet;скарбниц€;2
+evidence;докази;2
+chest;грудей;3
+jargon;жаргон;3
+blame;звинувачувати;3
+consignment;вантаж;3
+eye drops;очн≥ крапл≥;3
+tough;жорсткий;3
+arrogance;зарозум≥л≥сть;3
+despite;незважаючи на це;3
+feather;перо;3
+relevant;в≥дпов≥дн≥;3
+mutually exclusive;взаЇмовиключний;3
+desperate;в≥дчайдушний;3
+apparel;од€г;3
+mortar;розчин;4
+interchangeably;взаЇмозам≥нн≥;4
+proof;доказ;4
+swatches;зразки;4
+laundry;пранн€;4
+loan;кредит;4
+vague;розпливчасто;4
+peculiar;своЇр≥дний;4
+quality assurance;гарант≥€ €кост≥;4
+disparate;розр≥знен≥;5
+payload;корисне навантаженн€;6
+tweezer;п≥нцет;24
 report concerns;зв≥тувати про проблеми;25
 maintainability;ремонтопридатн≥сть;25
 effort;зусилл€;25
@@ -117,7 +158,6 @@ pipeline;трубопров≥д;25
 acquisition;придбанн€;25
 move along;рухатис€ по;25
 intergity;ц≥л≥сн≥сть;25
-high cohesion;висока згуртован≥сть;26
 efficient;ефективний;25
 redundant;зайвий;25
 compatibility;сум≥сн≥сть;25
@@ -154,49 +194,9 @@ lurking;ховаЇтьс€;25
 intimidation;зал€куванн€;25
 cautious;обережний;25
 inadvertent;випадково;25
-tweezer;п≥нцет;24
+high cohesion;висока згуртован≥сть;26
 crust;корка;26
 evaluating;оц≥нюванн€;26
 awkward;незграбний;26
-payload;корисне навантаженн€;0
-evidence;докази;0
-gracefully;витончено;0
-invented;винайден≥;0
-despite;незважаючи на це;0
-stay tuned;стежте за оновленн€ми;0
-interconnectivity;взаЇмозв'€зок;0
-facilitate;полегшити;0
-mutually exclusive;взаЇмовиключний;0
-expiration;зак≥нченн€;0
-quality assurance;гарант≥€ €кост≥;0
-uniquely;однозначно;0
-interchangeably;взаЇмозам≥нн≥;0
-swatches;зразки;0
-vague;розпливчасто;0
-relevant;в≥дпов≥дн≥;0
-scalability;масштабован≥сть;0
-itch;сверб≥нн€;0
-mortar;розчин;0
-timber;деревина;0
-consider this;розгл€нути це;0
-desperate;в≥дчайдушний;0
-feather;перо;0
-proof;доказ;0
-craving;т€га;0
-arrogance;зарозум≥л≥сть;0
-eye drops;очн≥ крапл≥;0
-apparel;од€г;0
-skrill wallet;скарбниц€;0
-consignment;вантаж;0
-jargon;жаргон;0
-loan;кредит;0
-suitable;п≥дходить;0
-tough;жорсткий;0
-to excel;перевершити;0
-vacuuming;пилососити;0
-laundry;пранн€;0
 abuse;зловживанн€;26
-blame;звинувачувати;1
-disparate;розр≥знен≥;1
-chest;грудей;2
-peculiar;своЇр≥дний;1
+interconnectivity;взаЇмозв'€зок;2

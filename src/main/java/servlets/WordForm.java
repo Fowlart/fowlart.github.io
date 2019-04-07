@@ -167,6 +167,7 @@ public class WordForm extends HttpServlet
 			}
 			// just inform
 			else
+				new Speech().speak("wrong input", "en-us");
 				System.out.println(">WRONG! Try again!");
 			this.forwarding(wordsRenderer, tableWordsRender, request, response);
 		}
