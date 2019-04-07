@@ -62,7 +62,8 @@ public class WordForm extends HttpServlet {
         wordTranslatelist = csvWordsReader.getItemList(INPUT_FILE);
         if (wordTranslatelist.isEmpty()) {
             WordTranslate test = new WordTranslate(new WordPropertie("test"),
-                    new WordPropertie("тест"), 0);
+                    new WordPropertie("С‚РµСЃС‚"), 0);
+            wordTranslatelist.add(test);
         }
         wordTranslatelist = new Optimizer(wordTranslatelist).getOptimizedList();
         random = new Random(47);
