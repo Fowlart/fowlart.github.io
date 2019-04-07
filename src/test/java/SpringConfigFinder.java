@@ -43,6 +43,7 @@ public class SpringConfigFinder
 			"</beans>";
 
 
+	@Test
 	public void testExist()
 	{
 		File configuration = new File(PATH_TO_FILE);
