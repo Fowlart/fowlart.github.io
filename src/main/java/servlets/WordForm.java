@@ -18,7 +18,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
@@ -88,7 +87,7 @@ public class WordForm extends HttpServlet {
             WordTranslate wordTranslate = wordTranslatelist.stream().skip(this.random.nextInt(wordTranslatelist.size()))
                     .findAny().get();
             if (wordTranslate.getPoints() <= (this.avg_point.intValue())) {
-                new Speech().speak(wordTranslate.getUkrword(), "uk");
+                // new Speech().speak(wordTranslate.getUkrword(), "uk");
                 return wordTranslate;
             }
             System.out.println(">skip '" + wordTranslate.getEngword() + "' with " + wordTranslate.getPoints() + " points");
