@@ -68,7 +68,7 @@ public class SpringConfigFinder
 		assertTrue(configuration.isFile());
 	}
 
-
+	@Test
 	public void contexTest()
 	{
 		created_spring_config = new File(PATH_TO_FILE);
