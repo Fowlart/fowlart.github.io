@@ -4,6 +4,7 @@ import models.TableWordsRender;
 import models.WordsRenderer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 import project.dictionary_optimizer.Optimizer;
 import project.entities.item_implementations.words.WordTranslate;
 import project.io_data_module.CsvWordsReader;
@@ -12,15 +13,20 @@ import speech.Speech;
 import spring_utils.Handler;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-
+@WebServlet(
+		name = "MyServlet",
+		urlPatterns = {"/word"}
+)
 public class WordForm extends HttpServlet
 {
 
@@ -52,7 +58,9 @@ public class WordForm extends HttpServlet
 	{
 		super.init();
 		// setup
-		ApplicationContext context = new ClassPathXmlApplicationContext("dic_mover-spring.xml");
+		//ApplicationContext context = new ClassPathXmlApplicationContext("dic_mover-spring.xml");
+		ApplicationContext context = new FileSystemXmlApplicationContext("dic_mover-spring.xml");
+		// where is root for tomcat
 		csvWordsReader = new CsvWordsReader();
 		wordTranslatelist = csvWordsReader.getItemList(INPUT_FILE);
 		wordTranslatelist = new Optimizer(wordTranslatelist).getOptimizedList();

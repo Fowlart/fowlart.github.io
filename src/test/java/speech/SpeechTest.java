@@ -16,7 +16,6 @@ public class SpeechTest
 	private Speech speech = new Speech();
 
 	/** creating mp3 list of words */
-	@Test
     public void testSpeechingFromFile()
 	{
 		List<WordTranslate> list = reader.getItemList(PATH_TO_DICTIONARY);
@@ -29,7 +28,7 @@ public class SpeechTest
 	}
 
 	/** deleting files with null size*/
-	@Test
+
 	public void deleteEmptyFiles()
 	{
 		File folder = new File(PATH_TO_FOLDER);
