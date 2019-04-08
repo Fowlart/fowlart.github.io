@@ -40,7 +40,7 @@ th {
 
 	Filter: <select select id="selectoid" name="selectoid">
 	<option value="sort">sort</option>
-	<option value="import">import</option>
+	<option value="save">save</option>
 </select>
 </form>
 
