@@ -1,13 +1,8 @@
 package project.io_data_module;
 
-import com.sun.faces.facelets.util.Path;
 import project.entities.item_implementations.words.WordTranslate;
 
 import java.io.*;
-
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
 
 public class CsvWordsWriter {
@@ -20,7 +15,7 @@ public class CsvWordsWriter {
 
         try {
             if (!file.exists()) file.createNewFile();
-            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filename), "CP1251"));
+            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filename)));
             for (WordTranslate wordTranslate : list) {
                 writer.write(wordTranslate.getEngword() + ";" + wordTranslate.getUkrword() +
                         ";" + wordTranslate.getPoints());

@@ -2,9 +2,6 @@ package servlets;
 
 import models.TableWordsRender;
 import models.WordsRenderer;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
 import project.dictionary_optimizer.Optimizer;
 import project.entities.item_implementations.words.WordPropertie;
 import project.entities.item_implementations.words.WordTranslate;
@@ -25,12 +22,12 @@ import java.util.stream.Collectors;
 
 @WebServlet(
         name = "MyServlet",
-        urlPatterns = {"/word"}
+        urlPatterns = {"/"}
 )
 public class WordForm extends HttpServlet {
 
-    private static String INPUT_FILE = "dictionaries/db.csv";
-    private static String OUTPUT_FILE = "dictionaries/db.csv";
+    private static String INPUT_FILE = "db.csv";
+    private static String OUTPUT_FILE = "db.csv";
 
     private List<WordTranslate> wordTranslatelist;
     private Random random;
@@ -56,7 +53,7 @@ public class WordForm extends HttpServlet {
         super.init();
         // setup
         //ApplicationContext context = new FileSystemXmlApplicationContext("dic_mover-spring.xml");
-        // where is root for tomcat
+        // where is root for tomcat?
         csvWordsReader = new CsvWordsReader();
         wordTranslatelist = csvWordsReader.getItemList(INPUT_FILE);
         if (wordTranslatelist.isEmpty()) {
