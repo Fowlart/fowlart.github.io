@@ -5,6 +5,7 @@ speech\synthesiser\BaseSynthsiser.class
 models\TableWordsRender.class
 speech\synthesiser\BaseSynthsiser$MP3DataFetcher.class
 speech\synthesiser\Synthesiser.class
+launch\Main.class
 project\entities\item_implementations\words\WordPropertie.class
 speech\synthesiser\SynthesiserV2.class
 project\io_data_module\CsvWordsWriter.class
