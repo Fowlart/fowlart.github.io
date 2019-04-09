@@ -44,6 +44,7 @@ public class WordForm extends HttpServlet
 	public void init() throws ServletException
 	{
 		super.init();
+		System.out.println(">FIRST START");
 		creator = new OnServerFileCreator();
 		creator.createSpringConfig();
 		creator.createFileDB();
@@ -110,7 +111,6 @@ public class WordForm extends HttpServlet
 		// first start without parameters
 		if ((entered_text == null) || (selected_filter == null))
 		{
-			System.out.println(">FIRST START");
 			entered_text = "";
 			selected_filter = "sort";
 		}

@@ -1,10 +1,17 @@
 package project.io_data_module;
 
-import project.entities.item_implementations.words.*;
+import project.entities.item_implementations.words.WordPropertie;
+import project.entities.item_implementations.words.WordTranslate;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
-import java.util.*;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 
@@ -38,7 +45,8 @@ public class CsvWordsReader {
 
     public String lastModified() {
         File csv_file = new File(filename);
-        if ((csv_file.exists()) && (csv_file.isFile())) return new Date(csv_file.lastModified()).toString();
+        DateFormat df = DateFormat.getDateTimeInstance();
+        if ((csv_file.exists()) && (csv_file.isFile())) return df.format(new Date(csv_file.lastModified()));
         return "no data";
     }
 }
