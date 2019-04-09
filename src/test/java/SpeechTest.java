@@ -1,15 +1,14 @@
-package speech;
-
 import org.junit.Ignore;
 import org.junit.Test;
 import project.entities.item_implementations.words.WordTranslate;
 import project.io_data_module.CsvWordsReader;
+import speech.Speech;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-@Ignore
+
 public class SpeechTest
 {
 
@@ -18,6 +17,7 @@ public class SpeechTest
 	private CsvWordsReader reader = new CsvWordsReader();
 	private Speech speech = new Speech();
 
+	@Ignore
 	@Test
 	public void writeSingle(){
 		try {
@@ -27,6 +27,7 @@ public class SpeechTest
 		}
 	}
 
+	@Ignore
 	@Test
 	/** creating mp3 list of words */
     public void testSpeechingFromFile()
@@ -40,6 +41,7 @@ public class SpeechTest
 		}
 	}
 
+	@Ignore
 	@Test
 	/** deleting files with null size*/
 	public void deleteEmptyFiles()

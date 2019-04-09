@@ -33,11 +33,10 @@ th {
 <font size="5" color="green" face="Arial"><details><font size="4" color="black" face="Arial">
 ${renderer.ukr_word} - ${renderer.english_word}</font>
 <br/>
-<audio id="myAudio">
-  <source src=${sound} type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-<br/>
+	<audio controls>
+		<source src="app/voice.mp3" type="audio/mpeg">
+		Your browser does not support the audio tag.
+	</audio>
 
 </details></font>
 <br/>
