@@ -6,6 +6,7 @@ import project.entities.item_implementations.words.WordTranslate;
 import project.io_data_module.CsvWordsReader;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @Ignore
@@ -16,6 +17,15 @@ public class SpeechTest
 	private String PATH_TO_DICTIONARY = "c:\\dictionaries\\dic.csv";
 	private CsvWordsReader reader = new CsvWordsReader();
 	private Speech speech = new Speech();
+
+	@Test
+	public void writeSingle(){
+		try {
+			speech.getSingleMp3("wrong","wrong.mp3","en-us");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	@Test
 	/** creating mp3 list of words */

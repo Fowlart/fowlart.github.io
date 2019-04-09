@@ -1,8 +1,5 @@
 package speech.synthesiser;
 
-
-import speech.GoogleTranslate;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.SequenceInputStream;
@@ -132,16 +129,6 @@ public abstract class BaseSynthsiser {
      */
     private boolean isEndingPunctuation(char input){
         return input == '.' || input == '!' || input == '?' || input == ';' || input == ':' || input == '|';
-    }
-
-    /**
-     * Automatically determines the language of the original text
-     * @param text represents the text you want to check the language of
-     * @return the languageCode in ISO-639
-     * @throws IOException if it cannot complete the request
-     */
-    public String detectLanguage(String text) throws IOException{
-        return GoogleTranslate.detectLanguage(text);
     }
 
     /**

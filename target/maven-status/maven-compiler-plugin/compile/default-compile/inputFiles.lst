@@ -4,11 +4,10 @@ C:\My\item_analyzer_web_app\src\main\java\project\dictionary_optimizer\Optimizer
 C:\My\item_analyzer_web_app\src\main\java\speech\synthesiser\BaseSynthsiser.java
 C:\My\item_analyzer_web_app\src\main\java\project\entities\item_implementations\words\WordsProperieType.java
 C:\My\item_analyzer_web_app\src\main\java\models\TableWordsRender.java
-C:\My\item_analyzer_web_app\src\main\java\speech\synthesiser\Synthesiser.java
-C:\My\item_analyzer_web_app\src\main\java\speech\GoogleTranslate.java
 C:\My\item_analyzer_web_app\src\main\java\speech\Speech.java
 C:\My\item_analyzer_web_app\src\main\java\project\entities\item_implementations\words\WordPropertie.java
 C:\My\item_analyzer_web_app\src\main\java\project\entities\item_implementations\words\WordTranslate.java
+C:\My\item_analyzer_web_app\src\main\java\launch\OnServerFileCreator.java
 C:\My\item_analyzer_web_app\src\main\java\speech\synthesiser\SynthesiserV2.java
 C:\My\item_analyzer_web_app\src\main\java\launch\Main.java
 C:\My\item_analyzer_web_app\src\main\java\servlets\WordForm.java

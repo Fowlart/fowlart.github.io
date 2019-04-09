@@ -16,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
@@ -126,15 +127,14 @@ public class WordForm extends HttpServlet
 
 			}
 
-			//ToDO: here, imported dictionaries must added into common dictionary
+			//ToDO: saving progress
 			if (selected_filter.equals("save"))
 			{
-			    //todo: need add hot folders
+				//todo: need add hot folders
 				//this.wordTranslatelist.addAll(Handler.getList());
-                System.out.println(">saving");
-                CsvWordsWriter csvWordsWriter = new CsvWordsWriter();
-                csvWordsWriter.writeInFile(creator.getPATH_TO_FILE_DB(), this.wordTranslatelist);
-
+				System.out.println(">saving");
+				CsvWordsWriter csvWordsWriter = new CsvWordsWriter();
+				csvWordsWriter.writeInFile(creator.getPATH_TO_FILE_DB(), this.wordTranslatelist);
 			}
 
 			// fill the dictionary table
@@ -166,8 +166,14 @@ public class WordForm extends HttpServlet
 			}
 			// just inform
 			else
-				new Speech().speak("wrong input", "en-us");
-			System.out.println(">WRONG! Try again!");
+			{
+				//Todo: find out, how to play sounds from servlet
+				Speech speech = new Speech();
+				File mp3 = speech.getSingleMp3("wrong", "voice.mp3", "en-us");
+				System.out.println(mp3.toURI().getPath());
+				request.setAttribute("sound", mp3.toURI().getPath());
+				System.out.println(">WRONG! Try again!");
+			}
 			this.forwarding(wordsRenderer, tableWordsRender, request, response);
 		}
 	}

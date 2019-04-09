@@ -48,6 +48,7 @@ public class SynthesiserV2 extends BaseSynthsiser {
 	 * <a href="http://www.chromium.org/developers/how-tos/api-keys">url</a>.
 	 */
 	public SynthesiserV2(String API_KEY){
+		super();
 		this.API_KEY = API_KEY;
 	}
 	
@@ -105,22 +106,6 @@ public class SynthesiserV2 extends BaseSynthsiser {
 	
 	@Override
 	public InputStream getMP3Data(String synthText) throws IOException{
-
-		String languageCode = this.languageCode;//Ensures retention of language settings if set to auto
-
-		if(languageCode == null || languageCode.equals("") || languageCode.equalsIgnoreCase("auto")){
-			try{
-				languageCode = detectLanguage(synthText);//Detects language
-				if(languageCode == null){
-					languageCode = "en-us";//Reverts to Default Language if it can't detect it.
-				}
-			}
-			catch(Exception ex){
-				ex.printStackTrace();
-				languageCode = "en-us";//Reverts to Default Language if it can't detect it.
-			}
-		}
-
 		if(synthText.length()>100){
 			List<String> fragments = parseString(synthText);//parses String if too long
 			String tmp = getLanguage();

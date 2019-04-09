@@ -19,6 +19,7 @@
             <artifactId>tomcat-embed-core</artifactId>
             <version>${tomcat.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
@@ -100,8 +101,6 @@
     </dependencies>
 
     <build>
-        <finalName>tomcat[redy_to_deployment]</finalName>
-
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -126,7 +125,7 @@
                     <assembleDirectory>target</assembleDirectory>
                     <programs>
                         <program>
-                            <mainClass>launch.Main</mainClass>
+                           <mainClass>launch.Main</mainClass>
                             <name>webapp</name>
                         </program>
                     </programs>

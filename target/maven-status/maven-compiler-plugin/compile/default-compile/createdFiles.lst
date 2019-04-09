@@ -4,14 +4,13 @@ project\dictionary_optimizer\Optimizer.class
 speech\synthesiser\BaseSynthsiser.class
 models\TableWordsRender.class
 speech\synthesiser\BaseSynthsiser$MP3DataFetcher.class
-speech\synthesiser\Synthesiser.class
 launch\Main.class
 project\entities\item_implementations\words\WordPropertie.class
 speech\synthesiser\SynthesiserV2.class
+launch\OnServerFileCreator.class
 project\io_data_module\CsvWordsWriter.class
 spring_utils\Handler.class
 project\entities\item_implementations\words\WordsProperieType.class
-speech\GoogleTranslate.class
 servlets\WordForm.class
 project\io_data_module\CsvWordsReader.class
 speech\Speech.class

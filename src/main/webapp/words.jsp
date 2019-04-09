@@ -30,7 +30,16 @@ th {
 <body>
 <h1><span style="color:#4CAF50;">Please translate word: ${renderer.ukr_word}</span></h1>
 
-<font size="5" color="green" face="Arial"><details><font size="4" color="black" face="Arial">${renderer.ukr_word} - ${renderer.english_word}</font></details></font>
+<font size="5" color="green" face="Arial"><details><font size="4" color="black" face="Arial">
+${renderer.ukr_word} - ${renderer.english_word}</font>
+<br/>
+<audio id="myAudio">
+  <source src=${sound} type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<br/>
+
+</details></font>
 <br/>
 
 <form action = "word" method = "GET">
@@ -66,7 +75,6 @@ th {
 </article>
 <br/>
 
-<br/>
 
     ${tableRenderer.tablecode}
 </body>
