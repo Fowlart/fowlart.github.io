@@ -28,13 +28,15 @@ th {
 </style>
 
 <body>
-<h1><span style="color:#4CAF50;">Please translate word: ${renderer.ukr_word}</span></h1>
+<h1><span style="color:#4CAF50;">please translate word: ${renderer.ukr_word}</span></h1>
 
 <font size="5" color="green" face="Arial"><details><font size="4" color="black" face="Arial">
 ${renderer.ukr_word} - ${renderer.english_word}</font>
 <br/>
-<audio id="myAudio">
-  <source src=${sound} type="audio/mpeg">
+${sound}
+<br/>
+<audio controls id="myAudio">
+<source type="audio/mpeg">${sound}</source>
   Your browser does not support the audio element.
 </audio>
 <br/>

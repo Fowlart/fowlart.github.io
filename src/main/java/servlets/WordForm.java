@@ -170,8 +170,9 @@ public class WordForm extends HttpServlet
 				//Todo: find out, how to play sounds from servlet
 				Speech speech = new Speech();
 				File mp3 = speech.getSingleMp3("wrong", "voice.mp3", "en-us");
-				System.out.println(mp3.toURI().getPath());
-				request.setAttribute("sound", mp3.toURI().getPath());
+				String path = mp3.getAbsolutePath();
+				System.out.println(path);
+				request.setAttribute("sound",path);
 				System.out.println(">WRONG! Try again!");
 			}
 			this.forwarding(wordsRenderer, tableWordsRender, request, response);
