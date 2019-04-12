@@ -40,7 +40,14 @@ public class SynthesiserV2 extends BaseSynthsiser {
 	 * The speed of the generated audio
 	 */
 	private double speed = 1.0;
-	
+
+	private URL CONNECT_URL;
+
+	public URL getCONNECT_URL() {
+		return CONNECT_URL;
+	}
+
+
 	/**
 	 * Constructor
 	 * @param API_KEY The API-Key for Google's Speech API. An API key can be obtained by requesting
@@ -132,6 +139,7 @@ public class SynthesiserV2 extends BaseSynthsiser {
 		}
 		
 		URL url = new URL(sb.toString()); //create url
+		this.CONNECT_URL = url;
 
 		// Open New URL connection channel.
 		URLConnection urlConn = url.openConnection(); //Open connection

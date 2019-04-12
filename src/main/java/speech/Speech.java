@@ -2,10 +2,12 @@ package speech;
 
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.advanced.AdvancedPlayer;
+import org.apache.jasper.tagplugins.jstl.core.Url;
 import project.entities.item_implementations.words.WordTranslate;
 import speech.synthesiser.SynthesiserV2;
 
 import java.io.*;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,14 +17,22 @@ public class Speech
 
 	//Create a Synthesizer instance
 	private SynthesiserV2 synthesizer = new SynthesiserV2("AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw");
+	private URL last_url;
 
+	public URL getLast_url(String word, String code) throws IOException {
+		synthesizer.setLanguage(code);
+		synthesizer.setSpeed(1);
+		InputStream inputStream = synthesizer.getMP3Data(word);
+		this.last_url = synthesizer.getCONNECT_URL();
+		return last_url;
+	}
 
 	public File getSingleMp3(String word, String output_file, String code) throws IOException
 	{
 		synthesizer.setLanguage(code);
 		synthesizer.setSpeed(1);
 		InputStream inputStream = synthesizer.getMP3Data(word);
-
+		this.last_url = synthesizer.getCONNECT_URL();
 		File file = new File(output_file);
 		//if (!file.exists()) file.createNewFile();
 		FileOutputStream outputStream = new FileOutputStream(file);

@@ -96,6 +96,8 @@ public class WordForm extends HttpServlet
 			request.setAttribute("progress", "completed!");
 		request.setAttribute("renderer", r1);
 		request.setAttribute("tableRenderer", r2);
+		Speech speech = new Speech();
+		request.setAttribute("url",speech.getLast_url(this.wordTranslate.getEngword(),"en-us"));
 		request.getRequestDispatcher("words.jsp").forward(request, response);
 	}
 
@@ -165,16 +167,7 @@ public class WordForm extends HttpServlet
 				wordsRenderer.setEnglish_word(wordTranslate.getEngword());
 			}
 			// just inform
-			else
-			{
-				//Todo: find out, how to play sounds from servlet
-				Speech speech = new Speech();
-				File mp3 = speech.getSingleMp3("wrong", "voice.mp3", "en-us");
-				String path = mp3.getAbsolutePath();
-				System.out.println(path);
-				request.setAttribute("sound",path);
-				System.out.println(">WRONG! Try again!");
-			}
+			else System.out.println(">WRONG! Keep trying!");
 			this.forwarding(wordsRenderer, tableWordsRender, request, response);
 		}
 	}
