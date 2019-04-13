@@ -6,10 +6,6 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.List;
-
-
-
-
 /**
  * This class uses the V2 version of Google's Text to Speech API. While this class requires an API key,
  * the endpoint allows for additional specification of parameters including speed and pitch. 
@@ -124,7 +120,6 @@ public class SynthesiserV2 extends BaseSynthsiser {
 
 
 		String encoded = URLEncoder.encode(synthText, "UTF-8"); //Encode
-
 		StringBuilder sb = new StringBuilder(GOOGLE_SYNTHESISER_URL);
 		sb.append("&key=" + API_KEY);
 		sb.append("&text=" + encoded);

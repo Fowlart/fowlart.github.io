@@ -37,9 +37,12 @@ ${renderer.ukr_word} - ${renderer.english_word}</font>
 	<source type="audio/mpeg" src="${url}">
 </audio>
 <br/>
-
 </details></font>
 <br/>
+<br/>
+<audio autoplay id="myAudio1">
+	<source type="audio/mpeg" src="${error}">
+</audio>
 
 <form action = "word" method = "GET">
 	<input type="text" id="check_text" name ="check_text" autocomplete="off"/>
