@@ -3,7 +3,7 @@ package project.entities.item_implementations.words;
 public class WordPropertie {
 
     private String word;
-    private WordsProperieType type;
+    private WordsPropertyTypes type;
 
     public WordPropertie(String word) {
         setWord(word);
@@ -19,16 +19,16 @@ public class WordPropertie {
 
     private void setWord(String word) {
         this.word = word.trim();
-        type = WordsProperieType.UNDEFINED;
-        if (isConteinsLatin()) type = WordsProperieType.ENG;
-        if (!isConteinsLatin()) type = WordsProperieType.UKR;
+        type = WordsPropertyTypes.UNDEFINED;
+        if (isConteinsLatin()) type = WordsPropertyTypes.ENG;
+        if (!isConteinsLatin()) type = WordsPropertyTypes.UKR;
     }
 
     public String getPropertieValue() {
         return word;
     }
 
-    public WordsProperieType getType() {
+    public WordsPropertyTypes getType() {
         return type;
     }
 }

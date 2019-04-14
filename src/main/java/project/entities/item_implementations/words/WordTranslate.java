@@ -10,16 +10,16 @@ public class WordTranslate {
 
     public WordTranslate(WordPropertie word1, WordPropertie word2, Integer points ) {
         this.points = points;
-        if (word1.getType() == WordsProperieType.UKR) {
+        if (word1.getType() == WordsPropertyTypes.UKR) {
             ukrword = word1.getPropertieValue();
             engword = word2.getPropertieValue();
         }
 
-        else if (word1.getType() == WordsProperieType.ENG) {
+        else if (word1.getType() == WordsPropertyTypes.ENG) {
             ukrword = word2.getPropertieValue();
             engword = word1.getPropertieValue();
         } else {
-            ukrword = engword = WordsProperieType.UNDEFINED.name();
+            ukrword = engword = WordsPropertyTypes.UNDEFINED.name();
         }
     }
 

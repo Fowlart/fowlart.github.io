@@ -1,4 +1,4 @@
 package project.entities.item_implementations.words;
-public enum WordsProperieType {
+public enum WordsPropertyTypes {
     ENG, UKR, UNDEFINED;
 }
