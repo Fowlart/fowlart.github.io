@@ -1,75 +1,3 @@
-crust;корка;26
-caveats;застереження;26
-mindset;мислення;26
-desolation;запустіння;26
-substitute;замінити;26
-conscious;свідомий;26
-accurate;точний;26
-impair;погіршити;26
-report concerns;звітувати про проблеми;26
-lurking;ховається;26
-comprehensive;всеосяжний;26
-suspected fraud;підозрюваного шахрайства;26
-transient;минущій;26
-consignment;вантаж;26
-redundant;зайвий;26
-robust;надійний;26
-even number;парне число;26
-drastically;різко;26
-tweezer;пінцет;26
-ploys;хитрощі;26
-bribes;хабарі;26
-consider this;розглянути це;26
-revenue;дохід;26
-established;створена;26
-malware;шкідливих програм;26
-statement;заява;26
-adhere;дотримуватися;26
-vulnerabilities;уразливості;26
-slight flaw;незначний недолік;26
-inadvertent;випадково;26
-superfluous;зайві;26
-wilderness areas;райони дикої природи;26
-maintain;підтримувати;26
-explicit data;явні дані;26
-arguably;можливо;26
-negate;заперечувати;26
-to excel;перевершити;26
-intercept;перехоплення;26
-bare;голі;26
-improperly influenced;неналежний вплив;26
-acquisition;придбання;26
-fraud;шахрайство;26
-hammer;молоток;26
-certain;певний;26
-explicitly;явно;26
-feather;перо;26
-spouse;подружжя;26
-intention;намір;26
-applicable;застосовні;26
-jeopardize;піддати небезпеці;26
-relevant;відповідні;26
-foremost;перш за все;26
-efficient;ефективний;26
-persistante;стійкий;26
-disclosing;розкриття;26
-unambiguous;однозначний;26
-craving;тяга;26
-enhancing;посилення;26
-timber;деревина;26
-scalability;масштабованість;26
-assesment;оцінка;26
-blame;звинувачувати;26
-eye drops;очні краплі;26
-treated as;розглядається як;26
-elegance;вишуканість;26
-arrogance;зарозумілість;26
-prohibited;заборонено;26
-overstates;завищує;26
-expiration;закінчення;26
-interchangeably;взаємозамінні;26
-hat;капелюх;26
-vigilance;пильність;26
 intentional misuse;навмисне зловживання;27
 skrill wallet;скарбниця;27
 eliminated;ліквідовано;27
@@ -83,32 +11,20 @@ violate;порушувати;27
 facilitate;полегшити;27
 cautious;обережний;27
 integrated;інтегрований;27
-mandatory;обов'язковий;27
 laundry;прання;27
 effort;зусилля;27
 invented;винайдені;27
 convenient;зручний;27
-unwieldy;громіздкий;27
 washbasin;умивальник;27
 awkward;незграбний;27
 interconnectivity;взаємозв'язок;27
-mortar;розчин;27
-proof;доказ;27
-apparel;одяг;27
 hostile;вороже;27
-corresponding;відповідний;27
 exploitation;експлуатації;27
-unhindered;безперешкодно;27
-suitable;підходить;27
-garbled;спотворений;27
 peculiar;своєрідний;27
 reliability;надійність;27
-compliant;сумісний;27
 percentage;відсоток;27
-significantly;значно;27
 retaliation;відплати;27
 insidious;підступний;27
-compatibility;сумісність;27
 conduct;поведінка;27
 worth the effort;варто зусиль;27
 impact;вплив;27
@@ -119,84 +35,168 @@ jargon;жаргон;27
 pipeline;трубопровід;27
 itch;свербіння;27
 variety;різноманітність;27
-utmost importance;велике значення;27
 guidance;керівництво;27
-mutually exclusive;взаємовиключний;27
 menace;загроза;27
-transparent;прозорий;27
 swatches;зразки;27
 featured;позначений;27
 complying;дотримання;27
-obtained;отримані;27
 careless;недбало;27
 redemption;викуп;27
 ancestor;предок;27
 wreckage;уламки;27
-vulnerability scanning;сканування уразливостей;27
 sufficient;достатньо;27
-supplier;постачальник;27
 measure;міра;27
 evaluating;оцінювання;27
-gracefully;витончено;27
-aftermath;наслідки;27
 curious;цікаво;27
 consumer;споживач;27
-dispatcher;диспетчер;27
 authenticity;автентичність;27
 enhancement;розширення;27
-conveys;передає;27
 move along;рухатися по;27
-burden;тягар;27
-assembly;складання;27
-accountability;підзвітність;27
-uniquely;однозначно;27
-desperate;відчайдушний;27
-evidence;докази;27
-commitment;зобов'язання;27
-quality assurance;гарантія якості;27
 probability;ймовірність;27
-adherence;прихильність;27
 comprehend;зрозуміти;27
 loan;кредит;27
-fees;збори;27
 riddle;загадка;27
 affordable;доступний;27
 vacuuming;пилососити;27
-required;вимагається;27
-abuse;зловживання;27
-adequately;адекватно;27
-jiffy;миттєво;27
-pipe;труба;27
 promptly;оперативно;27
-disparate;розрізнені;27
-shovel;лопата;27
 parquet board;паркетна дошка;27
-maintainability;ремонтопридатність;27
 ravine;яр;27
-continuity;безперервність;27
-seed;насіння;27
 bandwidth;пропускної здатності;27
-below;нижче;27
-gloomy pools;похмурі басейни;27
-compromised account;скомпрометований обліковий запис;27
-consume;споживати;27
 uncertain;невизначений;27
 implicit response;неявний відповідь;27
 breach;порушення;27
 screwdriver;викрутка;27
 maintained;підтримується;27
-intergity;цілісність;27
-shameless;безсоромний;27
 odd number;непарне число;27
-menace;загрози;27
 despite;незважаючи на це;27
-stay tuned;стежте за оновленнями;27
-sanitary engineering;сантехніка;27
 layout;макет;27
 integrity;цілісність;27
-infrequent;рідко;27
-dedicated;відданий;27
 payload;корисне навантаження;27
-judiciously;розумно;27
 cross-cutting;наскрізний;27
 vague;розпливчасто;27
+drastically;різко;27
+treated as;розглядається як;27
+acquisition;придбання;27
+blame;звинувачувати;27
+applicable;застосовні;27
+crust;корка;27
+maintain;підтримувати;27
+intercept;перехоплення;27
+caveats;застереження;27
+statement;заява;27
+hat;капелюх;27
+superfluous;зайві;27
+bare;голі;27
+craving;тяга;27
+jeopardize;піддати небезпеці;27
+redundant;зайвий;27
+adhere;дотримуватися;27
+persistante;стійкий;27
+transient;минущій;27
+even number;парне число;27
+slight flaw;незначний недолік;27
+consider this;розглянути це;27
+certain;певний;27
+explicit data;явні дані;27
+desolation;запустіння;27
+hammer;молоток;27
+fraud;шахрайство;27
+timber;деревина;27
+improperly influenced;неналежний вплив;27
+conscious;свідомий;27
+elegance;вишуканість;27
+feather;перо;27
+vulnerabilities;уразливості;27
+explicitly;явно;27
+prohibited;заборонено;27
+established;створена;27
+vigilance;пильність;27
+suspected fraud;підозрюваного шахрайства;27
+mindset;мислення;27
+arrogance;зарозумілість;27
+scalability;масштабованість;27
+to excel;перевершити;27
+ploys;хитрощі;27
+judiciously;розумно;28
+transparent;прозорий;28
+report concerns;звітувати про проблеми;28
+revenue;дохід;28
+garbled;спотворений;28
+arguably;можливо;28
+comprehensive;всеосяжний;28
+wilderness areas;райони дикої природи;28
+accurate;точний;28
+significantly;значно;28
+unhindered;безперешкодно;28
+conveys;передає;28
+disparate;розрізнені;28
+unambiguous;однозначний;28
+jiffy;миттєво;28
+uniquely;однозначно;28
+malware;шкідливих програм;28
+burden;тягар;28
+inadvertent;випадково;28
+disclosing;розкриття;28
+stay tuned;стежте за оновленнями;28
+spouse;подружжя;28
+adequately;адекватно;28
+compliant;сумісний;28
+compromised account;скомпрометований обліковий запис;28
+relevant;відповідні;28
+dispatcher;диспетчер;28
+shovel;лопата;28
+efficient;ефективний;28
+apparel;одяг;28
+adherence;прихильність;28
+robust;надійний;28
+impair;погіршити;28
+intention;намір;28
+enhancing;посилення;28
+proof;доказ;28
+assembly;складання;28
+corresponding;відповідний;28
+infrequent;рідко;28
+desperate;відчайдушний;28
+suitable;підходить;28
+obtained;отримані;28
+overstates;завищує;28
+dedicated;відданий;28
+maintainability;ремонтопридатність;28
+continuity;безперервність;28
+aftermath;наслідки;28
+sanitary engineering;сантехніка;28
+substitute;замінити;28
+vulnerability scanning;сканування уразливостей;28
+tweezer;пінцет;28
+accountability;підзвітність;28
+foremost;перш за все;28
+mutually exclusive;взаємовиключний;28
+lurking;ховається;28
+abuse;зловживання;28
+unwieldy;громіздкий;28
+compatibility;сумісність;28
+consignment;вантаж;28
+quality assurance;гарантія якості;28
+mortar;розчин;28
+supplier;постачальник;28
+below;нижче;28
+shameless;безсоромний;28
+mandatory;обов'язковий;28
+gracefully;витончено;28
+commitment;зобов'язання;28
+utmost importance;велике значення;28
+fees;збори;28
+seed;насіння;28
+expiration;закінчення;28
+consume;споживати;28
+menace;загрози;28
+bribes;хабарі;28
+pipe;труба;28
+eye drops;очні краплі;28
+interchangeably;взаємозамінні;28
+required;вимагається;28
+gloomy pools;похмурі басейни;28
+evidence;докази;28
+assesment;оцінка;28
+negate;заперечувати;28
+intergity;цілісність;28
