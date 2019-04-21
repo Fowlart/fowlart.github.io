@@ -41,7 +41,7 @@ public class Speech {
 
     private boolean processWord(String folder_path, WordTranslate word) {
         this.synthesizer.setLanguage("en-us");
-        String output_file = word + ".mp3";
+        String output_file = word.getEngword() + ".mp3";
         try {
             process(folder_path, word.getEngword(), output_file);
             this.synthesizer.setLanguage("uk");
@@ -56,7 +56,9 @@ public class Speech {
 
     private void process(String folder_path, String word, String output_file) throws IOException {
         List<String> word_list = Arrays.asList(word.split(" "));
-        FileOutputStream outputStream = new FileOutputStream(new File(folder_path + "//" + output_file));
+        File output = new File(folder_path + "//" + output_file);
+        if (!output.exists()) output.createNewFile();
+        FileOutputStream outputStream = new FileOutputStream(output);
         synthesizer.setSpeed(1);
         InputStream inputStream = synthesizer.getMP3Data(word_list);
         int rez = 0;
@@ -64,8 +66,10 @@ public class Speech {
             rez = inputStream.read();
             outputStream.write(rez);
         }
+
         System.out.println("file " + output_file + " was created");
         outputStream.flush();
         outputStream.close();
     }
 }
+

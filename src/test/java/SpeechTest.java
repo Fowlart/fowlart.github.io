@@ -5,16 +5,16 @@ import project.io_data_module.CsvWordsReader;
 import speech.Speech;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 
 public class SpeechTest {
 
-    private String PATH_TO_FOLDER = "c:\\dictionaries";
-    private String PATH_TO_DICTIONARY = "c:\\dictionaries\\dic.csv";
+    private String PATH_TO_FOLDER = "c:\\dictionariesMP3";
+    private String PATH_TO_DICTIONARY = "D:\\GIT\\task05_Lambdas_Streams\\db.csv";
     private CsvWordsReader reader = new CsvWordsReader();
     private Speech speech = new Speech();
+
 
     @Ignore
     @Test
