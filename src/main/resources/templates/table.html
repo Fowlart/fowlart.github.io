@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<style>
+    table {
+        border-collapse: inherit;
+        width: 100%;
+    }
+
+    th, td {
+        text-align: right;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Welcome</h1>
+<img th:src="@{/images/Spring-Boot.png}"/>
+<table>
+    <tr>
+        <th>ENG</th>
+        <th>UKR</th>
+        <th>RATIO</th>
+    </tr>
+    <div th:each="word : ${table}">
+        <tr>
+            <td><span th:text="${word.engword}"></span></td>
+            <td><span th:text="${word.ukrword}"></span></td>
+            <td><span th:text="${word.points}"></span></td>
+        </tr>
+    </div>
+</table>
+</body>
+</html>
