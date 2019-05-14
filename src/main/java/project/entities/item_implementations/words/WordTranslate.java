@@ -1,27 +1,26 @@
 package project.entities.item_implementations.words;
 
-import lombok.Data;
-import lombok.NonNull;
-
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 
-@Data
 public class WordTranslate {
 
-    @Size(min = 2, message = "Name must be at least 2 characters long")
+    @Size(min = 2, message = "English word must be at least 2 characters long")
     private String engword;
 
-    @Size(min = 2, message = "Name must be at least 2 characters long")
+    @Size(min = 2, message = "Ukraine word be at least 2 characters long")
     private String ukrword;
 
-    @NonNull
+    @Min(value = 0, message = "Not in bound. Must be between 0 and 30")
+    @Max(value = 30, message = "Not in bound. Must be between 0 and 30")
     private Integer points;
 
     public WordTranslate() {
-        engword="";
-        ukrword="";
-        points=0;
+        engword = "";
+        ukrword = "";
+        points = 0;
     }
 
     public WordTranslate(WordPropertie word1, WordPropertie word2, Integer points) {
@@ -53,6 +52,14 @@ public class WordTranslate {
         this.points = points;
     }
 
+    public void setEngword(String engword) {
+        this.engword = engword;
+    }
+
+    public void setUkrword(String ukrword) {
+        this.ukrword = ukrword;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -68,6 +75,12 @@ public class WordTranslate {
         return Objects.hash(engword, ukrword, points);
     }
 
-
-
+    @Override
+    public String toString() {
+        return "WordTranslate{" +
+                "engword='" + engword + '\'' +
+                ", ukrword='" + ukrword + '\'' +
+                ", points=" + points +
+                '}';
+    }
 }
