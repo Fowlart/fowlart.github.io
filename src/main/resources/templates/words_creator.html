@@ -16,15 +16,17 @@
             <span th:text="${errs}"></span>
     </div>
 
-
     <h3>Eng word:</h3>
     <input type="text" th:field="*{engword}"/>
+    <span class="validationError" th:if="${#fields.hasErrors('engword')}" th:errors="*{engword}">Name Error</span>
 
     <h3>Ukr word:</h3>
     <input type="text" th:field="*{ukrword}"/>
+    <span class="validationError" th:if="${#fields.hasErrors('ukrword')}" th:errors="*{ukrword}">Name Error</span>
 
     <h3>Score:</h3>
     <input type="text" th:field="*{points}"/>
+    <span class="validationError" th:if="${#fields.hasErrors('points')}" th:errors="*{points}">Name Error</span>
 
     <br/>
     <button>Save the word</button>
