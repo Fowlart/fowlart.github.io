@@ -3,6 +3,7 @@ package MVC_package;
 import com.google.inject.internal.util.Lists;
 import data_base.WordTranslateRepository;
 import entities.WordTranslate;
+import io_data_module.CsvWordsReader;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,8 +30,8 @@ public class TableController {
     @ModelAttribute
     public void addTable(Model model) {
         //fetching from the file to database
-        //  CsvWordsReader csvWordsReader = new CsvWordsReader();
-        // csvWordsReader.getItemList("db.csv").stream().forEach(repository::save);
+        CsvWordsReader csvWordsReader = new CsvWordsReader();
+        csvWordsReader.getItemList("db.csv").stream().forEach(repository::save);
 
         list = Lists.newArrayList();
         //fetching from the database to list
