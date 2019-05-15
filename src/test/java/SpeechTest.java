@@ -1,7 +1,7 @@
 import org.junit.Ignore;
 import org.junit.Test;
-import project.entities.item_implementations.words.WordTranslate;
-import project.io_data_module.CsvWordsReader;
+import entities.WordTranslate;
+import io_data_module.CsvWordsReader;
 import speech.Speech;
 
 import java.io.File;

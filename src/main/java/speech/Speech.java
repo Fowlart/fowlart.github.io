@@ -2,7 +2,7 @@ package speech;
 
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.advanced.AdvancedPlayer;
-import project.entities.item_implementations.words.WordTranslate;
+import entities.WordTranslate;
 import speech.synthesiser.SynthesiserV2;
 
 import java.io.*;

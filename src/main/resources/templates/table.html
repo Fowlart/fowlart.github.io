@@ -9,7 +9,7 @@
     }
 
     th, td {
-        text-align: right;
+        text-align: left;
         padding: 8px;
     }
 
@@ -29,15 +29,17 @@
 </head>
 <body>
 <h1>Welcome</h1>
-<img th:src="@{/images/Spring-Boot.png}"/>
+<img th:src="@{/images/spring.png}"/>
 <table>
     <tr>
+        <th>ID</th>
         <th>ENG</th>
         <th>UKR</th>
         <th>RATIO</th>
     </tr>
     <div th:each="word : ${table}">
         <tr>
+            <td><span th:text="${word.id}"></span></td>
             <td><span th:text="${word.engword}"></span></td>
             <td><span th:text="${word.ukrword}"></span></td>
             <td><span th:text="${word.points}"></span></td>
