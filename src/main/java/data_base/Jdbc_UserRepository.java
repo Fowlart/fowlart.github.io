@@ -1,0 +1,101 @@
+package data_base;
+
+import entities.User;
+import entities.WordTranslate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Repository
+public class Jdbc_UserRepository implements UserRepository {
+
+    private JdbcTemplate jdbc;
+    private WordTranslateRepository words_repo;
+
+    @Autowired
+    public Jdbc_UserRepository(JdbcTemplate jdbc, WordTranslateRepository words_repo) {
+        this.jdbc = jdbc;
+        this.words_repo = words_repo;
+    }
+
+    private User mapRowToUser(ResultSet rs, int rowNum) throws SQLException {
+        User returned_user = new User();
+        returned_user.setId(Long.valueOf(rs.getString("id")));
+        returned_user.setName(rs.getString("name"));
+        returned_user.setPassword(rs.getString("password"));
+
+        return returned_user;
+    }
+
+
+    @Override
+    public Iterable<User> findAll() {
+        return jdbc.query("select id, name, password from User", this::mapRowToUser);
+    }
+
+    @Override
+    public User findById(Long id) {
+        return jdbc.queryForObject("select id, name, password from User where id=?", this::mapRowToUser, id);
+    }
+
+    @Override
+    public User save(User user, List<WordTranslate> list) {
+        jdbc.update("insert into User (id, name, password) values (?,?,?)", user.getId(), user.getName(), user.getPassword());
+        for (WordTranslate word : list) {
+            WordTranslate inserted_word = words_repo.findById(word.getId());
+            jdbc.update("insert into User_WordTranslate (user, wordtranslate) values (?,?)", user.getId(), inserted_word.getId());
+        }
+        return user;
+    }
+
+    @Override
+    public List<WordTranslate> getWords(Long user_id) {
+        //Todo: figure out how to fix that mess
+        return jdbc.query("select user, wordtranslate from  User_WordTranslate", this::mapToEntry_User_Word).stream().
+                filter(euw -> euw.getUser_id() == user_id).
+                map((entry_user_word -> entry_user_word.getWord_id())).collect(Collectors.toList()).stream().map((ids) ->
+                this.words_repo.findById(ids)).collect(Collectors.toList());
+    }
+
+    //Todo: figure out how to fix that mess
+    private Entry_User_Word mapToEntry_User_Word(ResultSet rs, int rowNum) throws SQLException {
+        Entry_User_Word rez = new Entry_User_Word();
+        rez.setUser_id(Long.valueOf(rs.getString("user")));
+        rez.setWord_id(Long.valueOf(rs.getString("wordtranslate")));
+        return rez;
+    }
+
+
+    class Entry_User_Word {
+        private Entry_User_Word() {
+        }
+
+        private long user_id;
+
+        private long word_id;
+
+        public void setUser_id(long user_id) {
+            this.user_id = user_id;
+        }
+
+        public void setWord_id(long word_id) {
+            this.word_id = word_id;
+        }
+
+        public long getUser_id() {
+            return user_id;
+        }
+
+        public long getWord_id() {
+            return word_id;
+        }
+    }
+
+}
+
+

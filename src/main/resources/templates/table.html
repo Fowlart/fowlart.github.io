@@ -21,6 +21,14 @@
         background-color: #4CAF50;
         color: white;
     }
+    .day-forecast {
+	margin: 0;
+	padding: .3rem;
+	background-color: #eee;
+	font: 1rem 'Fira Sans', sans-serif;
+}
+
+
 </style>
 
 <head>
@@ -30,6 +38,36 @@
 <body>
 <h1>Welcome</h1>
 <img th:src="@{/images/spring.png}"/>
+
+<h1>please translate: <span th:text="${wordTranslate.ukrword}"></span></span></h1>
+
+<font size="5" color="green" face="Arial">
+    <details>
+        <span th:text="${wordTranslate.ukrword}"/> - <span th:text="${wordTranslate.engword}"/>
+        <br/>
+        <audio controls id="myAudio">
+            <source type="audio/mpeg" th:src="${urla}">
+        </audio>
+        <br/>
+    </details>
+</font>
+
+<article class="day-forecast">
+    <h2>User</h2>
+    <p><span th:text="${user.name}"/></p>
+</article>
+<br/>
+<article class="day-forecast">
+    <h2>Progress</h2>
+    <p><span th:text="${user.progress}"/></p>
+</article>
+<br/>
+<article class="day-forecast">
+    <h2>Words count</h2>
+    <p><span th:text="${user.count_of_words}"/></p>
+</article>
+<br/>
+
 <table>
     <tr>
         <th>ID</th>

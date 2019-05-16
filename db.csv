@@ -177,11 +177,11 @@ dedicated;відданий;30
 unwieldy;громіздкий;30
 elegance;вишуканість;30
 report concerns;звітувати про проблеми;30
-caveats;застереження;30
+caveats;застереження;0
 loan;кредит;30
-enhancing;посилення;30
+enhancing;посилення;20
 substitute;замінити;30
-worth the effort;варто зусиль;30
+worth the effort;варто зусиль;20
 traitor;зрадник;30
 swatches;зразки;30
 intimidation;залякування;30
@@ -189,14 +189,14 @@ chest;грудей;30
 curious;цікаво;30
 parquet board;паркетна дошка;30
 utmost importance;велике значення;30
-jiffy;миттєво;30
-integrity;цілісність;30
+jiffy;миттєво;0
+integrity;цілісність;0
 below;нижче;30
 feud;ворожнеча;30
 maintain;підтримувати;30
 supplier;постачальник;30
-infrequent;рідко;30
-explicitly;явно;30
+infrequent;рідко;0
+explicitly;явно;0
 conscious;свідомий;30
 pitch;крок;30
 feather;перо;30
@@ -204,7 +204,7 @@ vigilance;пильність;30
 comprehend;зрозуміти;30
 corresponding;відповідний;30
 overlap;перекриваються;30
-cross-cutting;наскрізний;30
+cross-cutting;наскрізний;25
 bribes;хабарі;30
 unaware;не знають;30
 adherence;прихильність;30
