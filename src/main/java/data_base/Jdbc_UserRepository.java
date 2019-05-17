@@ -32,6 +32,11 @@ public class Jdbc_UserRepository implements UserRepository {
         return returned_user;
     }
 
+    @Override
+    public boolean updateWordsList(User user, List<WordTranslate> new_words_list) {
+        //toDO
+        return false;
+    }
 
     @Override
     public Iterable<User> findAll() {
@@ -39,26 +44,28 @@ public class Jdbc_UserRepository implements UserRepository {
     }
 
     @Override
-    public User findById(Long id) {
+    public User findById(User user) {
+        long id = user.getId();
         return jdbc.queryForObject("select id, name, password from User where id=?", this::mapRowToUser, id);
     }
 
+
+
+
     @Override
-    public User save(User user, List<WordTranslate> list) {
+    public User save(User user) {
+
         jdbc.update("insert into User (id, name, password) values (?,?,?)", user.getId(), user.getName(), user.getPassword());
-        for (WordTranslate word : list) {
-            WordTranslate inserted_word = words_repo.findById(word.getId());
-            jdbc.update("insert into User_WordTranslate (user, wordtranslate) values (?,?)", user.getId(), inserted_word.getId());
-        }
         return user;
     }
 
     @Override
-    public List<WordTranslate> getWords(Long user_id) {
+    public List<WordTranslate> getWords(User user) {
+        Long user_id = user.getId();
         //Todo: figure out how to fix that mess
         return jdbc.query("select user, wordtranslate from  User_WordTranslate", this::mapToEntry_User_Word).stream().
                 filter(euw -> euw.getUser_id() == user_id).
-                map((entry_user_word -> entry_user_word.getWord_id())).collect(Collectors.toList()).stream().map((ids) ->
+                map((entry_user_word -> entry_user_word.getWord_id())).map((ids) ->
                 this.words_repo.findById(ids)).collect(Collectors.toList());
     }
 
@@ -70,7 +77,7 @@ public class Jdbc_UserRepository implements UserRepository {
         return rez;
     }
 
-
+    //Todo: figure out how to fix that mess
     class Entry_User_Word {
         private Entry_User_Word() {
         }

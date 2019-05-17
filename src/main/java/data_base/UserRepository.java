@@ -9,10 +9,12 @@ public interface UserRepository {
 
     Iterable<User> findAll();
 
-    User findById(Long id);
+    User findById(User user);
 
-    User save(User user, List<WordTranslate> list);
+    User save(User user);
 
-    public List<WordTranslate> getWords(Long user_id);
+    boolean updateWordsList(User user, List<WordTranslate> new_words_list);
+
+    public List<WordTranslate> getWords(User user);
 
 }
