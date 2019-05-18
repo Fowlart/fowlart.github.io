@@ -52,21 +52,20 @@ public class Jdbc_UserRepository implements UserRepository {
 
 
 
+
     @Override
     public User save(User user) {
-
         jdbc.update("insert into User (id, name, password) values (?,?,?)", user.getId(), user.getName(), user.getPassword());
         return user;
     }
 
     @Override
     public List<WordTranslate> getWords(User user) {
-        Long user_id = user.getId();
+        final  Long user_id = user.getId();
         //Todo: figure out how to fix that mess
         return jdbc.query("select user, wordtranslate from  User_WordTranslate", this::mapToEntry_User_Word).stream().
-                filter(euw -> euw.getUser_id() == user_id).
-                map((entry_user_word -> entry_user_word.getWord_id())).map((ids) ->
-                this.words_repo.findById(ids)).collect(Collectors.toList());
+                filter(entry_user_word -> (entry_user_word.getUser_id() == user_id) ).peek(System.out::println).
+                map(entry_user_word -> words_repo.findById(entry_user_word.word_id) ).collect(Collectors.toList());
     }
 
     //Todo: figure out how to fix that mess

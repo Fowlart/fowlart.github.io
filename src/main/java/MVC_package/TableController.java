@@ -44,7 +44,7 @@ public class TableController {
         log.info("mainPage");
         User curent_user = (User)model.asMap().get("user");
         log.info("processing "+curent_user);
-        model.addAttribute("table", userRepository.getWords(curent_user.getId()));
+        model.addAttribute("table", userRepository.getWords(curent_user));
         WordTranslate word = curent_user.nextWord();
         model.addAttribute("wordTranslate", word);
         SpeechUrlProvider speech = new SpeechUrlProvider();

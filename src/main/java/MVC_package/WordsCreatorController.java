@@ -43,11 +43,10 @@ public class WordsCreatorController {
     public String saveWord(@Valid @ModelAttribute("word") WordTranslate word, Errors errors, Model model) {
         if (errors.hasFieldErrors()) return "words_creator";
         log.info(word.toString());
-
         User user = userService.getList().get(1);
-        List<WordTranslate> list = userRepository.getWords((long)1);
+        List<WordTranslate> list = userRepository.getWords(user);
         list.add(word);
-        userRepository.save(user,list);
+        userRepository.save(user);
 
         return "redirect:/table";
     }
