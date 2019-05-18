@@ -57,17 +57,17 @@ public class UserService {
             //set list of words for each user from DB
             List<WordTranslate> dictionary_1 = Lists.newArrayList(wordTranslateRepository.findAll());
             List<WordTranslate> dictionary_2 = dictionary_1.subList(10, 20);
-            updateWordsList(admin, dictionary_1);
-            updateWordsList(vasya, dictionary_2);
+            updateDictionary(admin, dictionary_1);
+            updateDictionary(vasya, dictionary_2);
         }
     }
 
     // retrieves words from the database for each user and put them into every User pojo
     private void refresh() {
-        for (User user : list) user.setList(getWords(user));
+        for (User user : list) user.setList(getDictionary(user));
     }
 
-    public boolean addWord(User user, WordTranslate new_word) {
+    public boolean addWordToUserDictionary(User user, WordTranslate new_word) {
         try {
             new_word = wordTranslateRepository.save(new_word);
             jdbc.update("insert into User_WordTranslate (user, wordtranslate) values (?,?)", user.getId(),
@@ -79,7 +79,7 @@ public class UserService {
         }
     }
 
-    public boolean updateWordsList(User user, List<WordTranslate> new_words_list) {
+    public boolean updateDictionary(User user, List<WordTranslate> new_words_list) {
         try {
             List<WordTranslate> all_words = Lists.newArrayList(wordTranslateRepository.findAll());
 
@@ -100,7 +100,7 @@ public class UserService {
         return rs.getLong("wordtranslate");
     }
 
-    public List<WordTranslate> getWords(User user) {
+    public List<WordTranslate> getDictionary(User user) {
         final Long user_id = user.getId();
         return jdbc.query("select * from  User_WordTranslate where user=?", this::mapToWordId, user_id).
                 stream().map((word_id) -> wordTranslateRepository.findById(word_id)).collect(Collectors.toList());

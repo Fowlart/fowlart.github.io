@@ -43,7 +43,7 @@ public class TableController {
         model.addAttribute("user",userService.getUsersList().get(1));
         User curent_user = (User)model.asMap().get("user");
         log.info(">>> processing "+curent_user);
-        model.addAttribute("table", userService.getWords(curent_user));
+        model.addAttribute("table", userService.getDictionary(curent_user));
         WordTranslate word = curent_user.nextWord();
         model.addAttribute("wordTranslate", word);
         SpeechUrlProvider speech = new SpeechUrlProvider();

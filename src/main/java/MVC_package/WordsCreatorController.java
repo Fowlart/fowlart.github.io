@@ -37,7 +37,7 @@ public class WordsCreatorController {
         log.info(word.toString());
         User user = userService.getUsersList().get(1);
         log.info(">>> saving new word in user: " + user);
-        userService.addWord(user, word);
+        userService.addWordToUserDictionary(user, word);
         return "redirect:/table";
     }
 }
