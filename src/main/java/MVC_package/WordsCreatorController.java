@@ -1,7 +1,5 @@
 package MVC_package;
 
-import data_base.UserRepository;
-import data_base.WordTranslateRepository;
 import entities.User;
 import entities.WordTranslate;
 import lombok.extern.slf4j.Slf4j;
@@ -16,19 +14,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import services.UserService;
 import javax.validation.Valid;
 
-
 @Slf4j
 @Controller
 @RequestMapping("/create")
 public class WordsCreatorController {
-
     @Autowired
     private UserService userService;
 
     @GetMapping
     public String showForm(Model model) {
+        log.info(">>> wordsCreatorController in action");
+        log.info(">>> J'current user service(must be singletone): " + userService.toString());
         model.addAttribute("word", new WordTranslate());
-        if (model.containsAttribute("user")) log.info(model.asMap().get("user").toString());
+        if (model.containsAttribute("user")) log.info(">>> curent user in the model: "
+                + model.asMap().get("user").toString());
         return "words_creator";
     }
 
@@ -36,9 +35,9 @@ public class WordsCreatorController {
     public String saveWord(@Valid @ModelAttribute("word") WordTranslate word, Errors errors, Model model) {
         if (errors.hasFieldErrors()) return "words_creator";
         log.info(word.toString());
-        User user = userService.getList().get(1);
-        log.info("Saving new word in user: " + user);
-        userService.addWord(user,word);
+        User user = userService.getUsersList().get(1);
+        log.info(">>> saving new word in user: " + user);
+        userService.addWord(user, word);
         return "redirect:/table";
     }
 }

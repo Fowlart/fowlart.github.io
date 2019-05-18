@@ -33,8 +33,6 @@ public class Jdbc_UserRepository implements UserRepository {
         return returned_user;
     }
 
-
-
     @Override
     public Iterable<User> findAll() {
         return jdbc.query("select id, name, password from User", this::mapRowToUser);
@@ -52,52 +50,6 @@ public class Jdbc_UserRepository implements UserRepository {
         jdbc.update("insert into User (id, name, password) values (?,?,?)", user.getId(), user.getName(), user.getPassword());
         return user;
     }
-
-    @Override
-    public List<WordTranslate> getWords(User user) {
-        final Long user_id = user.getId();
-        //Todo: figure out how to fix that mess
-        return jdbc.query("select user, wordtranslate from  User_WordTranslate", this::mapToEntry_User_Word).
-                stream().
-                filter(entry_user_word -> (entry_user_word.getUser_id() == user_id)).
-                map(entry_user_word -> words_repo.findById(entry_user_word.word_id)).
-                collect(Collectors.toList());
-    }
-
-    //Todo: figure out how to fix that mess
-    private Entry_User_Word mapToEntry_User_Word(ResultSet rs, int rowNum) throws SQLException {
-        Entry_User_Word rez = new Entry_User_Word();
-        rez.setUser_id(Long.valueOf(rs.getString("user")));
-        rez.setWord_id(Long.valueOf(rs.getString("wordtranslate")));
-        return rez;
-    }
-
-    //Todo: figure out how to fix that mess
-    class Entry_User_Word {
-        private Entry_User_Word() {
-        }
-
-        private long user_id;
-
-        private long word_id;
-
-        public void setUser_id(long user_id) {
-            this.user_id = user_id;
-        }
-
-        public void setWord_id(long word_id) {
-            this.word_id = word_id;
-        }
-
-        public long getUser_id() {
-            return user_id;
-        }
-
-        public long getWord_id() {
-            return word_id;
-        }
-    }
-
 }
 
 

@@ -12,7 +12,4 @@ public interface UserRepository {
     User findById(User user);
 
     User save(User user);
-
-    public List<WordTranslate> getWords(User user);
-
 }

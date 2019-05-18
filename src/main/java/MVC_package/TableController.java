@@ -32,19 +32,18 @@ public class TableController {
     private UserService userService;
 
     @ModelAttribute
-    private void setUser(Model model) {
+    private void setUserService(Model model) {
         // for test
-        User curent_user  = userService.getList().get(1);
-        model.addAttribute("user",curent_user);
+        model.addAttribute("service",userService);
     }
-
 
     @GetMapping
     public String mainPage(Model model) throws IOException {
-        log.info("mainPage");
+        log.info(">>> mainPage");
+        model.addAttribute("user",userService.getUsersList().get(1));
         User curent_user = (User)model.asMap().get("user");
-        log.info("processing "+curent_user);
-        model.addAttribute("table", userRepository.getWords(curent_user));
+        log.info(">>> processing "+curent_user);
+        model.addAttribute("table", userService.getWords(curent_user));
         WordTranslate word = curent_user.nextWord();
         model.addAttribute("wordTranslate", word);
         SpeechUrlProvider speech = new SpeechUrlProvider();

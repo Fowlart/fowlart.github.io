@@ -37,7 +37,7 @@ public class Jdbc_WordTranslateRepository implements WordTranslateRepository {
         return jdbc.queryForObject("select id, engword, ukrword, points from WordTranslate where id=?", this::mapRowToIngredient, id);
     }
 
-    private  WordTranslate find(String ukrword, String engword){
+    private WordTranslate find(String ukrword, String engword) {
         return jdbc.queryForObject("select id, engword, ukrword, points from WordTranslate where ( (ukrword LIKE ?) AND " +
                 "(engword LIKE ?))", this::mapRowToIngredient, ukrword, engword);
     }
@@ -50,7 +50,6 @@ public class Jdbc_WordTranslateRepository implements WordTranslateRepository {
                 word.getEngword(),
                 word.getUkrword(),
                 word.getPoints());
-
-        return find(word.getUkrword(),word.getEngword());
+        return find(word.getUkrword(), word.getEngword());
     }
 }

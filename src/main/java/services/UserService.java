@@ -10,16 +10,25 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 public class UserService {
 
     private List<User> list;
-
     private UserRepository userRepository;
     private WordTranslateRepository wordTranslateRepository;
     private JdbcTemplate jdbc;
+    private static long counter = 0;
+    private final long id = counter++;
+
+    @Override
+    public String toString() {
+        return "UserService id = " + id;
+    }
 
     @Autowired
     public UserService(UserRepository userRepository, WordTranslateRepository wordTranslateRepository, JdbcTemplate jdbcTemplate) {
@@ -27,38 +36,35 @@ public class UserService {
         this.userRepository = userRepository;
         this.jdbc = jdbcTemplate;
 
-        // this is testing logic, must be removed later-----------------------------------------------------------------
-        // reading info from csv file and saving data base
-        CsvWordsReader csvWordsReader = new CsvWordsReader();
-        csvWordsReader.getItemList("db.csv").stream().forEach(wordTranslateRepository::save);
-
-        // adding new users for tests
-        User admin = new User();
-        admin.setName("Artur");
-        admin.setId(1);
-        admin.setPassword("admin");
-        User vasya = new User();
-        vasya.setName("Vasya");
-        vasya.setId(2);
-        vasya.setPassword("vasya");
-
-        // saving users to DB
-        List<WordTranslate> wordTranslates = Lists.newArrayList(wordTranslateRepository.findAll());
-        userRepository.save(admin);
-        userRepository.save(vasya);
-
-        list = Lists.newArrayList(userRepository.findAll());
-        //set list of words for each user from DB
-        List<WordTranslate> words_list1 = Lists.newArrayList(wordTranslateRepository.findAll());
-        List<WordTranslate> word_list2 = words_list1.subList(10, 20);
-
-        updateWordsList(admin, words_list1);
-        updateWordsList(vasya, word_list2);
-        //end of test data forming logic--------------------------------------------------------------------------------
+        // This is testing logic, must be removed later
+        // Reading info from csv file and saving data base
+        {
+            CsvWordsReader csvWordsReader = new CsvWordsReader();
+            csvWordsReader.getItemList("db.csv").stream().forEach(wordTranslateRepository::save);
+            // adding new users for tests
+            User admin = new User();
+            admin.setName("Artur");
+            admin.setId(1);
+            admin.setPassword("admin");
+            User vasya = new User();
+            vasya.setName("Vasya");
+            vasya.setId(2);
+            vasya.setPassword("vasya");
+            // saving users to DB
+            userRepository.save(admin);
+            userRepository.save(vasya);
+            list = Lists.newArrayList(userRepository.findAll());
+            //set list of words for each user from DB
+            List<WordTranslate> dictionary_1 = Lists.newArrayList(wordTranslateRepository.findAll());
+            List<WordTranslate> dictionary_2 = dictionary_1.subList(10, 20);
+            updateWordsList(admin, dictionary_1);
+            updateWordsList(vasya, dictionary_2);
+        }
     }
 
+    // retrieves words from the database for each user and put them into every User pojo
     private void refresh() {
-        for (User user : list) user.setList(this.userRepository.getWords(user));
+        for (User user : list) user.setList(getWords(user));
     }
 
     public boolean addWord(User user, WordTranslate new_word) {
@@ -73,9 +79,7 @@ public class UserService {
         }
     }
 
-
     public boolean updateWordsList(User user, List<WordTranslate> new_words_list) {
-
         try {
             List<WordTranslate> all_words = Lists.newArrayList(wordTranslateRepository.findAll());
 
@@ -92,9 +96,18 @@ public class UserService {
         }
     }
 
+    private Long mapToWordId(ResultSet rs, int rowNum) throws SQLException {
+        return rs.getLong("wordtranslate");
+    }
 
-    //return refreshed POJO
-    public List<User> getList() {
+    public List<WordTranslate> getWords(User user) {
+        final Long user_id = user.getId();
+        return jdbc.query("select * from  User_WordTranslate where user=?", this::mapToWordId, user_id).
+                stream().map((word_id) -> wordTranslateRepository.findById(word_id)).collect(Collectors.toList());
+    }
+
+    //return list of refreshed User POJOs with actual dictionaries
+    public List<User> getUsersList() {
         refresh();
         return list;
     }
