@@ -14,20 +14,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import services.UserService;
-
 import javax.validation.Valid;
-import java.util.List;
+
 
 @Slf4j
 @Controller
 @RequestMapping("/create")
 public class WordsCreatorController {
-
-    @Autowired
-    private WordTranslateRepository wordTranslateRepository;
-
-    @Autowired
-    private UserRepository userRepository;
 
     @Autowired
     private UserService userService;
@@ -44,10 +37,8 @@ public class WordsCreatorController {
         if (errors.hasFieldErrors()) return "words_creator";
         log.info(word.toString());
         User user = userService.getList().get(1);
-        List<WordTranslate> list = userRepository.getWords(user);
-        list.add(word);
-        userRepository.save(user);
-
+        log.info("Saving new word in user: " + user);
+        userService.addWord(user,word);
         return "redirect:/table";
     }
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import services.UserService;
@@ -20,14 +21,17 @@ public class SpringConfiguration implements WebMvcConfigurer {
     @Autowired
     WordTranslateRepository wordTranslateRepository;
 
+    @Autowired
+    JdbcTemplate jdbcTemplate;
+
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("table");
     }
 
     @Bean
-    public UserService getUserService(){
-        return new UserService(userRepository,wordTranslateRepository);
+    public UserService getUserService() {
+        return new UserService(userRepository, wordTranslateRepository, jdbcTemplate);
     }
 
 }

@@ -50,7 +50,6 @@ public class TableController {
         SpeechUrlProvider speech = new SpeechUrlProvider();
         URL url = speech.get_url(word.getEngword(),"en-us");
         model.addAttribute("urla", url);
-
         return "table";
     }
 }

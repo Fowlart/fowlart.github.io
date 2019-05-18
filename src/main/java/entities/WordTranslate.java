@@ -75,14 +75,15 @@ public class WordTranslate {
         if (this == o) return true;
         if (!(o instanceof WordTranslate)) return false;
         WordTranslate that = (WordTranslate) o;
-        return Objects.equals(engword, that.engword) &&
-                Objects.equals(ukrword, that.ukrword) &&
-                Objects.equals(points, that.points);
+        return id == that.id &&
+                engword.equals(that.engword) &&
+                ukrword.equals(that.ukrword) &&
+                points.equals(that.points);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(engword, ukrword, points);
+        return Objects.hash(id, engword, ukrword, points);
     }
 
     @Override

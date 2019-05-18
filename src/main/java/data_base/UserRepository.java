@@ -13,8 +13,6 @@ public interface UserRepository {
 
     User save(User user);
 
-    boolean updateWordsList(User user, List<WordTranslate> new_words_list);
-
     public List<WordTranslate> getWords(User user);
 
 }

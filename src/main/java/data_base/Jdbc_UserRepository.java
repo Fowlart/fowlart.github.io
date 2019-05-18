@@ -2,6 +2,7 @@ package data_base;
 
 import entities.User;
 import entities.WordTranslate;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -11,6 +12,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Repository
 public class Jdbc_UserRepository implements UserRepository {
 
@@ -28,15 +30,10 @@ public class Jdbc_UserRepository implements UserRepository {
         returned_user.setId(Long.valueOf(rs.getString("id")));
         returned_user.setName(rs.getString("name"));
         returned_user.setPassword(rs.getString("password"));
-
         return returned_user;
     }
 
-    @Override
-    public boolean updateWordsList(User user, List<WordTranslate> new_words_list) {
-        //toDO
-        return false;
-    }
+
 
     @Override
     public Iterable<User> findAll() {
@@ -50,9 +47,6 @@ public class Jdbc_UserRepository implements UserRepository {
     }
 
 
-
-
-
     @Override
     public User save(User user) {
         jdbc.update("insert into User (id, name, password) values (?,?,?)", user.getId(), user.getName(), user.getPassword());
@@ -61,11 +55,13 @@ public class Jdbc_UserRepository implements UserRepository {
 
     @Override
     public List<WordTranslate> getWords(User user) {
-        final  Long user_id = user.getId();
+        final Long user_id = user.getId();
         //Todo: figure out how to fix that mess
-        return jdbc.query("select user, wordtranslate from  User_WordTranslate", this::mapToEntry_User_Word).stream().
-                filter(entry_user_word -> (entry_user_word.getUser_id() == user_id) ).peek(System.out::println).
-                map(entry_user_word -> words_repo.findById(entry_user_word.word_id) ).collect(Collectors.toList());
+        return jdbc.query("select user, wordtranslate from  User_WordTranslate", this::mapToEntry_User_Word).
+                stream().
+                filter(entry_user_word -> (entry_user_word.getUser_id() == user_id)).
+                map(entry_user_word -> words_repo.findById(entry_user_word.word_id)).
+                collect(Collectors.toList());
     }
 
     //Todo: figure out how to fix that mess
