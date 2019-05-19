@@ -1,6 +1,7 @@
 package data_base;
 
 import entities.WordTranslate;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -9,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Repository
+@Slf4j
 public class Jdbc_WordTranslateRepository implements WordTranslateRepository {
 
     private JdbcTemplate jdbc;
@@ -38,8 +40,12 @@ public class Jdbc_WordTranslateRepository implements WordTranslateRepository {
     }
 
     private WordTranslate find(String ukrword, String engword) {
-        return jdbc.queryForObject("select id, engword, ukrword, points from WordTranslate where ( (ukrword LIKE ?) AND " +
-                "(engword LIKE ?))", this::mapRowToIngredient, ukrword, engword);
+        try {
+            return jdbc.queryForObject("select id, engword, ukrword, points from WordTranslate where ( (ukrword LIKE ?) AND " +
+                    "(engword LIKE ?))", this::mapRowToIngredient, ukrword, engword);
+        } catch (Exception ex) {
+            return null;
+        }
     }
 
     @Override
@@ -50,6 +56,10 @@ public class Jdbc_WordTranslateRepository implements WordTranslateRepository {
                 word.getEngword(),
                 word.getUkrword(),
                 word.getPoints());
+        // checking if the word really was persisted into the database
         return find(word.getUkrword(), word.getEngword());
     }
+
+
+
 }

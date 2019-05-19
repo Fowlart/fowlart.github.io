@@ -59,6 +59,10 @@ public class UserService {
             List<WordTranslate> dictionary_2 = dictionary_1.subList(10, 20);
             updateDictionary(admin, dictionary_1);
             updateDictionary(vasya, dictionary_2);
+
+            delete(admin, wordTranslateRepository.findById((long) 1));
+            delete(admin, wordTranslateRepository.findById((long) 2));
+            delete(admin, wordTranslateRepository.findById((long) 3));
         }
     }
 
@@ -111,4 +115,21 @@ public class UserService {
         refresh();
         return list;
     }
+
+    public void delete(User user, WordTranslate wordTranslate) {
+        final Long word_id = wordTranslate.getId();
+        final Long user_id = user.getId();
+        try {
+            jdbc.update("DELETE FROM User_WordTranslate WHERE ( (user=?) AND (wordtranslate=?) )", user_id, word_id);
+        } catch (Exception exeption) {
+            log.error(">>> Some think went wrong during removing: ");
+            log.error(exeption.getMessage());
+        }
+        try {
+            jdbc.update("DELETE FROM WordTranslate WHERE id =?", word_id);
+        } catch (Exception ex) {
+            log.info(">>> The current word is used elsewhere. Removing from the common table was rejected.");
+        }
+    }
+
 }
