@@ -1,13 +1,16 @@
 package data_base;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import entities.WordTranslate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
 
 @Repository
 @Slf4j
@@ -39,27 +42,20 @@ public class Jdbc_WordTranslateRepository implements WordTranslateRepository {
         return jdbc.queryForObject("select id, engword, ukrword, points from WordTranslate where id=?", this::mapRowToIngredient, id);
     }
 
-    private WordTranslate find(String ukrword, String engword) {
-        try {
-            return jdbc.queryForObject("select id, engword, ukrword, points from WordTranslate where ( (ukrword LIKE ?) AND " +
-                    "(engword LIKE ?))", this::mapRowToIngredient, ukrword, engword);
-        } catch (Exception ex) {
-            return null;
-        }
-    }
 
     @Override
-    public WordTranslate save(WordTranslate word) {
-        jdbc.update(
-                "insert into WordTranslate (engword, ukrword, points) values (?,?,?)",
-                // word.getId(),
-                word.getEngword(),
-                word.getUkrword(),
-                word.getPoints());
-        // checking if the word really was persisted into the database
-        return find(word.getUkrword(), word.getEngword());
-    }
+    public Long save(WordTranslate word) {
 
+        SimpleJdbcInsert wordTranslateInsert = (new SimpleJdbcInsert(jdbc)).withTableName("WordTranslate").
+                usingGeneratedKeyColumns(new String[]{"id"});
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        Map<String, Object> map = objectMapper.convertValue(word, Map.class);
+
+        long id = (long) wordTranslateInsert.executeAndReturnKey(map);
+
+        return new Long(id);
+    }
 
 
 }

@@ -8,6 +8,6 @@ public interface WordTranslateRepository {
 
     WordTranslate findById(Long id);
 
-    WordTranslate save(WordTranslate word);
+    Long save(WordTranslate word);
 
 }

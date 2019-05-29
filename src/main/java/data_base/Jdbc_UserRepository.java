@@ -1,13 +1,16 @@
 package data_base;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import entities.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
 
 @Slf4j
 @Repository
@@ -36,16 +39,18 @@ public class Jdbc_UserRepository implements UserRepository {
     }
 
     @Override
-    public User findById(User user) {
-        long id = user.getId();
+    public User findById(long id) {
         return jdbc.queryForObject("select id, name, password from User where id=?", this::mapRowToUser, id);
     }
 
 
     @Override
-    public User save(User user) {
-        jdbc.update("insert into User (id, name, password) values (?,?,?)", user.getId(), user.getName(), user.getPassword());
-        return user;
+    public Long save(User user) {
+        SimpleJdbcInsert userInsert = (new SimpleJdbcInsert(jdbc)).withTableName("User").usingGeneratedKeyColumns(new String[]{"id"});
+        ObjectMapper objectMapper = new ObjectMapper();
+        Map<String, Object> map = objectMapper.convertValue(user, Map.class);
+        long id = (long) userInsert.executeAndReturnKey(map);
+        return new Long(id);
     }
 }
 

@@ -73,9 +73,10 @@ public class UserService {
 
     public boolean addWordToUserDictionary(User user, WordTranslate new_word) {
         try {
-            new_word = wordTranslateRepository.save(new_word);
+            long id = wordTranslateRepository.save(new_word);
+
             jdbc.update("insert into User_WordTranslate (user, wordtranslate) values (?,?)", user.getId(),
-                    new_word.getId());
+                    id);
             return true;
         } catch (Exception ex) {
             log.warn(ex.getMessage());

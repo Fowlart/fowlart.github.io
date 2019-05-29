@@ -1,15 +1,12 @@
 package data_base;
 
 import entities.User;
-import entities.WordTranslate;
-
-import java.util.List;
 
 public interface UserRepository {
 
     Iterable<User> findAll();
 
-    User findById(User user);
+    User findById(long id);
 
-    User save(User user);
+    Long save(User user);
 }
