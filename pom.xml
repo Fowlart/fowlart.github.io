@@ -11,6 +11,7 @@
         <tomcat.version>8.5.23</tomcat.version>
     </properties>
 
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -18,8 +19,17 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
+
+
+
     <dependencies>
 
+        <dependency>
+            <groupId>org.codehaus.sonar</groupId>
+            <artifactId>sonar-plugin-api</artifactId>
+            <version>5.1</version>
+            <scope>provided</scope>
+        </dependency>
 
         <!-- https://mvnrepository.com/artifact/javazoom/jlayer -->
         <dependency>

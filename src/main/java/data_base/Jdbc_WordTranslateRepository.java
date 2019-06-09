@@ -57,5 +57,4 @@ public class Jdbc_WordTranslateRepository implements WordTranslateRepository {
         return new Long(id);
     }
 
-
 }

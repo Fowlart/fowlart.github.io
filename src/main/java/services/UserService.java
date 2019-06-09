@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class UserService {
 
-    private List<User> list;
+    private List<User> user_list;
     private UserRepository userRepository;
     private WordTranslateRepository wordTranslateRepository;
     private JdbcTemplate jdbc;
@@ -51,31 +51,25 @@ public class UserService {
             vasya.setId(2);
             vasya.setPassword("vasya");
             // saving users to DB
-            userRepository.save(admin);
-            userRepository.save(vasya);
-            list = Lists.newArrayList(userRepository.findAll());
-            //set list of words for each user from DB
+            Long admin_id = userRepository.save(admin);
+            Long vasya_id = userRepository.save(vasya);
+            user_list = getUsersList();
+            //set user_list of words for each user from DB
             List<WordTranslate> dictionary_1 = Lists.newArrayList(wordTranslateRepository.findAll());
             List<WordTranslate> dictionary_2 = dictionary_1.subList(10, 20);
-            updateDictionary(admin, dictionary_1);
-            updateDictionary(vasya, dictionary_2);
-
-            delete(admin, wordTranslateRepository.findById((long) 1));
-            delete(admin, wordTranslateRepository.findById((long) 2));
-            delete(admin, wordTranslateRepository.findById((long) 3));
+            updateDictionary(admin_id, dictionary_1);
+            updateDictionary(vasya_id, dictionary_2);
+            //Todo: wtf 234,235.. why not 1,2...
+            deleteWordFromUserDictionary(admin, wordTranslateRepository.findById((long) 234));
+            deleteWordFromUserDictionary(admin, wordTranslateRepository.findById((long) 235));
+            deleteWordFromUserDictionary(admin, wordTranslateRepository.findById((long) 236));
         }
     }
 
-    // retrieves words from the database for each user and put them into every User pojo
-    private void refresh() {
-        for (User user : list) user.setList(getDictionary(user));
-    }
-
-    public boolean addWordToUserDictionary(User user, WordTranslate new_word) {
+    public boolean addWordToUserDictionary(long user_id, WordTranslate new_word) {
         try {
             long id = wordTranslateRepository.save(new_word);
-
-            jdbc.update("insert into User_WordTranslate (user, wordtranslate) values (?,?)", user.getId(),
+            jdbc.update("insert into User_WordTranslate (user, wordtranslate) values (?,?)", user_id,
                     id);
             return true;
         } catch (Exception ex) {
@@ -84,16 +78,11 @@ public class UserService {
         }
     }
 
-    public boolean updateDictionary(User user, List<WordTranslate> new_words_list) {
+    public boolean updateDictionary(long user_id, List<WordTranslate> new_words_list) {
         try {
-            List<WordTranslate> all_words = Lists.newArrayList(wordTranslateRepository.findAll());
-
-            if (!all_words.containsAll(new_words_list)) throw new Exception("New words must be saved at the database " +
-                    "first and be correctly fulfilled by all mandatory attributes");
-
-            for (WordTranslate wordTranslate : new_words_list)
-                jdbc.update("insert into User_WordTranslate (user, wordtranslate) values (?,?)", user.getId(),
-                        wordTranslate.getId());
+            for (WordTranslate wordTranslate : new_words_list) {
+                addWordToUserDictionary(user_id, wordTranslate);
+            }
             return true;
         } catch (Exception ex) {
             log.warn(ex.getMessage());
@@ -111,13 +100,12 @@ public class UserService {
                 stream().map((word_id) -> wordTranslateRepository.findById(word_id)).collect(Collectors.toList());
     }
 
-    //return list of refreshed User POJOs with actual dictionaries
+    //return user_list of refreshed User POJOs with actual dictionaries
     public List<User> getUsersList() {
-        refresh();
-        return list;
+        return Lists.newArrayList(userRepository.findAll());
     }
 
-    public void delete(User user, WordTranslate wordTranslate) {
+    public void deleteWordFromUserDictionary(User user, WordTranslate wordTranslate) {
         final Long word_id = wordTranslate.getId();
         final Long user_id = user.getId();
         try {

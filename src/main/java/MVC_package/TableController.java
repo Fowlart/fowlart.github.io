@@ -8,10 +8,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import services.UserService;
+import services.WordProcessor;
 import speech.SpeechUrlProvider;
 
 import java.io.IOException;
@@ -19,7 +18,9 @@ import java.net.URL;
 
 @Slf4j
 @Controller
+
 @RequestMapping("/table")
+@SessionAttributes("user")
 public class TableController {
 
     @Autowired
@@ -31,23 +32,20 @@ public class TableController {
     @Autowired
     private UserService userService;
 
-    @ModelAttribute
-    private void setUserService(Model model) {
-        // for test
-        model.addAttribute("service",userService);
-    }
-
     @GetMapping
     public String mainPage(Model model) throws IOException {
         log.info(">>> mainPage");
-        model.addAttribute("user",userService.getUsersList().get(1));
-        User curent_user = (User)model.asMap().get("user");
-        log.info(">>> processing "+curent_user);
+        User curent_user = (User) model.asMap().get("user");
+        log.info(">>> processing " + curent_user);
         model.addAttribute("table", userService.getDictionary(curent_user));
-        WordTranslate word = curent_user.nextWord();
+        WordProcessor wordProcessor =
+                new WordProcessor(wordTranslateRepository, userService, curent_user);
+        WordTranslate word = wordProcessor.nextWord();
+        log.info(">>> word " + word);
         model.addAttribute("wordTranslate", word);
+        model.addAttribute("info", wordProcessor);
         SpeechUrlProvider speech = new SpeechUrlProvider();
-        URL url = speech.get_url(word.getEngword(),"en-us");
+        URL url = speech.get_url(word.getEngword(), "en-us");
         model.addAttribute("urla", url);
         return "table";
     }

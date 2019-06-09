@@ -50,7 +50,7 @@ public class Jdbc_UserRepository implements UserRepository {
         ObjectMapper objectMapper = new ObjectMapper();
         Map<String, Object> map = objectMapper.convertValue(user, Map.class);
         long id = (long) userInsert.executeAndReturnKey(map);
-        return new Long(id);
+        return id;
     }
 }
 
