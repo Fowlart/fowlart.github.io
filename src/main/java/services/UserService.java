@@ -18,7 +18,6 @@ import java.util.stream.Collectors;
 @Slf4j
 public class UserService {
 
-    private List<User> user_list;
     private UserRepository userRepository;
     private WordTranslateRepository wordTranslateRepository;
     private JdbcTemplate jdbc;
@@ -35,42 +34,42 @@ public class UserService {
         this.wordTranslateRepository = wordTranslateRepository;
         this.userRepository = userRepository;
         this.jdbc = jdbcTemplate;
-
         // This is testing logic, must be removed later
-        // Reading info from csv file and saving data base
-        {
-            CsvWordsReader csvWordsReader = new CsvWordsReader();
-            csvWordsReader.getItemList("db.csv").stream().forEach(wordTranslateRepository::save);
-            // adding new users for tests
-            User admin = new User();
-            admin.setName("Artur");
-            admin.setId(1);
-            admin.setPassword("admin");
-            User vasya = new User();
-            vasya.setName("Vasya");
-            vasya.setId(2);
-            vasya.setPassword("vasya");
-            // saving users to DB
-            Long admin_id = userRepository.save(admin);
-            Long vasya_id = userRepository.save(vasya);
-            user_list = getUsersList();
-            //set user_list of words for each user from DB
-            List<WordTranslate> dictionary_1 = Lists.newArrayList(wordTranslateRepository.findAll());
-            List<WordTranslate> dictionary_2 = dictionary_1.subList(10, 20);
-            updateDictionary(admin_id, dictionary_1);
-            updateDictionary(vasya_id, dictionary_2);
-            //Todo: wtf 234,235.. why not 1,2...
-            deleteWordFromUserDictionary(admin, wordTranslateRepository.findById((long) 234));
-            deleteWordFromUserDictionary(admin, wordTranslateRepository.findById((long) 235));
-            deleteWordFromUserDictionary(admin, wordTranslateRepository.findById((long) 236));
-        }
+        testDataCreation();
+
     }
 
-    public boolean addWordToUserDictionary(long user_id, WordTranslate new_word) {
+    private void testDataCreation() {
+        CsvWordsReader csvWordsReader = new CsvWordsReader();
+        csvWordsReader.getItemList("db.csv").stream().forEach(wordTranslateRepository::save);
+        // adding new users for tests
+        User admin = new User();
+        admin.setName("Artur");
+        admin.setId(1);
+        admin.setPassword("admin");
+        User vasya = new User();
+        vasya.setName("Vasya");
+        vasya.setId(2);
+        vasya.setPassword("vasya");
+        // saving users to DB
+        Long adminId = userRepository.save(admin);
+        Long vasyaId = userRepository.save(vasya);
+        //set user_list of words for each user from DB
+        List<WordTranslate> dictionary1 = Lists.newArrayList(wordTranslateRepository.findAll());
+        List<WordTranslate> dictionary2 = dictionary1.subList(10, 20);
+        updateDictionary(adminId, dictionary1);
+        updateDictionary(vasyaId, dictionary2);
+        //Todo: wtf 234,235.. why not 1,2...
+        deleteWordFromUserDictionary(admin, wordTranslateRepository.findById((long) 234));
+        deleteWordFromUserDictionary(admin, wordTranslateRepository.findById((long) 235));
+        deleteWordFromUserDictionary(admin, wordTranslateRepository.findById((long) 236));
+    }
+
+    public boolean addWordToUserDictionary(long userId, WordTranslate newWord) {
         try {
-            long id = wordTranslateRepository.save(new_word);
-            jdbc.update("insert into User_WordTranslate (user, wordtranslate) values (?,?)", user_id,
-                    id);
+            long wordId = wordTranslateRepository.save(newWord);
+            jdbc.update("insert into User_WordTranslate (user, wordtranslate) values (?,?)", userId,
+                    wordId);
             return true;
         } catch (Exception ex) {
             log.warn(ex.getMessage());
@@ -78,10 +77,10 @@ public class UserService {
         }
     }
 
-    public boolean updateDictionary(long user_id, List<WordTranslate> new_words_list) {
+    public boolean updateDictionary(long userId, List<WordTranslate> newWordsList) {
         try {
-            for (WordTranslate wordTranslate : new_words_list) {
-                addWordToUserDictionary(user_id, wordTranslate);
+            for (WordTranslate wordTranslate : newWordsList) {
+                addWordToUserDictionary(userId, wordTranslate);
             }
             return true;
         } catch (Exception ex) {
@@ -97,7 +96,7 @@ public class UserService {
     public List<WordTranslate> getDictionary(User user) {
         final Long user_id = user.getId();
         return jdbc.query("select * from  User_WordTranslate where user=?", this::mapToWordId, user_id).
-                stream().map((word_id) -> wordTranslateRepository.findById(word_id)).collect(Collectors.toList());
+                stream().map(wordId -> wordTranslateRepository.findById(wordId)).collect(Collectors.toList());
     }
 
     //return user_list of refreshed User POJOs with actual dictionaries

@@ -14,23 +14,22 @@ import java.util.Map;
 
 @Slf4j
 @Repository
-public class Jdbc_UserRepository implements UserRepository {
+public class JdbcUserRepository implements UserRepository {
 
     private JdbcTemplate jdbc;
-    private WordTranslateRepository words_repo;
+
 
     @Autowired
-    public Jdbc_UserRepository(JdbcTemplate jdbc, WordTranslateRepository words_repo) {
+    public JdbcUserRepository(JdbcTemplate jdbc) {
         this.jdbc = jdbc;
-        this.words_repo = words_repo;
     }
 
     private User mapRowToUser(ResultSet rs, int rowNum) throws SQLException {
-        User returned_user = new User();
-        returned_user.setId(Long.valueOf(rs.getString("id")));
-        returned_user.setName(rs.getString("name"));
-        returned_user.setPassword(rs.getString("password"));
-        return returned_user;
+        User returnedUser = new User();
+        returnedUser.setId(Long.valueOf(rs.getString("id")));
+        returnedUser.setName(rs.getString("name"));
+        returnedUser.setPassword(rs.getString("password"));
+        return returnedUser;
     }
 
     @Override
@@ -46,11 +45,11 @@ public class Jdbc_UserRepository implements UserRepository {
 
     @Override
     public Long save(User user) {
-        SimpleJdbcInsert userInsert = (new SimpleJdbcInsert(jdbc)).withTableName("User").usingGeneratedKeyColumns(new String[]{"id"});
+        SimpleJdbcInsert userInsert = (new SimpleJdbcInsert(jdbc)).withTableName("User").usingGeneratedKeyColumns("id");
         ObjectMapper objectMapper = new ObjectMapper();
         Map<String, Object> map = objectMapper.convertValue(user, Map.class);
-        long id = (long) userInsert.executeAndReturnKey(map);
-        return id;
+        return (long) userInsert.executeAndReturnKey(map);
+
     }
 }
 
