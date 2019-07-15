@@ -1,4 +1,4 @@
-package services;
+package MVC_package;
 
 import com.google.inject.internal.util.Lists;
 import data_base.UserRepository;
@@ -8,7 +8,15 @@ import entities.WordTranslate;
 import io_data_module.CsvWordsReader;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.StandardPasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,7 +24,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
-public class UserService {
+@Service
+public class UserService implements UserDetailsService {
 
     private UserRepository userRepository;
     private WordTranslateRepository wordTranslateRepository;
@@ -35,34 +44,35 @@ public class UserService {
         this.userRepository = userRepository;
         this.jdbc = jdbcTemplate;
         // This is testing logic, must be removed later
-        testDataCreation();
 
     }
 
-    private void testDataCreation() {
+    @Override
+    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+        return testDataCreation();
+    }
+
+
+    private User testDataCreation() {
         CsvWordsReader csvWordsReader = new CsvWordsReader();
         csvWordsReader.getItemList("db.csv").stream().forEach(wordTranslateRepository::save);
         // adding new users for tests
-        User admin = new User();
-        admin.setName("Artur");
-        admin.setId(1);
-        admin.setPassword("admin");
-        User vasya = new User();
-        vasya.setName("Vasya");
-        vasya.setId(2);
-        vasya.setPassword("vasya");
+
+
         // saving users to DB
-        Long adminId = userRepository.save(admin);
-        Long vasyaId = userRepository.save(vasya);
+
+        User user = userRepository.findById(0);
+
         //set user_list of words for each user from DB
         List<WordTranslate> dictionary1 = Lists.newArrayList(wordTranslateRepository.findAll());
-        List<WordTranslate> dictionary2 = dictionary1.subList(10, 20);
-        updateDictionary(adminId, dictionary1);
-        updateDictionary(vasyaId, dictionary2);
+        updateDictionary(user.getId(), dictionary1);
+
         //Todo: wtf 234,235.. why not 1,2...
-        deleteWordFromUserDictionary(admin, wordTranslateRepository.findById((long) 234));
-        deleteWordFromUserDictionary(admin, wordTranslateRepository.findById((long) 235));
-        deleteWordFromUserDictionary(admin, wordTranslateRepository.findById((long) 236));
+       /* deleteWordFromUserDictionary(user, wordTranslateRepository.findById((long) 234));
+        deleteWordFromUserDictionary(user, wordTranslateRepository.findById((long) 235));
+        deleteWordFromUserDictionary(user, wordTranslateRepository.findById((long) 236));*/
+
+        return user;
     }
 
     public boolean addWordToUserDictionary(long userId, WordTranslate newWord) {
