@@ -14,6 +14,7 @@ import speech.SpeechUrlProvider;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 
 @Slf4j
 @Controller
@@ -34,8 +35,14 @@ public class TableController {
     @GetMapping
     public String mainPage(Model model) throws IOException {
         log.info(">>> mainPage");
-        User curent_user = (User) model.asMap().get("user");
+
+        User curent_user = (User)userService.loadUserByUsername("user");
+
         log.info(">>> processing " + curent_user);
+
+        List<WordTranslate> list =  userService.getDictionary(curent_user).subList(0,100);
+
+        model.addAttribute("user",curent_user);
         model.addAttribute("table", userService.getDictionary(curent_user));
         WordProcessor wordProcessor =
                 new WordProcessor(wordTranslateRepository, userService, curent_user);

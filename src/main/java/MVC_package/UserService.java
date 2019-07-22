@@ -8,14 +8,10 @@ import entities.WordTranslate;
 import io_data_module.CsvWordsReader;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.sql.ResultSet;
@@ -32,6 +28,7 @@ public class UserService implements UserDetailsService {
     private JdbcTemplate jdbc;
     private static long counter = 0;
     private final long id = counter++;
+    private boolean switcher = false;
 
     @Override
     public String toString() {
@@ -58,19 +55,14 @@ public class UserService implements UserDetailsService {
         csvWordsReader.getItemList("db.csv").stream().forEach(wordTranslateRepository::save);
         // adding new users for tests
 
-
         // saving users to DB
 
         User user = userRepository.findById(0);
 
         //set user_list of words for each user from DB
         List<WordTranslate> dictionary1 = Lists.newArrayList(wordTranslateRepository.findAll());
-        updateDictionary(user.getId(), dictionary1);
-
-        //Todo: wtf 234,235.. why not 1,2...
-       /* deleteWordFromUserDictionary(user, wordTranslateRepository.findById((long) 234));
-        deleteWordFromUserDictionary(user, wordTranslateRepository.findById((long) 235));
-        deleteWordFromUserDictionary(user, wordTranslateRepository.findById((long) 236));*/
+        if (!switcher) updateDictionary(user.getId(), dictionary1);
+        switcher = true;
 
         return user;
     }

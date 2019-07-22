@@ -12,7 +12,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @ComponentScan("data_base")
-@ComponentScan("security")
 public class SpringConfiguration implements WebMvcConfigurer {
 
     @Autowired
