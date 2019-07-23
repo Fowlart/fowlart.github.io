@@ -8,10 +8,13 @@ import entities.WordTranslate;
 import io_data_module.CsvWordsReader;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.stereotype.Service;
 
@@ -44,26 +47,27 @@ public class UserService implements UserDetailsService {
         // This is testing logic, must be removed later
     }
 
+    @Bean
+    public PasswordEncoder encoder() {
+        return new StandardPasswordEncoder("53cr3t");
+    }
+
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
 
         org.springframework.security.core.userdetails.User.UserBuilder users = org.springframework.security.core.userdetails.User.withDefaultPasswordEncoder();
-
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(users.username("admin").password("password").roles("ADMIN").build());
-        UserDetails bufUser = (UserDetails) users;
-        User returnedUser = (User) bufUser;
+        UserDetails bufUser = users.username(s).password("admin").roles("ADMIN").passwordEncoder(s1 -> encoder().encode(s1)).build();
+        manager.createUser(bufUser);
 
-        returnedUser.setId(testDataCreation().getId());
+        //  User returnedUser = (User) bufUser;
+        //  returnedUser.setId(testDataCreation().getId());
 
-        return returnedUser;
-
+        return bufUser;
     }
 
 
-
-
-    private User testDataCreation() {
+    public User testDataCreation() {
         CsvWordsReader csvWordsReader = new CsvWordsReader();
         csvWordsReader.getItemList("db.csv").stream().forEach(wordTranslateRepository::save);
         // adding new users for tests

@@ -36,11 +36,8 @@ public class TableController {
     public String mainPage(Model model) throws IOException {
         log.info(">>> mainPage");
 
-        User curent_user = (User)userService.loadUserByUsername("user");
-
+        User curent_user = userService.testDataCreation();
         log.info(">>> processing " + curent_user);
-
-        List<WordTranslate> list =  userService.getDictionary(curent_user).subList(0,100);
 
         model.addAttribute("user",curent_user);
         model.addAttribute("table", userService.getDictionary(curent_user));

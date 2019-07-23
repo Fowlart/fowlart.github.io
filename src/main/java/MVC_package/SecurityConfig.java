@@ -20,11 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private UserDetailsService userService;
 
 
-
-
     protected void configure(HttpSecurity http) throws Exception {
-
-
         http
                 .authorizeRequests()
                 .antMatchers("/create", "/table")
@@ -62,29 +58,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //tag::customLoginPage[]
         ;
     }
-//end::configureHttpSecurity[]
-//end::authorizeRequests[]
-//end::customLoginPage[]
-
-  /*
-  //tag::customUserDetailsService[]
-  @Override
-  protected void configure(AuthenticationManagerBuilder auth)
-      throws Exception {
-
-    auth
-      .userDetailsService(userDetailsService);
-
-  }
-  //end::customUserDetailsService[]
-
-   */
-
-    //tag::customUserDetailsService_withPasswordEncoder[]
-    @Bean
+  /*  @Bean
     public PasswordEncoder encoder() {
         return new StandardPasswordEncoder("53cr3t");
-    }
+    }*/
 
 
     @Override
@@ -93,11 +70,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         auth
                 .userDetailsService(userService)
-                .passwordEncoder(encoder());
-
+                .passwordEncoder(new StandardPasswordEncoder("53cr3t"));
     }
-    //end::customUserDetailsServic
-
-
-
 }
