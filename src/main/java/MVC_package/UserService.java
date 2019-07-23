@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.stereotype.Service;
 
 import java.sql.ResultSet;
@@ -41,29 +42,37 @@ public class UserService implements UserDetailsService {
         this.userRepository = userRepository;
         this.jdbc = jdbcTemplate;
         // This is testing logic, must be removed later
-
     }
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        return testDataCreation();
+
+        org.springframework.security.core.userdetails.User.UserBuilder users = org.springframework.security.core.userdetails.User.withDefaultPasswordEncoder();
+
+        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+        manager.createUser(users.username("admin").password("password").roles("ADMIN").build());
+        UserDetails bufUser = (UserDetails) users;
+        User returnedUser = (User) bufUser;
+
+        returnedUser.setId(testDataCreation().getId());
+
+        return returnedUser;
+
     }
+
+
 
 
     private User testDataCreation() {
         CsvWordsReader csvWordsReader = new CsvWordsReader();
         csvWordsReader.getItemList("db.csv").stream().forEach(wordTranslateRepository::save);
         // adding new users for tests
-
         // saving users to DB
-
         User user = userRepository.findById(0);
-
         //set user_list of words for each user from DB
         List<WordTranslate> dictionary1 = Lists.newArrayList(wordTranslateRepository.findAll());
         if (!switcher) updateDictionary(user.getId(), dictionary1);
         switcher = true;
-
         return user;
     }
 
