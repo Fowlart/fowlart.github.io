@@ -52,18 +52,28 @@ public class UserService implements UserDetailsService {
         return new StandardPasswordEncoder("53cr3t");
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-
+    public UserDetails getAdmin() {
         org.springframework.security.core.userdetails.User.UserBuilder users = org.springframework.security.core.userdetails.User.withDefaultPasswordEncoder();
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        UserDetails bufUser = users.username(s).password("admin").roles("ADMIN").passwordEncoder(s1 -> encoder().encode(s1)).build();
+        UserDetails bufUser = users.username("admin").password("admin").roles("ADMIN").passwordEncoder(s1 -> encoder().encode(s1)).build();
         manager.createUser(bufUser);
-
-        //  User returnedUser = (User) bufUser;
-        //  returnedUser.setId(testDataCreation().getId());
-
         return bufUser;
+    }
+
+    public UserDetails getGuest() {
+        org.springframework.security.core.userdetails.User.UserBuilder users = org.springframework.security.core.userdetails.User.withDefaultPasswordEncoder();
+        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+        UserDetails bufUser = users.username("guest").password("guest").roles("GUEST").passwordEncoder(s1 -> encoder().encode(s1)).build();
+        manager.createUser(bufUser);
+        return bufUser;
+    }
+
+
+    @Override
+    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+        if (s.equals("admin")) return getAdmin();
+        return getGuest();
+
     }
 
 

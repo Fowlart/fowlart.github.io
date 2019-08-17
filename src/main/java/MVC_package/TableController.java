@@ -6,6 +6,7 @@ import entities.User;
 import entities.WordTranslate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ import java.util.List;
 
 @Slf4j
 @Controller
-
+@PreAuthorize("hasRole('ADMIN')")
 @RequestMapping("/table")
 @SessionAttributes("user")
 public class TableController {
@@ -32,6 +33,7 @@ public class TableController {
     @Autowired
     private UserService userService;
 
+
     @GetMapping
     public String mainPage(Model model) throws IOException {
         log.info(">>> mainPage");
@@ -39,7 +41,7 @@ public class TableController {
         User curent_user = userService.testDataCreation();
         log.info(">>> processing " + curent_user);
 
-        model.addAttribute("user",curent_user);
+        model.addAttribute("user", curent_user);
         model.addAttribute("table", userService.getDictionary(curent_user));
         WordProcessor wordProcessor =
                 new WordProcessor(wordTranslateRepository, userService, curent_user);

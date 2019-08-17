@@ -23,9 +23,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/create", "/table")
-                .access("hasRole('ADMIN')")
-                .antMatchers("/", "/**").access("permitAll")
+                .antMatchers("/create","/table")
+                .hasRole("ADMIN")
                 //end::authorizeRequests[]
 
                 .and()
@@ -43,19 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // tag::csrfIgnore[]
                 .and()
                 .csrf()
-                .ignoringAntMatchers("/h2-console/**")
-                // end::csrfIgnore[]
-
-                // Allow pages to be loaded in frames from the same origin; needed for H2-Console
-                // tag::frameOptionsSameOrigin[]
-                .and()
-                .headers()
-                .frameOptions()
-                .sameOrigin()
-        // end::frameOptionsSameOrigin[]
-
-        //tag::authorizeRequests[]
-        //tag::customLoginPage[]
+                .disable()
         ;
     }
   /*  @Bean
