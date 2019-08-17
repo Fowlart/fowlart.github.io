@@ -16,6 +16,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.stereotype.Service;
 
 import java.sql.ResultSet;
@@ -33,6 +34,7 @@ public class UserService implements UserDetailsService {
     private static long counter = 0;
     private final long id = counter++;
     private boolean switcher = false;
+    private InMemoryUserDetailsManager manager;
 
     @Override
     public String toString() {
@@ -44,44 +46,41 @@ public class UserService implements UserDetailsService {
         this.wordTranslateRepository = wordTranslateRepository;
         this.userRepository = userRepository;
         this.jdbc = jdbcTemplate;
-        // This is testing logic, must be removed later
+
+        // creating inMemory hardcoded credentials
+        manager = new InMemoryUserDetailsManager();
+        createAdmin();
+        createGuest();
     }
 
     @Bean
     public PasswordEncoder encoder() {
+
         return new StandardPasswordEncoder("53cr3t");
     }
 
-    public UserDetails getAdmin() {
+    private void createAdmin() {
         org.springframework.security.core.userdetails.User.UserBuilder users = org.springframework.security.core.userdetails.User.withDefaultPasswordEncoder();
-        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
         UserDetails bufUser = users.username("admin").password("admin").roles("ADMIN").passwordEncoder(s1 -> encoder().encode(s1)).build();
         manager.createUser(bufUser);
-        return bufUser;
     }
 
-    public UserDetails getGuest() {
+    private void createGuest() {
         org.springframework.security.core.userdetails.User.UserBuilder users = org.springframework.security.core.userdetails.User.withDefaultPasswordEncoder();
-        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
         UserDetails bufUser = users.username("guest").password("guest").roles("GUEST").passwordEncoder(s1 -> encoder().encode(s1)).build();
         manager.createUser(bufUser);
-        return bufUser;
     }
 
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        if (s.equals("admin")) return getAdmin();
-        return getGuest();
-
+        UserDetails result = manager.loadUserByUsername(s);
+        return result;
     }
-
 
     public User testDataCreation() {
         CsvWordsReader csvWordsReader = new CsvWordsReader();
         csvWordsReader.getItemList("db.csv").stream().forEach(wordTranslateRepository::save);
-        // adding new users for tests
-        // saving users to DB
         User user = userRepository.findById(0);
         //set user_list of words for each user from DB
         List<WordTranslate> dictionary1 = Lists.newArrayList(wordTranslateRepository.findAll());

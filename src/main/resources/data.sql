@@ -3,4 +3,4 @@ insert into WordTranslate (id, engword, ukrword, points) values (1, 'test1', 'т
 insert into WordTranslate (id, engword, ukrword, points) values (2, 'test2', 'тест2',21);
 
 delete from User;
-INSERT into User(id,name,password) VALUES (0,'Artur','admin');
+INSERT into User(id,name,password) VALUES (0,'admin','admin');

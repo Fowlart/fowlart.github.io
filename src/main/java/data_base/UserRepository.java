@@ -8,5 +8,7 @@ public interface UserRepository {
 
     User findById(long id);
 
+    User findByName(String name);
+
     Long save(User user);
 }

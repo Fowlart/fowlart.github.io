@@ -42,6 +42,11 @@ public class JdbcUserRepository implements UserRepository {
         return jdbc.queryForObject("select id, name, password from User where id=?", this::mapRowToUser, id);
     }
 
+    @Override
+    public User findByName(String name) {
+        return jdbc.queryForObject("select id, name, password from User where name=?", this::mapRowToUser, name);
+    }
+
 
     @Override
     public Long save(User user) {

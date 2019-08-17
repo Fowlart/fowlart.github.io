@@ -19,9 +19,7 @@ import java.util.List;
 
 @Slf4j
 @Controller
-@PreAuthorize("hasRole('ADMIN')")
 @RequestMapping("/table")
-@SessionAttributes("user")
 public class TableController {
 
     @Autowired
@@ -33,14 +31,20 @@ public class TableController {
     @Autowired
     private UserService userService;
 
+    //Todo: refactor for accepting a user from the authentication mechanism
+    @ModelAttribute("user")
+    private User getUser() {
+        log.info(">>> user is added to the session attribute");
+        userService.testDataCreation();
+        return userService.getUsersList().get(0);
+    }
+
 
     @GetMapping
     public String mainPage(Model model) throws IOException {
         log.info(">>> mainPage");
-
-        User curent_user = userService.testDataCreation();
+        User curent_user = (User) model.asMap().get("user");
         log.info(">>> processing " + curent_user);
-
         model.addAttribute("user", curent_user);
         model.addAttribute("table", userService.getDictionary(curent_user));
         WordProcessor wordProcessor =
