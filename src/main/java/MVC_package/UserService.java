@@ -47,6 +47,8 @@ public class UserService implements UserDetailsService {
         this.userRepository = userRepository;
         this.jdbc = jdbcTemplate;
 
+        testDataCreation();
+
         // creating inMemory hardcoded credentials
         manager = new InMemoryUserDetailsManager();
         createAdmin();
@@ -84,7 +86,7 @@ public class UserService implements UserDetailsService {
         User user = userRepository.findById(0);
         //set user_list of words for each user from DB
         List<WordTranslate> dictionary1 = Lists.newArrayList(wordTranslateRepository.findAll());
-        if (!switcher) updateDictionary(user.getId(), dictionary1);
+        if (Boolean.FALSE.equals(switcher)) updateDictionary(user.getId(), dictionary1);
         switcher = true;
         return user;
     }

@@ -23,34 +23,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/create")
-                .hasRole("ADMIN")
-                .antMatchers("/table").hasAnyRole("ADMIN","GUEST")
-                //end::authorizeRequests[]
-
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                //end::customLoginPage[]
-
-                // tag::enableLogout[]
-                .and()
-                .logout()
-                .logoutSuccessUrl("/")
-                // end::enableLogout[]
-
-                // Make H2-Console non-secured; for debug purposes
-                // tag::csrfIgnore[]
-                .and()
-                .csrf()
-                .disable()
-        ;
+                .antMatchers("testREST/**")
+                .permitAll()
+                .and().csrf().disable();
     }
+
   /*  @Bean
     public PasswordEncoder encoder() {
         return new StandardPasswordEncoder("53cr3t");
     }*/
-
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth)

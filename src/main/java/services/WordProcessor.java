@@ -13,7 +13,7 @@ import java.util.Random;
 @Data
 public class WordProcessor {
 
-    private User user;
+    //   private User user;
     private Double progress;
     private Double avgPoint;
     private Integer totalPoints;
@@ -21,20 +21,14 @@ public class WordProcessor {
 
     private List<WordTranslate> wordList;
 
-    private WordTranslateRepository wordTranslateRepository;
+    @Autowired
     private UserService userService;
 
     private Random random = new Random(47);
 
-    @Autowired
-    public WordProcessor(WordTranslateRepository wordTranslateRepository, UserService userService, User user) {
-        this.user = user;
-        this.userService = userService;
-        this.wordTranslateRepository = wordTranslateRepository;
-        wordList = userService.getDictionary(user);
-    }
+    public WordTranslate nextWord(User user) {
 
-    public WordTranslate nextWord() {
+        wordList = userService.getDictionary(user);
 
         if (wordList != null) {
             totalPoints = this.wordList.stream().mapToInt(WordTranslate::getPoints).reduce(0, (i1, i2) -> i1 + i2);
@@ -49,7 +43,6 @@ public class WordProcessor {
         }
         return null;
     }
-
 
 
 }
