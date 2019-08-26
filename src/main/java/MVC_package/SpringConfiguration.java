@@ -1,6 +1,5 @@
 package MVC_package;
 
-import MVC_package.rest_consumers.TestRestConsumer;
 import data_base.UserRepository;
 import data_base.WordTranslateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +19,11 @@ public class SpringConfiguration implements WebMvcConfigurer {
     @Autowired
     UserRepository userRepository;
 
+    /**
+     * By annotating WordTranslateRepository with
+     * @Repository, you declare that it should be automatically discovered by Spring component
+     * scanning and instantiated as a bean in the Spring application context.
+     */
     @Autowired
     WordTranslateRepository wordTranslateRepository;
 
@@ -43,12 +47,7 @@ public class SpringConfiguration implements WebMvcConfigurer {
     }
 
     @Bean
-    public TestRestConsumer getTestRestConsumer() {
-        return new TestRestConsumer();
-    }
-
-    @Bean
-    public WordProcessor getWordProcessor(){
+    public WordProcessor getWordProcessor() {
         return new WordProcessor();
     }
 }

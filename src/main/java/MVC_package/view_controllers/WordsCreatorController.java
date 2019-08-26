@@ -25,6 +25,11 @@ public class WordsCreatorController {
     @Autowired
     private UserService userService;
 
+    /**
+     * By annotating TestRestConsumer with
+     * @RestController, you declare that it should be automatically discovered by Spring component
+     * scanning and instantiated as a bean in the Spring application context.
+     **/
     @Autowired
     private TestRestConsumer testRestConsumer;
 
@@ -41,8 +46,8 @@ public class WordsCreatorController {
         log.info(">>> current user service(must be singletone): " + userService.toString());
 
         //for test rest API consumer
-        log.info(">>> testing rest-consumers API(GET): "+testRestConsumer.getWords());
-        log.info(">>> testing rest-consumers API(POST):"+testRestConsumer.createWord("тест РЕСТ","test REST",0));
+        log.info(">>> testing rest-consumers API(GET): " + testRestConsumer.getWords());
+        log.info(">>> testing rest-consumers API(POST):" + testRestConsumer.createWord("тест РЕСТ", "test REST", 0));
         //end
 
         model.addAttribute("word", new WordTranslate());

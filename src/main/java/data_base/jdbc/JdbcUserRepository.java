@@ -1,6 +1,7 @@
-package data_base;
+package data_base.jdbc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import data_base.UserRepository;
 import entities.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,6 @@ import java.util.Map;
 public class JdbcUserRepository implements UserRepository {
 
     private JdbcTemplate jdbc;
-
 
     @Autowired
     public JdbcUserRepository(JdbcTemplate jdbc) {
@@ -46,7 +46,6 @@ public class JdbcUserRepository implements UserRepository {
     public User findByName(String name) {
         return jdbc.queryForObject("select id, name, password from User where name=?", this::mapRowToUser, name);
     }
-
 
     @Override
     public Long save(User user) {
