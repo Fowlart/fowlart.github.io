@@ -31,7 +31,7 @@ public class TestRestController_3 {
     @PostMapping(value = "/createWord", consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public long createWord(@RequestBody WordTranslate wordTranslate) {
-        log.info(">>>creating " + wordTranslate);
+        log.info(">>> creating " + wordTranslate);
         return wordTranslateRepository.save(wordTranslate);
     }
 }

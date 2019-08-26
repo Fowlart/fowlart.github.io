@@ -2,7 +2,6 @@ package MVC_package.view_controllers;
 
 import MVC_package.UserService;
 import MVC_package.rest_consumers.TestRestConsumer;
-import data_base.UserRepository;
 import entities.User;
 import entities.WordTranslate;
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.validation.Valid;
 
@@ -38,7 +41,9 @@ public class WordsCreatorController {
         log.info(">>> current user service(must be singletone): " + userService.toString());
 
         //for test rest API consumer
-        log.info(">>> testing rest-consumers API: "+testRestConsumer.getWords());
+        log.info(">>> testing rest-consumers API(GET): "+testRestConsumer.getWords());
+        log.info(">>> testing rest-consumers API(POST):"+testRestConsumer.createWord("тест РЕСТ","test REST",0));
+        //end
 
         model.addAttribute("word", new WordTranslate());
         return "words_creator";
