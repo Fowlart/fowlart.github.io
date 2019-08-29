@@ -13,6 +13,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Map;
 
+/**
+ * There aren’t any statements or connections being created. And, after the method is
+ * finished, there isn’t any cleanup of those objects. Finally, there isn’t any handling of
+ * exceptions that can’t properly be handled in a catch block. What’s left is code that’s
+ * focused solely on performing a query (the call to JdbcTemplate’s queryForObject()
+ * method) and mapping the results to an Ingredient object (in the mapRowToWord method).
+ */
 @Repository
 /**As you can see, Jdbc_WordTranslateRepository is annotated with @Repository. This
  annotation is one of a handful of stereotype annotations that Spring defines, including
@@ -32,17 +39,14 @@ public class Jdbc_WordTranslateRepository implements WordTranslateRepository {
     public Jdbc_WordTranslateRepository(JdbcTemplate jdbc) {
         this.jdbc = jdbc;
 
+        /** But rather than use the cumbersome Prepared-
+         StatementCreator, allow me to introduce you to SimpleJdbcInsert, an object that
+         wraps JdbcTemplate to make it easier to insert data into a table. */
         wordTranslateInsert = (new SimpleJdbcInsert(jdbc)).withTableName("WordTranslate").
                 usingGeneratedKeyColumns(new String[]{"id"});
     }
 
-    /**
-     * There aren’t any statements or connections being created. And, after the method is
-     * finished, there isn’t any cleanup of those objects. Finally, there isn’t any handling of
-     * exceptions that can’t properly be handled in a catch block. What’s left is code that’s
-     * focused solely on performing a query (the call to JdbcTemplate’s queryForObject()
-     * method) and mapping the results to an Ingredient object (in the mapRowToWord method).
-     */
+
     private WordTranslate mapRowToWord(ResultSet rs, int rowNum) throws SQLException {
         WordTranslate returned_word = new WordTranslate();
         returned_word.setId(Long.valueOf(rs.getString("id")));

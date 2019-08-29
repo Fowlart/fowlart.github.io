@@ -1,12 +1,19 @@
 package entities;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 
+@Entity
 public class WordTranslate {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
 
     public long getId() {

@@ -9,6 +9,11 @@ import org.springframework.web.client.RestTemplate;
 
 @Slf4j
 @RestController
+/**
+ * By annotating TestRestConsumer with
+ * @RestController, you declare that it should be automatically discovered by Spring component
+ * scanning and instantiated as a bean in the Spring application context.
+ **/
 public class TestRestConsumer {
 
     @Autowired
