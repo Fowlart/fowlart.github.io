@@ -5,13 +5,16 @@ import data_base.WordTranslateRepository;
 import entities.User;
 import entities.WordTranslate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import services.WordProcessor;
 
+import java.util.List;
+
 @RestController
-@RequestMapping(path = "/testREST")
+@RequestMapping(path = "/api")
 public class TestRestController {
 
     @Autowired
@@ -32,13 +35,10 @@ public class TestRestController {
     }
 
     // will return Json response
-    @GetMapping(value = "/getJsonUser", produces = "application/json")
-    public User getJsonUser() {
-        return userService.getUsersList().get(INDEX);
-    }
-
-    @GetMapping(value = "/getAnyWord", produces = "application/json")
-    public WordTranslate getSingleWord() {
-        return wordProcessor.nextWord(getJsonUser());
+    @GetMapping(value = "/getTable", produces = "application/json")
+    public WordTranslate getTable(Model model) {
+        User curent_user = userService.getUsersList().get(INDEX);
+        System.out.println(">>> processing " + curent_user);
+        return userService.getDictionary(curent_user).get(34);
     }
 }

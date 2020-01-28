@@ -1,88 +1,108 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <style>
     table {
         border-collapse: inherit;
         width: 100%;
     }
-
-    th, td {
+    
+    th,
+    td {
         text-align: left;
         padding: 8px;
     }
-
+    
     tr:nth-child(even) {
         background-color: #f2f2f2
     }
-
+    
     th {
         background-color: #4CAF50;
         color: white;
     }
+    
     .day-forecast {
-	margin: 0;
-	padding: .3rem;
-	background-color: #eee;
-	font: 1rem 'Fira Sans', sans-serif;
-}
-
-
+        margin: 0;
+        padding: .3rem;
+        background-color: #eee;
+        font: 1rem 'Fira Sans', sans-serif;
+    }
 </style>
 
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
 <body>
-<h1>Welcome</h1>
-<!-- <img th:src="@{/images/Spring-Boot.png}"/> -->
+    <h1>Welcome</h1>
+    <!-- <img th:src="@{/images/Spring-Boot.png}"/> -->
 
-<h1>please translate: <span th:text="${wordTranslate.ukrword}"></span></span></h1>
+    <h1>please translate: <span th:text="${wordTranslate.ukrword}"></span></span>
+    </h1>
 
-<font size="5" color="green" face="Arial">
-    <details>
-        <span th:text="${wordTranslate.ukrword}"/> - <span th:text="${wordTranslate.engword}"/>
+    <details style="font-size: 5;
+    color:green;">
+        <span th:text="${wordTranslate.ukrword}" /> - <span th:text="${wordTranslate.engword}" />
         <br/>
         <audio controls id="myAudio">
             <source type="audio/mpeg" th:src="${urla}">
         </audio>
         <br/>
     </details>
-</font>
 
-<article class="day-forecast">
-    <h2>User</h2>
-    <p><span th:text="${user.name}"/></p>
-</article>
-<br/>
-<article class="day-forecast">
-    <h2>Progress</h2>
-    <p><span th:text="${info.progress}"/></p>
-</article>
-<br/>
-<article class="day-forecast">
-    <h2>Words count</h2>
-    <p><span th:text="${info.countOfWords}"/></p>
-</article>
-<br/>
 
-<table>
-    <tr>
-        <th>ID</th>
-        <th>ENG</th>
-        <th>UKR</th>
-        <th>RATIO</th>
-    </tr>
-    <div th:each="word : ${table}">
-        <tr>
-            <td><span th:text="${word.id}"></span></td>
-            <td><span th:text="${word.engword}"></span></td>
-            <td><span th:text="${word.ukrword}"></span></td>
-            <td><span th:text="${word.points}"></span></td>
-        </tr>
+    <article class="day-forecast">
+        <h2>User</h2>
+        <p><span th:text="${user.name}" /></p>
+    </article>
+    <br/>
+    <article class="day-forecast">
+        <h2>Progress</h2>
+        <p><span th:text="${info.progress}" /></p>
+    </article>
+    <br/>
+    <article class="day-forecast">
+        <h2>Words count</h2>
+        <p><span th:text="${info.countOfWords}" /></p>
+    </article>
+    <br/>
+
+
+
+    <div id="demo">
+        <h2>The XMLHttpRequest Object</h2>
+        <button type="button" onclick="getTableBody()">Change Content</button>
     </div>
-</table>
+
+    <table id="wordsTable"></table>
+    <p id="wordsTable1"></p>
+    <p id="wordsTable2"></p>
+
+    <script>
+        function loadTable() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "http://localhost:8080/api/getTable", true);
+
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById('wordsTable1').innerText = JSON.parse(this.response).ukrword; // will send object
+                }
+            };
+            xhttp.send();
+        }
+
+        function getTableHead() {
+            return '<tr><th>ID</th><th>ENG</th><th>UKR</th><th>RATIO</th></tr>';
+        }
+
+        function getTableBody() {
+            loadTable();
+            var jSon = document.getElementById("wordsTable1").innerText;
+            document.getElementById("wordsTable2").innerHTML = jSon.ukrword;
+        }
+    </script>
 </body>
+
 </html>
