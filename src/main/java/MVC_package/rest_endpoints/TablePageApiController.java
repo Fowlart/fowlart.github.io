@@ -4,6 +4,7 @@ import MVC_package.UserService;
 import data_base.WordTranslateRepository;
 import entities.User;
 import entities.WordTranslate;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,9 +14,10 @@ import services.WordProcessor;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping(path = "/api")
-public class TestRestController {
+public class TablePageApiController {
 
     @Autowired
     private WordProcessor wordProcessor;
@@ -38,7 +40,7 @@ public class TestRestController {
     @GetMapping(value = "/getTable", produces = "application/json")
     public List<WordTranslate> getTable(Model model) {
         User curent_user = userService.getUsersList().get(INDEX);
-        System.out.println(">>> processing " + curent_user);
+        log.info(">>> processing " + curent_user);
         return userService.getDictionary(curent_user);
     }
 }

@@ -12,6 +12,5 @@ public class Launcher {
         SpringApplication.run(Launcher.class, args);
         log.info(">>> Launcher was started");
 
-
     }
 }

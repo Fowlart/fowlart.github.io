@@ -39,18 +39,41 @@
     <h1>WELCOME</h1>
     <!-- <img th:src="@{/images/Spring-Boot.png}"/> -->
 
-    <h1>please translate: <span th:text="${wordTranslate.ukrword}"></span></span>
-    </h1>
+    <h2>please translate: <span th:text="${wordTranslate.ukrword}"></span></span>
+    </h2>
 
-    <details style="font-size: 5;
-    color:green;">
-        <span th:text="${wordTranslate.ukrword}" /> - <span th:text="${wordTranslate.engword}" />
-        <br/>
-        <audio controls id="myAudio">
-            <source type="audio/mpeg" th:src="${urla}">
-        </audio>
-        <br/>
-    </details>
+    <script th:inline="javascript">
+        /**Build translate section**/
+        var sw = 1;
+
+        function switcher() {
+            sw++;
+            if (sw % 2 == 0) showDetails();
+            else hideDetails();
+        }
+
+        function showDetails() {
+            // How I pass a variable from Spring model to JavaScript variable?
+            var ukrword = /*[[${wordTranslate.ukrword}]]*/ 'default';
+            var engword = /*[[${wordTranslate.engword}]]*/ 'default';
+            document.getElementById('details').hidden = false;
+            document.getElementById('details').textContent = `${ukrword.toLocaleUpperCase()} - ${engword.toLocaleUpperCase()}`;
+        }
+
+        function hideDetails() {
+            document.getElementById('details').hidden = true;
+        }
+    </script>
+
+    <button type="button" onclick="switcher()">details</button>
+    <br/>
+    <div>
+        <p id="details" hidden='true' style="font-size: large; color:green;">
+        </p>
+    </div>
+    <br/><audio controls id="myAudio">
+        <source type="audio/mpeg" th:src="${urla}">
+    </audio>
 
 
     <article class="day-forecast">
@@ -78,10 +101,10 @@
 
     <table id="wordsTable"></table>
 
-    <script>
+    <script th:inline="javascript">
         /**Functional for cleaning and displaying table of words on the page**/
         function cleanTable() {
-            document.getElementById('wordsTable').innerHTML = "";
+            document.getElementById('wordsTable').innerHTML = '';
         }
 
         function loadTable() {
