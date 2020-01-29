@@ -36,7 +36,7 @@
 </head>
 
 <body>
-    <h1>Welcome</h1>
+    <h1>WELCOME</h1>
     <!-- <img th:src="@{/images/Spring-Boot.png}"/> -->
 
     <h1>please translate: <span th:text="${wordTranslate.ukrword}"></span></span>
@@ -72,35 +72,39 @@
 
 
     <div id="demo">
-        <h2>The XMLHttpRequest Object</h2>
-        <button type="button" onclick="getTableBody()">Change Content</button>
+        <button type="button" onclick="loadTable()">Load/reload table</button>
+        <button type="button" onclick="cleanTable()">Shutdown table</button>
     </div>
 
     <table id="wordsTable"></table>
-    <p id="wordsTable1"></p>
-    <p id="wordsTable2"></p>
 
     <script>
+        /**Functional for cleaning and displaying table of words on the page**/
+        function cleanTable() {
+            document.getElementById('wordsTable').innerHTML = "";
+        }
+
         function loadTable() {
+            var result;
+            var table;
             var xhttp = new XMLHttpRequest();
             xhttp.open("GET", "http://localhost:8080/api/getTable", true);
-
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById('wordsTable1').innerText = JSON.parse(this.response).ukrword; // will send object
+                    table = '<tr><th>ID</th><th>ENG</th><th>UKR</th><th>RATIO</th></tr>';
+                    result = JSON.parse(this.response); // will send object
+                    console.log(result);
+                    for (obj of result) {
+                        table = table + '<tr>';
+                        for (prop in obj) {
+                            table = table + `<th>${obj[prop]}</th>`;
+                        }
+                        table = table = table + '</tr>';
+                    }
+                    document.getElementById('wordsTable').innerHTML = table;
                 }
             };
             xhttp.send();
-        }
-
-        function getTableHead() {
-            return '<tr><th>ID</th><th>ENG</th><th>UKR</th><th>RATIO</th></tr>';
-        }
-
-        function getTableBody() {
-            loadTable();
-            var jSon = document.getElementById("wordsTable1").innerText;
-            document.getElementById("wordsTable2").innerHTML = jSon.ukrword;
         }
     </script>
 </body>

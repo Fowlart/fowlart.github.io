@@ -36,9 +36,9 @@ public class TestRestController {
 
     // will return Json response
     @GetMapping(value = "/getTable", produces = "application/json")
-    public WordTranslate getTable(Model model) {
+    public List<WordTranslate> getTable(Model model) {
         User curent_user = userService.getUsersList().get(INDEX);
         System.out.println(">>> processing " + curent_user);
-        return userService.getDictionary(curent_user).get(34);
+        return userService.getDictionary(curent_user);
     }
 }
