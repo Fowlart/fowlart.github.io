@@ -3,3 +3,5 @@
 **/*.yml
 **/*.ini
 /target/classes/speech/
+/target/classes/speech/
+/target/classes/speech/

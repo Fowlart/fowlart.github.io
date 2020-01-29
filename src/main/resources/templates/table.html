@@ -39,7 +39,7 @@
     <h1>WELCOME</h1>
     <!-- <img th:src="@{/images/Spring-Boot.png}"/> -->
 
-    <h2>please translate: <span th:text="${wordTranslate.ukrword}"></span></span>
+    <h2 style="font-family: monospace;color:darkblue">Translate: <span th:text="${wordTranslate.ukrword}"></span></span>
     </h2>
 
     <script th:inline="javascript">
@@ -64,16 +64,34 @@
             document.getElementById('details').hidden = true;
         }
     </script>
-
     <button type="button" onclick="switcher()">details</button>
-    <br/>
-    <div>
-        <p id="details" hidden='true' style="font-size: large; color:green;">
-        </p>
-    </div>
+    <p id="details" hidden='true' style="font-size: large; color:green;"></p>
+
     <br/><audio controls id="myAudio">
         <source type="audio/mpeg" th:src="${urla}">
     </audio>
+
+
+    <script th:inline="javascript">
+        // test for POST request
+        function sendWord() {
+            var word = document.getElementById("wordInput").value;
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "http://localhost:8080/api/checkWord", true);
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("wordInput").value = '';
+                }
+            }
+            xhttp.send(word);
+        }
+    </script>
+    <!--Input form-->
+    <div>
+        Translate:<input id="wordInput" type="text" name="answer"></input>
+        <p><button onclick="sendWord()">Send answer</button></p>
+        </form>
+    </div>
 
 
     <article class="day-forecast">
@@ -112,11 +130,16 @@
             var table;
             var xhttp = new XMLHttpRequest();
             xhttp.open("GET", "http://localhost:8080/api/getTable", true);
+
+            // defines a function to be called when the readyState property changes
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     table = '<tr><th>ID</th><th>ENG</th><th>UKR</th><th>RATIO</th></tr>';
+
                     result = JSON.parse(this.response); // will send object
+
                     console.log(result);
+
                     for (obj of result) {
                         table = table + '<tr>';
                         for (prop in obj) {
@@ -124,9 +147,11 @@
                         }
                         table = table = table + '</tr>';
                     }
+
                     document.getElementById('wordsTable').innerHTML = table;
                 }
             };
+
             xhttp.send();
         }
     </script>
