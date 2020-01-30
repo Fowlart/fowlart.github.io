@@ -1,35 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<style>
-    table {
-        border-collapse: inherit;
-        width: 100%;
-    }
-    
-    th,
-    td {
-        text-align: left;
-        padding: 8px;
-    }
-    
-    tr:nth-child(even) {
-        background-color: #f2f2f2
-    }
-    
-    th {
-        background-color: #4CAF50;
-        color: white;
-    }
-    
-    .day-forecast {
-        margin: 0;
-        padding: .3rem;
-        background-color: #eee;
-        font: 1rem 'Fira Sans', sans-serif;
-    }
-</style>
-
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -39,11 +10,11 @@
     <h1>WELCOME</h1>
     <!-- <img th:src="@{/images/Spring-Boot.png}"/> -->
 
-    <h2 style="font-family: monospace;color:darkblue">Translate: <span th:text="${wordTranslate.ukrword}"></span></span>
+    <h2>Translate: <span th:text="${wordTranslate.ukrword}"></span></span>
     </h2>
 
+    <!-- Build "details" section  -->
     <script th:inline="javascript">
-        /**Build translate section**/
         var sw = 1;
 
         function switcher() {
@@ -66,61 +37,52 @@
     </script>
     <button type="button" onclick="switcher()">details</button>
     <p id="details" hidden='true' style="font-size: large; color:green;"></p>
+    <!--END: Build "details" section  -->
 
     <br/><audio controls id="myAudio">
         <source type="audio/mpeg" th:src="${urla}">
     </audio>
 
-
+    <!--Input field with script for processing -->
     <script th:inline="javascript">
-        // test for POST request
+        // POST request
         function sendWord() {
-            var word = document.getElementById("wordInput").value;
+            var word = document.getElementById("WordInput").value;
             var xhttp = new XMLHttpRequest();
             xhttp.open("POST", "http://localhost:8080/api/checkWord", true);
             xhttp.onreadystatechange = function() {
+                console.log(`Response status: ${this.status}`);
                 if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("wordInput").value = '';
+                    // everithing OK
+                    document.getElementById("WordInput").value = '';
+                    document.getElementById('TranslateWarn').innerHTML = 'Translate:';
+                } else if (this.readyState == 4 && this.status == 400) {
+                    // empty line was sent
+                    document.getElementById('TranslateWarn').innerHTML = 'Please provide a word: ';
                 }
             }
             xhttp.send(word);
         }
     </script>
-    <!--Input form-->
     <div>
-        Translate:<input id="wordInput" type="text" name="answer"></input>
+        <p id='TranslateWarn'>Translate:</p><input id="WordInput" type="text" name="answer"></input>
         <p><button onclick="sendWord()">Send answer</button></p>
         </form>
     </div>
-
-
-    <article class="day-forecast">
-        <h2>User</h2>
-        <p><span th:text="${user.name}" /></p>
-    </article>
+    <!--END:  Input field with script for processing -->
+    <p>User: <span th:text="${user.name}" /></p>
+    <p>Progress: <span th:text="${info.progress}" /></p>
+    <p>Words count: <span th:text="${info.countOfWords}" /></p>
     <br/>
-    <article class="day-forecast">
-        <h2>Progress</h2>
-        <p><span th:text="${info.progress}" /></p>
-    </article>
-    <br/>
-    <article class="day-forecast">
-        <h2>Words count</h2>
-        <p><span th:text="${info.countOfWords}" /></p>
-    </article>
-    <br/>
-
-
 
     <div id="demo">
         <button type="button" onclick="loadTable()">Load/reload table</button>
         <button type="button" onclick="cleanTable()">Shutdown table</button>
     </div>
 
-    <table id="wordsTable"></table>
-
+    <!-- Table builder -->
+    <table id="wordsTable" rules="cols" border="3" style="color:black; border-color:  black;"></table>
     <script th:inline="javascript">
-        /**Functional for cleaning and displaying table of words on the page**/
         function cleanTable() {
             document.getElementById('wordsTable').innerHTML = '';
         }
@@ -130,16 +92,11 @@
             var table;
             var xhttp = new XMLHttpRequest();
             xhttp.open("GET", "http://localhost:8080/api/getTable", true);
-
-            // defines a function to be called when the readyState property changes
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     table = '<tr><th>ID</th><th>ENG</th><th>UKR</th><th>RATIO</th></tr>';
-
                     result = JSON.parse(this.response); // will send object
-
                     console.log(result);
-
                     for (obj of result) {
                         table = table + '<tr>';
                         for (prop in obj) {
@@ -147,7 +104,6 @@
                         }
                         table = table = table + '</tr>';
                     }
-
                     document.getElementById('wordsTable').innerHTML = table;
                 }
             };
@@ -155,6 +111,7 @@
             xhttp.send();
         }
     </script>
+    <!-- END: Table builder -->
 </body>
 
 </html>

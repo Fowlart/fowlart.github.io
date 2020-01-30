@@ -36,7 +36,7 @@ public class TablePageApiController {
         return userService.getUsersList().get(INDEX).toString();
     }
 
-    // will return table with all words. GET.
+    // Returns table with all words. GET.
     @GetMapping(value = "/getTable", produces = "application/json")
     public List<WordTranslate> getTable(Model model) {
         User curent_user = userService.getUsersList().get(INDEX);
@@ -44,10 +44,11 @@ public class TablePageApiController {
         return userService.getDictionary(curent_user);
     }
 
-    // will catch word from front-end
+    // Catches word from front-end
     @PostMapping(value = "/checkWord", consumes = "text/plain")
     public void postTable(@RequestBody String word) {
         log.info(">>> Request POST received! "+word);
+        //Todo: make word processing
     }
 
 }

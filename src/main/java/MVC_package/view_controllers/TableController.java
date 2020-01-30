@@ -1,22 +1,20 @@
 package MVC_package.view_controllers;
 
 import MVC_package.UserService;
-import data_base.UserRepository;
-import data_base.WordTranslateRepository;
 import entities.User;
 import entities.WordTranslate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
 import services.WordProcessor;
 import speech.SpeechUrlProvider;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 
 @Slf4j
 @Controller
