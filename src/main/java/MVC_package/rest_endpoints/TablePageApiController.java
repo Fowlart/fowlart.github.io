@@ -1,7 +1,9 @@
 package MVC_package.rest_endpoints;
 
 import MVC_package.UserService;
+import com.google.inject.internal.util.Lists;
 import data_base.WordTranslateRepository;
+import dtos.UserData;
 import dtos.Word;
 import entities.User;
 import entities.WordTranslate;
@@ -48,11 +50,17 @@ public class TablePageApiController {
         return userService.getDictionary(curent_user);
     }
 
-    // Returns table with all words. GET.
     @GetMapping(value = "/getWord", produces = "application/json")
-    public Word getWord(Model model) {
+    public List getWord(Model model) {
+        List data = Lists.newArrayList();
+        UserData userData = new UserData();
         User curent_user = userService.getUsersList().get(INDEX);
         WordTranslate wordTranslate = wordProcessor.nextWord(curent_user);
+
+        userData.setName(curent_user.getName());
+        userData.setProgress(wordProcessor.getProgress().toString());
+        userData.setWordsCount(wordProcessor.getCountOfWords().toString());
+
         SpeechUrlProvider speech = new SpeechUrlProvider();
         URL url = null;
         try {
@@ -67,13 +75,22 @@ public class TablePageApiController {
         word.setUkrword(wordTranslate.getUkrword());
         word.setPoints(wordTranslate.getPoints());
         word.setSound(url);
-        return word;
+        data.add(userData);
+        data.add(word);
+        return data;
     }
 
     // Catches word from front-end
     @PostMapping(value = "/checkWord", consumes = "text/plain")
     public void checkWord(@RequestBody String word) {
         log.info(">>> Request POST received! " + word);
+        if (wordProcessor.getWord().getEngword().equalsIgnoreCase(word)) {
+            int points = wordProcessor.getWord().getPoints();
+            log.info(">>> Correct!");
+            wordProcessor.getWord().setPoints(points++);
+        } else {
+            log.info(">>> NOT correct!");
+        }
         //Todo: make word processing
     }
 

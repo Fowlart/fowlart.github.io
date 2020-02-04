@@ -6,12 +6,12 @@
     <title>Title</title>
 </head>
 
-<body>
+<body onload="getWord()">
     <h1>WELCOME</h1>
     <!-- <img th:src="@{/images/Spring-Boot.png}"/> -->
 
-    <h2>Translate: <span id="translate"></span></span>
-    </h2>
+    <p>Translate: <span id="translate"></span></span>
+    </p>
 
     <!-- Build "details" section  -->
     <script th:inline="javascript">
@@ -25,7 +25,6 @@
 
         function showDetails() {
             // How I pass a variable from Spring model to JavaScript variable?
-            //  var ukrword = /*[[${wordTranslate.ukrword}]]*/ 'default';
             document.getElementById('details').hidden = false;
         }
 
@@ -34,7 +33,7 @@
         }
     </script>
     <button type="button" onclick="switcher()">details</button>
-    <p id="details" hidden='true' style="font-size: large; color:green;"></p>
+    <p id="details" hidden='true' style="font-size: large;"></p>
     <!--END: Build "details" section  -->
 
     <br/><audio controls id="myAudio">
@@ -54,8 +53,11 @@
                     // everithing OK
                     document.getElementById("WordInput").value = '';
                     document.getElementById('TranslateWarn').innerHTML = 'Translate:';
+                    document.getElementById('TranslateWarn').style.color = "Black";
+                    getWord();
                 } else if (this.readyState == 4 && this.status == 400) {
                     // empty line was sent
+                    document.getElementById('TranslateWarn').style.color = "Red";
                     document.getElementById('TranslateWarn').innerHTML = 'Please provide a word: ';
                 }
             }
@@ -69,20 +71,27 @@
     </div>
     <!--END:  Input field with script for processing -->
 
-    <!-- TODO: add function for loading on start -->
+    <!-- Get new word for translate -->
     <div id="infoSection">
         <script>
             function getWord() {
+                var data;
                 var word;
+                var userData;
                 var xhttp = new XMLHttpRequest();
                 xhttp.open("GET", "http://localhost:8080/api/getWord", true);
                 xhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
-                        word = JSON.parse(this.response); // will send object
-                        console.log(word);
+                        data = JSON.parse(this.response); // will send object
+                        console.log(data);
+                        userData = data["0"];
+                        word = data["1"];
                         document.getElementById("translate").innerHTML = word.ukrword;
                         document.getElementById('details').textContent = `${word.ukrword.toLocaleUpperCase()} - ${word.engword.toLocaleUpperCase()}`;
                         document.getElementById('myAudio').src = word.sound;
+                        document.getElementById('user').innerHTML = userData.name;
+                        document.getElementById('progress').innerHTML = userData.progress;
+                        document.getElementById('words_count').innerHTML = userData.wordsCount;
                     };
                 }
                 xhttp.send();

@@ -25,6 +25,7 @@ public class TestRestController_2 {
         return userService.getUsersList().get(0);
     }
 
+    //Todo: provide possibility to match entered words for dictionary examples
     // @PathVariable usage
     @GetMapping(value = "/getWords/{pattern}", produces = "application/json")
     public ResponseEntity<List<WordTranslate>> getWords(@PathVariable String pattern) {

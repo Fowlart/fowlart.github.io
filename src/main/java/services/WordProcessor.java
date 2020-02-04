@@ -18,6 +18,7 @@ public class WordProcessor {
     private Double avgPoint;
     private Integer totalPoints;
     private Integer countOfWords;
+    private WordTranslate word;
 
     private List<WordTranslate> wordList;
 
@@ -37,12 +38,50 @@ public class WordProcessor {
             progress = avgPoint / 30 * 100;
 
             while (true) {
-                WordTranslate wordTranslate = wordList.stream().skip(this.random.nextInt(wordList.size())).findAny().get();
-                if (wordTranslate.getPoints() <= (this.avgPoint.intValue())) return wordTranslate;
+                word = wordList.stream().skip(this.random.nextInt(wordList.size())).findAny().get();
+                if (word.getPoints() <= (this.avgPoint.intValue())) return word;
             }
         }
         return null;
     }
 
+    public Double getProgress() {
+        return progress;
+    }
 
+    public void setProgress(Double progress) {
+        this.progress = progress;
+    }
+
+    public Double getAvgPoint() {
+        return avgPoint;
+    }
+
+    public void setAvgPoint(Double avgPoint) {
+        this.avgPoint = avgPoint;
+    }
+
+    public Integer getTotalPoints() {
+        return totalPoints;
+    }
+
+    public void setTotalPoints(Integer totalPoints) {
+        this.totalPoints = totalPoints;
+    }
+
+    public Integer getCountOfWords() {
+        return countOfWords;
+    }
+
+    public void setCountOfWords(Integer countOfWords) {
+        this.countOfWords = countOfWords;
+    }
+
+    public WordTranslate getWord() {
+        return word;
+    }
+
+    public void setWord(WordTranslate word) {
+        this.word = word;
+    }
 }
