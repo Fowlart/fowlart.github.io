@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <link href="style.css" rel='stylesheet'>
+    <script defer src="modal_script.js"></script>
     <title>Title</title>
 </head>
 
@@ -104,44 +106,20 @@
     </div>
     <!--END: Get new word for translate -->
 
-    <div id="demo">
-        <button type="button" onclick="loadTable()">Load/reload table</button>
-        <button type="button" onclick="cleanTable()">Shutdown table</button>
+
+    <!--Todo: use the modal-->
+    <button data-modal-target="#modal">Open Table</button>
+    <div class="modal" id="modal">
+        <div class="modal-header">
+            <div class="title">Example Modal</div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="modal-body" id="modalBody">
+            <table id="wordsTable" rules="cols" border="3" style="color:black; border-color:  black;"></table>
+        </div>
     </div>
+    <div id="overlay"></div>
 
-    <!-- Table builder -->
-    <table id="wordsTable" rules="cols" border="3" style="color:black; border-color:  black;"></table>
-    <script th:inline="javascript">
-        function cleanTable() {
-            document.getElementById('wordsTable').innerHTML = '';
-        }
-
-        function loadTable() {
-            var result;
-            var table;
-            var xhttp = new XMLHttpRequest();
-            xhttp.open("GET", "http://localhost:8080/api/getTable", true);
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    table = '<tr><th>ID</th><th>ENG</th><th>UKR</th><th>RATIO</th></tr>';
-                    result = JSON.parse(this.response); // will send object
-                    console.log(result);
-                    for (obj of result) {
-                        table = table + '<tr>';
-                        for (prop in obj) {
-                            table = table + `<th>${obj[prop]}</th>`;
-                        }
-                        table = table = table + '</tr>';
-                    }
-                    document.getElementById('wordsTable').innerHTML = table;
-                }
-            };
-
-            xhttp.send();
-        }
-    </script>
-
-    <!-- END: Table builder -->
 </body>
 
 </html>
