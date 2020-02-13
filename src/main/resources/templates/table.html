@@ -38,9 +38,6 @@
     <p id="details" hidden='true' style="font-size: large;"></p>
     <!--END: Build "details" section  -->
 
-    <br/><audio controls id="myAudio">
-        <source type="audio/mpeg" src="">
-    </audio>
 
     <!--Input field with script for processing -->
     <script th:inline="javascript">
@@ -68,7 +65,10 @@
     </script>
     <div>
         <p id='TranslateWarn'>Translate:</p><input id="WordInput" type="text" name="answer"></input>
-        <p><button onclick="sendWord()">Send answer</button></p>
+        <p><button onclick="sendWord()">send answer</button>
+            <button onclick="getWord()">next</button>
+            <button data-modal-target="#modal">audio</button>
+        </p>
         </form>
     </div>
     <!--END:  Input field with script for processing -->
@@ -102,20 +102,21 @@
         <p>User: <span id="user" th:text="${user.name}" /></p>
         <p>Progress: <span id="progress" th:text="${info.progress}" /></p>
         <p>Words count: <span id="words_count" th:text="${info.countOfWords}" /></p>
-        <p><button onclick="getWord()">next</button></p>
+
     </div>
     <!--END: Get new word for translate -->
 
 
-    <!--Todo: use the modal-->
-    <button data-modal-target="#modal">Open Table</button>
+    <!--use the modal-->
     <div class="modal" id="modal">
         <div class="modal-header">
             <div class="title">Example Modal</div>
             <button data-close-button class="close-button">&times;</button>
         </div>
         <div class="modal-body" id="modalBody">
-            <table id="wordsTable" rules="cols" border="3" style="color:black; border-color:  black;"></table>
+            <br/><audio controls id="myAudio">
+                <source type="audio/mpeg" src="">
+            </audio>
         </div>
     </div>
     <div id="overlay"></div>
