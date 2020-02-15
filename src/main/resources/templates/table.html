@@ -15,30 +15,6 @@
     <p>Translate: <span id="translate"></span></span>
     </p>
 
-    <!-- Build "details" section  -->
-    <script th:inline="javascript">
-        var sw = 1;
-
-        function switcher() {
-            sw++;
-            if (sw % 2 == 0) showDetails();
-            else hideDetails();
-        }
-
-        function showDetails() {
-            // How I pass a variable from Spring model to JavaScript variable?
-            document.getElementById('details').hidden = false;
-        }
-
-        function hideDetails() {
-            document.getElementById('details').hidden = true;
-        }
-    </script>
-    <button type="button" onclick="switcher()">details</button>
-    <p id="details" hidden='true' style="font-size: large;"></p>
-    <!--END: Build "details" section  -->
-
-
     <!--Input field with script for processing -->
     <script th:inline="javascript">
         // POST request
@@ -110,10 +86,11 @@
     <!--use the modal-->
     <div class="modal" id="modal">
         <div class="modal-header">
-            <div class="title">Example Modal</div>
+            <div class="title">Words details</div>
             <button data-close-button class="close-button">&times;</button>
         </div>
         <div class="modal-body" id="modalBody">
+            <p id="details" style="font-size: large;"></p>
             <br/><audio controls id="myAudio">
                 <source type="audio/mpeg" src="">
             </audio>
