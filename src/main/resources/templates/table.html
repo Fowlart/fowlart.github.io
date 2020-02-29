@@ -44,7 +44,6 @@
             <button onclick="getWord()">next</button>
             <button data-modal-target="#modal">audio</button>
             <button onclick="getTable()">get all words</button>
-            <button onclick="hideTable()">hide table</button>
         </p>
         </form>
     </div>
@@ -118,21 +117,23 @@
                     document.getElementById("tcap").innerHTML += "WORDS";
                     document.getElementById("tbod").innerHTML += tableBodyLine;
                     document.getElementById("thad").innerHTML += "<th>id</th><th>english word</th><th>ukranian word</th><th>points</th>";
+                    document.getElementById("hideTable").style.visibility = "visible";
                 };
             }
             xhttp.send();
         }
 
         function hideTable() {
-
             document.getElementById("tcap").innerHTML = "";
             document.getElementById("tbod").innerHTML = "";
             document.getElementById("thad").innerHTML = "";
+            document.getElementById("hideTable").style.visibility = "hidden";
         }
     </script>
     <div>
         <table>
-            <caption id="tcap"></caption>
+            <button id="hideTable" onclick="hideTable()" style="visibility: hidden;">x</button>
+            <caption id="tcap"> </caption>
             <thead>
                 <tr id="thad"></tr>
             </thead>
