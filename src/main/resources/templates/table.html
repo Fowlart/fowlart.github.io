@@ -43,7 +43,11 @@
         <p><button onclick="sendWord()">send answer</button>
             <button onclick="getWord()">next</button>
             <button data-modal-target="#modal">audio</button>
-            <button onclick="getTable()">get all words</button>
+            <li>
+                <input onchange="getTable()" type="checkbox" name="power" id="power">
+                <label for="power"><span class="on">On table</span> <span class="off">Off table</span></label>
+            </li>
+            </ul>
         </p>
         </form>
     </div>
@@ -101,26 +105,30 @@
     <!--  -->
     <script>
         function getTable() {
-            var table;
-            var xhttp = new XMLHttpRequest();
-            xhttp.open("GET", "http://localhost:8080/api/getTable", true);
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    table = JSON.parse(this.response); // will send object
-                    var tableBodyLine = "";
-                    let index;
-                    for (index in table) {
-                        let word = table[index];
-                        let row = `<tr><td>${word.id}</td><td>${word.engword}</td><td>${word.ukrword}</td><td>${word.points}</td></tr>`;
-                        tableBodyLine = tableBodyLine + row;
-                    }
-                    document.getElementById("tcap").innerHTML += "WORDS";
-                    document.getElementById("tbod").innerHTML += tableBodyLine;
-                    document.getElementById("thad").innerHTML += "<th>id</th><th>english word</th><th>ukranian word</th><th>points</th>";
-                    document.getElementById("hideTable").style.visibility = "visible";
-                };
+            if (document.getElementById("power").checked) {
+                var table;
+                var xhttp = new XMLHttpRequest();
+                xhttp.open("GET", "http://localhost:8080/api/getTable", true);
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        table = JSON.parse(this.response); // will send object
+                        var tableBodyLine = "";
+                        let index;
+                        for (index in table) {
+                            let word = table[index];
+                            let row = `<tr><td>${word.id}</td><td>${word.engword}</td><td>${word.ukrword}</td><td>${word.points}</td></tr>`;
+                            tableBodyLine = tableBodyLine + row;
+                        }
+                        document.getElementById("tcap").innerHTML += "WORDS";
+                        document.getElementById("tbod").innerHTML += tableBodyLine;
+                        document.getElementById("thad").innerHTML += "<th>id</th><th>english word</th><th>ukranian word</th><th>points</th>";
+                        document.getElementById("hideTable").style.visibility = "visible";
+                    };
+                }
+                xhttp.send();
+            } else {
+                hideTable()
             }
-            xhttp.send();
         }
 
         function hideTable() {
@@ -132,7 +140,6 @@
     </script>
     <div>
         <table>
-            <button id="hideTable" onclick="hideTable()" style="visibility: hidden;">x</button>
             <caption id="tcap"> </caption>
             <thead>
                 <tr id="thad"></tr>
