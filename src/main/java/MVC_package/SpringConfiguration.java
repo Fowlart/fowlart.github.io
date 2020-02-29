@@ -2,6 +2,7 @@ package MVC_package;
 
 import data_base.UserRepository;
 import data_base.WordTranslateRepository;
+import entities.SingleUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -14,6 +15,7 @@ import services.WordProcessor;
 
 @Configuration
 @ComponentScan("data_base")
+@ComponentScan("entities")
 public class SpringConfiguration implements WebMvcConfigurer {
 
     @Autowired
@@ -21,6 +23,7 @@ public class SpringConfiguration implements WebMvcConfigurer {
 
     /**
      * By annotating WordTranslateRepository with
+     *
      * @Repository, you declare that it should be automatically discovered by Spring component
      * scanning and instantiated as a bean in the Spring application context.
      */
@@ -34,6 +37,11 @@ public class SpringConfiguration implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("table");
         registry.addViewController("/login");
+    }
+
+    @Bean
+    public SingleUser getSingleUser() {
+        return new SingleUser();
     }
 
     @Bean

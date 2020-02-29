@@ -1,6 +1,7 @@
 package MVC_package.view_controllers;
 
 import MVC_package.UserService;
+import entities.SingleUser;
 import entities.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +18,12 @@ import java.io.IOException;
 @Controller
 @RequestMapping("/table")
 public class TableController {
-
     @Autowired
     private WordProcessor wordProcessor;
     @Autowired
     private UserService userService;
+    @Autowired
+    private SingleUser singleUser;
 
     //Todo: refactor for accepting a user from the authentication mechanism
     @ModelAttribute("user")
@@ -38,6 +40,7 @@ public class TableController {
         model.addAttribute("user", curent_user);
         wordProcessor.nextWord(curent_user);
         model.addAttribute("info", wordProcessor);
+        log.info(">>> user per session: "+singleUser+"/"+singleUser.getId());
         return "table";
     }
 }
