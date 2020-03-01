@@ -48,4 +48,6 @@ public class WordsCreatorController {
         userService.addWordToUserDictionary(user.getId(), word);
         return "redirect:/table";
     }
+
+
 }
