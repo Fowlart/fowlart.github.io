@@ -5,7 +5,6 @@ import com.google.inject.internal.util.Lists;
 import data_base.WordTranslateRepository;
 import dtos.UserData;
 import dtos.Word;
-import entities.SingleUser;
 import entities.User;
 import entities.WordTranslate;
 import lombok.extern.slf4j.Slf4j;
