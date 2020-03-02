@@ -2,7 +2,8 @@ package MVC_package;
 
 import data_base.UserRepository;
 import data_base.WordTranslateRepository;
-import entities.SingleUser;
+import entities.SessionDictionary;
+import io_data_module.CsvWordsReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -40,8 +41,8 @@ public class SpringConfiguration implements WebMvcConfigurer {
     }
 
     @Bean
-    public SingleUser getSingleUser() {
-        return new SingleUser();
+    public SessionDictionary getSessionDictionary() {
+        return new SessionDictionary();
     }
 
     @Bean
@@ -57,5 +58,10 @@ public class SpringConfiguration implements WebMvcConfigurer {
     @Bean
     public WordProcessor getWordProcessor() {
         return new WordProcessor();
+    }
+
+    @Bean
+    public CsvWordsReader getCsvWordsReader() {
+        return new CsvWordsReader();
     }
 }

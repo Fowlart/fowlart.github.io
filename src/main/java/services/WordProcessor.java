@@ -1,16 +1,19 @@
 package services;
 
 import MVC_package.UserService;
-import data_base.WordTranslateRepository;
 import entities.User;
 import entities.WordTranslate;
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.WebApplicationContext;
 
 import java.util.List;
 import java.util.Random;
 
-@Data
+@Component
+@Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class WordProcessor {
 
     //   private User user;
@@ -18,7 +21,7 @@ public class WordProcessor {
     private Double avgPoint;
     private Integer totalPoints;
     private Integer countOfWords;
-    private WordTranslate word;
+    private WordTranslate word; //current
 
     private List<WordTranslate> wordList;
 
@@ -30,6 +33,24 @@ public class WordProcessor {
     public WordTranslate nextWord(User user) {
 
         wordList = userService.getDictionary(user);
+
+        if (wordList != null) {
+            totalPoints = this.wordList.stream().mapToInt(WordTranslate::getPoints).reduce(0, (i1, i2) -> i1 + i2);
+            countOfWords = this.wordList.size();
+            avgPoint = (double) totalPoints / (double) countOfWords;
+            progress = avgPoint / 30 * 100;
+
+            while (true) {
+                word = wordList.stream().skip(this.random.nextInt(wordList.size())).findAny().get();
+                if (word.getPoints() <= (this.avgPoint.intValue())) return word;
+            }
+        }
+        return null;
+    }
+
+    public WordTranslate nextWord(List<WordTranslate> list) {
+
+        wordList = list;
 
         if (wordList != null) {
             totalPoints = this.wordList.stream().mapToInt(WordTranslate::getPoints).reduce(0, (i1, i2) -> i1 + i2);

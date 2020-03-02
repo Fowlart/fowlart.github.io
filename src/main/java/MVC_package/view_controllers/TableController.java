@@ -1,8 +1,11 @@
 package MVC_package.view_controllers;
 
 import MVC_package.UserService;
-import entities.SingleUser;
+import dictionary_optimizer.Optimizer;
+import entities.SessionDictionary;
 import entities.User;
+import entities.WordTranslate;
+import io_data_module.CsvWordsReader;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +18,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import services.WordProcessor;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.util.List;
 
 @Slf4j
 @Controller
@@ -24,27 +31,31 @@ public class TableController {
     @Autowired
     private WordProcessor wordProcessor;
     @Autowired
-    private UserService userService;
+    private CsvWordsReader csvWordsReader;
     @Autowired
-    private SingleUser singleUser;
+    private SessionDictionary sessionDictionary;
 
-    //Todo: refactor for accepting a user from the authentication mechanism
-    @ModelAttribute("user")
-    private User getUser() {
-        log.info(">>> user is added to the session attribute");
-        return userService.getUsersList().get(0);
-    }
 
     @GetMapping
     public String mainPage(Model model) throws IOException {
-        log.info(">>> mainPage");
+        System.out.println(">>> mainPage");
         return "table";
     }
 
     @PostMapping(value = "/uploadFile")
     public String submit(@RequestParam("aFile") MultipartFile file, Model model) {
-        //  model.addAttribute("file", file);
-        log.info(">>> file uploaded: " + file.getSize());
+        System.out.println(">>> file uploaded: " + file.getSize());
+        try {
+            File targetFile = new File("targetFile.tmp");
+            targetFile.createNewFile();
+            OutputStream outStream = new FileOutputStream(targetFile);
+            outStream.write(file.getBytes());
+            List<WordTranslate> dictionary = csvWordsReader.getItemListFromFile(targetFile);
+            System.out.println(dictionary);
+            sessionDictionary.setDictionary(dictionary);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return "redirect:/";
     }
 

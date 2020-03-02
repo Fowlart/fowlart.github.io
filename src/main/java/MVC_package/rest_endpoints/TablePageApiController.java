@@ -1,13 +1,10 @@
 package MVC_package.rest_endpoints;
 
-import MVC_package.UserService;
 import com.google.inject.internal.util.Lists;
-import data_base.WordTranslateRepository;
 import dtos.UserData;
 import dtos.Word;
-import entities.User;
+import entities.SessionDictionary;
 import entities.WordTranslate;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +19,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 
-@Slf4j
+import static java.lang.System.out;
+
 @RestController
 @RequestMapping(path = "/api")
 public class TablePageApiController {
@@ -30,34 +28,23 @@ public class TablePageApiController {
     @Autowired
     private WordProcessor wordProcessor;
     @Autowired
-    private UserService userService;
-    @Autowired
-    WordTranslateRepository wordTranslateRepository;
+    SessionDictionary sessionDictionary;
 
-    public static final int INDEX = 0;
-
-    // will return String response
-    @GetMapping(value = "/getStringUser", produces = "text/plain")
-    public String getStringUser() {
-        return userService.getUsersList().get(INDEX).toString();
-    }
 
     // Returns table with all words. GET.
     @GetMapping(value = "/getTable", produces = "application/json")
     public List<WordTranslate> getTable(Model model) {
-        User curent_user = userService.getUsersList().get(INDEX);
-        log.info(">>> processing " + curent_user);
-        return userService.getDictionary(curent_user);
+
+        out.println(">>> processing " + sessionDictionary);
+        return sessionDictionary.getDictionary();
     }
 
     @GetMapping(value = "/getWord", produces = "application/json")
     public List getWord(Model model) {
         List data = Lists.newArrayList();
         UserData userData = new UserData();
-        User curent_user = userService.getUsersList().get(INDEX);
-        WordTranslate wordTranslate = wordProcessor.nextWord(curent_user);
-
-        userData.setName(curent_user.getName());
+        WordTranslate wordTranslate = wordProcessor.nextWord(sessionDictionary.getDictionary());
+        userData.setName("SAMPLE_USER");
         userData.setProgress(wordProcessor.getProgress().toString());
         userData.setWordsCount(wordProcessor.getCountOfWords().toString());
 
@@ -66,10 +53,10 @@ public class TablePageApiController {
         try {
             url = speech.get_url(wordTranslate.getEngword(), "en-us");
         } catch (IOException e) {
-            log.info(">>> connection error during generating url for sound");
+            out.println(">>> connection error during generating url for sound");
             //  url =new URL("connection_error");
         }
-        log.info(">>> processing " + wordTranslate);
+        out.println(">>> processing " + wordTranslate);
         Word word = new Word();
         word.setEngword(wordTranslate.getEngword());
         word.setUkrword(wordTranslate.getUkrword());
@@ -83,15 +70,14 @@ public class TablePageApiController {
     // Catches word from front-end
     @PostMapping(value = "/checkWord", consumes = "text/plain")
     public void checkWord(@RequestBody String word) {
-        log.info(">>> Request POST received! " + word);
+        out.println(">>> Request POST received! " + word);
         if (wordProcessor.getWord().getEngword().equalsIgnoreCase(word)) {
             int points = wordProcessor.getWord().getPoints();
-            log.info(">>> Correct!");
-            wordProcessor.getWord().setPoints(points++);
+            out.println(">>> Correct!");
+            wordProcessor.getWord().setPoints(points + 1);
         } else {
-            log.info(">>> NOT correct!");
+            out.println(">>> NOT correct!");
         }
-        //Todo: make word processing
     }
 
 }

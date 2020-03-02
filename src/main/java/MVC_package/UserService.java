@@ -6,7 +6,6 @@ import data_base.WordTranslateRepository;
 import entities.User;
 import entities.WordTranslate;
 import io_data_module.CsvWordsReader;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -16,7 +15,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.stereotype.Service;
 
 import java.sql.ResultSet;
@@ -24,7 +22,6 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Slf4j
 @Service
 public class UserService implements UserDetailsService {
 
@@ -98,7 +95,7 @@ public class UserService implements UserDetailsService {
                     wordId);
             return true;
         } catch (Exception ex) {
-            log.warn(ex.getMessage());
+            System.out.println(ex.getMessage());
             return false;
         }
     }
@@ -110,7 +107,7 @@ public class UserService implements UserDetailsService {
             }
             return true;
         } catch (Exception ex) {
-            log.warn(ex.getMessage());
+            System.out.println(ex.getMessage());
             return false;
         }
     }
@@ -136,13 +133,13 @@ public class UserService implements UserDetailsService {
         try {
             jdbc.update("DELETE FROM User_WordTranslate WHERE ( (user=?) AND (wordtranslate=?) )", user_id, word_id);
         } catch (Exception exeption) {
-            log.error(">>> Some think went wrong during removing: ");
-            log.error(exeption.getMessage());
+            System.out.println(">>> Some think went wrong during removing: ");
+            System.out.println(exeption.getMessage());
         }
         try {
             jdbc.update("DELETE FROM WordTranslate WHERE id =?", word_id);
         } catch (Exception ex) {
-            log.info(">>> The current word is used elsewhere. Removing from the common table was rejected.");
+            System.out.println(">>> The current word is used elsewhere. Removing from the common table was rejected.");
         }
     }
 

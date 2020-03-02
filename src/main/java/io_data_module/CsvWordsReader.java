@@ -19,6 +19,26 @@ public class CsvWordsReader {
 
     private String filename;
 
+    public List<WordTranslate> getItemListFromFile(File file) {
+            try {
+                BufferedReader in = new BufferedReader(new FileReader(file));
+                List<WordTranslate> list = in.lines().map((s) -> {
+                    Scanner scanner = new Scanner(s);
+                    scanner.useDelimiter(";|,");
+                    WordPropertie wordPropertie1 = new WordPropertie(scanner.next());
+                    WordPropertie wordPropertie2 = new WordPropertie(scanner.next());
+                    Integer points = Integer.valueOf(scanner.next());
+                    WordTranslate word = new WordTranslate(wordPropertie1, wordPropertie2, points);
+                    return word;
+                }).collect(Collectors.toList());
+                in.close();
+                return list;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        return new ArrayList<>();
+    }
+
     public List<WordTranslate> getItemList(String filename) {
         this.filename = filename;
         File file = new File(filename);
@@ -40,7 +60,7 @@ public class CsvWordsReader {
                 e.printStackTrace();
             }
         }
-        return new ArrayList<WordTranslate>();
+        return new ArrayList<>();
     }
 
     public String lastModified() {
