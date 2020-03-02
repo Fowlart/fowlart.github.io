@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>How to structure a web form</title>
 </head>
 
 <body onload="buildVariants()">
@@ -19,10 +19,35 @@
 
         <fieldset>
             <legend>Please choose between variants</legend>
-            <p id="variants"></p>
+            <div id="variants"></div>
         </fieldset>
+
+        <fieldset>
+
+            <!-- There is another way to associate a form control with a label — nest the form control within the <label>, implicitly 
+                associating it.-->
+
+            <!-- Another advantage of properly set up labels is that you can click or tap the label to activate the corresponding widget.-->
+            <legend>Some inputs example</legend>
+            <label for="name">Name:</label> <input type="text" id="name" name="user_name">
+            <p>
+                <input type="checkbox" id="gender_male" name="isMale" value="male">
+                <label for="gender_male">male</label>
+            </p>
+            <p>
+                <input type="checkbox" id="gender_female" name="isFemale" value="female">
+                <label for="gender_female">female</label>
+            </p>
+
+        </fieldset>
+
         <button type="submit">submit</button>
     </form>
+
+    <!-- Strictly speaking, you can put multiple labels on a single widget, but this is not a good idea 
+        as some assistive technologies can have trouble handling them.-->
+    <p>lololololololololololololololol you must provide us your <strong><label style="font-style: italic; color:crimson;" for="name">name</label></strong>. Lolololo....
+    </p>
 
     <script>
         /**   **/

@@ -158,15 +158,21 @@
     </div>
 
     <!--CSV picker -->
-    <form method="POST" action="table/uploadFile" enctype="multipart/form-data">
-        <div>
-            <label for="aFile">Choose file to upload</label>
-            <input type="file" id="profile_csv_picker" name="aFile" accept=".csv">
-        </div>
-        <div>
-            <button type="submit">Submit</button>
-        </div>
-    </form>
+    <section>
+        <h2>UPLOAD FILE</h2>
+        <fieldset>
+            <legend>UPLOAD FILE</legend>
+            <form method="POST" action="table/uploadFile" enctype="multipart/form-data">
+                <div>
+                    <label for="aFile">Choose file to upload</label>
+                    <input type="file" id="profile_csv_picker" name="aFile" accept=".csv">
+                </div>
+                <div>
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </fieldset>
+    </section>
     <!--END: CSV picker -->
 
 </body>

@@ -44,7 +44,7 @@ public class TableController {
     @PostMapping(value = "/uploadFile")
     public String submit(@RequestParam("aFile") MultipartFile file, Model model) {
         //  model.addAttribute("file", file);
-        log.info(">>> file uploaded: " + file.getName());
+        log.info(">>> file uploaded: " + file.getSize());
         return "redirect:/";
     }
 
