@@ -13,6 +13,9 @@ import java.util.Objects;
 @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class SessionDictionary {
 
+    private static int counter;
+    private final int id = counter++;
+
     private List<WordTranslate> dictionary;
 
     public List<WordTranslate> getDictionary() {
@@ -22,5 +25,16 @@ public class SessionDictionary {
 
     public void setDictionary(List<WordTranslate> dictionary) {
         this.dictionary = dictionary;
+    }
+
+    public boolean isDictionaryDownloaded() {
+        return Objects.nonNull(dictionary);
+    }
+
+    @Override
+    public String toString() {
+        return "SessionDictionary[ " +
+                id +
+                " ]";
     }
 }

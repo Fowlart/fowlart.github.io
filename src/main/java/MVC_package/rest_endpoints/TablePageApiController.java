@@ -34,7 +34,6 @@ public class TablePageApiController {
     // Returns table with all words. GET.
     @GetMapping(value = "/getTable", produces = "application/json")
     public List<WordTranslate> getTable(Model model) {
-
         out.println(">>> processing " + sessionDictionary);
         return sessionDictionary.getDictionary();
     }
@@ -43,27 +42,30 @@ public class TablePageApiController {
     public List getWord(Model model) {
         List data = Lists.newArrayList();
         UserData userData = new UserData();
-        WordTranslate wordTranslate = wordProcessor.nextWord(sessionDictionary.getDictionary());
-        userData.setName("SAMPLE_USER");
-        userData.setProgress(wordProcessor.getProgress().toString());
-        userData.setWordsCount(wordProcessor.getCountOfWords().toString());
 
-        SpeechUrlProvider speech = new SpeechUrlProvider();
-        URL url = null;
-        try {
-            url = speech.get_url(wordTranslate.getEngword(), "en-us");
-        } catch (IOException e) {
-            out.println(">>> connection error during generating url for sound");
-            //  url =new URL("connection_error");
+        if (sessionDictionary.isDictionaryDownloaded()) {
+            WordTranslate wordTranslate = wordProcessor.nextWord(sessionDictionary.getDictionary());
+            userData.setName("SAMPLE_USER");
+            userData.setProgress(wordProcessor.getProgress().toString());
+            userData.setWordsCount(wordProcessor.getCountOfWords().toString());
+
+            SpeechUrlProvider speech = new SpeechUrlProvider();
+            URL url = null;
+            try {
+                url = speech.get_url(wordTranslate.getEngword(), "en-us");
+            } catch (IOException e) {
+                out.println(">>> connection error during generating url for sound");
+                //  url =new URL("connection_error");
+            }
+            out.println(">>> processing " + wordTranslate);
+            Word word = new Word();
+            word.setEngword(wordTranslate.getEngword());
+            word.setUkrword(wordTranslate.getUkrword());
+            word.setPoints(wordTranslate.getPoints());
+            word.setSound(url);
+            data.add(userData);
+            data.add(word);
         }
-        out.println(">>> processing " + wordTranslate);
-        Word word = new Word();
-        word.setEngword(wordTranslate.getEngword());
-        word.setUkrword(wordTranslate.getUkrword());
-        word.setPoints(wordTranslate.getPoints());
-        word.setSound(url);
-        data.add(userData);
-        data.add(word);
         return data;
     }
 

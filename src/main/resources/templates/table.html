@@ -78,6 +78,17 @@
                                 console.log(data);
                                 userData = data["0"];
                                 word = data["1"];
+
+                                if (userData == undefined || word == undefined) {
+
+
+                                } else {
+                                    document.getElementById("profile_csv_picker").style.visibility = "hidden";
+                                    document.getElementById("profile_csv_picker_submit").style.visibility = "hidden";
+                                    document.getElementById("profile_csv_picker_save").style.visibility = "visible";
+
+                                }
+
                                 document.getElementById("translate").innerHTML = word.ukrword;
                                 document.getElementById('details').textContent = `${word.ukrword.toLocaleUpperCase()} - ${word.engword.toLocaleUpperCase()}`;
                                 document.getElementById('myAudio').src = word.sound;
@@ -159,16 +170,20 @@
 
     <!--CSV picker -->
     <section>
-        <h2>UPLOAD FILE</h2>
+        <h2>UPLOAD/SAVE FILE</h2>
         <fieldset>
-            <legend>UPLOAD FILE</legend>
+            <legend>UPLOAD/SAVE FILE</legend>
             <form method="POST" action="table/uploadFile" enctype="multipart/form-data">
                 <div>
                     <label for="aFile">Choose file to upload</label>
                     <input type="file" id="profile_csv_picker" name="aFile" accept=".csv">
                 </div>
                 <div>
-                    <button type="submit">Submit</button>
+                    <button id="profile_csv_picker_submit" type="submit">Submit</button>
+                </div>
+                <div>
+
+                    <button id="profile_csv_picker_save" type="button" style="visibility: hidden;">Save</button>
                 </div>
             </form>
         </fieldset>
