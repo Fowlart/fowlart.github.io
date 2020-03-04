@@ -5,6 +5,7 @@ import dtos.UserData;
 import dtos.Word;
 import entities.SessionDictionary;
 import entities.WordTranslate;
+import io_data_module.CsvWordsWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,10 +29,11 @@ public class TablePageApiController {
     @Autowired
     private WordProcessor wordProcessor;
     @Autowired
-    SessionDictionary sessionDictionary;
+    private SessionDictionary sessionDictionary;
 
+    private CsvWordsWriter csvWordsWriter;
 
-    // Returns table with all words. GET.
+    // Returns table with all words.
     @GetMapping(value = "/getTable", produces = "application/json")
     public List<WordTranslate> getTable(Model model) {
         out.println(">>> processing " + sessionDictionary);

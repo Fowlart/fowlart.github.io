@@ -2,31 +2,20 @@ package io_data_module;
 
 import entities.WordTranslate;
 
-import java.io.*;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 public class CsvWordsWriter {
 
-    BufferedWriter writer;
 
-    public boolean writeInFile(String filename, List<WordTranslate> list) {
+    public String getCsv(List<WordTranslate> list) throws UnsupportedEncodingException {
 
-        File file = new File(filename);
+        StringBuilder csv = new StringBuilder();
 
-        try {
-            if (!file.exists()) file.createNewFile();
-            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filename)));
-            for (WordTranslate wordTranslate : list) {
-                writer.write(wordTranslate.getEngword() + ";" + wordTranslate.getUkrword() +
-                        ";" + wordTranslate.getPoints());
-                writer.newLine();
-            }
-            writer.flush();
-            writer.close();
-        } catch (IOException e) {
-            System.out.println("EXCEPTION: " + e.getMessage());
-            return false;
+        for (WordTranslate wordTranslate : list) {
+            csv.append(wordTranslate.getEngword() + ";" + wordTranslate.getUkrword() +
+                    ";" + wordTranslate.getPoints() + System.lineSeparator());
         }
-        return true;
+        return csv.toString().trim();
     }
 }

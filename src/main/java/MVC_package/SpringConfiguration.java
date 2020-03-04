@@ -4,6 +4,7 @@ import data_base.UserRepository;
 import data_base.WordTranslateRepository;
 import entities.SessionDictionary;
 import io_data_module.CsvWordsReader;
+import io_data_module.CsvWordsWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -62,5 +63,10 @@ public class SpringConfiguration implements WebMvcConfigurer {
     @Bean
     public CsvWordsReader getCsvWordsReader() {
         return new CsvWordsReader();
+    }
+
+    @Bean
+    public CsvWordsWriter getCsvWordsWriter() {
+        return new CsvWordsWriter();
     }
 }

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -33,8 +34,6 @@ public class SessionDictionary {
 
     @Override
     public String toString() {
-        return "SessionDictionary[ " +
-                id +
-                " ]";
+        return "SessionDictionary[" +id +"]"+new Date().toString().replaceAll(" ","");
     }
 }
