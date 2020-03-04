@@ -1,9 +1,7 @@
 package MVC_package.view_controllers;
 
-import MVC_package.UserService;
-import entities.User;
+import entities.SessionDictionary;
 import entities.WordTranslate;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,25 +14,18 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.validation.Valid;
 
-@Slf4j
+import static java.lang.System.out;
+
 @Controller
 @RequestMapping("/create")
 @SessionAttributes("user")
 public class WordsCreatorController {
     @Autowired
-    private UserService userService;
-
-    //Todo: refactor for accepting a user from the authentication mechanism
-    @ModelAttribute("user")
-    private User getUser() {
-        log.info(">>> user is added to the session attribute");
-        return userService.getUsersList().get(0);
-    }
+    private SessionDictionary sessionDictionary;
 
     @GetMapping
     public String showForm(Model model) {
-        log.info(">>> wordsCreatorController in action");
-        log.info(">>> current user service(must be singletone): " + userService.toString());
+        out.println(">>> wordsCreatorController in action");
         model.addAttribute("word", new WordTranslate());
         return "words_creator";
     }
@@ -42,10 +33,8 @@ public class WordsCreatorController {
     @PostMapping
     public String saveWord(@Valid @ModelAttribute("word") WordTranslate word, Errors errors, Model model) {
         if (errors.hasFieldErrors()) return "words_creator";
-        log.info(word.toString());
-        User user = (User) model.asMap().get("user");
-        log.info(">>> saving new word in user: " + user);
-        userService.addWordToUserDictionary(user.getId(), word);
+        out.println(word.toString());
+        sessionDictionary.getDictionary().add(word);
         return "redirect:/table";
     }
 

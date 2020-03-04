@@ -11,7 +11,12 @@
 
 <body onload="getWord()">
     <h1>WELCOME</h1>
-    <!-- <img th:src="@{/images/Spring-Boot.png}"/> -->
+
+    <form action="table/downloadFile" method="GET">
+        <div>
+            <button id="profile_csv_picker_save" type="submit" style="visibility: hidden;">Save</button>
+        </div>
+    </form>
 
     <p>TRANSLATE: <span id="translate"></span></span>
     </p>
@@ -186,13 +191,6 @@
         </fieldset>
     </section>
     <!--END: CSV picker -->
-
-    <form action="table/downloadFile" method="GET">
-        <div>
-            <button id="profile_csv_picker_save" type="submit" style="visibility: hidden;">Save</button>
-        </div>
-    </form>
-
 </body>
 
 </html>
