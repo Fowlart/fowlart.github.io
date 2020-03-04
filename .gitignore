@@ -2,9 +2,7 @@
 **/*.iml
 **/*.yml
 **/*.ini
-/target/classes/speech/
-/target/classes/speech/
-/target/classes/speech/
+target/
 /target/classes/speech/
 /unit1.csv
 /unit2.csv
