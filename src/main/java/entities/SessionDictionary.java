@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Component
-@Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
+@Scope(value = WebApplicationContext.SCOPE_APPLICATION, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class SessionDictionary {
 
     private static int counter;

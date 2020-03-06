@@ -6,10 +6,6 @@
     <link href="style.css" rel='stylesheet'>
     <link href="table.css" rel='stylesheet'>
     <script defer src="modal_script.js"></script>
-    <link href="../static/style.css" rel='stylesheet'>
-    <link href="../static/table.css" rel='stylesheet'>
-    <script defer src="../static/modal_script.js"></script>
-    <script defer src="FileSaver.js"></script>
     <title>MAIN SCREEN</title>
 </head>
 
@@ -37,10 +33,10 @@
                     <button onclick="getWord()">next</button>
                     <button data-modal-target="#modal">audio</button>
                     <ul>
-                    <li>
-                        <input onchange="getTable()" type="checkbox" name="power" id="power">
-                        <label for="power"><span class="on">On table</span> <span class="off">Off table</span></label>
-                    </li>
+                        <li>
+                            <input onchange="getTable()" type="checkbox" name="power" id="power">
+                            <label for="power"><span class="on">On table</span> <span class="off">Off table</span></label>
+                        </li>
                     </ul>
                 </p>
             </fieldset>
@@ -106,12 +102,6 @@
             </form>
         </fieldset>
     </section>
-    <!--END: CSV picker -->
-    <form action="table/downloadFile" method="GET">
-        <div>
-            <button id="profile_csv_picker_save" type="submit" style="visibility: hidden;">Save</button>
-        </div>
-    </form>
 
 
 
