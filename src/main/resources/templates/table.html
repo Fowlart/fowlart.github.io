@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <link href="style.css" rel='stylesheet'>
+    <link href="table.css" rel='stylesheet'>
     <script defer src="modal_script.js"></script>
+    <link href="../static/style.css" rel='stylesheet'>
+    <link href="../static/table.css" rel='stylesheet'>
+    <script defer src="../static/modal_script.js"></script>
     <script defer src="FileSaver.js"></script>
     <title>MAIN SCREEN</title>
 </head>
@@ -18,42 +22,21 @@
         </div>
     </form>
 
-    <p>TRANSLATE: <span id="translate"></span></span>
-    </p>
+    <p>TRANSLATE: <span id="translate"></span></p>
 
     <!--Input field with script for processing -->
-    <script th:inline="javascript">
-        // POST request
-        function sendWord() {
-            var word = document.getElementById("WordInput").value;
-            var xhttp = new XMLHttpRequest();
-            xhttp.open("POST", "http://localhost:8080/api/checkWord", true);
-            xhttp.onreadystatechange = function() {
-                console.log(`Response status: ${this.status}`);
-                if (this.readyState == 4 && this.status == 200) {
-                    // everithing OK
-                    document.getElementById("WordInput").value = '';
-                    document.getElementById('TranslateWarn').innerHTML = 'print translation';
-                    document.getElementById('TranslateWarn').style.color = "Black";
-                    getWord();
-                } else if (this.readyState == 4 && this.status == 400) {
-                    // empty line was sent
-                    document.getElementById('TranslateWarn').style.color = "Red";
-                    document.getElementById('TranslateWarn').innerHTML = 'Please provide a word: ';
-                }
-            }
-            xhttp.send(word);
-        }
-    </script>
+    <script th:inline="javascript" src="get_send_word.js"></script>
     <div>
         <section>
             <h2>CONTROLS</h2>
             <fieldset>
                 <legend>CONTROLS</legend>
-                <label id='TranslateWarn' for="WordInput">print translation:</label> <input id="WordInput" type="text" name="answer"></input>
+                <label id='TranslateWarn' for="WordInput">enter translation: </label>
+                <input id="WordInput" type="text" name="answer">
                 <p><button onclick="sendWord()">send answer</button>
                     <button onclick="getWord()">next</button>
                     <button data-modal-target="#modal">audio</button>
+                    <ul>
                     <li>
                         <input onchange="getTable()" type="checkbox" name="power" id="power">
                         <label for="power"><span class="on">On table</span> <span class="off">Off table</span></label>
@@ -71,44 +54,9 @@
             <h2>USER INFO</h2>
             <fieldset>
                 <legend>USER INFO</legend>
-                <script>
-                    function getWord() {
-                        var data;
-                        var word;
-                        var userData;
-                        var xhttp = new XMLHttpRequest();
-                        xhttp.open("GET", "http://localhost:8080/api/getWord", true);
-                        xhttp.onreadystatechange = function() {
-                            if (this.readyState == 4 && this.status == 200) {
-                                data = JSON.parse(this.response); // will send object
-                                console.log(data);
-                                userData = data["0"];
-                                word = data["1"];
-
-                                if (userData == undefined || word == undefined) {
-
-
-                                } else {
-                                    document.getElementById("profile_csv_picker").style.visibility = "hidden";
-                                    document.getElementById("profile_csv_picker_submit").style.visibility = "hidden";
-                                    document.getElementById("profile_csv_picker_save").style.visibility = "visible";
-
-                                }
-
-                                document.getElementById("translate").innerHTML = word.ukrword;
-                                document.getElementById('details').textContent = `${word.ukrword.toLocaleUpperCase()} - ${word.engword.toLocaleUpperCase()}`;
-                                document.getElementById('myAudio').src = word.sound;
-                                document.getElementById('user').innerHTML = userData.name;
-                                document.getElementById('progress').innerHTML = userData.progress;
-                                document.getElementById('words_count').innerHTML = userData.wordsCount;
-                            };
-                        }
-                        xhttp.send();
-                    }
-                </script>
-                <p>User: <span id="user" /></p>
-                <p>Progress: <span id="progress" /></p>
-                <p>Words count: <span id="words_count" /></p>
+                <p>User: <span id="user"></span></p>
+                <p>Progress: <span id="progress"></span></p>
+                <p>Words count: <span id="words_count"></span></p>
             </fieldset>
         </section>
     </div>
@@ -123,7 +71,7 @@
         </div>
         <div class="modal-body" id="modalBody">
             <p id="details" style="font-size: large;"></p>
-            <br/><audio controls id="myAudio">
+            <br /><audio controls id="myAudio">
                 <source type="audio/mpeg" src="">
             </audio>
         </div>
@@ -131,39 +79,7 @@
     <div id="overlay"></div>
 
     <!--  -->
-    <script>
-        function getTable() {
-            if (document.getElementById("power").checked) {
-                var table;
-                var xhttp = new XMLHttpRequest();
-                xhttp.open("GET", "http://localhost:8080/api/getTable", true);
-                xhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        table = JSON.parse(this.response); // will send object
-                        var tableBodyLine = "";
-                        let index;
-                        for (index in table) {
-                            let word = table[index];
-                            let row = `<tr><td>${word.id}</td><td>${word.engword}</td><td>${word.ukrword}</td><td>${word.points}</td></tr>`;
-                            tableBodyLine = tableBodyLine + row;
-                        }
-                        document.getElementById("tcap").innerHTML += "WORDS";
-                        document.getElementById("tbod").innerHTML += tableBodyLine;
-                        document.getElementById("thad").innerHTML += "<th>id</th><th>english word</th><th>ukranian word</th><th>points</th>";
-                    };
-                }
-                xhttp.send();
-            } else {
-                hideTable()
-            }
-        }
-
-        function hideTable() {
-            document.getElementById("tcap").innerHTML = "";
-            document.getElementById("tbod").innerHTML = "";
-            document.getElementById("thad").innerHTML = "";
-        }
-    </script>
+    <script src="getTable.js"></script>
     <div>
         <table>
             <caption id="tcap"> </caption>
@@ -191,6 +107,14 @@
         </fieldset>
     </section>
     <!--END: CSV picker -->
+    <form action="table/downloadFile" method="GET">
+        <div>
+            <button id="profile_csv_picker_save" type="submit" style="visibility: hidden;">Save</button>
+        </div>
+    </form>
+
+
+
 </body>
 
 </html>
