@@ -4,13 +4,11 @@ import entities.SessionDictionary;
 import entities.WordTranslate;
 import io_data_module.CsvWordsReader;
 import io_data_module.CsvWordsWriter;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import services.WordProcessor;
@@ -26,9 +24,7 @@ import java.util.List;
 
 import static java.lang.System.out;
 
-@Slf4j
 @Controller
-@RequestMapping("/table")
 public class TableController {
     @Autowired
     private WordProcessor wordProcessor;
@@ -52,15 +48,16 @@ public class TableController {
         out.close();
     }
 
-    @GetMapping
+    @GetMapping("/table")
     public String mainPage(Model model) throws IOException {
         out.println(">>> mainPage");
+        out.println(model.asMap().get("eMail"));
         out.println(">>> processing " + sessionDictionary);
         return "table";
     }
 
     @PostMapping(value = "/uploadFile")
-    public String submit(@RequestParam("aFile") MultipartFile file, Model model) {
+    public String submit(@RequestParam("eMail") String eMail, @RequestParam("aFile") MultipartFile file, Model model) {
         out.println(">>> file uploaded: " + file.getSize());
         try {
             File targetFile = new File("targetFile.tmp");
@@ -68,12 +65,14 @@ public class TableController {
             OutputStream outStream = new FileOutputStream(targetFile);
             outStream.write(file.getBytes());
             List<WordTranslate> dictionary = csvWordsReader.getItemListFromFile(targetFile);
-            out.println(">>> dictionary with " + dictionary.size() + " was uploaded.");
+            out.println(">>> dictionary with " + dictionary.size() + " words was uploaded. For user "+eMail);
             sessionDictionary.setDictionary(dictionary);
+            sessionDictionary.setId(eMail);
+            model.addAttribute("eMail",eMail);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "redirect:/table";
+        return "table";
     }
 
 

@@ -6,16 +6,14 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
 @Component
-@Scope(value = WebApplicationContext.SCOPE_APPLICATION, proxyMode = ScopedProxyMode.TARGET_CLASS)
+@Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class SessionDictionary {
 
-    private static int counter;
-    private final int id = counter++;
+    private String id;
 
     private List<WordTranslate> dictionary;
 
@@ -32,8 +30,16 @@ public class SessionDictionary {
         return Objects.nonNull(dictionary);
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
-        return "SessionDictionary[" +id +"]"+new Date().toString().replaceAll(" ","");
+        return "SessionDictionary[" +id +"]";
     }
 }
