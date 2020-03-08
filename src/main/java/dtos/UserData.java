@@ -2,8 +2,8 @@ package dtos;
 
 public class UserData {
     private String name;
-    private String progress;
-    private String wordsCount;
+    private String maxUserPoints;
+    private String allUserPoints;
 
     public String getName() {
         return name;
@@ -13,19 +13,19 @@ public class UserData {
         this.name = name;
     }
 
-    public String getProgress() {
-        return progress;
+    public String getMaxUserPoints() {
+        return maxUserPoints;
     }
 
-    public void setProgress(String progress) {
-        this.progress = progress;
+    public void setMaxUserPoints(String maxUserPoints) {
+        this.maxUserPoints = maxUserPoints;
     }
 
-    public String getWordsCount() {
-        return wordsCount;
+    public String getAllUserPoints() {
+        return allUserPoints;
     }
 
-    public void setWordsCount(String wordsCount) {
-        this.wordsCount = wordsCount;
+    public void setAllUserPoints(String allUserPoints) {
+        this.allUserPoints = allUserPoints;
     }
 }

@@ -20,8 +20,8 @@ function getWord() {
             document.getElementById('details').textContent = `${word.ukrword.toLocaleUpperCase()} - ${word.engword.toLocaleUpperCase()}`;
             document.getElementById('myAudio').src = word.sound;
             //   document.getElementById('user').innerHTML = userData.name;
-            document.getElementById('progress').innerHTML = userData.progress;
-            document.getElementById('words_count').innerHTML = userData.wordsCount;
+            document.getElementById('progress').max = userData.maxUserPoints;
+            document.getElementById('progress').value = userData.allUserPoints;
 
             if (score == userData.progress) {
                 red();

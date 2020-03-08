@@ -17,10 +17,11 @@ import java.util.Random;
 public class WordProcessor {
 
     //   private User user;
-    private Double progress;
-    private Double avgPoint;
-    private Integer totalPoints;
-    private Integer countOfWords;
+    private double progress;
+    private double avgPoint;
+    private int totalPoints;
+    private int countOfWords;
+    private int maxPoints;
     private WordTranslate word; //current
 
     private List<WordTranslate> wordList;
@@ -37,12 +38,13 @@ public class WordProcessor {
         if (wordList != null) {
             totalPoints = this.wordList.stream().mapToInt(WordTranslate::getPoints).reduce(0, (i1, i2) -> i1 + i2);
             countOfWords = this.wordList.size();
+            maxPoints = countOfWords * 30;
             avgPoint = (double) totalPoints / (double) countOfWords;
             progress = avgPoint / 30 * 100;
 
             while (true) {
                 word = wordList.stream().skip(this.random.nextInt(wordList.size())).findAny().get();
-                if (word.getPoints() <= (this.avgPoint.intValue())) return word;
+                if (word.getPoints() <= (this.avgPoint)) return word;
             }
         }
         return null;
@@ -53,14 +55,15 @@ public class WordProcessor {
         wordList = list;
 
         if (wordList != null) {
-            totalPoints = this.wordList.stream().mapToInt(WordTranslate::getPoints).reduce(0, (i1, i2) -> i1 + i2);
+            totalPoints = this.wordList.stream().mapToInt(WordTranslate::getPoints).sum();
             countOfWords = this.wordList.size();
+            maxPoints = countOfWords * 30;
             avgPoint = (double) totalPoints / (double) countOfWords;
             progress = avgPoint / 30 * 100;
 
             while (true) {
                 word = wordList.stream().skip(this.random.nextInt(wordList.size())).findAny().get();
-                if (word.getPoints() <= (this.avgPoint.intValue())) return word;
+                if (word.getPoints() <= (this.avgPoint)) return word;
             }
         }
         return null;
@@ -104,5 +107,13 @@ public class WordProcessor {
 
     public void setWord(WordTranslate word) {
         this.word = word;
+    }
+
+    public Integer getMaxPoints() {
+        return maxPoints;
+    }
+
+    public void setMaxPoints(Integer maxPoints) {
+        this.maxPoints = maxPoints;
     }
 }
