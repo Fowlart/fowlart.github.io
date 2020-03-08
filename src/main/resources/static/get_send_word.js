@@ -1,10 +1,11 @@
+var score;
+
 function getWord() {
-    let score = document.getElementById('progress').innerHTML;
     let data;
     let word;
     let userData;
     let xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "http://localhost:8080/api/getWord", true);
+    xhttp.open("GET", "http://localhost:8080/api/getWord", false);
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             data = JSON.parse(this.response); // will send object
@@ -16,23 +17,19 @@ function getWord() {
                 document.getElementById("CSV_picker").style.visibility = "hidden";
                 document.getElementById("profile_csv_picker_save").style.visibility = "visible";
             }
+
             document.getElementById("translate").innerHTML = word.ukrword;
             document.getElementById('details').textContent = `${word.ukrword.toLocaleUpperCase()} - ${word.engword.toLocaleUpperCase()}`;
             document.getElementById('myAudio').src = word.sound;
+
             //   document.getElementById('user').innerHTML = userData.name;
+            score = userData.allUserPoints;
+            console.log(`score in getWord(): ${score}`);
+
             document.getElementById('progress').max = userData.maxUserPoints;
             document.getElementById('progress').value = userData.allUserPoints;
 
-            if (score == userData.progress) {
-                red();
-                setTimeout(black, 700);
-            } else if (userData.progress != score) {
-                green();
-                setTimeout(black, 700);
-                score = userData.progress;
-            }
-
-        };
+        }
     }
     xhttp.send();
 }
@@ -63,14 +60,21 @@ function black() {
     wordInput.style.boxShadow = 'none';
 }
 
+function checkIfWordWasCorrect(a, b) {
+    if (a != b) {
+        green();
+        setTimeout(black, 700);
+    } else {
+        red();
+        setTimeout(black, 700);
+    }
+}
+
 //Send word
 function sendWord() {
     let word = document.getElementById("WordInput").value;
     let xhttp = new XMLHttpRequest();
-    let progress;
-    let score = document.getElementById('progress').innerHTML;
-
-    xhttp.open("POST", "http://localhost:8080/api/checkWord", true);
+    xhttp.open("POST", "http://localhost:8080/api/checkWord", false);
     xhttp.onreadystatechange = function() {
         console.log(`Response status: ${this.status}`);
         if (this.readyState == 4 && this.status == 200) {
@@ -78,7 +82,9 @@ function sendWord() {
             document.getElementById("WordInput").value = '';
             document.getElementById('TranslateWarn').innerHTML = 'enter translation: ';
             document.getElementById('TranslateWarn').style.color = "Black";
+            let scoreForCheck = score;
             getWord();
+            setTimeout(checkIfWordWasCorrect(scoreForCheck, score), 700);
 
         } else if (this.readyState == 4 && this.status == 400) {
             // empty line was sent

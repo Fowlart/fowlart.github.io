@@ -2,8 +2,8 @@ package dtos;
 
 public class UserData {
     private String name;
-    private String maxUserPoints;
-    private String allUserPoints;
+    private int maxUserPoints;
+    private int allUserPoints;
 
     public String getName() {
         return name;
@@ -13,19 +13,19 @@ public class UserData {
         this.name = name;
     }
 
-    public String getMaxUserPoints() {
+    public int getMaxUserPoints() {
         return maxUserPoints;
     }
 
-    public void setMaxUserPoints(String maxUserPoints) {
+    public void setMaxUserPoints(int maxUserPoints) {
         this.maxUserPoints = maxUserPoints;
     }
 
-    public String getAllUserPoints() {
+    public int getAllUserPoints() {
         return allUserPoints;
     }
 
-    public void setAllUserPoints(String allUserPoints) {
+    public void setAllUserPoints(int allUserPoints) {
         this.allUserPoints = allUserPoints;
     }
 }

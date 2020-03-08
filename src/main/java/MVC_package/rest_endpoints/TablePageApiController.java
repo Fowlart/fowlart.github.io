@@ -48,8 +48,8 @@ public class TablePageApiController {
         if (sessionDictionary.isDictionaryDownloaded()) {
             WordTranslate wordTranslate = wordProcessor.nextWord(sessionDictionary.getDictionary());
             userData.setName(sessionDictionary.getId());
-            userData.setAllUserPoints(wordProcessor.getTotalPoints().toString());
-            userData.setMaxUserPoints(wordProcessor.getMaxPoints().toString());
+            userData.setAllUserPoints(wordProcessor.getTotalPoints());
+            userData.setMaxUserPoints(wordProcessor.getMaxPoints());
             SpeechUrlProvider speech = new SpeechUrlProvider();
             URL url = null;
             try {
