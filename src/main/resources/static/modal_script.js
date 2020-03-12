@@ -38,7 +38,7 @@ function closeModal(modal) {
     overlay.classList.remove('active')
 }
 
-
+// do not used yet
 function loadTable() {
     var xhttp = new XMLHttpRequest();
     xhttp.open("GET", "http://localhost:8080/api/getTable", false);

@@ -22,32 +22,42 @@
         </div>
     </form>
 
+    <!--Table of all user words  -->
+    <script src="getTable.js"></script>
+    <div>
+        <table>
+            <thead>
+                <tr id="thad"></tr>
+            </thead>
+            <tbody id="tbod"></tbody>
+        </table>
+    </div>
+
     <p>TRANSLATE: <span id="translate"></span></p>
 
     <!--Input field with script for processing -->
     <script th:inline="javascript" src="get_send_word.js"></script>
-    <div>
-        <section>
-            <h2>CONTROLS</h2>
-            <fieldset>
-                <legend>CONTROLS</legend>
-                <label id='TranslateWarn' for="WordInput">enter translation: </label>
-                <input id="WordInput" type="text" name="answer">
-                <p><button onclick="sendWord()">send answer</button>
-                    <button onclick="getWord()">next</button>
-                    <button data-modal-target="#modal">show answer</button>
-                    <ul>
-                        <li>
-                            <input onchange="getTable()" type="checkbox" name="power" id="power">
-                            <label for="power"><span class="on">On table</span> <span class="off">Off table</span></label>
-                        </li>
-                    </ul>
-                </p>
-            </fieldset>
-        </section>
-    </div>
+    <br>
+    <nav>
+        <h2>CONTROLS</h2>
+        <fieldset>
+            <legend>CONTROLS</legend>
+            <label id='TranslateWarn' for="WordInput">enter translation: </label>
+            <input id="WordInput" type="text" name="answer">
+            <p><button onclick="sendWord()">send answer</button>
+                <button data-modal-target="#modal">show answer</button>
+                <ul>
+                    <li>
+                        <input onchange="getTable()" type="checkbox" name="power" id="power">
+                        <label for="power"><span class="on">On table</span> <span class="off">Off table</span></label>
+                    </li>
+                </ul>
+            </p>
+        </fieldset>
+    </nav>
 
     <!-- Get new word for translate -->
+    <br>
     <div id="infoSection">
         <section>
             <h2>USER INFO</h2>
@@ -60,35 +70,8 @@
         </section>
     </div>
 
-
-    <!--use the modal-->
-    <div class="modal" id="modal">
-        <div class="modal-header">
-            <div class="title">Words details</div>
-            <button data-close-button class="close-button">&times;</button>
-        </div>
-        <div class="modal-body" id="modalBody">
-            <p id="details" style="font-size: large;"></p>
-            <br /><audio controls id="myAudio">
-                <source type="audio/mpeg" src="">
-            </audio>
-        </div>
-    </div>
-    <div id="overlay"></div>
-
-    <!--Table of all user words  -->
-    <script src="getTable.js"></script>
-    <div>
-        <table>
-            <caption id="tcap"> </caption>
-            <thead>
-                <tr id="thad"></tr>
-            </thead>
-            <tbody id="tbod"></tbody>
-        </table>
-    </div>
-
     <!--CSV picker -->
+    <br>
     <section id="CSV_picker">
         <h2>UPLOAD/SAVE FILE</h2>
         <fieldset>
@@ -108,6 +91,22 @@
             </form>
         </fieldset>
     </section>
+
+    <!--use the modal-->
+    <div class="modal" id="modal">
+        <div class="modal-header">
+            <div class="title">Words details</div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="modal-body" id="modalBody">
+            <p id="details" style="font-size: large;"></p>
+            <br /><audio controls id="myAudio">
+                    <source type="audio/mpeg" src="">
+                </audio>
+        </div>
+    </div>
+    <div id="overlay"></div>
+
 </body>
 
 </html>

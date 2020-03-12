@@ -71,43 +71,6 @@ html {
     font-family: sans-serif;
 }
 
-table {
-    border-collapse: collapse;
-    align-content: center;
-    border: 2px solid rgb(200, 200, 200);
-    letter-spacing: 1px;
-    font-size: 0.8rem;
-}
-
-caption {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: large;
-    font-style: oblique;
-    color: springgreen;
-}
-
-td,
-th {
-    border: 1px solid rgb(190, 190, 190);
-    padding: 10px 20px;
-}
-
-th {
-    background-color: rgb(235, 235, 235);
-}
-
-td {
-    text-align: center;
-}
-
-tr:nth-child(even) td {
-    background-color: rgb(250, 250, 250);
-}
-
-tr:nth-child(odd) td {
-    background-color: rgb(245, 245, 245);
-}
-
 caption {
     padding: 10px;
 }
@@ -192,10 +155,7 @@ input[type="checkbox"]::before {
 }
 
 
-/*
-         change the outer background color and move the inner toggle switch
-         when the checkbox is checked; use transitions for smooth animation
-      */
+/*change the outer background color and move the inner toggle switch when the checkbox is checked; use transitions for smooth animation*/
 
 input[type="checkbox"]:checked {
     background-color: #ffaa00;
@@ -208,10 +168,7 @@ input[type="checkbox"]:checked::before {
 }
 
 
-/*
-         cause the On and Off parts of the label to be visible when the checkbox is
-         checked and unchecked, respectively
-      */
+/*cause the On and Off parts of the label to be visible when the checkbox is checked and unchecked, respectively*/
 
 input[type="checkbox"]~label .on,
 input[type="checkbox"]:checked~label .off {
@@ -224,11 +181,19 @@ input[type="checkbox"]:checked~label .on {
 }
 
 
-/*
-         make the focus outline a bit more subtle on Chrome, rather than the
-         default heavy blue outline
-      */
+/* make the focus outline a bit more subtle on Chrome, rather than the default heavy blue outline */
 
 input:focus {
     outline: 1px dotted black;
+}
+
+nav {
+    border-collapse: collapse;
+    width: 25%;
+    border-style: groove;
+}
+
+section {
+    border-collapse: collapse;
+    border-style: groove;
 }
