@@ -4,5 +4,6 @@
 **/*.ini
 target/
 /target/classes/speech/
+targetFile.tmp
 /unit1.csv
 /unit2.csv
