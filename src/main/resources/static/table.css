@@ -1,12 +1,14 @@
-table {
+.myTable {
     border-collapse: collapse;
-    width: 25%;
+    display: inline-block;
+    left: 50%;
+    margin-left: -50px;
 }
 
 th,
 td {
     padding: 8px;
-    text-align: left;
+    text-align: center;
     border-bottom: 1px solid #ddd;
 }
 
