@@ -14,3 +14,4 @@ public class Logger {
         return "<p class='pWarn'>" + message +".</p>";
     }
 }
+

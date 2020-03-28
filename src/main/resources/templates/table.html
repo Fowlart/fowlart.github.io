@@ -16,42 +16,35 @@
 
 <body onload="getWord()">
 
-    <div style="text-align: left">
-        <div class="console">
-            <div class="saveButton">
-                <form action="downloadFile" method="GET">
-                    <button id="profile_csv_picker_save" type="submit" style="visibility: hidden;">Save</button>
-            </div>
-            <div class="glowText"><span id="translate">please download dictionary</span></div>
-            <div class='pError'>Some erorrs to display.</div>
-            <div class='pInfo'>Some info to display.</div>
-            <div class='pWarn'>Some warnings to display.</div>
-            <!--Used form tag for providing save-file functionality-->
-
-            </form>
-        </div>
+    <div class="console">
+        <button onclick="sendWord()" class="sendButton">send answer</button>
+        <button data-modal-target="#modal" class="showAnswer">show answer</button>
+        <div class="glowText"><span id="translate">please download dictionary</span></div>
+        <div class='pError'>Some erorrs to display.</div>
+        <div class='pInfo'>Some info to display.</div>
+        <div class='pWarn'>Some warnings to display.</div>
     </div>
+
+    <form action="downloadFile" method="GET">
+        <button class="saveButton" id="profile_csv_picker_save" type="submit" style="visibility: hidden;">Save</button>
+    </form>
 
     <!--Input field with script for processing -->
     <script th:inline="javascript" src="get_send_word.js"></script>
-    <br>
 
-    <!-- Used 'fieldset' for position 'CONTROLS' section -->
-    <fieldset>
+    <fieldset class="controls">
         <legend>CONTROLS</legend>
-
         <label id='TranslateWarn' for="WordInput">enter translation: </label>
         <input id="WordInput" type="text" name="answer">
-        <p><button onclick="sendWord()">send answer</button>
-            <button data-modal-target="#modal">show answer</button>
-            <ul>
-                <li>
-                    <input onchange="getTable()" type="checkbox" name="power" id="power">
-                    <label for="power"><span class="on">On table</span> <span class="off">Off table</span></label>
-                </li>
-            </ul>
+        <ul>
+            <li>
+                <input onchange="getTable()" type="checkbox" name="power" id="power">
+                <label for="power"><span class="on">On table</span> <span class="off">Off table</span></label>
+            </li>
+        </ul>
         </p>
     </fieldset>
+
 
     <!--Table of all user words  -->
     <script src="getTable.js"></script>
@@ -67,8 +60,7 @@
     </div>
 
     <!-- Get new word for translate -->
-    <br>
-    <fieldset>
+    <fieldset class="userInfo">
         <legend>USER INFO</legend>
         <p>User: <span id="user"></span></p>
         <p>Progress: </p>
@@ -76,8 +68,7 @@
     </fieldset>
 
     <!--CSV picker -->
-    <br>
-    <fieldset id="CSV_picker">
+    <fieldset id="CSV_picker" class="csvPicker">
         <legend>UPLOAD/SAVE FILE</legend>
         <form method="POST" action="uploadFile" enctype="multipart/form-data">
             <div>

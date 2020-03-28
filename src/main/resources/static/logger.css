@@ -1,26 +1,28 @@
  /**log section */
  
  .console {
-     display: inline-block;
+     position: absolute;
      border-style: solid;
      border-color: green;
      background-color: black;
      height: 300px;
      width: 300px;
-     z-index: 9;
-     transition: all .4s ease-out;
-     opacity: 0.4;
-     position: relative;
  }
  
- .saveButton {
+ .sendButton {
      position: absolute;
-     padding-top: 273px;
-     padding-left: 249px;
+     top: 273px;
+     left: 149px;
+     width: 100px;
+     height: 24px;
  }
  
- .console:hover {
-     opacity: 1.5;
+ .showAnswer {
+     position: absolute;
+     top: 273px;
+     left: 49px;
+     width: 100px;
+     height: 24px;
  }
  
  .glowText {
@@ -62,3 +64,49 @@
      color: yellow;
  }
  /**END: log section **/
+ 
+ .controls {
+     border-style: solid;
+     border-color: green;
+     height: 200px;
+     width: 300px;
+     left: 302px;
+     position: absolute;
+ }
+ 
+ .userInfo {
+     border-style: solid;
+     border-color: green;
+     height: 200px;
+     width: 300px;
+     left: 602px;
+     position: absolute;
+ }
+ 
+ .saveButton {
+     background-color: black;
+     font-size: large;
+     color: red;
+     position: absolute;
+     border-style: solid;
+     border-color: green;
+     height: 30px;
+     width: 300px;
+     top: 310px;
+     transition: all .4s ease-out;
+     opacity: 0.4;
+     position: absolute;
+ }
+ 
+ .saveButton:hover {
+     opacity: 1;
+ }
+ 
+ .csvPicker {
+     border-style: solid;
+     border-color: green;
+     height: 200px;
+     width: 300px;
+     left: 902px;
+     position: absolute;
+ }
