@@ -5,13 +5,13 @@
      border-style: solid;
      border-color: green;
      background-color: black;
-     height: 300px;
+     height: 200px;
      width: 300px;
  }
  
  .sendButton {
      position: absolute;
-     top: 273px;
+     top: 200px;
      left: 149px;
      width: 100px;
      height: 24px;
@@ -19,7 +19,7 @@
  
  .showAnswer {
      position: absolute;
-     top: 273px;
+     top: 200px;
      left: 49px;
      width: 100px;
      height: 24px;
@@ -70,7 +70,7 @@
      border-color: green;
      height: 200px;
      width: 300px;
-     left: 302px;
+     left: 308px;
      position: absolute;
  }
  
@@ -79,7 +79,7 @@
      border-color: green;
      height: 200px;
      width: 300px;
-     left: 602px;
+     left: 608px;
      position: absolute;
  }
  
@@ -92,7 +92,7 @@
      border-color: green;
      height: 30px;
      width: 300px;
-     top: 310px;
+     top: 236px;
      transition: all .4s ease-out;
      opacity: 0.4;
      position: absolute;
@@ -107,6 +107,6 @@
      border-color: green;
      height: 200px;
      width: 300px;
-     left: 902px;
+     left: 908px;
      position: absolute;
  }
