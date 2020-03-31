@@ -1,14 +1,12 @@
 .myTable {
-    border-collapse: collapse;
-    display: inline-block;
-    left: 310px;
-    top: 220px;
-    position: absolute;
+    grid-column-start: 1;
+    grid-row-start: 2;
+    text-align: center;
+    transition: ease-in-out;
 }
 
 th,
 td {
-    padding: 8px;
     text-align: center;
     border-bottom: 1px solid #ddd;
 }

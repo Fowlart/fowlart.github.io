@@ -1,48 +1,5 @@
  /**log section */
  
- .console {
-     position: absolute;
-     border-style: solid;
-     border-color: green;
-     background-color: black;
-     height: 200px;
-     width: 300px;
- }
- 
- .sendButton {
-     position: absolute;
-     top: 200px;
-     left: 149px;
-     width: 100px;
-     height: 24px;
- }
- 
- .showAnswer {
-     position: absolute;
-     top: 200px;
-     left: 49px;
-     width: 100px;
-     height: 24px;
- }
- 
- .glowText {
-     text-align: center;
-     font-size: 20px;
-     color: lightgreen;
-     -webkit-animation: glowText 0.5s ease-in-out infinite alternate;
-     -moz-animation: glowText 0.5s ease-in-out infinite alternate;
-     animation: glowText 0.5s ease-in-out infinite alternate;
- }
- 
- @keyframes glowText {
-     from {
-         text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
-     }
-     to {
-         text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
-     }
- }
- 
  .pError,
  .pInfo,
  .pWarn {
@@ -65,48 +22,104 @@
  }
  /**END: log section **/
  
- .controls {
-     border-style: solid;
-     border-color: green;
-     height: 200px;
-     width: 300px;
-     left: 308px;
-     position: absolute;
+ .grid {
+     display: grid;
+     grid-auto-columns: repeat(5, 1fr);
+     column-gap: 5px;
+     row-gap: 5px;
  }
  
- .userInfo {
+ .console {
+     grid-auto-columns: repeat(3, 1fr);
+     grid-auto-rows: repeat(2, 1fr);
+     display: grid;
      border-style: solid;
      border-color: green;
-     height: 200px;
-     width: 300px;
-     left: 608px;
-     position: absolute;
+     background-color: black;
+     grid-column-start: 1;
+     grid-row: 1;
+ }
+ 
+ .sendButton {
+     grid-column-start: 1;
+     grid-row-start: 2;
+     font-size: large;
+     background-color: black;
+     color: red;
+     border-style: solid;
+     border-color: red;
+     text-align: center;
+     transition: all .4s ease-out;
+ }
+ 
+ .showAnswer {
+     grid-column-start: 3;
+     grid-row-start: 2;
+     font-size: large;
+     background-color: black;
+     color: red;
+     border-style: solid;
+     border-color: red;
+     text-align: center;
+     transition: all .4s ease-out;
+ }
+ 
+ .glowText {
+     grid-column-start: 2;
+     grid-row-start: 1;
+     text-align: center;
+     font-size: 20px;
+     color: lightgreen;
+     -webkit-animation: glowText 0.5s ease-in-out infinite alternate;
+     -moz-animation: glowText 0.5s ease-in-out infinite alternate;
+     animation: glowText 0.5s ease-in-out infinite alternate;
+ }
+ 
+ @keyframes glowText {
+     from {
+         text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+     }
+     to {
+         text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+     }
  }
  
  .saveButton {
      background-color: black;
      font-size: large;
      color: red;
-     position: absolute;
      border-style: solid;
-     border-color: green;
-     height: 30px;
-     width: 300px;
-     top: 236px;
+     border-color: red;
+     text-align: center;
      transition: all .4s ease-out;
-     opacity: 0.4;
-     position: absolute;
+     grid-column-start: 2;
+     grid-row-start: 2;
  }
  
- .saveButton:hover {
-     opacity: 1;
+ .saveButton:hover,
+ .showAnswer:hover,
+ .sendButton:hover {
+     color: green;
+     border-color: green;
+ }
+ 
+ .controls {
+     border-style: solid;
+     border-color: green;
+     grid-column-start: 2;
+     grid-row: 1;
+ }
+ 
+ .userInfo {
+     border-style: solid;
+     border-color: green;
+     grid-column-start: 3;
+     grid-row: 1;
  }
  
  .csvPicker {
      border-style: solid;
      border-color: green;
-     height: 200px;
-     width: 300px;
-     left: 908px;
-     position: absolute;
+     grid-column-start: 4;
+     grid-row: 1;
  }
