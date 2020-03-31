@@ -5,10 +5,9 @@
     transition: ease-in-out;
 }
 
-th,
 td {
-    text-align: center;
     border-bottom: 1px solid #ddd;
+    padding: 7px;
 }
 
 tr:hover {
@@ -16,5 +15,5 @@ tr:hover {
 }
 
 thead {
-    background-color: green;
+    color: green;
 }

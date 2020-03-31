@@ -13,7 +13,7 @@ function getTable() {
                     tableBodyLine = tableBodyLine + row;
                 }
                 document.getElementById("tbod").innerHTML += tableBodyLine;
-                document.getElementById("thad").innerHTML += "<th>id</th><th>english word</th><th>ukranian word</th><th>points</th>";
+                document.getElementById("thad").innerHTML += "<td>id</td><td>english word</td><td>ukranian word</td><td>points</td>";
             };
         }
         xhttp.send();
