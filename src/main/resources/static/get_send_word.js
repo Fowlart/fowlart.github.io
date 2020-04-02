@@ -14,7 +14,8 @@ function getWord() {
             word = data["1"];
 
             if (userData != undefined || word != undefined) {
-                document.getElementById("CSV_picker").style.visibility = "hidden";
+                let csvPicker = document.getElementById("CSV_picker");
+                csvPicker.parentNode.removeChild(csvPicker);
                 document.getElementById("profile_csv_picker_save").style.visibility = "visible";
             }
 

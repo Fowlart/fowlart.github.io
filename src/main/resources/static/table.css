@@ -1,6 +1,4 @@
 .myTable {
-    grid-column-start: 1;
-    grid-row-start: 2;
     text-align: center;
     transition: ease-in-out;
 }
@@ -16,4 +14,11 @@ tr:hover {
 
 thead {
     color: green;
+}
+
+#tableBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
 }
