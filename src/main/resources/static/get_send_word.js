@@ -15,7 +15,7 @@ function getWord() {
 
             if (userData != undefined || word != undefined) {
                 let csvPicker = document.getElementById("CSV_picker");
-                csvPicker.parentNode.removeChild(csvPicker);
+                if (csvPicker != undefined) csvPicker.parentNode.removeChild(csvPicker);
                 document.getElementById("profile_csv_picker_save").style.visibility = "visible";
             }
 
