@@ -26,9 +26,9 @@ function getWord() {
             //   document.getElementById('user').innerHTML = userData.name;
             score = userData.allUserPoints;
             console.log(`score in getWord(): ${score}`);
-
-            document.getElementById('progress').max = userData.maxUserPoints;
-            document.getElementById('progress').value = userData.allUserPoints;
+            let progressBar = document.getElementById('myBar');
+            progressBar.style.width = Math.ceil(userData.allUserPoints / userData.maxUserPoints * 100) + "%";
+            progressBar.innerHTML = Math.ceil(userData.allUserPoints / userData.maxUserPoints * 100) + "%";
 
         }
     }
@@ -40,7 +40,7 @@ function red() {
     let wordInput = document.getElementById("WordInput");
     wordInput.style.borderStyle = 'solid';
     wordInput.style.borderColor = 'red';
-    wordInput.style.borderWidth = '1px';
+    wordInput.style.borderWidth = '2px';
     wordInput.style.boxShadow = '0px 0px 5px red';
 
 }
@@ -49,7 +49,7 @@ function green() {
     let wordInput = document.getElementById("WordInput");
     wordInput.style.borderStyle = 'solid';
     wordInput.style.borderColor = 'green';
-    wordInput.style.borderWidth = '1px';
+    wordInput.style.borderWidth = '2px';
     wordInput.style.boxShadow = '0px 0px 5px green';
 }
 
