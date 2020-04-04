@@ -1,166 +1,158 @@
 .modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    transition: 200ms ease-in-out;
-    border: 1px solid black;
-    border-radius: 10px;
-    z-index: 10;
-    background-color: white;
-    width: 700px;
-    max-width: 80%;
-    scroll-behavior: smooth;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border: 1px solid black;
+  border-radius: 10px;
+  z-index: 10;
+  background-color: white;
+  width: 700px;
+  max-width: 80%;
+  scroll-behavior: smooth;
 }
 
 .modal.active {
-    transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .modal-header {
-    padding: 10px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid black;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
 }
 
 .modal-header .title {
-    font-size: 1.25rem;
-    font-weight: bold;
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 
 .modal-header .close-button {
-    cursor: pointer;
-    border: none;
-    outline: none;
-    background: none;
-    font-size: 1.25rem;
-    font-weight: bold;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 
 .modal-body {
-    padding: 10px 15px;
-    scroll-behavior: smooth;
+  padding: 10px 15px;
+  scroll-behavior: smooth;
 }
 
 #overlay {
-    position: fixed;
-    opacity: 0;
-    transition: 200ms ease-in-out;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, .5);
-    pointer-events: none;
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
 }
 
 #overlay.active {
-    opacity: 1;
-    pointer-events: all;
+  opacity: 1;
+  pointer-events: all;
 }
 
 html {
-    font-family: sans-serif;
+  font-family: sans-serif;
 }
 
 caption {
-    padding: 10px;
+  padding: 10px;
 }
 
-
 /*radiobutton switcher*/
-
 
 /*Flexbox fu to make the control and label line up */
 
 li {
-    width: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    position: relative;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
 }
-
 
 /*Size the label, and make the on and off parts sit on top of one another using positioning*/
 
 label {
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    position: relative;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  position: relative;
 }
 
 label span {
-    position: absolute;
+  position: absolute;
 }
-
 
 /*remove the default styling of the checkbox using appearance and create the outer toggle area*/
 
 input[type="checkbox"] {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 44px;
-    height: 24px;
-    border-radius: 12px;
-    border: 2px solid black;
-    background: #eee;
-    transition: all 0.4s;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  border: 2px solid black;
+  background: #eee;
+  transition: all 0.4s;
 }
-
 
 /*style the ::before content to look like the inner toggle switch - the bit that moves*/
 
 input[type="checkbox"]::before {
-    width: 16px;
-    height: 16px;
-    border-radius: 9px;
-    background-color: black;
-    content: '';
-    position: absolute;
-    top: 7px;
-    left: 16%;
-    transition: all 0.4s;
+  width: 16px;
+  height: 16px;
+  border-radius: 9px;
+  background-color: black;
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 16%;
+  transition: all 0.4s;
 }
-
 
 /*change the outer background color and move the inner toggle switch when the checkbox is checked; use transitions for smooth animation*/
 
 input[type="checkbox"]:checked {
-    background-color: #ffaa00;
-    transition: all 0.4s;
+  background-color: #ffaa00;
+  transition: all 0.4s;
 }
 
 input[type="checkbox"]:checked::before {
-    left: 35%;
-    transition: all 0.4s;
+  left: 35%;
+  transition: all 0.4s;
 }
-
 
 /*cause the On and Off parts of the label to be visible when the checkbox is checked and unchecked, respectively*/
 
-input[type="checkbox"]~label .on,
-input[type="checkbox"]:checked~label .off {
-    opacity: 0;
+input[type="checkbox"] ~ label .on,
+input[type="checkbox"]:checked ~ label .off {
+  opacity: 0;
 }
 
-input[type="checkbox"]~label .off,
-input[type="checkbox"]:checked~label .on {
-    opacity: 1;
+input[type="checkbox"] ~ label .off,
+input[type="checkbox"]:checked ~ label .on {
+  opacity: 1;
 }
-
 
 /* make the focus on inputs a bit more subtle on Chrome*/
 
 input:focus {
-    outline: 3px groove blue;
+  outline: 3px groove blue;
 }
 
 nav {
-    border-collapse: collapse;
-    width: 25%;
-    border-style: groove;
+  border-collapse: collapse;
+  width: 25%;
+  border-style: groove;
 }

@@ -6,7 +6,7 @@ function getWord() {
     let userData;
     let xhttp = new XMLHttpRequest();
     xhttp.open("GET", "http://localhost:8080/api/getWord", false);
-    xhttp.onreadystatechange = function() {
+    xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             data = JSON.parse(this.response); // will send object
             console.log(data);
@@ -76,7 +76,7 @@ function sendWord() {
     let word = document.getElementById("WordInput").value;
     let xhttp = new XMLHttpRequest();
     xhttp.open("POST", "http://localhost:8080/api/checkWord", false);
-    xhttp.onreadystatechange = function() {
+    xhttp.onreadystatechange = function () {
         console.log(`Response status: ${this.status}`);
         if (this.readyState == 4 && this.status == 200) {
             // everithing OK
@@ -95,3 +95,10 @@ function sendWord() {
     }
     xhttp.send(word);
 }
+
+let wordInputField = document.getElementById('WordInput');
+wordInputField.addEventListener('keyup', function (e) {
+    if (e.keyCode === 13) {
+        sendWord();
+    }
+});
