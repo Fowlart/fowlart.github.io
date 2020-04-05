@@ -20,9 +20,6 @@
 
 
     <!--Input field with script for processing -->
-    <script th:inline="javascript" src="get_send_word.js"></script>
-
-
 
 
     <div class="grid">
@@ -32,7 +29,8 @@
             <button onclick="sendWord()" class="sendButton">Send</button>
             <button data-modal-target="#modal" class="showAnswer">Show</button>
             <form id="downL" action="downloadFile" method="GET"></form>
-            <button class="saveButton" form="downL" id="profile_csv_picker_save" type="submit" style="visibility: hidden;">Save</button>
+            <button class="saveButton" form="downL" id="profile_csv_picker_save" type="submit"
+                style="visibility: hidden;">Save</button>
             </form>
         </div>
 
@@ -47,7 +45,6 @@
                     <label for="power"><span class="on">On table</span> <span class="off">Off table</span></label>
                 </li>
             </ul>
-            </p>
         </fieldset>
 
         <!-- Get new word for translate -->
@@ -96,11 +93,13 @@
         <div class="modal-body" id="modalBody">
             <p id="details" style="font-size: large;"></p>
             <br /><audio controls id="myAudio">
-                    <source type="audio/mpeg" src="">
-                </audio>
+                <source type="audio/mpeg" src="">
+            </audio>
         </div>
     </div>
     <div id="overlay"></div>
+
+    <script th:inline="javascript" src="get_send_word.js"></script>
 
 </body>
 
