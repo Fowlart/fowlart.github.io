@@ -46,7 +46,7 @@ public class TableController {
         out.close();
     }
 
-    @GetMapping("/table")
+    @GetMapping("/")
     public String mainPage(Model model) throws IOException {
         out.println(">>> mainPage");
         // out.println(model.asMap().get("eMail"));
