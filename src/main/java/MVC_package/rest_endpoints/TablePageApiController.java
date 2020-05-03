@@ -53,7 +53,6 @@ public class TablePageApiController {
                 url = speech.get_url(wordTranslate.getEngword(), "en-us");
             } catch (IOException e) {
                 out.println(">>> connection error during generating url for sound");
-                //  url =new URL("connection_error");
             }
             out.println(">>> processing " + wordTranslate);
             Word word = new Word();

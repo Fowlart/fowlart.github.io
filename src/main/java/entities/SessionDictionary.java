@@ -40,6 +40,7 @@ public class SessionDictionary {
 
     @Override
     public String toString() {
-        return "SessionDictionary[" +id +"]";
+        if (isDictionaryDownloaded()) return "dictionary[" +id +"]";
+        else return "[not downloaded]";
     }
 }
