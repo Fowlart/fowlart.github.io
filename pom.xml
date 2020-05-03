@@ -4,12 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>Fowlart1988</groupId>
-    <artifactId>task05_Lambdas_Streams</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>app</artifactId>
+    <version>1.0</version>
+
     <packaging>war</packaging>
     <properties>
         <tomcat.version>8.5.23</tomcat.version>
     </properties>
+
 
 
     <parent>
@@ -180,11 +182,19 @@
             <version>2.1.6.RELEASE</version>
         </dependency>
 
+        <!-- DOCKER -->
+        <dependency>
+            <groupId>com.spotify</groupId>
+            <artifactId>docker-client</artifactId>
+            <version>8.16.0</version>
+        </dependency>
+
 
 
     </dependencies>
 
     <build>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -203,11 +213,11 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
+                            <mainClass>MVC_package.Launcher</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
             </plugin>
-
 
             <!--spring -->
             <plugin>
@@ -215,6 +225,8 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+
+
 
     </build>
 

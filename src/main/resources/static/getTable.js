@@ -2,7 +2,7 @@ function getTable() {
     if (document.getElementById("power").checked) {
         let table;
         let xhttp = new XMLHttpRequest();
-        xhttp.open("GET", "http://localhost:8080/api/getTable", true);
+        xhttp.open("GET", "/api/getTable", true);
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 table = JSON.parse(this.response); // will send object

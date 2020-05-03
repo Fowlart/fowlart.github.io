@@ -15,10 +15,7 @@ import services.WordProcessor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -34,6 +31,7 @@ public class TableController {
     private CsvWordsWriter csvWordsWriter;
     @Autowired
     private SessionDictionary sessionDictionary;
+    private static int counter;
 
     @GetMapping("/downloadFile")
     public void downloadFile(Model model, HttpServletResponse response, HttpServletRequest request) throws IOException {
@@ -51,29 +49,28 @@ public class TableController {
     @GetMapping("/table")
     public String mainPage(Model model) throws IOException {
         out.println(">>> mainPage");
-        out.println(model.asMap().get("eMail"));
+        // out.println(model.asMap().get("eMail"));
         out.println(">>> processing " + sessionDictionary);
         return "table";
     }
 
     @PostMapping(value = "/uploadFile")
     public String submit(@RequestParam("eMail") String eMail, @RequestParam("aFile") MultipartFile file, Model model) {
-        out.println(">>> file uploaded: " + file.getSize());
-        try {
-            File targetFile = new File("targetFile.tmp");
-            targetFile.createNewFile();
-            OutputStream outStream = new FileOutputStream(targetFile);
-            outStream.write(file.getBytes());
-            List<WordTranslate> dictionary = csvWordsReader.getItemListFromFile(targetFile);
-            out.println(">>> dictionary with " + dictionary.size() + " words was uploaded. For user "+eMail);
-            sessionDictionary.setDictionary(dictionary);
-            sessionDictionary.setId(eMail);
-            model.addAttribute("eMail",eMail);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (!sessionDictionary.isDictionaryDownloaded()) {
+            out.println(">>> file uploaded: " + file.getSize());
+            try {
+                List<WordTranslate> dictionary = csvWordsReader.getItemListFromFile(file.getBytes());
+                out.println(">>> Dictionary with " + dictionary.size() + " words was uploaded, for user [" + eMail + "], file size: " + file.getSize() + " bytes.");
+                sessionDictionary.setDictionary(dictionary);
+                sessionDictionary.setId(String.valueOf(++counter));
+                model.addAttribute("eMail", eMail);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return "table";
+        } else {
+            out.println(">>> dictionary already exist in the current session: " + sessionDictionary);
+            return "table";
         }
-        return "table";
     }
-
-
 }
