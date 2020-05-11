@@ -3,6 +3,7 @@ package MVC_package.rest_endpoints;
 import com.google.inject.internal.util.Lists;
 import dtos.UserData;
 import dtos.Word;
+import entities.Logger;
 import entities.SessionDictionary;
 import entities.WordTranslate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,12 +30,20 @@ public class TablePageApiController {
     private WordProcessor wordProcessor;
     @Autowired
     private SessionDictionary sessionDictionary;
+    @Autowired
+    private Logger logger;
 
     // Returns table with all words.
     @GetMapping(value = "/getTable", produces = "application/json")
     public List<WordTranslate> getTable(Model model) {
-        out.println(">>> processing " + sessionDictionary);
+        out.println("processing " + sessionDictionary);
+        logger.writeInfo("processing " + sessionDictionary);
         return sessionDictionary.getDictionary();
+    }
+
+    @GetMapping(value = "/getLogger", produces = "application/json")
+    public List<String> getLogger(Model model) {
+        return logger.getFullLog();
     }
 
     @GetMapping(value = "/getWord", produces = "application/json")
@@ -52,9 +61,11 @@ public class TablePageApiController {
             try {
                 url = speech.get_url(wordTranslate.getEngword(), "en-us");
             } catch (IOException e) {
-                out.println(">>> connection error during generating url for sound");
+                out.println("connection error during generating url for sound");
+                logger.writeError("connection error during generating url for sound");
             }
-            out.println(">>> processing " + wordTranslate);
+            out.println("processing " + wordTranslate);
+            logger.writeInfo("processing " + wordTranslate);
             Word word = new Word();
             word.setEngword(wordTranslate.getEngword());
             word.setUkrword(wordTranslate.getUkrword());
@@ -69,13 +80,15 @@ public class TablePageApiController {
     // Catches word from front-end
     @PostMapping(value = "/checkWord", consumes = "text/plain")
     public void checkWord(@RequestBody String word) {
-        out.println(">>> Request POST received! " + word);
         if (wordProcessor.getWord().getEngword().equalsIgnoreCase(word)) {
             int points = wordProcessor.getWord().getPoints();
-            out.println(">>> Correct!");
+            out.println("Correct!");
+            logger.writeInfo("Correct!");
             wordProcessor.getWord().setPoints(points + 1);
         } else {
-            out.println(">>> NOT correct!");
+            out.println("NOT correct!");
+            logger.writeWarning("NOT correct!");
+
         }
     }
 

@@ -1,38 +1,40 @@
 <!-- tag::all[] -->
 <!-- tag::head[] -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:spring="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:spring="http://www.w3.org/1999/xhtml">
+
 <head>
     <title>Words creating</title>
 
-    <link rel="stylesheet" th:href="@{/styles.css}"/>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
 </head>
+
 <body>
-<h1>WORDS CREATOR</h1>
+    <h1>WORDS CREATOR</h1>
 
-<form method="POST" th:object="${word}">
+    <form method="POST" th:object="${word}">
 
-    <div th:each="errs : ${err}">
+        <div th:each="errs : ${err}">
             <span th:text="${errs}"></span>
-    </div>
+        </div>
 
-    <h3>Eng word:</h3>
-    <input type="text" th:field="*{engword}"/>
-    <span class="validationError" th:if="${#fields.hasErrors('engword')}" th:errors="*{engword}">Name Error</span>
+        <h3>Eng word:</h3>
+        <input type="text" th:field="*{engword}" />
+        <span class="validationError" th:if="${#fields.hasErrors('engword')}" th:errors="*{engword}">Name Error</span>
 
-    <h3>Ukr word:</h3>
-    <input type="text" th:field="*{ukrword}"/>
-    <span class="validationError" th:if="${#fields.hasErrors('ukrword')}" th:errors="*{ukrword}">Name Error</span>
+        <h3>Ukr word:</h3>
+        <input type="text" th:field="*{ukrword}" />
+        <span class="validationError" th:if="${#fields.hasErrors('ukrword')}" th:errors="*{ukrword}">Name Error</span>
 
-    <h3>Score:</h3>
-    <input type="text" th:field="*{points}"/>
-    <span class="validationError" th:if="${#fields.hasErrors('points')}" th:errors="*{points}">Name Error</span>
+        <h3>Score:</h3>
+        <input type="text" th:field="*{points}" />
+        <span class="validationError" th:if="${#fields.hasErrors('points')}" th:errors="*{points}">Name Error</span>
 
-    <br/>
-    <button>Save the word</button>
-    </div>
+        <br/>
+        <button>Save the word</button>
+        </div>
 
-</form>
+    </form>
 </body>
+
 </html>

@@ -2,6 +2,7 @@ package MVC_package;
 
 import data_base.UserRepository;
 import data_base.WordTranslateRepository;
+import entities.Logger;
 import entities.SessionDictionary;
 import io_data_module.CsvWordsReader;
 import io_data_module.CsvWordsWriter;
@@ -43,6 +44,11 @@ public class SpringConfiguration implements WebMvcConfigurer {
     @Bean
     public SessionDictionary getSessionDictionary() {
         return new SessionDictionary();
+    }
+
+    @Bean
+    public Logger getSesionLogger() {
+        return new Logger();
     }
 
     @Bean

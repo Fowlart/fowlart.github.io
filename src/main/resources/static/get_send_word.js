@@ -9,7 +9,6 @@ function getWord() {
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             data = JSON.parse(this.response); // will send object
-            console.log(data);
             userData = data["0"];
             word = data["1"];
 
@@ -81,16 +80,14 @@ function sendWord() {
         if (this.readyState == 4 && this.status == 200) {
             // everithing OK
             document.getElementById("WordInput").value = '';
-            document.getElementById('TranslateWarn').innerHTML = 'enter translation: ';
-            document.getElementById('TranslateWarn').style.color = "Black";
             let scoreForCheck = score;
             getWord();
             setTimeout(checkIfWordWasCorrect(scoreForCheck, score), 700);
 
         } else if (this.readyState == 4 && this.status == 400) {
             // empty line was sent
-            document.getElementById('TranslateWarn').style.color = "Red";
-            document.getElementById('TranslateWarn').innerHTML = 'Please provide a word: ';
+            red();
+            setTimeout(black, 700);
         }
     }
     xhttp.send(word);

@@ -1,5 +1,6 @@
 package MVC_package.view_controllers;
 
+import entities.Logger;
 import entities.SessionDictionary;
 import entities.WordTranslate;
 import io_data_module.CsvWordsReader;
@@ -31,11 +32,13 @@ public class TableController {
     private CsvWordsWriter csvWordsWriter;
     @Autowired
     private SessionDictionary sessionDictionary;
+    @Autowired
+    private Logger logger;
     private static int counter;
 
     @GetMapping("/downloadFile")
     public void downloadFile(Model model, HttpServletResponse response, HttpServletRequest request) throws IOException {
-        out.println(">>> SENDING A FILE");
+        out.println("SENDING A FILE");
         response.setContentType("text/csv;charset=utf-8");
         response.setHeader("Content-Disposition", "attachment;filename=myFile.csv");
         response.setCharacterEncoding("UTF-8");
@@ -48,19 +51,21 @@ public class TableController {
 
     @GetMapping("/")
     public String mainPage(Model model) throws IOException {
-        out.println(">>> mainPage");
+        out.println("main page");
         // out.println(model.asMap().get("eMail"));
-        out.println(">>> processing " + sessionDictionary);
+        model.addAttribute("logger",logger.getFullLog());
+        out.println("processing " + sessionDictionary);
         return "table";
     }
 
     @PostMapping(value = "/uploadFile")
     public String submit(@RequestParam("eMail") String eMail, @RequestParam("aFile") MultipartFile file, Model model) {
         if (!sessionDictionary.isDictionaryDownloaded()) {
-            out.println(">>> file uploaded: " + file.getSize());
+            out.println("file uploaded: " + file.getSize());
             try {
                 List<WordTranslate> dictionary = csvWordsReader.getItemListFromFile(file.getBytes());
-                out.println(">>> Dictionary with " + dictionary.size() + " words was uploaded, for user [" + eMail + "], file size: " + file.getSize() + " bytes.");
+                out.println("Dictionary with " + dictionary.size() + " words was uploaded, for user [" + eMail + "], file size: " + file.getSize() + " bytes.");
+                logger.writeInfo("Dictionary with " + dictionary.size() + " words was uploaded, for user [" + eMail + "], file size: " + file.getSize() + " bytes.");
                 sessionDictionary.setDictionary(dictionary);
                 sessionDictionary.setId(String.valueOf(++counter));
                 model.addAttribute("eMail", eMail);
@@ -69,7 +74,7 @@ public class TableController {
             }
             return "table";
         } else {
-            out.println(">>> dictionary already exist in the current session: " + sessionDictionary);
+            out.println("dictionary already exist in the current session: " + sessionDictionary);
             return "table";
         }
     }

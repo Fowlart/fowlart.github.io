@@ -1,15 +1,18 @@
 #myProgress {
-    width: 100%;
     background-color: #ddd;
+    border: solid 1px white;
+    font-size: 50px;
 }
 
 #myBar {
-    width: 1%;
-    height: 30px;
+    font-size: 50px;
+    width: 0%;
+    height: 50px;
     text-align: right;
     text-justify: inter-word;
     background-color: black;
     color: red;
+    font-size: 50px;
     font-size: large;
     padding: 5 px;
 }

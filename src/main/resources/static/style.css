@@ -100,8 +100,8 @@ label span {
 input[type="checkbox"] {
     -webkit-appearance: none;
     appearance: none;
-    width: 15px;
-    height: 15px;
+    width: 30px;
+    height: 30px;
     border: solid black 1px;
     background-color: red;
     transition: all 0.4s;

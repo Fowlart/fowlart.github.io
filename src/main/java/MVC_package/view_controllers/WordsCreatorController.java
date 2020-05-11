@@ -1,5 +1,6 @@
 package MVC_package.view_controllers;
 
+import entities.Logger;
 import entities.SessionDictionary;
 import entities.WordTranslate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +23,11 @@ import static java.lang.System.out;
 public class WordsCreatorController {
     @Autowired
     private SessionDictionary sessionDictionary;
+    @Autowired
+    private Logger logger;
 
     @GetMapping
     public String showForm(Model model) {
-        out.println(">>> wordsCreatorController in action");
         model.addAttribute("word", new WordTranslate());
         return "words_creator";
     }
@@ -35,7 +37,7 @@ public class WordsCreatorController {
         if (errors.hasFieldErrors()) return "words_creator";
         out.println(word.toString());
         sessionDictionary.getDictionary().add(word);
-        return "redirect:/table";
+        return "redirect:/";
     }
 
 

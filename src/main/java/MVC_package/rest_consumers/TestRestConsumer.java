@@ -22,6 +22,7 @@ public class TestRestConsumer {
     //Todo: NOT WORKING YET
     public User getJsonUser () {
         User result = restTemplate.getForObject("http://localhost:8080/testREST/getJsonUser", User.class);
+        // restTemplate.patchForObject()
         return result;
     }
 

@@ -7,11 +7,8 @@
     <link href="table.css" rel='stylesheet'>
     <link href="logger.css" rel='stylesheet'>
     <link href="progress.css" rel='stylesheet'>
-    <script th:inline="javascript">
-        var user = /*[[${eMail}]]*/
-            console.log(user);
-    </script>
     <script defer src="modal_script.js"></script>
+    <script defer src="getLogger.js"></script>
     <title>MAIN SCREEN</title>
 </head>
 
@@ -25,63 +22,57 @@
     <div class="grid">
 
         <div class="console">
-            <div class="glowText"><span id="translate">please download dictionary</span></div>
-            <button onclick="sendWord()" class="sendButton">Send</button>
-            <button data-modal-target="#modal" class="showAnswer">Show</button>
+            <button onclick="sendWord()" class="button">[Send]</button>
+            <button data-modal-target="#modal" class="button">[Show]</button>
+            <button class="button" form="downL" id="profile_csv_picker_save" type="submit" style="visibility: hidden;">[Save]</button>
+            <span class="glowText">[<span id="translate">please download dictionary</span>] </span>
             <form id="downL" action="downloadFile" method="GET"></form>
-            <button class="saveButton" form="downL" id="profile_csv_picker_save" type="submit" style="visibility: hidden;">Save</button>
-            </form>
         </div>
 
 
-        <fieldset class="controls">
-            <legend>CONTROLS</legend>
-            <label id='TranslateWarn' for="WordInput">enter translation: </label>
-            <input id="WordInput" type="text" name="answer">
+        <div class="controls">
+            <label for="WordInput">[Type translation here]</label>
+            <input id="WordInput" class="inputs" type="text" name="answer">
             <ul>
                 <li>
                     <input onchange="getTable()" type="checkbox" name="power" id="power">
-                    <label for="power"><span class="on">On table</span> <span class="off">Off table</span></label>
+                    <label for="power"><span class="on">visible</span> <span class="off">hiden</span></label>
                 </li>
             </ul>
-        </fieldset>
+        </div>
 
         <!-- Get new word for translate -->
-        <fieldset class="userInfo">
-            <legend>USER INFO</legend>
-            <p>User: <span id="user"></span></p>
-            <p>Progress: </p>
+        <div class="userInfo">
+            <p>[Progress] <span id="user"></span></p>
             <div id="myProgress">
                 <div id="myBar"></div>
             </div>
-        </fieldset>
+        </div>
 
         <!--CSV picker -->
-        <fieldset id="CSV_picker" class="csvPicker">
-            <legend>UPLOAD DICTIONARY</legend>
+        <div id="CSV_picker" class="csvPicker">
             <form method="POST" action="uploadFile" enctype="multipart/form-data">
                 <div>
                     <label for="eMail">Enter eMail</label>
-                    <input type="email" id="profile_eMail" name="eMail">
+                    <input class="inputs" type="email" id="profile_eMail" name="eMail">
                 </div>
                 <div>
                     <label for="aFile">Choose file to upload</label>
                     <input type="file" id="profile_csv_picker" name="aFile" accept=".csv">
                 </div>
                 <div>
-                    <button id="profile_csv_picker_submit" type="submit">Submit</button>
+                    <button id="profile_csv_picker_submit" type="submit" class="button">[Submit]</button>
                 </div>
             </form>
-        </fieldset>
+        </div>
     </div>
 
-    <div id="tableBox">
-        <script src="getTable.js"></script>
-        <table class="myTable">
-            <thead id="thad"></thead>
-            <tbody id="tbod"></tbody>
-        </table>
-    </div>
+
+    <script src="getTable.js"></script>
+    <table class="myTable">
+        <thead id="thad"></thead>
+        <tbody id="tbod"></tbody>
+    </table>
 
     <!--use the modal-->
     <div class="modal" id="modal">
