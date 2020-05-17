@@ -64,6 +64,10 @@ async function sendWord() {
     } else {
         let result = await response.json();
         console.log(result.error);
+
+        let elem = document.getElementById('WordInput');
+        elem.classList.toggle('red');
+        setTimeout(() => elem.classList.toggle('red'), 700);
     }
 }
 
