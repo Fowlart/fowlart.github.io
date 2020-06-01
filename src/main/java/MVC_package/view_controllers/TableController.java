@@ -36,6 +36,12 @@ public class TableController {
     private Logger logger;
     private static int counter;
 
+    // Todo
+    @GetMapping("/logger")
+    public String getLogger() throws IOException {
+       return "logger";
+    }
+
     @GetMapping("/downloadFile")
     public void downloadFile(Model model, HttpServletResponse response, HttpServletRequest request) throws IOException {
         out.println("SENDING A FILE");
