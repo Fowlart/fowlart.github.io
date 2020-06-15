@@ -2,12 +2,12 @@
     text-align: center;
     font-size: 30px;
     color: white;
-    border: solid 1px white;
     position: relative;
     left: 10px;
 }
 
 td {
+    border: solid 1px white;
     border-bottom: 1px solid whitesmoke;
     padding: 7px;
 }
