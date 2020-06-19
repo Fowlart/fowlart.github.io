@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.validation.Valid;
 
-import static java.lang.System.out;
-
 @Controller
 @RequestMapping("/create")
 @SessionAttributes("user")
@@ -35,7 +33,7 @@ public class WordsCreatorController {
     @PostMapping
     public String saveWord(@Valid @ModelAttribute("word") WordTranslate word, Errors errors, Model model) {
         if (errors.hasFieldErrors()) return "words_creator";
-        out.println(word.toString());
+        logger.writeInfo("Word was created " + word.toString() + ".");
         sessionDictionary.getDictionary().add(word);
         return "redirect:/";
     }

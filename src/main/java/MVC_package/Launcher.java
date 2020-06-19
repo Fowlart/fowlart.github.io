@@ -15,7 +15,7 @@ public class Launcher {
 
     public static void main(String[] args) {
         SpringApplication.run(Launcher.class, args);
-        out.println("Launcher was started");
+        out.println("Launcher was started.");
         try {
             InetAddress ip = InetAddress.getLocalHost();
             out.println(ip.getCanonicalHostName());

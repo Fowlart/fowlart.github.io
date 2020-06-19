@@ -72,8 +72,26 @@ async function sendWord() {
 }
 
 let wordInputField = document.getElementById('WordInput');
-wordInputField.addEventListener('keyup', function (e) {
+wordInputField.addEventListener('keyup', function(e) {
     if (e.keyCode === 13) {
         sendWord();
     }
 });
+
+// show and hide img from server
+document.addEventListener('DOMContentLoaded', function() {
+    const myConsole = document.getElementById("myLogo");
+    const img = document.createElement('img');
+
+    fetch('images/Spring-Boot.png').then((prom) => {
+        return prom.blob();
+    }).then((blob) => {
+        img.src = URL.createObjectURL(blob);
+        myConsole.prepend(img);
+    }).catch((err) => console.log(err));
+
+    setTimeout(() => { // hide, after three second
+        img.remove();
+        URL.revokeObjectURL(img.src);
+    }, 3000);
+}, false);

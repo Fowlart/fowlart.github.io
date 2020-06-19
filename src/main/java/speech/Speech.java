@@ -17,7 +17,6 @@ public class Speech {
 
     public void speak(String text, String language_code) {
         synthesizer.setLanguage(language_code);
-        System.out.println("speaking>> " + text);
         //Create a JLayer instance
         synthesizer.setSpeed(1);
         AdvancedPlayer player = null;
@@ -66,8 +65,6 @@ public class Speech {
             rez = inputStream.read();
             outputStream.write(rez);
         }
-
-        System.out.println("file " + output_file + " was created");
         outputStream.flush();
         outputStream.close();
     }

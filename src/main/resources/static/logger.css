@@ -4,20 +4,31 @@
      background-color: black;
  }
  
+ .logo {
+     text-align: center;
+ }
+ 
+ #img {
+     width: 200px;
+     height: 125px;
+     transition: all .4s ease-out;
+ }
+ 
  .pError,
  .pInfo,
  .pWarn {
-     font-size: 45px;
+     margin: 3px;
+     font-size: 35px;
      flex-wrap: wrap;
      word-break: break-all;
-     text-align: center;
+     text-align: left;
  }
-
+ 
  .pError:hover,
  .pWarn:hover {
      animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
  }
-
+ 
  @keyframes shake {
      10%,
      90% {
@@ -37,19 +48,19 @@
          transform: translate3d(4px, 0, 0);
      }
  }
-
+ 
  .pError {
      color: red;
  }
-
+ 
  .pInfo {
      color: lightgreen;
  }
-
+ 
  .pWarn {
      color: yellow;
  }
-
+ 
  .logger-container {
      display: flexbox;
      flex-direction: row;

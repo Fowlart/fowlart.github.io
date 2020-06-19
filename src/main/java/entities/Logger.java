@@ -11,7 +11,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Component
-@Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
+@Scope(value = WebApplicationContext.SCOPE_APPLICATION, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class Logger {
 
     private List<String> fullLog;
