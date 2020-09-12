@@ -45,8 +45,14 @@ public class TablePageApiController {
     }
 
     @GetMapping(value = "/getLogger", produces = "application/json")
-    public List<String> getLogger(HttpServletRequest request) {
+    public List<String> getLogger() {
         return logger.getFullLog();
+    }
+
+    @GetMapping(value = "/getLastLogs", produces = "application/json")
+    public String getLastLogs() {
+        int lastElement =logger.getFullLog().size()-2;
+        return logger.getFullLog().get(lastElement);
     }
 
     // for different tests
