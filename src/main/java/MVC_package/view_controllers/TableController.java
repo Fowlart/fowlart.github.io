@@ -56,6 +56,7 @@ public class TableController {
         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         String csv = csvWordsWriter.getCsv(sessionDictionary.getDictionary());
+        out.println(csv);
         out.flush();
         out.close();
     }
