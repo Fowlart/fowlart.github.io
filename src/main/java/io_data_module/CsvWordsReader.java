@@ -50,7 +50,7 @@ public class CsvWordsReader {
                 BufferedReader in = new BufferedReader(new FileReader(this.filename));
                 List<WordTranslate> list = in.lines().map((s) -> {
                     Scanner scanner = new Scanner(s);
-                    scanner.useDelimiter(";|,");
+                    scanner.useDelimiter(";");
                     WordPropertie wordPropertie1 = new WordPropertie(scanner.next());
                     WordPropertie wordPropertie2 = new WordPropertie(scanner.next());
                     Integer points = Integer.valueOf(scanner.next());

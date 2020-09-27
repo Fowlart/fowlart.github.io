@@ -70,7 +70,7 @@ public class TableController {
     }
 
     @PostMapping(value = "/uploadFile")
-    public String submit(@RequestParam("eMail") String eMail, @RequestParam("aFile") MultipartFile file, Model model) {
+    public String submit(@RequestParam("aFile") MultipartFile file, Model model) {
         if (!sessionDictionary.isDictionaryDownloaded()) {
             logger.writeInfo("File uploaded: " + file.getSize()+".");
             try {
@@ -78,7 +78,6 @@ public class TableController {
                 logger.writeInfo("Dictionary with " + dictionary.size() + " words was uploaded, file size: " + file.getSize() + " bytes.");
                 sessionDictionary.setDictionary(dictionary);
                 sessionDictionary.setId(String.valueOf(++counter));
-                model.addAttribute("eMail", eMail);
             } catch (IOException e) {
                 e.printStackTrace();
             }
