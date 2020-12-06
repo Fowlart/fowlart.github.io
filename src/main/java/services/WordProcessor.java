@@ -1,9 +1,6 @@
 package services;
 
-import MVC_package.UserService;
-import entities.User;
-import entities.WordTranslate;
-import org.springframework.beans.factory.annotation.Autowired;
+import entities.Word;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
@@ -16,46 +13,23 @@ import java.util.Random;
 @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class WordProcessor {
 
-    //   private User user;
     private double progress;
     private double avgPoint;
     private int totalPoints;
     private int countOfWords;
     private int maxPoints;
-    private WordTranslate word; //current
+    private Word word; //current
 
-    private List<WordTranslate> wordList;
+    private List<Word> wordList;
 
-    @Autowired
-    private UserService userService;
+    private final Random random = new Random(47);
 
-    private Random random = new Random(47);
-
-    public WordTranslate nextWord(User user) {
-
-        wordList = userService.getDictionary(user);
-
-        if (wordList != null) {
-            totalPoints = this.wordList.stream().mapToInt(WordTranslate::getPoints).reduce(0, (i1, i2) -> i1 + i2);
-            countOfWords = this.wordList.size();
-            maxPoints = countOfWords * 30;
-            avgPoint = (double) totalPoints / (double) countOfWords;
-            progress = avgPoint / 30 * 100;
-
-            while (true) {
-                word = wordList.stream().skip(this.random.nextInt(wordList.size())).findAny().get();
-                if (word.getPoints() <= (this.avgPoint)) return word;
-            }
-        }
-        return null;
-    }
-
-    public WordTranslate nextWord(List<WordTranslate> list) {
+    public Word nextWord(List<Word> list) {
 
         wordList = list;
 
         if (wordList != null) {
-            totalPoints = this.wordList.stream().mapToInt(WordTranslate::getPoints).sum();
+            totalPoints = this.wordList.stream().mapToInt(Word::getPoints).sum();
             countOfWords = this.wordList.size();
             maxPoints = countOfWords * 30;
             avgPoint = (double) totalPoints / (double) countOfWords;
@@ -101,11 +75,11 @@ public class WordProcessor {
         this.countOfWords = countOfWords;
     }
 
-    public WordTranslate getWord() {
+    public Word getWord() {
         return word;
     }
 
-    public void setWord(WordTranslate word) {
+    public void setWord(Word word) {
         this.word = word;
     }
 

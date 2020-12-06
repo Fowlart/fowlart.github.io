@@ -2,7 +2,7 @@ package MVC_package.view_controllers;
 
 import entities.Logger;
 import entities.SessionDictionary;
-import entities.WordTranslate;
+import entities.Word;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,14 +26,15 @@ public class WordsCreatorController {
 
     @GetMapping
     public String showForm(Model model) {
-        model.addAttribute("word", new WordTranslate());
+        Word word = new Word();
+        model.addAttribute("word", word);
         return "words_creator";
     }
 
     @PostMapping
-    public String saveWord(@Valid @ModelAttribute("word") WordTranslate word, Errors errors, Model model) {
+    public String saveWord(@Valid @ModelAttribute("word") Word word, Errors errors, Model model) {
         if (errors.hasFieldErrors()) return "words_creator";
-        logger.writeInfo("Word was created " + word.toString() + ".");
+        logger.writeInfo("WordDTO was created " + word.toString() + ".");
         sessionDictionary.getDictionary().add(word);
         return "redirect:/";
     }

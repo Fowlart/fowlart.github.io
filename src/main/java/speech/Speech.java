@@ -1,11 +1,14 @@
 package speech;
 
+import entities.Word;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.advanced.AdvancedPlayer;
-import entities.WordTranslate;
 import speech.synthesiser.SynthesiserV2;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,7 +16,7 @@ import java.util.List;
 public class Speech {
 
     //Create a Synthesizer instance
-    private SynthesiserV2 synthesizer = new SynthesiserV2("AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw");
+    private final SynthesiserV2 synthesizer = new SynthesiserV2("AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw");
 
     public void speak(String text, String language_code) {
         synthesizer.setLanguage(language_code);
@@ -28,7 +31,7 @@ public class Speech {
         }
     }
 
-    public void writeToFile(String folder_path, WordTranslate word) {
+    public void writeToFile(String folder_path, Word word) {
         Boolean rez = false;
         int try_count = 0;
 
@@ -38,7 +41,7 @@ public class Speech {
         }
     }
 
-    private boolean processWord(String folder_path, WordTranslate word) {
+    private boolean processWord(String folder_path, Word word) {
         this.synthesizer.setLanguage("en-us");
         String output_file = word.getEngword() + ".mp3";
         try {

@@ -1,9 +1,8 @@
 package MVC_package.view_controllers;
 
+import data_base.mongo.WordMongoRepository;
 import entities.Logger;
 import entities.SessionDictionary;
-import entities.WordTranslate;
-import io_data_module.CsvWordsReader;
 import io_data_module.CsvWordsWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,23 +17,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-
-import static java.lang.System.out;
 
 @Controller
 public class TableController {
+    private static int counter;
     @Autowired
     private WordProcessor wordProcessor;
-    @Autowired
-    private CsvWordsReader csvWordsReader;
     @Autowired
     private CsvWordsWriter csvWordsWriter;
     @Autowired
     private SessionDictionary sessionDictionary;
     @Autowired
     private Logger logger;
-    private static int counter;
+    @Autowired
+    private WordMongoRepository wordMongoRepository;
 
     // Todo
     @GetMapping("/logger")
@@ -65,25 +61,19 @@ public class TableController {
     public String mainPage(Model model) throws IOException {
         // out.println(model.asMap().get("eMail"));
         model.addAttribute("logger", logger.getFullLog());
-        logger.writeInfo("Processing " + sessionDictionary+".");
+        logger.writeInfo("Processing " + sessionDictionary + ".");
         return "table";
     }
 
-    @PostMapping(value = "/uploadFile")
-    public String submit(@RequestParam("aFile") MultipartFile file, Model model) {
+
+    @PostMapping(value = "/fetchFromMongo")
+    public String fetchFromMongo() {
         if (!sessionDictionary.isDictionaryDownloaded()) {
-            logger.writeInfo("File uploaded: " + file.getSize()+".");
-            try {
-                List<WordTranslate> dictionary = csvWordsReader.getItemListFromFile(file.getBytes());
-                logger.writeInfo("Dictionary with " + dictionary.size() + " words was uploaded, file size: " + file.getSize() + " bytes.");
-                sessionDictionary.setDictionary(dictionary);
-                sessionDictionary.setId(String.valueOf(++counter));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return "table";
+           //Todo: temporary stub
+           sessionDictionary.setDictionary(wordMongoRepository.findAll());
+           return "table";
         } else {
-            logger.writeInfo("Dictionary already exist in the current session: " + sessionDictionary+".");
+            logger.writeInfo("Dictionary already exist in the current session: " + sessionDictionary + ".");
             return "table";
         }
     }

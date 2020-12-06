@@ -15,14 +15,14 @@ public class SessionDictionary {
 
     private String id;
 
-    private List<WordTranslate> dictionary;
+    private List<Word> dictionary;
 
-    public List<WordTranslate> getDictionary() {
+    public List<Word> getDictionary() {
         if (Objects.nonNull(dictionary)) return dictionary;
         return Collections.emptyList();
     }
 
-    public void setDictionary(List<WordTranslate> dictionary) {
+    public void setDictionary(List<Word> dictionary) {
         this.dictionary = dictionary;
     }
 

@@ -2,7 +2,7 @@ package dtos;
 
 import java.net.URL;
 
-public class Word {
+public class WordDTO {
     private String ukrword;
     private String engword;
     private int points;

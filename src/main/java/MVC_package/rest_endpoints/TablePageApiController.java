@@ -1,11 +1,12 @@
 package MVC_package.rest_endpoints;
 
 import com.google.inject.internal.util.Lists;
+import data_base.mongo.WordMongoRepository;
 import dtos.UserData;
-import dtos.Word;
+import dtos.WordDTO;
 import entities.Logger;
 import entities.SessionDictionary;
-import entities.WordTranslate;
+import entities.Word;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,10 +37,13 @@ public class TablePageApiController {
     @Autowired
     private Logger logger;
 
+    @Autowired
+    private WordMongoRepository wordMongoRepository;
+
     // Returns table with all words.
     @GetMapping(value = "/getTable", produces = "application/json")
     public @ResponseBody
-    List<WordTranslate> getTable(Model model) {
+    List<Word> getTable(Model model) {
         logger.writeInfo("Processing " + sessionDictionary+".");
         return sessionDictionary.getDictionary();
     }
@@ -82,25 +86,25 @@ public class TablePageApiController {
         UserData userData = new UserData();
 
         if (sessionDictionary.isDictionaryDownloaded()) {
-            WordTranslate wordTranslate = wordProcessor.nextWord(sessionDictionary.getDictionary());
+            Word word = wordProcessor.nextWord(sessionDictionary.getDictionary());
             userData.setName(sessionDictionary.getId());
             userData.setAllUserPoints(wordProcessor.getTotalPoints());
             userData.setMaxUserPoints(wordProcessor.getMaxPoints());
             SpeechUrlProvider speech = new SpeechUrlProvider();
             URL url = null;
             try {
-                url = speech.get_url(wordTranslate.getEngword(), "en-us");
+                url = speech.get_url(word.getEngword(), "en-us");
             } catch (IOException e) {
                 logger.writeError("Connection error during generating url for sound.");
             }
-            logger.writeInfo("Processing " + "'" + wordTranslate.getEngword() + "'.");
-            Word word = new Word();
-            word.setEngword(wordTranslate.getEngword());
-            word.setUkrword(wordTranslate.getUkrword());
-            word.setPoints(wordTranslate.getPoints());
-            word.setSound(url);
+            logger.writeInfo("Processing " + "'" + word.getEngword() + "'.");
+            WordDTO wordDTO = new WordDTO();
+            wordDTO.setEngword(word.getEngword());
+            wordDTO.setUkrword(word.getUkrword());
+            wordDTO.setPoints(word.getPoints());
+            wordDTO.setSound(url);
             data.add(userData);
-            data.add(word);
+            data.add(wordDTO);
         }
         return data;
     }
