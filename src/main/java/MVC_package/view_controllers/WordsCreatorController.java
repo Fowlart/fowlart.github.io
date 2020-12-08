@@ -1,19 +1,18 @@
 package MVC_package.view_controllers;
 
+import data_base.mongo.WordMongoRepository;
 import entities.Logger;
 import entities.SessionDictionary;
 import entities.Word;
+import org.apache.commons.lang.math.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
-
-import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/create")
@@ -23,19 +22,24 @@ public class WordsCreatorController {
     private SessionDictionary sessionDictionary;
     @Autowired
     private Logger logger;
+    @Autowired
+    private WordMongoRepository wordMongoRepository;
 
     @GetMapping
     public String showForm(Model model) {
-        Word word = new Word();
-        model.addAttribute("word", word);
-        return "words_creator";
+        return "words-creator";
     }
 
     @PostMapping
-    public String saveWord(@Valid @ModelAttribute("word") Word word, Errors errors, Model model) {
-        if (errors.hasFieldErrors()) return "words_creator";
-        logger.writeInfo("WordDTO was created " + word.toString() + ".");
-        sessionDictionary.getDictionary().add(word);
+    public String saveWord(@RequestParam String engword, @RequestParam String ukrword) {
+        if (sessionDictionary.isDictionaryDownloaded()) {
+            Word creation = new Word();
+            creation.setEngword(engword);
+            creation.setUkrword(ukrword);
+            creation.setPoints(0);
+            wordMongoRepository.save(creation);
+            sessionDictionary.getDictionary().add(creation);
+        }
         return "redirect:/";
     }
 

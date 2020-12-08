@@ -68,7 +68,7 @@ public class Word {
 
     @Override
     public String toString() {
-        return "WordDTO{" +
+        return "Word{" +
                 "id='" + id + '\'' +
                 ", engword='" + engword + '\'' +
                 ", ukrword='" + ukrword + '\'' +
