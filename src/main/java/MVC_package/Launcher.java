@@ -1,25 +1,19 @@
 package MVC_package;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-
-import static java.lang.System.out;
 
 @SpringBootApplication
 public class Launcher {
 
-    public static void main(String[] args) {
-        SpringApplication.run(Launcher.class, args);
-        out.println("Launcher was started.");
-        try {
-            InetAddress ip = InetAddress.getLocalHost();
-            out.println(ip.getCanonicalHostName());
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        }
+    private static final Logger logger = LoggerFactory.getLogger(Launcher.class);
 
+    public static void main(String[] args) {
+        SpringApplication app = new SpringApplication(Launcher.class);
+        // Start the Spring Boot application.
+        app.run(args);
+        logger.info("Launcher was started.");
     }
 }
