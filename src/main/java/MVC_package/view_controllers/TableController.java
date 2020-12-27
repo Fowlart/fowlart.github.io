@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import services.WordProcessor;
 
 import javax.servlet.http.HttpServletRequest;
@@ -67,11 +66,12 @@ public class TableController {
 
 
     @PostMapping(value = "/fetchFromMongo")
-    public String fetchFromMongo() {
+    public String fetchFromMongo(@RequestParam String email, @RequestParam String password) {
         if (!sessionDictionary.isDictionaryDownloaded()) {
-           //Todo: temporary stub
-           sessionDictionary.setDictionary(wordMongoRepository.findAll());
-           return "table";
+            //Todo: temporary stub
+            System.out.println(email + ":" + password);
+            sessionDictionary.setDictionary(wordMongoRepository.getWordsByUser(email));
+            return "table";
         } else {
             logger.writeInfo("Dictionary already exist in the current session: " + sessionDictionary + ".");
             return "table";

@@ -1,4 +1,3 @@
-FROM openjdk:11
-ADD app-1.0.war app-1.0.war
-#RUN java -jar app-1.0.war
-ENTRYPOINT ["java","-jar","app-1.0.war"]
+FROM openjdk:jdk-alpine
+COPY app-1.0.war app-1.0.war
+CMD java -jar app-1.0.war

@@ -1,5 +1,6 @@
 import data_base.mongo.WordMongoRepository;
 import entities.Word;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import speech.Speech;
@@ -17,7 +18,8 @@ public class SpeechTest {
     @Autowired
     private WordMongoRepository wordMongoRepository;
 
-   @Test
+    @Ignore
+    @Test
     //** creating mp3 list of words *//
     public void testSpeechingFromFile() {
         List<Word> list = wordMongoRepository.findAll();
@@ -28,6 +30,7 @@ public class SpeechTest {
         }
     }
 
+    @Ignore
     @Test
     /** deleting files with null size*/
     public void deleteEmptyFiles() {

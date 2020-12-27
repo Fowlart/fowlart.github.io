@@ -8,7 +8,9 @@
     <link href="logger.css" rel='stylesheet'>
     <link href="progress.css" rel='stylesheet'>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="words-creator.css" rel='stylesheet'>
     <script defer src="modal_script.js"></script>
+    <script th:inline="javascript" src="get_send_word.js"></script>
     <title>WORDS GAME</title>
 </head>
 
@@ -22,7 +24,7 @@
         <button data-modal-target="#modal" class="button1">Show</button>
         <button class="button1" form="downL" id="profile_csv_picker_save" type="submit" style="visibility: hidden;">Save</button>
         <span class="glowText">[<span id="translate">please download dictionary</span>] </span>
-        <form id="downL" action="downloadFile" method="GET"></form>
+        <form id="downL" action="downloadFile" method="GET" style="visibility: hidden;"></form>
     </div>
 
 
@@ -45,15 +47,19 @@
         </div>
     </div>
 
-    <!--CSV picker -->
+    <!--Login form -->
     <div id="CSV_picker" class="csvPicker">
         <form method="POST" action="fetchFromMongo">
-            <div>
-                <button id="profile_csv_picker_submit" type="submit" class="button1">Start</button>
+            <div class="container">
+                <label for="user_email"><b>Email:</b></label>
+                <input id="user_email" type="text" placeholder="Enter your e-mail" name="email" required>
+
+                <label for="user_password"><b>Password:</b></label>
+                <input id="user_password" type="password" placeholder="Enter password" name="password" required>
+                <button type="submit">LOGIN</button>
             </div>
         </form>
     </div>
-
 
     <script src="getTable.js"></script>
     <table class="myTable">
@@ -75,8 +81,6 @@
         </div>
     </div>
     <div id="overlay"></div>
-
-    <script th:inline="javascript" src="get_send_word.js"></script>
 
 </body>
 

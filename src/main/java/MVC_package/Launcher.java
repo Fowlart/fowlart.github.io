@@ -1,14 +1,12 @@
 package MVC_package;
 
-import entities.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-import static java.lang.System.*;
+import static java.lang.System.out;
 
 @SpringBootApplication
 public class Launcher {
