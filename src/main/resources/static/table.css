@@ -1,17 +1,46 @@
 .myTable {
-    text-align: center;
-    font-size: 30px;
-    color: white;
-    position: relative;
-    left: 10px;
+    color: green;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 2px solid green;
+    font-family: 'Goldman';
+    font-size: 12px;
 }
 
+.table_head {
+    font-size: 18px;
+}
+
+th,
 td {
-    border: solid 1px white;
-    border-bottom: 1px solid whitesmoke;
-    padding: 7px;
+    text-align: left;
+    padding: 16px;
 }
 
-tr:hover {
-    background-color: red;
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.active,
+.collapsible:hover {
+    background-color: #555;
+}
+
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
 }

@@ -37,12 +37,6 @@ public class TableController {
         return "logger";
     }
 
-    // Experiments: there is a script on the page which can fetch the image, as binary blob file
-    @GetMapping("/fetch")
-    public String getFetch() throws IOException {
-        return "fetch";
-    }
-
     @GetMapping("/downloadFile")
     public void downloadFile(Model model, HttpServletResponse response, HttpServletRequest request) throws IOException {
         logger.writeInfo("Sending a file.");
@@ -57,8 +51,7 @@ public class TableController {
     }
 
     @GetMapping("/")
-    public String mainPage(Model model) throws IOException {
-        // out.println(model.asMap().get("eMail"));
+    public String mainPage(Model model) {
         model.addAttribute("logger", logger.getFullLog());
         logger.writeInfo("Processing " + sessionDictionary + ".");
         return "table";
@@ -66,15 +59,15 @@ public class TableController {
 
 
     @PostMapping(value = "/fetchFromMongo")
-    public String fetchFromMongo(@RequestParam String email, @RequestParam String password) {
+    public String fetchFromMongo(@RequestParam String email) {
         if (!sessionDictionary.isDictionaryDownloaded()) {
+            System.out.println("user-email: "+email);
             //Todo: temporary stub
-            System.out.println(email + ":" + password);
             sessionDictionary.setDictionary(wordMongoRepository.getWordsByUser(email));
-            return "table";
+            return "redirect:/";
         } else {
             logger.writeInfo("Dictionary already exist in the current session: " + sessionDictionary + ".");
-            return "table";
+            return "redirect:/";
         }
     }
 }

@@ -62,15 +62,17 @@
 }
 
 html {
-    font-family: sans-serif;
+    font-family: 'Goldman';
 }
 
 caption {
     padding: 10px;
+    font-family: 'Goldman';
 }
 
-
-/*radiobutton switcher*/
+span {
+    font-family: 'Goldman';
+}
 
 
 /*Flexbox fu to make the control and label line up */
@@ -91,68 +93,16 @@ label {
     height: 20px;
     line-height: 20px;
     position: relative;
+    font-family: 'Goldman';
 }
 
 label span {
     position: absolute;
-}
-
-input[type="checkbox"] {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 30px;
-    height: 30px;
-    border: solid black 1px;
-    background-color: red;
-    transition: all 0.4s;
-}
-
-input[type="checkbox"]:checked {
-    transform: rotate(90deg);
-    background-color: green;
-    transition: all 0.4s;
-}
-
-input[type="checkbox"]:disabled {
-    background-color: black;
-}
-
-
-/*cause the On and Off parts of the label to be visible when the checkbox is checked and unchecked, respectively*/
-
-input[type="checkbox"]~label .on,
-input[type="checkbox"]:checked~label .off {
-    opacity: 0;
-}
-
-input[type="checkbox"]~label .off,
-input[type="checkbox"]:checked~label .on {
-    opacity: 1;
-}
-
-
-/* make the focus on inputs a bit more subtle on Chrome*/
-
-
-/* input:focus {
-    outline: 3px groove blue;
-} */
-
-.green {
-    border: solid green 2px;
-}
-
-.red {
-    border: solid red 2px;
-}
-
-nav {
-    border-collapse: collapse;
-    width: 25%;
-    border-style: groove;
+    font-family: 'Goldman';
 }
 
 .button1 {
+    font-family: 'Goldman';
     display: inline-block;
     border-radius: 4px;
     background-color: #f4511e;

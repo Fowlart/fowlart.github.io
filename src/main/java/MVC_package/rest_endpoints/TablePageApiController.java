@@ -53,12 +53,6 @@ public class TablePageApiController {
         return logger.getFullLog();
     }
 
-    @GetMapping(value = "/getLastLogs", produces = "application/json")
-    public String getLastLogs() {
-        int lastElement =logger.getFullLog().size()-2;
-        return logger.getFullLog().get(lastElement);
-    }
-
     // for different tests
     @PostMapping(value = "/acceptImage", produces = "application/json", consumes = "multipart/form-data")
     public @ResponseBody

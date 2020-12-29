@@ -71,27 +71,30 @@ async function sendWord() {
     }
 }
 
-let wordInputField = document.getElementById('WordInput');
-wordInputField.addEventListener('keyup', function(e) {
-    if (e.keyCode === 13) {
-        sendWord();
-    }
-});
 
-// show and hide img from server
+function onSignIn(googleUser) {
+    console.log(">>> onSignIn");
+    var profile = googleUser.getBasicProfile();
+    var formdata = new FormData();
+    formdata.append("email", profile.getEmail());
+
+    var requestOptions = {
+        method: 'POST',
+        body: formdata,
+        redirect: 'follow'
+    };
+
+    fetch("/fetchFromMongo", requestOptions)
+        .then(getWord)
+        .catch(error => console.log('error', error));
+}
+
+
 document.addEventListener('DOMContentLoaded', function() {
-    const myConsole = document.getElementById("myLogo");
-    const img = document.createElement('img');
-
-    fetch('images/Spring-Boot.png').then((prom) => {
-        return prom.blob();
-    }).then((blob) => {
-        img.src = URL.createObjectURL(blob);
-        myConsole.prepend(img);
-    }).catch((err) => console.log(err));
-
-    setTimeout(() => { // hide, after three second
-        img.remove();
-        URL.revokeObjectURL(img.src);
-    }, 3000);
+    let wordInputField = document.getElementById('WordInput');
+    wordInputField.addEventListener('keyup', function(e) {
+        if (e.keyCode === 13) {
+            sendWord();
+        }
+    });
 }, false);

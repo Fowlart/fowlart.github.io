@@ -2,6 +2,7 @@
  
  body {
      background-color: black;
+     font-family: 'Goldman';
  }
  
  .logo {
@@ -93,6 +94,7 @@
  }
  
  .glowText {
+     font-family: 'Goldman';
      margin-left: 30px;
      text-align: center;
      font-size: 60px;
@@ -122,12 +124,14 @@
      margin: 10px;
      background-color: black;
      color: white;
+     font-family: 'Goldman';
  }
  
- .csvPicker {
-     font-size: 50px;
-     border: solid 2px whitesmoke;
-     margin: 10px;
+ .login-container {
+     margin-left: auto;
+     margin-right: auto;
+     width: 6em;
+     border: solid 2px rgb(8, 7, 7);
      background-color: black;
      color: white;
  }

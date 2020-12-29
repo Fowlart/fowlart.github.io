@@ -4,13 +4,14 @@
 <head>
     <link href="logger.css" rel='stylesheet'>
     <script defer src="getLogger.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Goldman' rel='stylesheet'>
     <title>Logger page</title>
 </head>
 
 <body>
     <h1>[LOGGER]</h1>
-    <button class="button" id="refresh">[ALL]</button>
-    <button class="button" id="last">[LAST RESULT]</button>
+    <button class="button" id="refresh">display</button>
+    <button class="button" onclick="location.href = '/';" id="last">back</button>
     <div id="loggerContainer" class="logger-container"></div>
 </body>
 

@@ -4,68 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <link href="style.css" rel='stylesheet'>
-    <link href="table.css" rel='stylesheet'>
     <link href="logger.css" rel='stylesheet'>
     <link href="progress.css" rel='stylesheet'>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="words-creator.css" rel='stylesheet'>
     <script defer src="modal_script.js"></script>
     <script th:inline="javascript" src="get_send_word.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="1093164235727-oku7c9phvg63gjcv7o5jogcmsll9h4bi.apps.googleusercontent.com">
+    <link href='https://fonts.googleapis.com/css?family=Goldman' rel='stylesheet'>
     <title>WORDS GAME</title>
 </head>
 
 <body onload="getWord()">
-
-
 
     <!--Input field with script for processing -->
     <div id="myConsole" class="console">
         <button onclick="sendWord()" class="button1">Send</button>
         <button data-modal-target="#modal" class="button1">Show</button>
         <button class="button1" form="downL" id="profile_csv_picker_save" type="submit" style="visibility: hidden;">Save</button>
-        <span class="glowText">[<span id="translate">please download dictionary</span>] </span>
         <form id="downL" action="downloadFile" method="GET" style="visibility: hidden;"></form>
+        <button onclick="location.href = '/create';" class="button1">Create</button>
+        <button onclick="location.href = '/logger';" class="button1">Logger</button>
     </div>
+
+    <span class="glowText"><span id="translate">please download dictionary</span></span>
 
 
     <div class="controls">
-        <label for="WordInput">Type translation here</label>
+        <label for="WordInput">Translation</label>
         <input id="WordInput" class="w3-input w3-border-0" type="text" name="answer">
-        <ul>
-            <li>
-                <input onchange="getTable()" type="checkbox" name="power" id="power">
-                <label for="power"><span class="on">visible</span> <span class="off">hiden</span></label>
-            </li>
-        </ul>
     </div>
 
     <!-- Get new word for translate -->
     <div class="userInfo">
-        <p>[Progress] <span id="user"></span></p>
+        <p>Progress <span id="user"></span></p>
         <div id="myProgress">
             <div id="myBar"></div>
         </div>
     </div>
 
     <!--Login form -->
-    <div id="CSV_picker" class="csvPicker">
-        <form method="POST" action="fetchFromMongo">
-            <div class="container">
-                <label for="user_email"><b>Email:</b></label>
-                <input id="user_email" type="text" placeholder="Enter your e-mail" name="email" required>
-
-                <label for="user_password"><b>Password:</b></label>
-                <input id="user_password" type="password" placeholder="Enter password" name="password" required>
-                <button type="submit">LOGIN</button>
-            </div>
-        </form>
+    <div id="CSV_picker" class="login-container">
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
     </div>
-
-    <script src="getTable.js"></script>
-    <table class="myTable">
-        <thead id="thad"></thead>
-        <tbody id="tbod"></tbody>
-    </table>
 
     <!--use the modal-->
     <div class="modal" id="modal">
