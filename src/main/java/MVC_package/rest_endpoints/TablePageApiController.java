@@ -19,12 +19,9 @@ import org.springframework.web.multipart.MultipartFile;
 import services.WordProcessor;
 import speech.SpeechUrlProvider;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
-
-import static java.lang.System.out;
 
 @RestController
 @RequestMapping(path = "/api")
@@ -44,7 +41,7 @@ public class TablePageApiController {
     @GetMapping(value = "/getTable", produces = "application/json")
     public @ResponseBody
     List<Word> getTable(Model model) {
-        logger.writeInfo("Processing " + sessionDictionary+".");
+        logger.writeInfo("Processing " + sessionDictionary + ".");
         return sessionDictionary.getDictionary();
     }
 
@@ -65,14 +62,6 @@ public class TablePageApiController {
         }
         return result;
     }
-
-    @PostMapping(value = "/getLogger2", produces = "application/json")
-    public @ResponseBody
-    List<String> getLogger2(HttpServletRequest request) {
-        return logger.getFullLog();
-    }
-    // end tests
-
 
     @GetMapping(value = "/getWord", produces = "application/json")
     public List getWord(Model model) {

@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', getTable, false);
+document.addEventListener('DOMContentLoaded', addShowTableFunc, false);
+var idsItemForDelete = [];
+
 function getTable() {
 
     let table;
@@ -12,7 +16,7 @@ function getTable() {
                     var tableBodyLine = "";
                     for (let index in table) {
                         let word = table[index];
-                        let row = `<tr><td>${word.id}</td><td>${word.engword}</td><td>${word.ukrword}</td><td>${word.points}</td></tr>`;
+                        let row = `<tr><td><div id='${word.id}' class="deletable">${word.engword}</div></td><td>${word.ukrword}</td><td>${word.points}</td></tr>`;
                         tableBodyLine = tableBodyLine + row;
                     }
                     resolve(tableBodyLine);
@@ -23,27 +27,30 @@ function getTable() {
     });
 
     getTablePromise.then((tableBodyLine) => {
-        document.getElementById("thad").innerHTML = "<td>id</td><td>english word</td><td>ukranian word</td><td>points</td>";
+        document.getElementById("thad").innerHTML = "<td>english word</td><td>ukranian word</td><td>points</td>";
         document.getElementById("tbod").innerHTML = tableBodyLine;
     }, (err) => { console.error(err) });
 }
 
-document.addEventListener('DOMContentLoaded', getTable, false);
-document.addEventListener('DOMContentLoaded', addColabsable, false);
+function addShowTableFunc() {
+    var table = document.getElementById("myTable");
+    var showButton = document.getElementById("showButton");
+    showButton.addEventListener("click", function() {
+        if (table.style.display === "block") {
+            table.style.display = "none";
+        } else {
+            table.style.display = "block";
+            deletesEnabled();
+        }
+    });
+}
 
-function addColabsable() {
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-
-    for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
-        });
+function deletesEnabled() {
+    let elementArray = document.getElementsByClassName("deletable")
+    for (let element of elementArray) {
+        element.addEventListener('click', function() {
+            alert(`element with id ${element.id} was marked for deleting`);
+            idsItemForDelete.push(element.id);
+        }, false);
     }
 }
