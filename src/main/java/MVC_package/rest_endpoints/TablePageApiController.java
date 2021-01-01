@@ -8,11 +8,13 @@ import entities.Logger;
 import entities.SessionDictionary;
 import entities.Word;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,6 +24,9 @@ import speech.SpeechUrlProvider;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
+import java.util.Objects;
+
+import static java.lang.System.out;
 
 @RestController
 @RequestMapping(path = "/api")
@@ -42,6 +47,11 @@ public class TablePageApiController {
     public @ResponseBody
     List<Word> getTable(Model model) {
         logger.writeInfo("Processing " + sessionDictionary + ".");
+        String userId = sessionDictionary.getUserEmail();
+        if (Objects.nonNull(userId)) {
+            // update words
+            sessionDictionary.setDictionary(wordMongoRepository.getWordsByUser(userId));
+        }
         return sessionDictionary.getDictionary();
     }
 
@@ -70,7 +80,7 @@ public class TablePageApiController {
 
         if (sessionDictionary.isDictionaryDownloaded()) {
             Word word = wordProcessor.nextWord(sessionDictionary.getDictionary());
-            userData.setName(sessionDictionary.getId());
+            userData.setName(sessionDictionary.getUserEmail());
             userData.setAllUserPoints(wordProcessor.getTotalPoints());
             userData.setMaxUserPoints(wordProcessor.getMaxPoints());
             SpeechUrlProvider speech = new SpeechUrlProvider();
@@ -92,15 +102,28 @@ public class TablePageApiController {
         return data;
     }
 
-    // Catches word from front-end
     @PostMapping(value = "/checkWord", consumes = "text/plain")
-    public void checkWord(@RequestBody String word) {
+    public ResponseEntity checkWord(@RequestBody String word) {
         if (wordProcessor.getWord().getEngword().equalsIgnoreCase(word)) {
             int points = wordProcessor.getWord().getPoints();
             logger.writeInfo("Correct!");
             wordProcessor.getWord().setPoints(points + 1);
+            return ResponseEntity.ok().build();
         } else {
             logger.writeWarning("Not correct! " + "'" + word + "'" + " != " + "'" + wordProcessor.getWord().getEngword() + "'.");
+            return ResponseEntity.badRequest().build();
         }
+    }
+
+    @PostMapping(value = "/login")
+    public ResponseEntity login(@RequestParam String email) {
+        if (!sessionDictionary.isDictionaryDownloaded()) {
+            out.println("user-email: " + email);
+            sessionDictionary.setDictionary(wordMongoRepository.getWordsByUser(email));
+            sessionDictionary.setUserEmail(email);
+        } else {
+            logger.writeInfo("Dictionary in the current session: " + sessionDictionary + ".");
+        }
+        return ResponseEntity.ok().build();
     }
 }

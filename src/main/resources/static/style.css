@@ -141,3 +141,18 @@ label span {
     opacity: 1;
     right: 0;
 }
+
+.indicatorGreen {
+    color: green;
+    transition: 0.5s;
+}
+
+.indicatorRed {
+    color: red;
+    transition: 0.5s;
+}
+
+.indicatorWhite {
+    color: white;
+    transition: 0.5s;
+}

@@ -13,6 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static java.lang.System.out;
+
 @Controller
 @RequestMapping("/create")
 @SessionAttributes("user")
@@ -36,6 +41,10 @@ public class WordsCreatorController {
             creation.setEngword(engword);
             creation.setUkrword(ukrword);
             creation.setPoints(0);
+            List<String> users = new ArrayList<>();
+            out.println("added user "+sessionDictionary.getUserEmail());
+            users.add(sessionDictionary.getUserEmail());
+            creation.setUsers(users);
             wordMongoRepository.save(creation);
             sessionDictionary.getDictionary().add(creation);
         }

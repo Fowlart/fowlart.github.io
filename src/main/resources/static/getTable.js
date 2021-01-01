@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', getTable, false);
 document.addEventListener('DOMContentLoaded', addShowTableFunc, false);
+document.addEventListener('DOMContentLoaded', bindDeleteFunction, false);
 var idsItemForDelete = [];
 
 function getTable() {
@@ -49,8 +50,42 @@ function deletesEnabled() {
     let elementArray = document.getElementsByClassName("deletable")
     for (let element of elementArray) {
         element.addEventListener('click', function() {
-            alert(`element with id ${element.id} was marked for deleting`);
-            idsItemForDelete.push(element.id);
+            if (element.className == "deletable") {
+                alert(`element was marked for deleting`);
+                element.className = "deletable-marked";
+                idsItemForDelete.push(element.id);
+            } else {
+                alert(`element was unmarked for deleting`);
+                element.className = "deletable";
+                idsItemForDelete.pop(element.id);
+            }
         }, false);
     }
+}
+
+function deleteWords() {
+
+    var formdata = new FormData();
+    formdata.append("idsItemForDelete", idsItemForDelete.toString());
+
+    var requestOptions = {
+        method: 'POST',
+        body: formdata,
+        redirect: 'follow'
+    };
+
+    fetch("/deleteWords", requestOptions)
+        .then(response => response.text())
+        .then(result => reload(result))
+        .catch(error => console.log('error', error));
+}
+
+function reload(result) {
+    let table = document.getElementById("myTable");
+    table.style.display = "none";
+    getTable();
+}
+
+function bindDeleteFunction() {
+    document.getElementById("deleteButton").addEventListener('click', deleteWords);
 }

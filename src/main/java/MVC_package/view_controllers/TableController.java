@@ -16,6 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+
+import static java.lang.System.out;
 
 @Controller
 public class TableController {
@@ -58,16 +61,14 @@ public class TableController {
     }
 
 
-    @PostMapping(value = "/fetchFromMongo")
-    public String fetchFromMongo(@RequestParam String email) {
-        if (!sessionDictionary.isDictionaryDownloaded()) {
-            System.out.println("user-email: "+email);
-            //Todo: temporary stub
-            sessionDictionary.setDictionary(wordMongoRepository.getWordsByUser(email));
-            return "redirect:/";
-        } else {
-            logger.writeInfo("Dictionary already exist in the current session: " + sessionDictionary + ".");
-            return "redirect:/";
+
+
+    @PostMapping(value = "/deleteWords")
+    public String deleteWordsFromVocabulary(@RequestParam List<String> idsItemForDelete) {
+        if (!idsItemForDelete.isEmpty()) {
+            out.println("ready for deleting:"+idsItemForDelete);
+            idsItemForDelete.forEach(wordMongoRepository::deleteById);
         }
+        return "redirect:/create";
     }
 }

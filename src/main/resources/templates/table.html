@@ -24,15 +24,14 @@
         <button data-modal-target="#modal" class="button1">Show</button>
         <button class="button1" form="downL" id="profile_csv_picker_save" type="submit" style="visibility: hidden;">Save</button>
         <form id="downL" action="downloadFile" method="GET" style="visibility: hidden;"></form>
-        <button onclick="location.href = '/create';" class="button1">Create</button>
-        <button onclick="location.href = '/logger';" class="button1">Logger</button>
+        <button onclick="location.href = '/create';" class="button1">CRUD</button>
     </div>
 
-    <span class="glowText"><span id="translate">please download dictionary</span></span>
+    <span class="glowText"><span id="translate">Login to start</span></span>
 
 
     <div class="controls">
-        <label for="WordInput">Translation</label>
+        <label id="inputLabel" for="WordInput" class="indicatorWhite">Translation</label>
         <input id="WordInput" class="w3-input w3-border-0" type="text" name="answer">
     </div>
 

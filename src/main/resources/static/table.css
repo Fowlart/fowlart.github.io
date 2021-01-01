@@ -20,5 +20,17 @@ td {
 
 .deletable {
     display: flexbox;
-    border: solid green 2px;
+    border: solid black 2px;
+    transition: all 1s ease;
+}
+
+.deletable-marked {
+    display: flexbox;
+    border: solid red 2px;
+    transition: all 1s ease;
+}
+
+input {
+    font-family: 'Goldman';
+    font-size: 18px;
 }

@@ -13,7 +13,7 @@ import java.util.Objects;
 @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class SessionDictionary {
 
-    private String id;
+    private String userEmail;
 
     private List<Word> dictionary;
 
@@ -30,17 +30,16 @@ public class SessionDictionary {
         return Objects.nonNull(dictionary);
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
-    public String getId() {
-        return id;
+    public String getUserEmail() {
+        return userEmail;
     }
 
     @Override
     public String toString() {
-        if (isDictionaryDownloaded()) return "dictionary[" +id +"]";
-        else return "[not downloaded]";
+        return "dictionary[" + userEmail + "]";
     }
 }

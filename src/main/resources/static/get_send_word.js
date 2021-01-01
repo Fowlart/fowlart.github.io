@@ -34,46 +34,36 @@ async function getWord() {
     }
 }
 
-// Display whether user was correct or not
-
-function checkIfWordWasCorrect(a, b) {
-    let elem = document.getElementById('WordInput');
-    if (a != b) {
-        elem.classList.toggle('green');
-        setTimeout(() => elem.classList.toggle('green'), 700);
-    } else {
-        elem.classList.toggle('red');
-        setTimeout(() => elem.classList.toggle('red'), 700);
-    }
-}
-
 //Send word
 
 async function sendWord() {
-    let word = document.getElementById("WordInput").value;
+    let input = document.getElementById('WordInput');
+    let label = document.getElementById('inputLabel');
+    let word = input.value;
+
     let response = await fetch('/api/checkWord', {
         method: 'POST',
         body: word
     });
 
     if (response.ok) {
-        document.getElementById("WordInput").value = '';
-        let scoreForCheck = score;
+        label.className = 'indicatorGreen';
+        setTimeout(() => label.className = 'indicatorWhite', 700);
+        input.value = '';
         await getWord();
-        setTimeout(checkIfWordWasCorrect(scoreForCheck, score), 700);
     } else {
-        let result = await response.json();
-        console.log(result.error);
-
-        let elem = document.getElementById('WordInput');
-        elem.classList.toggle('red');
-        setTimeout(() => elem.classList.toggle('red'), 700);
+        label.className = 'indicatorRed';
+        setTimeout(() => label.className = 'indicatorWhite', 700);
+        input.value = '';
+        //todo: here can be mistake log
+        //  let result = await response.json();
+        //  console.log(result.error);
+        await getWord();
     }
 }
 
 
 function onSignIn(googleUser) {
-    console.log(">>> onSignIn");
     var profile = googleUser.getBasicProfile();
     var formdata = new FormData();
     formdata.append("email", profile.getEmail());
@@ -84,7 +74,7 @@ function onSignIn(googleUser) {
         redirect: 'follow'
     };
 
-    fetch("/fetchFromMongo", requestOptions)
+    fetch("/api/login", requestOptions)
         .then(getWord)
         .catch(error => console.log('error', error));
 }
