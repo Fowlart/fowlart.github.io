@@ -107,7 +107,10 @@ public class TablePageApiController {
         if (wordProcessor.getWord().getEngword().equalsIgnoreCase(word)) {
             int points = wordProcessor.getWord().getPoints();
             logger.writeInfo("Correct!");
-            wordProcessor.getWord().setPoints(points + 1);
+            Word dbWord = wordProcessor.getWord();
+            wordMongoRepository.deleteById(dbWord.getId());
+            dbWord.setPoints(points + 1);
+            wordMongoRepository.save(dbWord);
             return ResponseEntity.ok().build();
         } else {
             logger.writeWarning("Not correct! " + "'" + word + "'" + " != " + "'" + wordProcessor.getWord().getEngword() + "'.");

@@ -17,7 +17,7 @@ function getTable() {
                     var tableBodyLine = "";
                     for (let index in table) {
                         let word = table[index];
-                        let row = `<tr><td><div id='${word.id}' class="deletable">${word.engword}</div></td><td>${word.ukrword}</td><td>${word.points}</td></tr>`;
+                        let row = `<tr><td><div id='${word.id}aMark' class="deletable">${word.engword}</div></td><td><div id='${word.id}bMark' class="deletable">${word.ukrword}</div></td><td><div id='${word.id}cMark' class="deletable">${word.points}</div></td></tr>`;
                         tableBodyLine = tableBodyLine + row;
                     }
                     resolve(tableBodyLine);
@@ -52,12 +52,20 @@ function deletesEnabled() {
         element.addEventListener('click', function() {
             if (element.className == "deletable") {
                 alert(`element was marked for deleting`);
-                element.className = "deletable-marked";
-                idsItemForDelete.push(element.id);
+                let id = element.id;
+                id = id.replace('aMark', '').replace('bMark', '').replace('cMark', '');
+                document.getElementById(id + "aMark").className = "deletable-marked";
+                document.getElementById(id + "bMark").className = "deletable-marked";
+                document.getElementById(id + "cMark").className = "deletable-marked";
+                idsItemForDelete.push(id);
             } else {
                 alert(`element was unmarked for deleting`);
-                element.className = "deletable";
-                idsItemForDelete.pop(element.id);
+                let id = element.id;
+                id = id.replace('aMark', '').replace('bMark', '').replace('cMark', '');
+                document.getElementById(id + "aMark").className = "deletable";
+                document.getElementById(id + "bMark").className = "deletable";
+                document.getElementById(id + "cMark").className = "deletable";
+                idsItemForDelete.pop(id);
             }
         }, false);
     }

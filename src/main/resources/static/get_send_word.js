@@ -35,7 +35,6 @@ async function getWord() {
 }
 
 //Send word
-
 async function sendWord() {
     let input = document.getElementById('WordInput');
     let label = document.getElementById('inputLabel');
@@ -61,7 +60,6 @@ async function sendWord() {
         await getWord();
     }
 }
-
 
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();

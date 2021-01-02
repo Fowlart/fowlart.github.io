@@ -55,7 +55,6 @@ public class TableController {
 
     @GetMapping("/")
     public String mainPage(Model model) {
-        model.addAttribute("logger", logger.getFullLog());
         logger.writeInfo("Processing " + sessionDictionary + ".");
         return "table";
     }
