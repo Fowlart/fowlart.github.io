@@ -7,6 +7,7 @@ async function getWord() {
     let response = await fetch('/api/getWord');
 
     if (response.ok) {
+
         for (let element of buttons) {
             element.disabled = false;
             element.style.color = "white";
@@ -81,13 +82,3 @@ function onSignIn(googleUser) {
         .then(getWord)
         .catch(error => console.log('error', error));
 }
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    let wordInputField = document.getElementById('WordInput');
-    wordInputField.addEventListener('keyup', function(e) {
-        if (e.keyCode === 13) {
-            sendWord();
-        }
-    });
-}, false);
