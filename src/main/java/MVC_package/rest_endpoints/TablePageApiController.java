@@ -74,11 +74,10 @@ public class TablePageApiController {
     }
 
     @GetMapping(value = "/getWord", produces = "application/json")
-    public List getWord(Model model) {
-        List data = Lists.newArrayList();
-        UserData userData = new UserData();
-
+    public ResponseEntity<List> getWord(Model model) {
         if (sessionDictionary.isDictionaryDownloaded()) {
+            List data = Lists.newArrayList();
+            UserData userData = new UserData();
             Word word = wordProcessor.nextWord(sessionDictionary.getDictionary());
             userData.setName(sessionDictionary.getUserEmail());
             userData.setAllUserPoints(wordProcessor.getTotalPoints());
@@ -98,8 +97,9 @@ public class TablePageApiController {
             wordDTO.setSound(url);
             data.add(userData);
             data.add(wordDTO);
+            return ResponseEntity.ok(data);
         }
-        return data;
+        return ResponseEntity.badRequest().build();
     }
 
     @PostMapping(value = "/checkWord", consumes = "text/plain")
@@ -122,7 +122,12 @@ public class TablePageApiController {
     public ResponseEntity login(@RequestParam String email) {
         if (!sessionDictionary.isDictionaryDownloaded()) {
             out.println("user-email: " + email);
-            sessionDictionary.setDictionary(wordMongoRepository.getWordsByUser(email));
+            List<Word> wordList = wordMongoRepository.getWordsByUser(email);
+            if (!wordList.isEmpty()) {
+                sessionDictionary.setDictionary(wordList);
+            } else {
+                this.sessionDictionary.createTestWord(email);
+            }
             sessionDictionary.setUserEmail(email);
         } else {
             logger.writeInfo("Dictionary in the current session: " + sessionDictionary + ".");

@@ -1,5 +1,8 @@
 package entities;
 
+import com.google.inject.internal.util.Lists;
+import data_base.mongo.WordMongoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
@@ -17,9 +20,23 @@ public class SessionDictionary {
 
     private List<Word> dictionary;
 
+    @Autowired
+    private WordMongoRepository wordMongoRepository;
+
     public List<Word> getDictionary() {
         if (Objects.nonNull(dictionary)) return dictionary;
         return Collections.emptyList();
+    }
+
+    public void createTestWord(String eMail){
+        Word testWord = new Word();
+        testWord.setPoints(0);
+        testWord.setUsers(Lists.newArrayList(eMail));
+        testWord.setEngword("test translation");
+        testWord.setUkrword("тестовий переклад");
+        setDictionary(Lists.newArrayList(testWord));
+        wordMongoRepository.save(testWord);
+
     }
 
     public void setDictionary(List<Word> dictionary) {

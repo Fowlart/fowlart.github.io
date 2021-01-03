@@ -1,3 +1,7 @@
+.glowText {
+    left: 50%;
+}
+
 .modal {
     position: fixed;
     top: 50%;

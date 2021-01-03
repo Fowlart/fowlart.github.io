@@ -1,4 +1,4 @@
-var score;
+const buttons = document.getElementsByClassName("button1");
 
 async function getWord() {
     let data;
@@ -7,6 +7,10 @@ async function getWord() {
     let response = await fetch('/api/getWord');
 
     if (response.ok) {
+        for (let element of buttons) {
+            element.disabled = false;
+            element.style.color = "white";
+        }
         data = await response.json();
         userData = data[0];
         word = data[1];
@@ -22,15 +26,16 @@ async function getWord() {
         document.getElementById('myAudio').src = word.sound;
 
         //   document.getElementById('user').innerHTML = userData.name;
-        score = userData.allUserPoints;
-        console.log(`score in getWord(): ${score}`);
         let progressBar = document.getElementById('myBar');
         progressBar.style.width = Math.ceil(userData.allUserPoints / userData.maxUserPoints * 100) + "%";
         progressBar.innerHTML = Math.ceil(userData.allUserPoints / userData.maxUserPoints * 100) + "%";
 
     } else {
-        let result = await response.json();
-        console.log(result.error);
+        for (let element of buttons) {
+            element.disabled = true;
+            element.style.color = "gray";
+        }
+
     }
 }
 
