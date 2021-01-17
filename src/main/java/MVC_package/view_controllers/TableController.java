@@ -60,8 +60,6 @@ public class TableController {
     }
 
 
-
-
     @PostMapping(value = "/deleteWords")
     public String deleteWordsFromVocabulary(@RequestParam List<String> idsItemForDelete) {
         if (!idsItemForDelete.isEmpty()) {

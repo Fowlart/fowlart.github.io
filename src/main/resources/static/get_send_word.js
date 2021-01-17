@@ -1,5 +1,21 @@
 const buttons = document.getElementsByClassName("button1");
 
+function disableControls() {
+    for (let element of buttons) {
+        element.disabled = true;
+        element.style.color = "gray";
+    }
+}
+
+
+function enableControls() {
+    for (let element of buttons) {
+        element.disabled = false;
+        element.style.color = "white";
+    }
+}
+
+
 async function getWord() {
     let data;
     let word;
@@ -7,11 +23,6 @@ async function getWord() {
     let response = await fetch('/api/getWord');
 
     if (response.ok) {
-
-        for (let element of buttons) {
-            element.disabled = false;
-            element.style.color = "white";
-        }
         data = await response.json();
         userData = data[0];
         word = data[1];
@@ -32,11 +43,7 @@ async function getWord() {
         progressBar.innerHTML = Math.ceil(userData.allUserPoints / userData.maxUserPoints * 100) + "%";
 
     } else {
-        for (let element of buttons) {
-            element.disabled = true;
-            element.style.color = "gray";
-        }
-
+        disableControls();
     }
 }
 
@@ -67,18 +74,59 @@ async function sendWord() {
     }
 }
 
+function checkLogin() {
+    var eMail = getCookie("email");
+    var idToken = getCookie("idToken");
+    // tempstub
+    if (eMail.length != 0) {
+        enableControls();
+        var formdata = new FormData();
+        formdata.append("email", eMail);
+        formdata.append("idToken", idToken);
+
+        var requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+        };
+
+        fetch("/api/login", requestOptions)
+            .then(getWord)
+            .catch(error => console.log('error', error));
+    } else {
+        disableControls();
+    }
+}
+
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
-    var formdata = new FormData();
-    formdata.append("email", profile.getEmail());
+    var eMail = profile.getEmail();
+    console.log(`logged in as ${eMail}`);
+     var idToken = googleUser.getAuthResponse().id_token;
+    setCookie("email", eMail, 1);
+    setCookie("idToken", idToken, 1);
+    checkLogin();
+}
 
-    var requestOptions = {
-        method: 'POST',
-        body: formdata,
-        redirect: 'follow'
-    };
+//work with cookie
+function setCookie(cname, cvalue, hrs) {
+    var d = new Date();
+    d.setTime(d.getTime() + (hrs * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
 
-    fetch("/api/login", requestOptions)
-        .then(getWord)
-        .catch(error => console.log('error', error));
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }

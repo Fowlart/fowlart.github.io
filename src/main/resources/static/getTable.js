@@ -7,7 +7,6 @@ function getTable() {
 
     let table;
     let getTablePromise = new Promise(function(resolve, reject) {
-
         let xhttp = new XMLHttpRequest();
         xhttp.open("GET", "/api/getTable", true);
         xhttp.onreadystatechange = function() {
