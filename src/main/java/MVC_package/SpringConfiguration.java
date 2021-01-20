@@ -1,8 +1,6 @@
 package MVC_package;
 
-import entities.Logger;
 import entities.SessionDictionary;
-import io_data_module.CsvWordsWriter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -29,11 +27,6 @@ public class SpringConfiguration implements WebMvcConfigurer {
     }
 
     @Bean
-    public Logger getSesionLogger() {
-        return new Logger();
-    }
-
-    @Bean
     public RestTemplate getRestTemplate() {
         return new RestTemplate();
     }
@@ -41,11 +34,6 @@ public class SpringConfiguration implements WebMvcConfigurer {
     @Bean
     public WordProcessor getWordProcessor() {
         return new WordProcessor();
-    }
-
-    @Bean
-    public CsvWordsWriter getCsvWordsWriter() {
-        return new CsvWordsWriter();
     }
 
 }

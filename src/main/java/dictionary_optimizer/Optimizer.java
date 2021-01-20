@@ -1,6 +1,6 @@
 package dictionary_optimizer;
 
-import entities.Word;
+import entities.Sentence;
 
 import java.util.List;
 import java.util.function.Function;
@@ -8,14 +8,14 @@ import java.util.stream.Collectors;
 
 public class Optimizer {
 
-    private final List<Word> list;
+    private final List<Sentence> list;
 
-    public Optimizer(List<Word> list) {
+    public Optimizer(List<Sentence> list) {
         this.list = list;
     }
 
-    public List<Word> getOptimizedList() {
-        Function<Word, Word> function = (w) -> {
+    public List<Sentence> getOptimizedList() {
+        Function<Sentence, Sentence> function = (w) -> {
             if (w.getPoints() >= 30) w.setPoints(28);
             return w;
         };

@@ -15,8 +15,8 @@ function getTable() {
                     table = JSON.parse(this.response); // will send object
                     var tableBodyLine = "";
                     for (let index in table) {
-                        let word = table[index];
-                        let row = `<tr><td><div id='${word.id}aMark' class="deletable">${word.engword}</div></td><td><div id='${word.id}bMark' class="deletable">${word.ukrword}</div></td><td><div id='${word.id}cMark' class="deletable">${word.points}</div></td></tr>`;
+                        let entity = table[index];
+                        let row = `<tr><td><div id='${entity.id}aMark' class="deletable">${entity.sentence}</div></td><td><div id='${entity.id}bMark' class="deletable">${entity.fragment}</div></td><td><div id='${entity.id}cMark' class="deletable">${entity.points}</div></td></tr>`;
                         tableBodyLine = tableBodyLine + row;
                     }
                     resolve(tableBodyLine);
@@ -27,7 +27,7 @@ function getTable() {
     });
 
     getTablePromise.then((tableBodyLine) => {
-        document.getElementById("thad").innerHTML = "<td>english word</td><td>ukranian word</td><td>points</td>";
+        document.getElementById("thad").innerHTML = "<td>Sentence</td><td>Fragment</td><td>points</td>";
         document.getElementById("tbod").innerHTML = tableBodyLine;
     }, (err) => { console.error(err) });
 }

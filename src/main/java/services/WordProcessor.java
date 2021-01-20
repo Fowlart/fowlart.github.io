@@ -1,6 +1,6 @@
 package services;
 
-import entities.Word;
+import entities.Sentence;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
@@ -18,26 +18,26 @@ public class WordProcessor {
     private int totalPoints;
     private int countOfWords;
     private int maxPoints;
-    private Word word; //current
+    private Sentence sentence; //current
 
-    private List<Word> wordList;
+    private List<Sentence> sentenceList;
 
     private final Random random = new Random(47);
 
-    public Word nextWord(List<Word> list) {
+    public Sentence nextWord(List<Sentence> list) {
 
-        wordList = list;
+        sentenceList = list;
 
-        if (wordList != null) {
-            totalPoints = this.wordList.stream().mapToInt(Word::getPoints).sum();
-            countOfWords = this.wordList.size();
+        if (sentenceList != null) {
+            totalPoints = this.sentenceList.stream().mapToInt(Sentence::getPoints).sum();
+            countOfWords = this.sentenceList.size();
             maxPoints = countOfWords * 30;
             avgPoint = (double) totalPoints / (double) countOfWords;
             progress = avgPoint / 30 * 100;
 
             while (true) {
-                word = wordList.stream().skip(this.random.nextInt(wordList.size())).findAny().get();
-                if (word.getPoints() <= (this.avgPoint)) return word;
+                sentence = sentenceList.stream().skip(this.random.nextInt(sentenceList.size())).findAny().get();
+                if (sentence.getPoints() <= (this.avgPoint)) return sentence;
             }
         }
         return null;
@@ -75,12 +75,12 @@ public class WordProcessor {
         this.countOfWords = countOfWords;
     }
 
-    public Word getWord() {
-        return word;
+    public Sentence getWord() {
+        return sentence;
     }
 
-    public void setWord(Word word) {
-        this.word = word;
+    public void setWord(Sentence sentence) {
+        this.sentence = sentence;
     }
 
     public Integer getMaxPoints() {

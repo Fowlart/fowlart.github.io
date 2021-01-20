@@ -1,9 +1,10 @@
 package MVC_package.view_controllers;
 
 import data_base.mongo.WordMongoRepository;
-import entities.Logger;
 import entities.SessionDictionary;
-import entities.Word;
+import entities.Sentence;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,8 +25,9 @@ import static java.lang.System.out;
 public class WordsCreatorController {
     @Autowired
     private SessionDictionary sessionDictionary;
-    @Autowired
-    private Logger logger;
+
+    private static final Logger logger = LoggerFactory.getLogger(WordsCreatorController.class);
+
     @Autowired
     private WordMongoRepository wordMongoRepository;
 
@@ -37,9 +39,9 @@ public class WordsCreatorController {
     @PostMapping
     public String saveWord(@RequestParam String engword, @RequestParam String ukrword) {
         if (sessionDictionary.isDictionaryDownloaded()) {
-            Word creation = new Word();
-            creation.setEngword(engword);
-            creation.setUkrword(ukrword);
+            Sentence creation = new Sentence();
+            creation.setSentence(engword);
+            creation.setFragment(ukrword);
             creation.setPoints(0);
             List<String> users = new ArrayList<>();
             out.println("added user "+sessionDictionary.getUserEmail());

@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <link href="style.css" rel='stylesheet'>
-    <link href="logger.css" rel='stylesheet'>
     <link href="progress.css" rel='stylesheet'>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="words-creator.css" rel='stylesheet'>
@@ -18,40 +17,34 @@
 
 <body onload="checkLogin()">
 
-    <!--Input field with script for processing -->
-    <div id="myConsole" class="console">
-        <button onclick="sendWord()" class="button1">Send</button>
-        <button data-modal-target="#modal" class="button1">Show</button>
-        <button onclick="location.href = '/create';" class="button1">CRUD</button>
-        <button class="button1" form="downL" id="profile_csv_picker_save" type="submit" style="visibility: hidden;">Save</button>
-        <form id="downL" action="downloadFile" method="GET" style="visibility: hidden;"></form>
-    </div>
+
+    <button onclick="sendWord()" class="button1">Send</button>
+    <button data-modal-target="#modal" class="button1">Show</button>
+    <button onclick="location.href = '/create';" class="button1">CRUD</button>
 
     <div class="indicatorWhite" id="inputLabel"><span id="translate">Login to start</span></div>
 
+    <label for="WordInput" class="indicatorWhite">Input</label>
+    <input id="WordInput" class="w3-input w3-border-0" type="text" name="answer">
 
-    <div class="controls">
-        <label for="WordInput">Translation</label>
-        <input id="WordInput" class="w3-input w3-border-0" type="text" name="answer">
-    </div>
 
     <!-- Get new word for translate -->
-    <div class="userInfo">
-        <p>Progress <span id="user"></span></p>
-        <div id="myProgress">
-            <div id="myBar"></div>
-        </div>
+
+    <label for="myProgress" class="indicatorWhite">Progress</label>
+    <div id="myProgress">
+        <div id="myBar"></div>
     </div>
 
+
     <!--Login form -->
-    <div id="CSV_picker" class="login-container">
+    <div id="login-container" class="login-container">
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
     </div>
 
     <!--use the modal-->
     <div class="modal" id="modal">
         <div class="modal-header">
-            <div class="title">Words details</div>
+            <div class="title">Details</div>
             <button data-close-button class="close-button">&times;</button>
         </div>
         <div class="modal-body" id="modalBody">

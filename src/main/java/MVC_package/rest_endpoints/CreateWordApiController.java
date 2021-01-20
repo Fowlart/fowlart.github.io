@@ -1,6 +1,6 @@
 package MVC_package.rest_endpoints;
 
-import entities.Word;
+import entities.Sentence;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,8 +23,8 @@ public class CreateWordApiController {
 
     @PostMapping(value = "/createWord", consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public long createWord(@RequestBody Word word) {
-        System.out.println(">>> creating " + word);
+    public long createWord(@RequestBody Sentence sentence) {
+        System.out.println(">>> creating " + sentence);
         return 0;
     }
 }

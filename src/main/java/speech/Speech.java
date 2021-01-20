@@ -1,6 +1,6 @@
 package speech;
 
-import entities.Word;
+import entities.Sentence;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.advanced.AdvancedPlayer;
 import speech.synthesiser.SynthesiserV2;
@@ -31,24 +31,24 @@ public class Speech {
         }
     }
 
-    public void writeToFile(String folder_path, Word word) {
+    public void writeToFile(String folder_path, Sentence sentence) {
         Boolean rez = false;
         int try_count = 0;
 
         while (!rez && (try_count < 5)) {
             try_count++;
-            rez = processWord(folder_path, word);
+            rez = processWord(folder_path, sentence);
         }
     }
 
-    private boolean processWord(String folder_path, Word word) {
+    private boolean processWord(String folder_path, Sentence sentence) {
         this.synthesizer.setLanguage("en-us");
-        String output_file = word.getEngword() + ".mp3";
+        String output_file = sentence.getSentence() + ".mp3";
         try {
-            process(folder_path, word.getEngword(), output_file);
+            process(folder_path, sentence.getSentence(), output_file);
             this.synthesizer.setLanguage("uk");
-            String output_file_ukr = word.getEngword() + "_ukr" + ".mp3";
-            process(folder_path, word.getUkrword(), output_file_ukr);
+            String output_file_ukr = sentence.getSentence() + "_ukr" + ".mp3";
+            process(folder_path, sentence.getFragment(), output_file_ukr);
         } catch (IOException e) {
             e.printStackTrace();
             return false;

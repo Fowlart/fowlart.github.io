@@ -28,9 +28,8 @@ async function getWord() {
         word = data[1];
 
         if (userData != undefined || word != undefined) {
-            let csvPicker = document.getElementById("CSV_picker");
+            let csvPicker = document.getElementById("login-container");
             if (csvPicker != undefined) csvPicker.parentNode.removeChild(csvPicker);
-            document.getElementById("profile_csv_picker_save").style.visibility = "visible";
         }
 
         document.getElementById("translate").innerHTML = word.ukrword;
@@ -77,6 +76,7 @@ async function sendWord() {
 function checkLogin() {
     var eMail = getCookie("email");
     var idToken = getCookie("idToken");
+    console.log("used email: " + eMail);
     // tempstub
     if (eMail.length != 0) {
         enableControls();
@@ -102,7 +102,7 @@ function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     var eMail = profile.getEmail();
     console.log(`logged in as ${eMail}`);
-     var idToken = googleUser.getAuthResponse().id_token;
+    var idToken = googleUser.getAuthResponse().id_token;
     setCookie("email", eMail, 1);
     setCookie("idToken", idToken, 1);
     checkLogin();

@@ -1,5 +1,5 @@
 import data_base.mongo.WordMongoRepository;
-import entities.Word;
+import entities.Sentence;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +22,11 @@ public class SpeechTest {
     @Test
     //** creating mp3 list of words *//
     public void testSpeechingFromFile() {
-        List<Word> list = wordMongoRepository.findAll();
-        for (Word wordTranslate : list) {
-            speech.speak(wordTranslate.getEngword(), "en-us");
-            speech.speak(wordTranslate.getUkrword(), "uk");
-            speech.writeToFile(PATH_TO_FOLDER, wordTranslate);
+        List<Sentence> list = wordMongoRepository.findAll();
+        for (Sentence sentenceTranslate : list) {
+            speech.speak(sentenceTranslate.getSentence(), "en-us");
+            speech.speak(sentenceTranslate.getFragment(), "uk");
+            speech.writeToFile(PATH_TO_FOLDER, sentenceTranslate);
         }
     }
 

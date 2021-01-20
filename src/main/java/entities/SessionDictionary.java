@@ -18,28 +18,28 @@ public class SessionDictionary {
 
     private String userEmail;
 
-    private List<Word> dictionary;
+    private List<Sentence> dictionary;
 
     @Autowired
     private WordMongoRepository wordMongoRepository;
 
-    public List<Word> getDictionary() {
+    public List<Sentence> getDictionary() {
         if (Objects.nonNull(dictionary)) return dictionary;
         return Collections.emptyList();
     }
 
     public void createTestWord(String eMail){
-        Word testWord = new Word();
-        testWord.setPoints(0);
-        testWord.setUsers(Lists.newArrayList(eMail));
-        testWord.setEngword("test translation");
-        testWord.setUkrword("тестовий переклад");
-        setDictionary(Lists.newArrayList(testWord));
-        wordMongoRepository.save(testWord);
+        Sentence testSentence = new Sentence();
+        testSentence.setPoints(0);
+        testSentence.setUsers(Lists.newArrayList(eMail));
+        testSentence.setSentence("test translation");
+        testSentence.setFragment("тестовий переклад");
+        setDictionary(Lists.newArrayList(testSentence));
+        wordMongoRepository.save(testSentence);
 
     }
 
-    public void setDictionary(List<Word> dictionary) {
+    public void setDictionary(List<Sentence> dictionary) {
         this.dictionary = dictionary;
     }
 
