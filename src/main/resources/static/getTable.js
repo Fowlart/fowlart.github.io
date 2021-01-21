@@ -20,14 +20,14 @@ function getTable() {
                         tableBodyLine = tableBodyLine + row;
                     }
                     resolve(tableBodyLine);
-                } else reject(new Error(">>> Error during 'GET' to '/api/getTable'."));
+                } else reject(new Error("Error during 'GET' to '/api/getTable'."));
             }
         }
         xhttp.send();
     });
 
     getTablePromise.then((tableBodyLine) => {
-        document.getElementById("thad").innerHTML = "<td>Sentence</td><td>Fragment</td><td>points</td>";
+        document.getElementById("thad").innerHTML = "<td>Sentence</td><td>Fragment</td><td>Points</td>";
         document.getElementById("tbod").innerHTML = tableBodyLine;
     }, (err) => { console.error(err) });
 }

@@ -32,8 +32,8 @@ public class SessionDictionary {
         Sentence testSentence = new Sentence();
         testSentence.setPoints(0);
         testSentence.setUsers(Lists.newArrayList(eMail));
-        testSentence.setSentence("test translation");
-        testSentence.setFragment("тестовий переклад");
+        testSentence.setSentence("I will be there");
+        testSentence.setFragment("I (be, future simple) there");
         setDictionary(Lists.newArrayList(testSentence));
         wordMongoRepository.save(testSentence);
 
