@@ -1,4 +1,4 @@
-const buttons = document.getElementsByClassName("button1");
+const buttons = document.querySelectorAll(".button1");
 
 function disableControls() {
     for (let element of buttons) {
@@ -49,7 +49,7 @@ async function getWord() {
 //Send word
 async function sendWord() {
     let input = document.getElementById('WordInput');
-    let label = document.getElementById('inputLabel');
+    let bar = document.querySelector('#myBar');
     let word = input.value;
 
     let response = await fetch('/api/checkWord', {
@@ -58,13 +58,13 @@ async function sendWord() {
     });
 
     if (response.ok) {
-        label.className = 'indicatorGreen';
-        setTimeout(() => label.className = 'indicatorWhite', 700);
+        bar.className = 'indicatorGreen';
+        setTimeout(() => bar.className = 'indicatorBlack', 500);
         input.value = '';
         await getWord();
     } else {
-        label.className = 'indicatorRed';
-        setTimeout(() => label.className = 'indicatorWhite', 700);
+        bar.className = 'indicatorRed';
+        setTimeout(() => bar.className = 'indicatorBlack', 500);
         input.value = '';
         //todo: here can be mistake log
         //  let result = await response.json();

@@ -3,43 +3,73 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="style.css" rel='stylesheet'>
     <link href="progress.css" rel='stylesheet'>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="words-creator.css" rel='stylesheet'>
     <script defer src="modal_script.js"></script>
     <script th:inline="javascript" src="get_send_word.js" defer></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id" content="350756578349-jpl45eaclph4pkg57rj61i5s8gigsajf.apps.googleusercontent.com">
     <link href='https://fonts.googleapis.com/css?family=Goldman' rel='stylesheet'>
+    <!-- injected -->
+    <script src="injected_script.js" async></script>
+    <link rel="stylesheet" href="injected.css">
     <title>WORDS GAME</title>
 </head>
 
 <body onload="checkLogin()">
+    <header class="masthead">
+        <h1>Test Your English Grammar</h1>
+    </header>
+    <main class="main">
+        <article class="intro">
+            <button onclick="sendWord()" class="button1">Send</button>
+            <button data-modal-target="#modal" class="button1">Show</button>
+            <button onclick="location.href = '/create';" class="button1">CRUD</button>
+        </article>
+        <article>
+            <label for="WordInput" class="indicatorWhite">Input</label>
+            <!--   <input id="WordInput" class="w3-input w3-border-0" type="text" name="answer"> -->
 
 
-    <button onclick="sendWord()" class="button1">Send</button>
-    <button data-modal-target="#modal" class="button1">Show</button>
-    <button onclick="location.href = '/create';" class="button1">CRUD</button>
+            <!-- Get new word for translate -->
 
-    <div class="indicatorWhite" id="inputLabel"><span id="translate">Login to start</span></div>
+            <label for="myProgress" class="indicatorWhite">Progress</label>
+            <div id="myProgress">
+                <div id="myBar" class="indicatorBlack"></div>
+            </div>
+        </article>
 
-    <label for="WordInput" class="indicatorWhite">Input</label>
-    <input id="WordInput" class="w3-input w3-border-0" type="text" name="answer">
+        <!-- .intro -->
+        <section class="test-area">
+            <div id="origin-text">
+                <p>
+                    <div class="label" id="inputLabel"><span id="translate">Login to start</span></div>
+                </p>
+            </div>
+            <!-- #origin-text -->
+
+            <div class="test-wrapper">
+                <textarea id="WordInput" name="answer" rows="6" placeholder="The clock starts when you start typing."></textarea>
+            </div>
+            <!-- .test-wrapper -->
+            <div class="meta">
+                <section id="clock">
+                    <div class="timer">00:00:00</div>
+                </section>
+                <button id="reset">Start over</button>
+            </div>
+            <!--Login form -->
+            <div id="login-container" class="login-container">
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            </div>
+            <!-- .meta -->
+        </section>
+        <!-- .test-area -->
+    </main>
 
 
-    <!-- Get new word for translate -->
-
-    <label for="myProgress" class="indicatorWhite">Progress</label>
-    <div id="myProgress">
-        <div id="myBar"></div>
-    </div>
-
-
-    <!--Login form -->
-    <div id="login-container" class="login-container">
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
-    </div>
 
     <!--use the modal-->
     <div class="modal" id="modal">
@@ -55,6 +85,8 @@
         </div>
     </div>
     <div id="overlay"></div>
+
+
 
 </body>
 

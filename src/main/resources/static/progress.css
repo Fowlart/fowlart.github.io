@@ -4,7 +4,7 @@
     font-size: 50px;
 }
 
-#myBar {
+.indicatorGreen {
     font-size: 50px;
     width: 0%;
     height: 50px;
@@ -15,4 +15,34 @@
     font-size: 50px;
     font-size: large;
     padding: 5 px;
+    background-color: green;
+    transition: 0.5s;
+}
+
+.indicatorRed {
+    font-size: 50px;
+    width: 0%;
+    height: 50px;
+    text-align: right;
+    text-justify: inter-word;
+    color: red;
+    font-size: 50px;
+    font-size: large;
+    padding: 5 px;
+    background-color: darkred;
+    transition: 0.5s;
+}
+
+.indicatorBlack {
+    font-size: 50px;
+    width: 0%;
+    height: 50px;
+    text-align: right;
+    text-justify: inter-word;
+    color: red;
+    font-size: 50px;
+    font-size: large;
+    padding: 5 px;
+    background-color: black;
+    transition: 0.5s;
 }

@@ -98,37 +98,19 @@ li {
     margin: 5px;
 }
 
-.indicatorGreen {
-    color: green;
-    transition: 0.5s;
-    text-align: center;
-    font-family: 'Goldman';
-    font-size: xxx-large;
-    position: relative;
-}
-
-.indicatorRed {
-    color: red;
-    transition: 0.5s;
-    text-align: center;
-    font-family: 'Goldman';
-    font-size: xxx-large;
-    position: relative;
-}
-
-.indicatorWhite {
-    color: white;
-    transition: 0.5s;
-    text-align: center;
-    font-family: 'Goldman';
-    font-size: xxx-large;
-    position: relative;
-}
-
 .login-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     margin: 10px;
+}
+
+.label {
+    color: black;
+    transition: 0.5s;
+    text-align: center;
+    font-family: 'Goldman';
+    font-size: medium;
+    position: relative;
 }
