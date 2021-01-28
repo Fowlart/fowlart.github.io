@@ -1,6 +1,5 @@
 package MVC_package.rest_endpoints;
 
-import MVC_package.view_controllers.TableController;
 import com.google.api.client.extensions.appengine.http.UrlFetchTransport;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload;
@@ -40,14 +39,14 @@ import static java.lang.System.out;
 
 @RestController
 @RequestMapping(path = "/api")
-public class TablePageApiController {
+public class MainApiController {
 
     @Autowired
     private WordProcessor wordProcessor;
     @Autowired
     private SessionDictionary sessionDictionary;
 
-    private static final Logger logger = LoggerFactory.getLogger(TablePageApiController.class);
+    private static final Logger logger = LoggerFactory.getLogger(MainApiController.class);
 
     @Autowired
     private WordMongoRepository wordMongoRepository;

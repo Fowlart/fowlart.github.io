@@ -17,7 +17,7 @@ import java.util.List;
 import static java.lang.System.out;
 
 @Controller
-public class TableController {
+public class MainPageController {
     private static int counter;
     @Autowired
     private WordProcessor wordProcessor;
@@ -27,12 +27,12 @@ public class TableController {
     @Autowired
     private WordMongoRepository wordMongoRepository;
 
-    private static final Logger logger = LoggerFactory.getLogger(TableController.class);
+    private static final Logger logger = LoggerFactory.getLogger(MainPageController.class);
 
     @GetMapping("/")
     public String mainPage(Model model) {
         logger.info("Processing " + sessionDictionary + ".");
-        return "table";
+        return "index";
     }
 
     @PostMapping(value = "/deleteWords")
