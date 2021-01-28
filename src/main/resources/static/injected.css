@@ -8,6 +8,7 @@ input,
 select,
 textarea {
     font-family: 'Goldman';
+    font-size: large;
     line-height: 1.5;
 }
 
@@ -134,19 +135,9 @@ body {
 }
 
 .test-wrapper {
+    margin: 10px;
     border: 10px solid grey;
     border-radius: 10px;
-}
-
-#origin-text {
-    margin: 1em 0;
-    padding: 1em 1em 0;
-    background-color: #ededed;
-}
-
-#origin-text p {
-    margin: 0;
-    padding-bottom: 1em;
 }
 
 .test-wrapper {

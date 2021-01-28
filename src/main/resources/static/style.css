@@ -67,20 +67,8 @@ html {
     text-align: center;
 }
 
-caption {
-    padding: 10px;
-}
-
 
 /*Flexbox fu to make the control and label line up */
-
-li {
-    width: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    position: relative;
-}
 
 .button1 {
     font-family: 'Goldman';
@@ -107,10 +95,10 @@ li {
 }
 
 .label {
-    color: black;
+    color: white;
     transition: 0.5s;
     text-align: center;
     font-family: 'Goldman';
-    font-size: medium;
+    font-size: x-large;
     position: relative;
 }
