@@ -102,3 +102,7 @@ html {
     font-size: x-large;
     position: relative;
 }
+
+.react-text {
+    color: red;
+}

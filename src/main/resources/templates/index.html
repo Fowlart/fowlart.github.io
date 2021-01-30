@@ -45,11 +45,10 @@
             <div class="test-wrapper">
                 <textarea id="WordInput" name="answer" rows="6" placeholder="Type here."></textarea>
             </div>
+            <!-- REACT -->
+            <div id="like_button_container" class="react-text"></div>
         </section>
-
     </main>
-
-
 
     <!--use the modal-->
     <div class="modal" id="modal">
@@ -66,8 +65,12 @@
     </div>
     <div id="overlay"></div>
 
-
-
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <!-- Load our React component. -->
+    <script src="like_button.js"></script>
 </body>
 
 </html>
