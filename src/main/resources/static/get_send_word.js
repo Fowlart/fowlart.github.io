@@ -33,7 +33,7 @@ async function getWord() {
         }
 
         document.getElementById("translate").innerHTML = word.ukrword;
-        document.getElementById('details').textContent = `${word.ukrword.toLocaleUpperCase()} - ${word.engword.toLocaleUpperCase()}`;
+        document.getElementById('details').textContent = word.engword.toLocaleUpperCase();
         document.getElementById('myAudio').src = word.sound;
 
         //   document.getElementById('user').innerHTML = userData.name;
