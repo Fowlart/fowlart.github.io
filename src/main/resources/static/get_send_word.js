@@ -1,4 +1,5 @@
 const buttons = document.querySelectorAll(".button1");
+disableControls();
 
 function disableControls() {
     for (let element of buttons) {
@@ -7,14 +8,12 @@ function disableControls() {
     }
 }
 
-
 function enableControls() {
     for (let element of buttons) {
         element.disabled = false;
         element.style.color = "white";
     }
 }
-
 
 async function getWord() {
     let data;
@@ -23,6 +22,7 @@ async function getWord() {
     let response = await fetch('/api/getWord');
 
     if (response.ok) {
+        enableControls();
         data = await response.json();
         userData = data[0];
         word = data[1];
@@ -76,10 +76,10 @@ async function sendWord() {
 function checkLogin() {
     var eMail = getCookie("email");
     var idToken = getCookie("idToken");
-    console.log("used email: " + eMail);
+    console.info("used email: " + eMail);
+
     // tempstub
-    if (eMail.length != 0) {
-        enableControls();
+    if (eMail != null) {
         var formdata = new FormData();
         formdata.append("email", eMail);
         formdata.append("idToken", idToken);

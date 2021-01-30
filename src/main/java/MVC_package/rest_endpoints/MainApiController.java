@@ -31,11 +31,13 @@ import speech.SpeechUrlProvider;
 import java.io.IOException;
 import java.net.URL;
 import java.security.GeneralSecurityException;
+import java.text.MessageFormat;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
 import static java.lang.System.out;
+import static java.text.MessageFormat.format;
 
 @RestController
 @RequestMapping(path = "/api")
@@ -169,12 +171,14 @@ public class MainApiController {
         return true;
     }
 
+    /** Will create a new user, or will fetch all quizzes from DB for the existing one. **/
     @PostMapping(value = "/login")
     public ResponseEntity login(@RequestParam String email, @RequestParam String idToken) {
         //Todo: add security through token verification
         //      googleTokenVerification(idToken);
         if (!sessionDictionary.isDictionaryDownloaded()) {
-            out.println("user-email: " + email);
+            String msg = format("user-email: {0}", email);
+            logger.info(msg);
             List<Sentence> sentenceList = wordMongoRepository.getWordsByUser(email);
             if (!sentenceList.isEmpty()) {
                 sessionDictionary.setDictionary(sentenceList);
@@ -183,7 +187,8 @@ public class MainApiController {
             }
             sessionDictionary.setUserEmail(email);
         } else {
-            logger.info("Dictionary in the current session: " + sessionDictionary + ".");
+            String msg = format("Dictionary in the current session: {0}.", sessionDictionary);
+            logger.info(msg);
         }
         return ResponseEntity.ok().build();
     }
