@@ -7,3 +7,4 @@ target/
 targetFile.tmp
 /unit1.csv
 /unit2.csv
+node_modules

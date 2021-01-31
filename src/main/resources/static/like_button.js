@@ -1,25 +1,23 @@
-'use strict';
+var domContainer = document.getElementById('root');
+var index = 0;
 
-const e = React.createElement;
-
-class LikeButton extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = { liked: false };
-    }
-
-    render() {
-        if (this.state.liked) {
-            return 'You liked this.';
-        }
-
-        return e(
-            'button', { onClick: () => this.setState({ liked: true }) },
-            'Like'
-        );
-    }
+function Time(props) {
+    return React.createElement(
+        "h2",
+        { "class": props.className },
+        new Date().toLocaleTimeString()
+    );
 }
 
-const domContainer = document.querySelector('#like_button_container');
-ReactDOM.render(e(LikeButton), domContainer);
+function tick() {
+    index++;
+    var time = void 0;
+    if (index % 2 == 0) {
+        time = React.createElement(Time, { className: "label" });
+    } else {
+        time = React.createElement(Time, { className: "label-red" });
+    }
+    ReactDOM.render(time, domContainer);
+}
+
+setInterval(tick, 1000);

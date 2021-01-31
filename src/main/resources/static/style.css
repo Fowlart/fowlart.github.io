@@ -103,6 +103,11 @@ html {
     position: relative;
 }
 
-.react-text {
+.label-red {
     color: red;
+    transition: 0.5s;
+    text-align: center;
+    font-family: 'Goldman';
+    font-size: x-large;
+    position: relative;
 }

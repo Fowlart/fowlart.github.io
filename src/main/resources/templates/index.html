@@ -10,8 +10,18 @@
     <script defer src="modal_script.js"></script>
     <script th:inline="javascript" src="get_send_word.js" defer></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js" defer></script>
+    
     <meta name="google-signin-client_id" content="350756578349-jpl45eaclph4pkg57rj61i5s8gigsajf.apps.googleusercontent.com">
     <link href='https://fonts.googleapis.com/css?family=Goldman' rel='stylesheet'>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin defer></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin defer></script>
+    <!-- Load our React component. -->
+    <script src="like_button.js" defer></script>
     <!-- injected -->
     <link rel="stylesheet" href="injected.css">
     <title>WORDS GAME</title>
@@ -45,8 +55,6 @@
             <div class="test-wrapper">
                 <textarea id="WordInput" name="answer" rows="6" placeholder="Type here."></textarea>
             </div>
-            <!-- REACT -->
-            <div id="like_button_container" class="react-text"></div>
         </section>
     </main>
 
@@ -65,12 +73,9 @@
     </div>
     <div id="overlay"></div>
 
-    <!-- Load React. -->
-    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-    <!-- Load our React component. -->
-    <script src="like_button.js"></script>
+  
+    <!-- REACT -->
+    <div id="root"></div>
 </body>
 
 </html>
