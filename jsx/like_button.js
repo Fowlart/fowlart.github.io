@@ -1,16 +1,37 @@
-const domContainer = document.getElementById('root');
-var index = 0;
-
-function Time (props) {
-    return <h2 class={props.className}>{new Date().toLocaleTimeString()}</h2>;
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { date: new Date(), activeClass: "label-red" };
   }
 
-function tick() {
-    index++;
-    let time
-    if (index%2==0) {time = <Time className="label"/>;}
-    else {time = <Time className="label-red"/>;}
-    ReactDOM.render(time, domContainer);
+  componentDidMount() {
+    this.timerID = setInterval(() => this.tick(), 1000);
   }
-  
-  setInterval(tick, 1000);
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  tick() {
+
+    console.log(this.state.activeClass);
+
+    if (this.state.activeClass == "label-red") {
+      this.setState({ activeClass: "label-green"});
+    }
+    else {
+      this.setState({ activeClass: "label-red" });
+    }
+
+    this.setState({
+      date: new Date()
+    });
+  }
+
+  render() {
+    return <h2 className={this.state.activeClass}>{this.state.date.toLocaleTimeString()}</h2>;
+  }
+}
+
+const domContainer = document.getElementById("root");
+ReactDOM.render(<Clock />, domContainer);
