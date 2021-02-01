@@ -35,9 +35,6 @@ var Clock = function (_React$Component) {
   }, {
     key: "tick",
     value: function tick() {
-
-      console.log(this.state.activeClass);
-
       if (this.state.activeClass == "label-red") {
         this.setState({ activeClass: "label-green" });
       } else {
