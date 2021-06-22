@@ -25,21 +25,20 @@ import java.io.IOException;
 import java.util.Date;
 
 @RestController
-@RequestMapping(path = "/webhook")
-public class Webhook {
+public class StripeController {
 
-    private static final Logger logger = LoggerFactory.getLogger(Webhook.class);
+    private static final Logger logger = LoggerFactory.getLogger(StripeController.class);
 
     private final LogEntriesMongoRepository logEntriesMongoRepository;
 
     @Value("${STRIPE.SECRET_KEY}")
     private String stripeSK;
 
-    public Webhook(LogEntriesMongoRepository logEntriesMongoRepository) {
+    public StripeController(LogEntriesMongoRepository logEntriesMongoRepository) {
         this.logEntriesMongoRepository = logEntriesMongoRepository;
     }
 
-    @PostMapping
+    @PostMapping(path = "/webhook")
     public ResponseEntity acceptHook(HttpServletRequest request) throws IOException {
 
         String strCurrentLine;
