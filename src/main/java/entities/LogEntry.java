@@ -11,6 +11,8 @@ public class LogEntry {
 
     private String json;
 
+    private String eventType;
+
     public Date getCreationTime() {
         return creationTime;
     }
@@ -25,5 +27,13 @@ public class LogEntry {
 
     public void setJson(String json) {
         this.json = json;
+    }
+
+    public String getEventType() {
+        return eventType;
+    }
+
+    public void setEventType(String eventType) {
+        this.eventType = eventType;
     }
 }
